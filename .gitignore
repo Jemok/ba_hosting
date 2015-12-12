@@ -1,0 +1,7 @@
+/node_modules
+/public/css/.sass-cache/
+Homestead.yaml
+Homestead.json
+.env
+/bongo_afrika.pem
+/vendor

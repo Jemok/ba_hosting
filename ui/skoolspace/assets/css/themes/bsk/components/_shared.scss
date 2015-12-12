@@ -1,0 +1,57 @@
+.layer-0 {
+	position: fixed;
+	z-index: -1;
+	min-height: 100vh;
+}
+
+.layer-1 {
+	background-color: $jack-black;
+	position: relative;
+	z-index: 10;
+	width: 100%;
+	overflow: auto;
+}
+
+/*-- Global Intro --*/
+.global-intro {
+	position: relative;
+}
+
+/*-- Global content --*/
+.global-content {
+	background-color: #fff;
+	position: relative;
+	width: 100%;
+}
+
+/*-- Global content --*/
+.global-header {
+//	height: 60px;
+
+//	&.fixed-header {
+//		position: relative;
+//		z-index: 1;
+//	}
+//
+	&.is-floating {
+		@media (screen and min-width: 768px) {
+			background-color: transparent;
+			position: absolute;
+			z-index: 1000;
+			top: 0px;
+			width: 100%;
+		}
+	}
+}
+
+/*-- Footer --*/
+.global-footer {
+	position: relative;
+	background-color: $jack-black;
+	color: rgba(255,255,255,.5);
+	font-size: $zeta;
+	text-align: center;
+	margin-bottom: 0;
+	padding: 60px 0;
+	width: 100%;
+}

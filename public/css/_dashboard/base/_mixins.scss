@@ -1,0 +1,15 @@
+// http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
+
+//This mixin allows you to define your major or minor breakpoint in pixels (it automatically converts to EMs)
+@mixin mq($point, $IE9: false, $query1: min, $query2: width) {
+    @media (#{$query1}-#{$query2}: $point / $doc-font-size +em) {
+        @content;
+    }
+}
+
+// Because you can nest media queries within each other. I've also created a little mixin for defining the portrait or landscape media query.
+@mixin orient($orientation: landscape) {
+    @media (orientation : $orientation) {
+        @content;  
+    }
+}

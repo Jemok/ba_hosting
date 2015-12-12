@@ -1,0 +1,6 @@
+.row {
+	@extend .row;
+	@media screen and (min-width: 1300px) {
+		width: 100%;
+	}
+}

@@ -1,0 +1,73 @@
+.global-container,
+.global-content {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+}
+.global-container {
+}
+.global-header {
+	margin-bottom: 10px;
+}
+.global-content {
+	flex: 1;
+	position: relative;
+}
+.global-footer {
+	margin-top: 10px;
+}
+.global-content__left, .global-content__right {
+	display: flex;
+	flex-direction: column;
+}
+.global-header, .global-footer, .global-navigation {
+	width: 100%;
+}
+.global-content__left {
+	order: 1;
+}
+.global-content__center {
+	order: 0;
+}
+.global-content__right {
+	order: 2;
+}
+.global-navigation {
+	flex: 1;
+}
+
+@include mq(768, true, min) {
+	.global-container {
+		width: 100%;
+		min-height: 100%;
+		padding: 0 $gutterMd;
+	}
+	.global-content {
+		flex-direction: row;
+		display: flex;
+		flex: 1;
+	}
+	.global-content__left, .global-content__right {
+		flex: 0 0 12em;
+	}
+	.global-content__center {
+		flex: 1;
+		order: 1;
+		padding-right: $gutter;
+	}
+	.global-content__left {
+		order: -1;
+	}
+	.global-content__right {
+		order: 2;
+	}
+}
+
+/*
+ * Components
+ */
+
+@import "components/innovation";
+@import "components/ads";
+@import "components/navigation";

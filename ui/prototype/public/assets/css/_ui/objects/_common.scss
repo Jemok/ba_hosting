@@ -1,0 +1,16 @@
+.text-columns__two {
+	@include mq(720, true, min) {
+		column-count: 2;
+		column-gap: 50px;
+	}
+}
+
+.container {
+	max-width: 60%;
+	margin: 0 auto;
+}
+
+.container-lg {
+	@extend .container;
+	max-width: 90%;
+}

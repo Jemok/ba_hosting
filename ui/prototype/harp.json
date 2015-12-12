@@ -1,0 +1,8 @@
+{
+	"globals": {
+		"name": "Bongo Afrika",
+		"publisher"  : "The Archangel Interactive",
+		"uri": "http://bongoafrika.com",
+		"tileColor": "#ccc"
+	}
+}

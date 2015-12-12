@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ *
+ * sass --watch style.scss:style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * Presets
+ */
+//@import "_solved-by-flexbox/assets/css/main";
+@import "_slick/slick";
+@import "_slick/slick-theme";
+@import "_ionicons/ionicons";
+@import "_bootstrap/bootstrap";
+
+
+/**
+ * Setup
+ */
+@import "vars";
+@import "_inuit.css/inuit";
+
+
+/**
+ * She’s all yours, cap’n... Begin importing your stuff here.
+ */
+@import "_dashboard/1_settings";
+@import "_dashboard/2_tools";
+@import "_dashboard/3_generic";
+@import "_dashboard/4_base";
+@import "_dashboard/5_objects";
+@import "_dashboard/6_components";
+@import "_dashboard/7_theme";
+@import "_dashboard/8_trumps";

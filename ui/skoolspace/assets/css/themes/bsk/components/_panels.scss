@@ -1,0 +1,75 @@
+/*-- Panel --*/
+.panel {
+	box-shadow: none;
+
+	&.panel-default {
+		border-radius: 0px;
+	}
+	.panel-title {
+		@extend .panel-title;
+		margin-bottom: 0;
+		font-size: $delta;
+		font-weight: bold;
+		line-height: 1;
+		display: inherit;
+		@include padding-leader(5);
+		@include padding-trailer(5);
+		text-decoration: none;
+	}
+	.panel-heading {
+		background-color: transparent;
+		padding: 0;
+
+		&:hover {
+			color: $action-respond;
+		}
+	}
+	.panel-body {
+		padding: 25px 0 15px;
+	}
+	&:first-child {
+		border-top: none;
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+}
+.panel-group {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 0;
+
+	.panel-default {
+		width: 100%;
+		background-color: transparent;
+		border: none;
+		border-color: #ddd;
+	}
+	.panel+.panel {
+		margin-top: 0;
+		border-top: 0;
+	}
+	@media (screen and max-width:480px){
+		.panel-default:not(:last-child) {
+			border-bottom: 1px solid #ddd;
+		}
+	}
+	@media (screen and min-width:480px){
+		.panel-default {
+			width: 50%;
+			padding: 25px;
+			text-align: center;
+
+			&:nth-child(odd) {
+				border-right: 1px solid #ddd;
+			}
+			&:nth-child(n+3) {
+				border-top: 1px solid #ddd;
+			}
+			&:last-child, &:last-child(n-1) {
+
+			}
+		}
+	}
+}

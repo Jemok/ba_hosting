@@ -1,0 +1,6 @@
+[submodule "ui/prototype/public/assets/css/_solved-by-flexbox"]
+	path = ui/prototype/public/assets/css/_solved-by-flexbox
+	url = https://github.com/philipwalton/solved-by-flexbox.git
+[submodule "ui/styleguide"]
+	path = ui/styleguide
+	url = https://github.com/hugeinc/styleguide.git

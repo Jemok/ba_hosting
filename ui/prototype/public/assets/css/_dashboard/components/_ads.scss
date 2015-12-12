@@ -1,0 +1,17 @@
+.ad {
+	background-color: whitesmoke;
+	border: 1px solid $base-ui-color;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.ad_banner {
+	width: 768px;
+	height: 80px;
+	margin: 0 auto 5em;
+}
+.ad_200 {
+	width: 200px;
+	height: 200px;
+}

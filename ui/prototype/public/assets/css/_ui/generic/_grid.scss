@@ -1,0 +1,47 @@
+.Grid {
+	&.fullpage {
+		flex: 1;
+		display: flex;
+		width: 100%;
+		margin: -25px 0;
+		
+		.Grid-cell {
+			width: (100%/3);
+			min-height: 40vh;
+			flex: auto;
+			flex-grow: 1;
+			
+			.cellGrow {
+				flex-grow: 2;
+			}
+		}
+		
+		&.fullpageContainer {
+			@extend .fullpage;
+			margin: 0;
+		}
+	}
+	.gridNav {
+		flex: auto;
+		display: flex;
+		
+		&.Back {
+			flex: 0 0 100px;
+			width: 100px;
+			margin: -25px 0;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			font-size: 36px;
+			border: none;
+
+			&:hover {
+				border: none;
+			}
+		}
+		
+		&.Current {
+			flex-basis: main-size;
+		}
+	}
+}

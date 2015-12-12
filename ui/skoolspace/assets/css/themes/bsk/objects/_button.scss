@@ -1,0 +1,54 @@
+.button {
+	@extend .btn;
+	color: $jack-black;
+	background: #fff;
+	border: 1px solid currentColor;
+	border-radius: 0;
+	font-size: .8rem;
+	padding: 15px 25px;
+	line-height: 1;
+	@include leader(2);
+	outline: none;
+
+	&.is-large {
+		font-size: 1rem;
+		padding: 20px 50px;
+		@include leader(5);
+	}
+
+	&:hover {
+		background: $jack-black;
+		color: #fff;
+	}
+
+	&.is-inverted {
+		background: $jack-black;
+		color: #fff;
+
+		&:hover {
+			background: #fff;
+			color: $jack-black;
+		}
+	}
+
+	&.is-outlined {
+		background: url("../images/bgd-opacite-menu.png") 0 0 repeat transparent;
+		color: #fff;
+
+		&:hover {
+			background: #fff;
+			border-color: #fff;
+			color: $jack-black;
+		}
+
+		&.and-inverted {
+			background: #fff;
+			color: $jack-black;
+
+			&:hover {
+				background: url("../images/bgd-opacite-menu.png") 0 0 repeat transparent;
+				color: #fff;
+			}
+		}
+	}
+}

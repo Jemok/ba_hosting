@@ -1,0 +1,53 @@
+doctype
+html(class="no-js" lang="en")
+	head
+		title #{ title } · #{ name }
+		
+		meta(charset="utf-8")		
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(http-equiv="imagetoolbar" content="false")
+		
+		meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1")
+		meta(name="format-detection" content="telephone=no")
+		meta(name="google" content="notranslate")
+		
+		meta(name="description" content=description)
+		meta(name="keywords" content=keywords)
+		
+		meta(name="application-name" content=name)
+		meta(name="msapplication-TileColor" content=tilecolor)
+		meta(name="msapplication-TileImage" content="/components/assets/img/favicons/windows-8-tile.png")
+		
+		link(rel="publisher" href="https://plus.google.com/+alistapart/")
+		
+		link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+		
+		link(rel="apple-touch-icon" href="/build/images/favicons/apple-touch-icon.png")
+		link(rel="apple-touch-icon" href="/build/images/favicons/057.png" sizes="57x57")
+		link(rel="apple-touch-icon" href="/build/images/favicons/072.png" sizes="72x72")
+		link(rel="apple-touch-icon" href="/build/images/favicons/076.png" sizes="76x76")
+		link(rel="apple-touch-icon" href="/build/images/favicons/114.png" sizes="114x114")
+		link(rel="apple-touch-icon" href="/build/images/favicons/120.png" sizes="120x120")
+		link(rel="apple-touch-icon" href="/build/images/favicons/144.png" sizes="144x144")
+		link(rel="apple-touch-icon" href="/build/images/favicons/152.png" sizes="152x152")
+		
+		link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Karma:300,400|Fredoka+One" type="text/css")
+		link(rel="stylesheet" href="/assets/css/style.css")
+		
+		script(src="/assets/js/libs/modernizr-custom.js")
+		
+	body.global-container
+		.global-content
+			nav.global-content__left
+				block left
+				
+			main.global-content__center
+				block content
+				
+		include /_shared/footer
+	
+	script(src="/assets/js/jquery.js")
+	script(src="/assets/js/slick.js")
+	script(src="/assets/js/jquery.nicescroll.js")
+	script(src="//code.createjs.com/preloadjs-0.6.1.min.js")
+	script(src="/assets/js/app.js")

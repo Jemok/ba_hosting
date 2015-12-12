@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset="utf-8")
+    block meta
+    title=public._data.clientName + " Styleguide"
+    link(rel="icon", type="image/png", href="styleguide/structure/images/favicon.png")
+    link(rel="stylesheet" href="/assets/css/style.css")
+    block styles
+  body
+    main.container
+      block content
+    block scripts

@@ -1,0 +1,26 @@
+// ------------------------------------------------------------
+// Global typography
+// ------------------------------------------------------------
+
+
+// ------------------------------------------------------------
+// Fonts
+// ------------------------------------------------------------
+
+.font-body 					{  font-family: 'Poppins', 'Roboto', sans-serif, sans-serif; }
+.font-var 					{  font-family: Georgia, serif; }
+
+h1 {
+	@include adjust-font-size-to($beta);
+	margin: 0 0 rhythm(2, $beta) 0;
+}
+// ------------------------------------------------------------
+// Core typography
+// ------------------------------------------------------------
+
+p, span, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
+ul 													{ @include nobullet; }
+ol 													{ @include nobullet; }
+li 													{ line-height: inherit; }
+strong, b 											{ font-weight: 700; }
+em, i, q 											{ font-style: italic; }

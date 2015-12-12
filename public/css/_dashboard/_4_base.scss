@@ -1,0 +1,8 @@
+img {
+	object-fit: cover;
+	overflow: hidden;
+}
+
+@import "base/mixins";
+@import "base/headings";
+@import "base/paragraphs";

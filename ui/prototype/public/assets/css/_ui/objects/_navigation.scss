@@ -1,0 +1,13 @@
+.nav {
+	display: flex;
+	list-style: none;
+	list-style-position: outside;
+	margin: 0;
+	letter-spacing: 1px;
+	
+	.nav__item {		
+		a {
+			display: inherit;
+		}
+	}
+}
