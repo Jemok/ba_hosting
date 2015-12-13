@@ -138,8 +138,8 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['middleware' => 'guest'], function() {
 
     // Login routes
-    get('login', [
-        'as' => 'login', 'uses' => 'Auth\AuthController@getLogin'
+    get('/auth/login', [
+        'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'
     ]);
 
     get('/about', 'DashboardController@about');
