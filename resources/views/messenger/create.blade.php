@@ -8,6 +8,8 @@
     {!! Form::open(['route' => 'messages.store']) !!}
     <div class="col-md-6">
         <!-- Subject Form Input -->
+
+        <input type="hidden" name="innovation_id" value="{{$innovation_id}}">
         <div class="form-group">
             {!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}
             {!! Form::text('subject', null, ['class' => 'form-control']) !!}
