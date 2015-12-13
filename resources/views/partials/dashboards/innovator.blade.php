@@ -119,7 +119,7 @@
             @if($categories->count())
 
             @foreach($categories as $category)
-            <button class="filter" data-filter="{{ $category->id }}">{{ $category->categoryName }}</button>
+            <button class="filter" data-filter=".{{ $category->categoryName }}">{{ $category->categoryName }}</button>
             @endforeach
 
             @endif

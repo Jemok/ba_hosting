@@ -18,7 +18,7 @@
                 </h3>
                 <p class="inno-innovator">Funded by:{{ $funded->fund->name }}</p>
                 <p class="inno-innovator">Amount:{{ $funded->innovationFund }}</p>
-                <p class="inno-innovator"><a href="">Portfollio</a></p>
+                <p class="inno-innovator"><a href="{{ url('innovation/portfolio/'.$funded->id)}}">Portfollio</a></p>
             </header>
             <footer class="inno-meta">
                 <div class="inno-category">{{ $funded->category->categoryName}}</div>

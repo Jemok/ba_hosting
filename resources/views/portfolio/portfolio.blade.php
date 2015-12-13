@@ -11,7 +11,7 @@
             <header>
                 <h5 class="inno-title">
 
-                    ksh {{$fund->amount}}
+                    Ksh. {{$fund->amount}}
 
                     by
 
@@ -31,7 +31,7 @@
 
                 <p class="alert-info"><h3>No fundings</h></h3><p>
 
-                    @endif
+                @endif
 </div>
 
 
