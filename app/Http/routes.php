@@ -180,7 +180,8 @@ Route::group(['middleware' => 'guest'], function() {
 
 Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    //Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+    Route::get('{innovation_id}/create-expert', ['as' => 'messages.create-expert', 'uses' => 'MessagesController@createExpert']);
     Route::get('{innovation_id}/create-mother', ['as' => 'messages.create-mother', 'uses' => 'MessagesController@createMother']);
     Route::get('{id}/read', ['as' => 'messages.read', 'uses' => 'MessagesController@read']);
     Route::get('unread', ['as' => 'messages.unread', 'uses' => 'MessagesController@unread']);
