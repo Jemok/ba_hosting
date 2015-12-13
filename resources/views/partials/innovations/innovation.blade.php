@@ -222,10 +222,38 @@
     <div class="innoData-list">
         <div class="innoData">
             <div class="innoData__title">Funding Needed</div>
-            <div class="innoData__content">{{ $innovation->innovationFund }}</div>
-            @if($innovation->fundingStatus == 1 )
-            <button class="btn btn-success">Funded</button>
-            <a href=""><button class="btn btn-success">View Portfollio</button></a>
+            <div class="innoData__content">Ksh ({{ $innovation->innovationFund }})</div>
+            @if($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )
+
+            <button class="btn btn-success">Partially funded</button>
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Portfollio</button></a>
+
+            <div class="innoData-list">
+                <div class="innoData">
+                    <div class="innoData__title">Potential Funding Available</div>
+                    <div class="innoData__content">Ksh. 71,000,500</div>
+                </div>
+                <div class="innoData">
+                    <div class="innoData__title">Your Balance after funding this</div>
+                    <div class="innoData__content">Ksh. 70,000,500</div>
+                </div>
+            </div>
+            <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
+
+            <br>or partially Fund this project
+
+            <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
+                {!! CSRF_FIELD() !!}
+
+                <label for="partialFund">Amount</label>
+                <input type="text" name="partialFund">
+                <button type="submit" class="cta cta_btn">Fund</button>
+            </form>
+
+            @endif
+            @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+            <button class="btn btn-success">Fully funded</button>
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Portfollio</button></a>
             @endif
         </div>
     </div>
@@ -243,7 +271,17 @@
             <div class="innoData__content">Ksh. 70,000,500</div>
         </div>
     </div>
-    <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fund this project</button></a>
+    <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
+
+    <br>or partially Fund this project
+
+    <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
+        {!! CSRF_FIELD() !!}
+
+        <label for="partialFund">Amount</label>
+        <input type="text" name="partialFund">
+        <button type="submit" class="cta cta_btn">Fund</button>
+    </form>
     @endif
     @endif
 </aside>

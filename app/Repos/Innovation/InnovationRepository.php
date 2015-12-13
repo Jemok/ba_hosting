@@ -181,20 +181,46 @@ class InnovationRepository
     {
         $innovation = Innovation::findOrFail($id);
 
+
+
+        $fund = $innovation->fund()
+            ->create([
+                'innovator_id' => $innovation->user_id,
+                'investor_id'  => \Auth::user()->id,
+                'name'  => \Auth::user()->first_name." ".\Auth::user()->last_name,
+                'amount' => $innovation->innovationFund
+            ]);
+
         $innovation->update([
 
-            'fundingStatus' => 1
+            'fundingStatus' => 1,
+            'innovationFund' => ($innovation->innovationFund)-($fund->amount)
 
         ]);
+    }
+
+    public function fundInnovationPartial($id, $request)
+    {
+        $innovation = Innovation::findOrFail($id);
+
+
 
         $innovation->fund()
             ->create([
                 'innovator_id' => $innovation->user_id,
                 'investor_id'  => \Auth::user()->id,
-                'name'  => \Auth::user()->first_name." ".\Auth::user()->last_name
+                'name'  => \Auth::user()->first_name." ".\Auth::user()->last_name,
+                'amount' => $request->partialFund
             ]);
 
+        $innovation->update([
+
+            'fundingStatus' => 1,
+            'innovationFund' => ($innovation->innovationFund)-($request->partialFund)
+
+        ]);
     }
+
 
     public function getFunded()
     {
@@ -203,6 +229,13 @@ class InnovationRepository
             ->where('fundingStatus', '=', 1)
             ->with('category', 'fund')
             ->latest()->get();
+    }
+
+    public function getPortfolio($id)
+    {
+        $innovation = Innovation::findOrFail($id);
+
+        return $innovation->fund->get();
     }
 
     public function getInvestorFunded()

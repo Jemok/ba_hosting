@@ -72,6 +72,10 @@ Route::group(['middleware' => 'auth'], function() {
         'as' => 'fundInnovation', 'uses' => 'InnovationController@fund'
     ]);
 
+    post('innovation/fund/{id}', 'InnovationController@fundPartial');
+
+    get('innovation/portfolio/{is}', 'InnovationController@getPortfolio');
+
     get('innovations', function()
     {
         $query = Request::get('q');
@@ -180,8 +184,7 @@ Route::group(['middleware' => 'guest'], function() {
 
 Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-    //Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-    Route::get('{innovation_id}/create-expert', ['as' => 'messages.create-expert', 'uses' => 'MessagesController@createExpert']);
+    Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::get('{innovation_id}/create-mother', ['as' => 'messages.create-mother', 'uses' => 'MessagesController@createMother']);
     Route::get('{id}/read', ['as' => 'messages.read', 'uses' => 'MessagesController@read']);
     Route::get('unread', ['as' => 'messages.unread', 'uses' => 'MessagesController@unread']);

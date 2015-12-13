@@ -97,4 +97,20 @@ class InnovationController extends Controller
         return redirect('innovation/'.$id);
 
     }
+
+    public function fundPartial($id, Request $request)
+    {
+        $this->repo->fundInnovationPartial($id, $request);
+
+        return redirect('innovation/'.$id);
+    }
+
+    public function getPortfolio($id)
+    {
+        $funds= $this->repo->getPortfolio($id);
+
+
+        return view('portfolio.portfolio', compact('funds'));
+
+    }
 }
