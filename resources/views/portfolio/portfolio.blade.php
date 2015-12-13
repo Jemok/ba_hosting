@@ -11,20 +11,27 @@
             <header>
                 <h5 class="inno-title">
 
-                        ksh {{$fund->amount}}
+                    ksh {{$fund->amount}}
 
-                        by
+                    by
 
-                        <a href="{{ url('innovator/profile/'.$fund->investor_id) }}">{{$fund->name}}</a>
+                    @if(\Auth::user()->id == $fund->investor_id)
 
-                        {!! $fund->created_at->diffForHumans() !!}
+                    <a href="{{ url('innovator/profile/'.$fund->investor_id) }}">Me</a>
+
+                    @else
+                    <a href="{{ url('innovator/profile/'.$fund->investor_id) }}">{{$fund->name}}</a>
+                    @endif
+
+
+                    {!! $fund->created_at->diffForHumans() !!}
                 </h5>
-        @endforeach
-    @else
+                @endforeach
+                @else
 
-    <p class="alert-info"><h3>No fundings</h></h3><p>
+                <p class="alert-info"><h3>No fundings</h></h3><p>
 
-     @endif
+                    @endif
 </div>
 
 

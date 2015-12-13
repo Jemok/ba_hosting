@@ -235,7 +235,7 @@ class InnovationRepository
     {
         $innovation = Innovation::findOrFail($id);
 
-        return $innovation->fund->get();
+        return $innovation->fund->where('innovation_id', '=', $id)->get();
     }
 
     public function getInvestorFunded()
