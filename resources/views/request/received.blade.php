@@ -1,3 +1,8 @@
-<h3>Your request has been received, you will receive an email from us shortly,, keep calm</h3>
+@extends('layout')
 
-<p><a href="{{ url('/') }}">Home</a></p>
+@section('content')
+
+<h4>Your request has been received, you will receive an email from us shortly,, keep calm</h4>
+
+@stop
+

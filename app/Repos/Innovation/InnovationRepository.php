@@ -109,8 +109,8 @@ class InnovationRepository
     public function innovationsForUser(User $user)
     {
         return $user->innovation()
-                    ->where('fundingStatus', '=', 0 )
-                    ->with('category')->latest()->get();
+            ->where('fundingStatus', '=', 0 )
+            ->with('category')->latest()->get();
     }
 
 
@@ -133,8 +133,8 @@ class InnovationRepository
     public function allInnovations()
     {
         Innovation::where('fundingStatus', '=', 0)
-                   ->latest()
-                   ->get();
+            ->latest()
+            ->get();
     }
 
     /**
@@ -188,10 +188,10 @@ class InnovationRepository
         ]);
 
         $innovation->fund()
-                    ->create([
+            ->create([
                 'innovator_id' => $innovation->user_id,
                 'investor_id'  => \Auth::user()->id,
-                'name'  => \Auth::user()->name
+                'name'  => \Auth::user()->first_name." ".\Auth::user()->last_name
             ]);
 
     }
@@ -199,18 +199,18 @@ class InnovationRepository
     public function getFunded()
     {
         return $this->innovation
-                    ->where('user_id', '=', \Auth::user()->id)
-                    ->where('fundingStatus', '=', 1)
-                    ->with('category', 'fund')
-                    ->latest()->get();
+            ->where('user_id', '=', \Auth::user()->id)
+            ->where('fundingStatus', '=', 1)
+            ->with('category', 'fund')
+            ->latest()->get();
     }
 
     public function getInvestorFunded()
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
-                          ->with('innovation','innovation.user', 'innovation.category')
-                          ->latest()
-                          ->get();
+            ->with('innovation','innovation.user', 'innovation.category')
+            ->latest()
+            ->get();
     }
 
-} 
+}
