@@ -95,7 +95,9 @@ class DashboardController extends Controller
 
     public function bongoEmployee()
     {
-        return view('admin.bongo');
+        $innovations = $this->innovationRepository->getAll();
+
+        return view('admin.bongo', compact('innovations'));
     }
 
     public function bongoMother()
