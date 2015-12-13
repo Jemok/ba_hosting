@@ -36,7 +36,7 @@
                 @endif
                 @endif
 
-                @if(Request::path() == "/" || Request::path() == "login")
+                @if(Request::path() == "/" || Request::path() == "auth/login")
                 <li class="active"><a href="{{ url('/') }}">Home</a></li>
                 @else
                 <li><a href="{{ url('/') }}">Home</a></li>
