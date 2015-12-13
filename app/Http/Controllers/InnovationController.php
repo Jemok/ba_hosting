@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Md\Repos\Conversation\ConversationRepository;
 use Illuminate\Support\Facades\Auth;
 use Cmgmyr\Messenger\Models\Thread;
+use Md\Repos\Category\CategoryRepository;
 
 class InnovationController extends Controller
 {
@@ -20,13 +21,19 @@ class InnovationController extends Controller
      */
     private $repo;
 
+    private $categoryRepository;
+
     /**
      * @param InnovationRepository $innovationRepository
      */
-    public function __construct(InnovationRepository $innovationRepository)
+    public function __construct(InnovationRepository $innovationRepository, CategoryRepository $categoryRepository)
     {
 
         $this->repo = $innovationRepository;
+
+        $this->categoryRepository = $categoryRepository;
+
+
     }
 
 
@@ -34,15 +41,18 @@ class InnovationController extends Controller
     {
         $innovations = $this->repo->getAll();
 
-        return view('innovation.open', compact('innovations'));
+        $categories = $this->categoryRepository->getAllCategories();
 
+        return view('innovation.open', compact('innovations', 'categories'));
     }
 
     public function funded()
     {
         $fundedProjects = $this->repo->getFunded();
 
-        return view('innovation.funded', compact('fundedProjects'));
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('innovation.funded', compact('fundedProjects', 'categories'));
     }
 
     /**
@@ -108,7 +118,6 @@ class InnovationController extends Controller
     public function getPortfolio($id)
     {
         $funds= $this->repo->getPortfolio($id);
-
 
         return view('portfolio.portfolio', compact('funds'));
 

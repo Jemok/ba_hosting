@@ -97,15 +97,18 @@ class DashboardController extends Controller
     {
         $innovations = $this->innovationRepository->getAll();
 
-        return view('admin.bongo', compact('innovations'));
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('admin.bongo', compact('innovations', 'categories'));
     }
 
     public function bongoMother()
     {
         $innovations = $this->innovationRepository->getAll();
 
+        $categories = $this->categoryRepository->getAllCategories();
 
-        return view('admin.mother', compact('innovations'));
+        return view('admin.mother', compact('innovations', 'categories'));
     }
 
     public function viewInnovation()
