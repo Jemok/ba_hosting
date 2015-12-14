@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -71,19 +71,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="funded.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="funded.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2368" selection-end="2368" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
+            <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.89944136" vertical-offset="812" max-vertical-offset="1242">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layout.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="0.698324" vertical-offset="3368" max-vertical-offset="3726">
+            <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-9.259259" vertical-offset="3368" max-vertical-offset="3726">
               <folding />
             </state>
           </provider>
@@ -156,8 +156,8 @@
         <option value="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/PartialFundingRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InnovationController.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
       </list>
     </option>
   </component>
@@ -679,16 +679,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2368" selection-end="2368" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
+        <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-9.259259" vertical-offset="3368" max-vertical-offset="3726">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="0.698324" vertical-offset="3368" max-vertical-offset="3726">
+        <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.89944136" vertical-offset="812" max-vertical-offset="1242">
           <folding />
         </state>
       </provider>

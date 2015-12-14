@@ -43,7 +43,7 @@
                 <h3 class="inno-title">
                     <a href="{{ url('innovation/'.$funded->innovation_id)}}">{{ $funded->innovation->innovationTitle }}</a>
                 </h3>
-                <p class="inno-innovator">Posted by: {{ $funded->innovation->user->name }}</p>
+                <p class="inno-innovator">Posted by: {{ $funded->innovation->user->first_name }} {{ $funded->innovation->user->last_name }}</p>
                 <p class="inno-innovator">Amount Funded: {{ $funded->innovation->innovationFund }}</p>
                 <p class="inno-innovator"><a href="{{ url('innovation/portfolio/'.$funded->innovation_id)}}">Portfollio</a></p>
 
