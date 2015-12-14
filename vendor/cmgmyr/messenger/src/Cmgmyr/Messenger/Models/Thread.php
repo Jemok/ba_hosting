@@ -48,6 +48,11 @@ class Thread extends Eloquent
         return $this->hasMany('Cmgmyr\Messenger\Models\Message');
     }
 
+    public function innovation()
+    {
+        return $this->belongsTo('Md\Innovation');
+    }
+
     /**
      * Returns the latest message from a thread
      *

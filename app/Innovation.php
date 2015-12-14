@@ -60,4 +60,9 @@ class Innovation extends Model
     {
         return $this->hasOne('Md\Fund');
     }
+
+    public function thread()
+    {
+        return $this->hasMany('Cmgmyr\Messenger\Models\Thread');
+    }
 }

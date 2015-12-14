@@ -110,7 +110,7 @@ class InnovationRepository
     {
         return $user->innovation()
             ->where('fundingStatus', '=', 0 )
-            ->with('category')->latest()->get();
+            ->with('category', 'thread')->latest()->get();
     }
 
 

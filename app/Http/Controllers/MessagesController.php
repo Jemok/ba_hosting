@@ -65,6 +65,20 @@ class MessagesController extends Controller
         return view('messenger.show', compact('thread', 'users'));
     }
 
+
+    /**
+     * Creates a new message thread.
+     *
+     * @return mixed
+     */
+    public function createExpert($innovation_id)
+    {
+        $users = User::where('userCategory', '=', 3)
+            ->where('id', '!=', Auth::id())->get();
+
+        return view('messenger.create-expert', compact('users', 'innovation_id'));
+    }
+
     /**
      * Creates a new message thread.
      *
@@ -72,24 +86,10 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        $users = User::where('userCategory', '=', 3)
-            ->where('id', '!=', Auth::id())->get();
+        $users = User::where('id', '!=', Auth::id())->get();
 
         return view('messenger.create', compact('users'));
     }
-
-    /**
-     * @param $innovation_id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function createExpert($innovation_id)
-    {
-        $users = User::where('userCategory', '=', 3)
-            ->where('id', '!=', Auth::id())->get();
-
-        return view('messenger.create', compact('users', 'innovation_id'));
-    }
-
 
     public function createMother($innovation_id)
     {
