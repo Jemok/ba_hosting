@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -27,93 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="innovation.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="299" column="0" selection-start="14043" selection-end="14043" vertical-scroll-proportion="-4.740741" vertical-offset="5254" max-vertical-offset="6354">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mother.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/mother.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="2305" selection-end="2305" vertical-scroll-proportion="-12.740741" vertical-offset="988" max-vertical-offset="1440">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bongo.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/bongo.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="5" selection-start="2305" selection-end="2305" vertical-scroll-proportion="-10.074074" vertical-offset="1060" max-vertical-offset="1440">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PartialFundingRequest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/PartialFundingRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="514" selection-end="514" vertical-scroll-proportion="-13.222222" vertical-offset="183" max-vertical-offset="648">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashboardController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="0" selection-start="3200" selection-end="3200" vertical-scroll-proportion="-11.111111" vertical-offset="1950" max-vertical-offset="2358">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InnovationRepository.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="18" selection-start="108" selection-end="108" vertical-scroll-proportion="-13.357142" vertical-offset="4632" max-vertical-offset="4968">
-              <folding>
-                <element signature="e#39#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InnovationController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="25" selection-start="278" selection-end="278" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="2394">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="funded.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="investor.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="6" selection-start="2248" selection-end="2248" vertical-scroll-proportion="-11.111111" vertical-offset="600" max-vertical-offset="1008">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-9.259259" vertical-offset="3368" max-vertical-offset="3726">
+            <state line="6" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.2734177" vertical-offset="0" max-vertical-offset="395">
               <folding />
             </state>
           </provider>
@@ -175,7 +91,6 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MessagesController.php" />
         <option value="$PROJECT_DIR$/app/Innovation.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/vendor/cmgmyr/messenger/src/Cmgmyr/Messenger/Models/Thread.php" />
         <option value="$PROJECT_DIR$/resources/views/innovation/funded.blade.php" />
         <option value="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" />
@@ -188,6 +103,7 @@
         <option value="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -688,7 +604,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="187" column="39" selection-start="5327" selection-end="5327" vertical-scroll-proportion="-6.0740743" vertical-offset="3202" max-vertical-offset="3654">
           <folding>
-            <element signature="e#6#391#0" expanded="true" />
+            <element signature="e#6#391#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -711,7 +627,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="0" selection-start="1206" selection-end="1206" vertical-scroll-proportion="-10.0" vertical-offset="702" max-vertical-offset="6102">
           <folding>
-            <element signature="e#42#60#0" expanded="true" />
+            <element signature="e#42#60#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,13 +642,6 @@
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="522">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="-4.32" vertical-offset="0" max-vertical-offset="216">
           <folding />
         </state>
       </provider>
@@ -774,8 +683,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="25" selection-start="278" selection-end="278" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="2394">
-          <folding />
+        <state line="10" column="25" selection-start="278" selection-end="278" vertical-scroll-proportion="0.47368422" vertical-offset="0" max-vertical-offset="2394">
+          <folding>
+            <marker date="1450116403372" expanded="true" signature="-1:-1" placeholder=" @param InnovationRepository $innovationRepository ..." />
+            <marker date="1450116403372" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1450116403372" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -788,21 +701,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="-9.259259" vertical-offset="3368" max-vertical-offset="3726">
+        <state line="201" column="0" selection-start="8122" selection-end="8122" vertical-scroll-proportion="0.7157895" vertical-offset="3346" max-vertical-offset="3726">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
+        <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.8473684" vertical-offset="812" max-vertical-offset="1242">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="6" selection-start="2248" selection-end="2248" vertical-scroll-proportion="-11.111111" vertical-offset="600" max-vertical-offset="1008">
+        <state line="50" column="6" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.7894737" vertical-offset="600" max-vertical-offset="1008">
           <folding />
         </state>
       </provider>
@@ -816,10 +729,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="108" selection-end="108" vertical-scroll-proportion="-13.357142" vertical-offset="4632" max-vertical-offset="4968">
+        <state line="8" column="18" selection-start="108" selection-end="108" vertical-scroll-proportion="-12.47486" vertical-offset="4610" max-vertical-offset="4968">
           <folding>
             <element signature="e#39#55#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="92" selection-end="92" vertical-scroll-proportion="0.2734177" vertical-offset="0" max-vertical-offset="395">
+          <folding />
         </state>
       </provider>
     </entry>
