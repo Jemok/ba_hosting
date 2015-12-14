@@ -12,6 +12,7 @@ use Md\Repos\Conversation\ConversationRepository;
 use Illuminate\Support\Facades\Auth;
 use Cmgmyr\Messenger\Models\Thread;
 use Md\Repos\Category\CategoryRepository;
+use Md\Http\Requests\PartialFundingRequest;
 
 class InnovationController extends Controller
 {
@@ -108,7 +109,7 @@ class InnovationController extends Controller
 
     }
 
-    public function fundPartial($id, Request $request)
+    public function fundPartial($id, PartialFundingRequest $request)
     {
         $this->repo->fundInnovationPartial($id, $request);
 

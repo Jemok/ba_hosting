@@ -1,3 +1,16 @@
+@if (count($errors) > 0)
+<div class="alert alert-danger" role="alert" >
+    <h5>Oh snap! <b>Change a few things up</b> and try submitting again!</h5>
+
+    @foreach ($errors->all() as $message)
+
+
+    <li>{{ $message }}</li>
+
+
+    @endforeach
+</div>
+@endif
 <div class="col-lg-12">
     <div class="ad ad_banner">
         Banner ad
@@ -269,9 +282,12 @@
             <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
                 {!! CSRF_FIELD() !!}
 
-                <label for="partialFund">Amount</label>
-                <input type="text" name="partialFund">
-                <button type="submit" class="cta cta_btn">Fund</button>
+                <div class="form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
+                    <label for="partialFund">Amount</label>
+                    <input type="text" name="partialFund" value="{{ old('partialFund') }}" class="form-control" placeholder="amount">
+                    <button type="submit" class="cta cta_btn">Fund</button>
+                </div>
+                {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
             </form>
             @endif
             @endif
@@ -301,10 +317,12 @@
 
     <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
         {!! CSRF_FIELD() !!}
-
-        <label for="partialFund">Amount</label>
-        <input type="text" name="partialFund">
-        <button type="submit" class="cta cta_btn">Fund</button>
+        <div class="form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
+            <label for="partialFund">Amount</label>
+            <input type="text" name="partialFund" value="{{ old('partialFund') }}" class="form-control" placeholder="amount">
+            <button type="submit" class="cta cta_btn">Fund</button>
+        </div>
+        {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
     </form>
     @endif
     @endif

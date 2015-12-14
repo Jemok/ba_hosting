@@ -52,10 +52,12 @@
                 </div>
                 <div class="inno-likes">756</div>
             </footer>
-            @if($innovation->fundingStatus == 1)
-            <div class="inno-likes">Funded</div>
+            @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+            <div class="inno-likes">Status:Fully funded</div>
+            @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0)
+            <div class="inno-likes">Status:Partially funded</div>
             @else
-            <div class="inno-likes">Open</div>
+            <div class="inno-likes">Status:Open</div>
             @endif
         </article>
 
