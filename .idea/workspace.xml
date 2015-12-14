@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" afterPath="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" />
     </list>
     <ignored path="bongo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="innovation.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="innovation.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="221" column="37" selection-start="10985" selection-end="10985" vertical-scroll-proportion="0.39664805" vertical-offset="3836" max-vertical-offset="5508">
+            <state line="229" column="22" selection-start="11518" selection-end="11518" vertical-scroll-proportion="-10.592592" vertical-offset="3836" max-vertical-offset="5508">
               <folding />
             </state>
           </provider>
@@ -92,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InnovationRepository.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="InnovationRepository.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="42" selection-start="2429" selection-end="2429" vertical-scroll-proportion="-7.259259" vertical-offset="1820" max-vertical-offset="4572">
+            <state line="260" column="1" selection-start="5963" selection-end="5963" vertical-scroll-proportion="0.89944136" vertical-offset="4358" max-vertical-offset="4788">
               <folding>
                 <element signature="e#39#55#0" expanded="true" />
               </folding>
@@ -175,11 +175,11 @@
         <option value="$PROJECT_DIR$/resources/views/messenger/create-expert.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MessagesController.php" />
-        <option value="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" />
         <option value="$PROJECT_DIR$/app/Innovation.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/vendor/cmgmyr/messenger/src/Cmgmyr/Messenger/Models/Thread.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" />
       </list>
     </option>
   </component>
@@ -906,15 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="42" selection-start="2429" selection-end="2429" vertical-scroll-proportion="-7.259259" vertical-offset="1820" max-vertical-offset="4572">
-          <folding>
-            <element signature="e#39#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MessagesController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="0" selection-start="503" selection-end="503" vertical-scroll-proportion="64.0" vertical-offset="1944" max-vertical-offset="4482">
@@ -947,8 +938,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="37" selection-start="10985" selection-end="10985" vertical-scroll-proportion="0.39664805" vertical-offset="3836" max-vertical-offset="5508">
+        <state line="229" column="22" selection-start="11518" selection-end="11518" vertical-scroll-proportion="-10.592592" vertical-offset="3836" max-vertical-offset="5508">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="260" column="1" selection-start="5963" selection-end="5963" vertical-scroll-proportion="0.89944136" vertical-offset="4358" max-vertical-offset="4788">
+          <folding>
+            <element signature="e#39#55#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

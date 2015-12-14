@@ -174,6 +174,18 @@ class InnovationRepository
     }
 
     /**
+     * determines the format of searched innovations
+     * @return mixed
+     */
+    public function getAllFunded()
+    {
+        return Innovation::where('fundingStatus', '=', 1)
+            ->with('category', 'fund')
+            ->latest()
+            ->get();
+    }
+
+    /**
      * Set an innovation as being funded
      * @param $id
      */
