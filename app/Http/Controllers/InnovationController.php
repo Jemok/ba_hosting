@@ -25,6 +25,7 @@ class InnovationController extends Controller
 
     /**
      * @param InnovationRepository $innovationRepository
+     * @param CategoryRepository $categoryRepository
      */
     public function __construct(InnovationRepository $innovationRepository, CategoryRepository $categoryRepository)
     {
@@ -35,7 +36,6 @@ class InnovationController extends Controller
 
 
     }
-
 
     public function open()
     {
@@ -48,7 +48,7 @@ class InnovationController extends Controller
 
     public function funded()
     {
-        $fundedProjects = $this->repo->getFunded();
+        $fundedProjects = $this->repo->getAllFunded();
 
         $categories = $this->categoryRepository->getAllCategories();
 
@@ -118,6 +118,7 @@ class InnovationController extends Controller
     public function getPortfolio($id)
     {
         $funds= $this->repo->getPortfolio($id);
+
 
         return view('portfolio.portfolio', compact('funds'));
 
