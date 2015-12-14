@@ -91,7 +91,9 @@ class DashboardController extends Controller
 
         $fundedProjectsCount = $fundedProjects->count();
 
-        return view('home.investor',  compact('innovations', 'categories', 'fundedProjects', 'fundedProjectsCount'));
+        $totalFundsInjected = $fundedProjects->sum('amount');
+
+        return view('home.investor',  compact('innovations', 'categories', 'fundedProjects', 'fundedProjectsCount', 'totalFundsInjected'));
     }
 
 
