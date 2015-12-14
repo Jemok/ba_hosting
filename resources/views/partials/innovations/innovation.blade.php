@@ -206,13 +206,7 @@
                 </div>
             </div>
         </div>
-
         @endif
-
-
-
-
-
     </section>
 </footer>
 </article>
@@ -225,9 +219,10 @@
             <div class="innoData__content">Ksh ({{ $innovation->innovationFund }})</div>
             @if($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )
 
-            <button class="btn btn-success">Partially funded</button>
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Partially funded</button></a>
             <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Portfollio</button></a>
 
+            @if(\Auth::user()->userCategory == 2)
             <div class="innoData-list">
                 <div class="innoData">
                     <div class="innoData__title">Potential Funding Available</div>
@@ -249,7 +244,7 @@
                 <input type="text" name="partialFund">
                 <button type="submit" class="cta cta_btn">Fund</button>
             </form>
-
+            @endif
             @endif
             @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
             <button class="btn btn-success">Fully funded</button>
