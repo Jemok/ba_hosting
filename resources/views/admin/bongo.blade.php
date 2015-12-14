@@ -50,9 +50,13 @@
 
                     Amount for:{{ $innovation->justifyFund }}<br>
                 </div>
-
                 <div class="inno-likes">756</div>
             </footer>
+            @if($innovation->fundingStatus == 1)
+            <div class="inno-likes">Funded</div>
+            @else
+            <div class="inno-likes">Open</div>
+            @endif
         </article>
 
         @endforeach
