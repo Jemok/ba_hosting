@@ -36,7 +36,7 @@
                 @endif
                 @endif
 
-                @if(Request::path() == "/" || Request::path() == "login")
+                @if(Request::path() == "/" || Request::path() == "auth/login")
                 <li class="active"><a href="{{ url('/') }}">Home</a></li>
                 @else
                 <li><a href="{{ url('/') }}">Home</a></li>
@@ -45,15 +45,33 @@
 
                 @if(!\Auth::guest())
                 @if(\Auth::user()->isInvestor())
+                @if(Request::path() == "innovations/open")
+                <li class="active"><a href="">Open Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/open') }}">Open Innovations</a></li>
+                @endif
+
+                @if(Request::path() == "innovations/funded")
+                <li class="active"><a href="">Funded Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
+                @endif
                 @endif
                 @endif
 
                 @if(!\Auth::guest())
                 @if(\Auth::user()->isAdmin())
+                @if(Request::path() == "innovations/open")
+                <li class="active"><a href="">Open Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/open') }}">Open Innovations</a></li>
+                @endif
+
+                @if(Request::path() == "innovations/funded")
+                <li class="active"><a href="">Funded Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
+                @endif
                 @endif
                 @endif
 
@@ -71,15 +89,29 @@
                 @else
                 <li><a href="{{ url('request/all/employees') }}">Employee Requests</a></li>
                 @endif
+                @if(Request::path() == "innovations/open")
+                <li class="active"><a href="">Open Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/open') }}">Open Innovations</a></li>
+                @endif
+
+                @if(Request::path() == "innovations/funded")
+                <li class="active"><a href="">Funded Innovations</a></li>
+                @else
                 <li><a href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
+                @endif
                 @endif
                 @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 @if(\Auth::user())
+
+                @if(Request::path() == "innovator/profile/".\Auth::user()->id)
+                <li class="active"><a href="">{{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
+                @else
                 <li><a href="{{ url('innovator/profile/'.\Auth::user()->id) }}">Signed in as {{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
+                @endif
                 <li><a href="{{ url('logout') }}">Logout</a></li>
                 @else
                 @if(Request::path() == "auth/register")
