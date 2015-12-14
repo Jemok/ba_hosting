@@ -75,7 +75,7 @@
                 </div>
                 @endforeach
                 @else
-                <p>Sorry, no chats from investors.</p>
+                <p>Sorry, no chats here</p>
                 @endif
             </div>
         </div>
@@ -83,7 +83,7 @@
 
     @else
     <div class="container">
-        <h5>Start a chat</h5>
+        <h5>Start a chat with <h4 class="inno-innovator">by <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a></h4> about {{ $innovation->innovationTitle }} </h5>
         {!! Form::open(['route' => 'messages.store']) !!}
         <div class="col-md-6">
             <!-- Subject Form Input -->
@@ -96,7 +96,7 @@
 
             <!-- Message Form Input -->
             <div class="form-group">
-                {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
+                {!! Form::label('message', 'Your Message:', ['class' => 'control-label']) !!}
                 {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
             </div>
 
@@ -176,7 +176,7 @@
 
     @else
     <div class="container">
-        <h5>Start a chat</h5>
+        <h5>Start a chat with <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a> about {{ $innovation->innovationTitle }} </h5>
         {!! Form::open(['route' => 'messages.store']) !!}
         <div class="col-md-6">
             <!-- Subject Form Input -->
@@ -189,7 +189,7 @@
 
             <!-- Message Form Input -->
             <div class="form-group">
-                {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
+                {!! Form::label('message', 'Your Message:', ['class' => 'control-label']) !!}
                 {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
             </div>
 

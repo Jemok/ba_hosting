@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Bongo afrika</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Bongo afrika</a>
         </div>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
