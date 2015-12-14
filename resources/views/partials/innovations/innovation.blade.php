@@ -36,178 +36,207 @@
 </section>
 <hr>
 <footer class="innoDetails__footer">
-    <!--<section class="row">
-        <div class="col-md-3">
-            <h4>About this Innovator</h4>
-        </div>
-        <div class="col-md-9">
-            <div class="media">
-                <div class="media-body">
-                    <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
-                </div>
+<!--<section class="row">
+    <div class="col-md-3">
+        <h4>About this Innovator</h4>
+    </div>
+    <div class="col-md-9">
+        <div class="media">
+            <div class="media-body">
+                <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
             </div>
         </div>
-    </section>
-    <hr>-->
+    </div>
+</section>
+<hr>-->
 
-    <section class="row">
+<section class="row">
 
-        @if(\Auth::user()->userCategory == 2)
+    @if(\Auth::user()->userCategory == 2)
 
-        @if($threads_count > 0)
+    @if($threads_count > 0)
 
-        <div class="row">
-            <div class="col-sm-6">
-                <h4 class="text-center">Chats</h4>
-                <div class="container">
-                    @if (Session::has('error_message'))
-                    <div class="alert alert-danger" role="alert">
-                        {!! Session::get('error_message') !!}
-                    </div>
-                    @endif
-                    @if($threads->count() > 0)
-                    @foreach($threads as $thread)
-                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                        <h6 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h6>
-                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                    </div>
-                    @endforeach
-                    @else
-                    <p>Sorry, no chats from investors.</p>
-                    @endif
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-center">Chats</h4>
+            <div class="container">
+                @if (Session::has('error_message'))
+                <div class="alert alert-danger" role="alert">
+                    {!! Session::get('error_message') !!}
                 </div>
+                @endif
+                @if($threads->count() > 0)
+                @foreach($threads as $thread)
+                <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
+                <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
+                    <h6 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h6>
+                    <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
+                    <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
+                </div>
+                @endforeach
+                @else
+                <p>Sorry, no chats from investors.</p>
+                @endif
             </div>
         </div>
+    </div>
 
-        @else
-        <div class="container">
-            <h5>Start a chat</h5>
-            {!! Form::open(['route' => 'messages.store']) !!}
-            <div class="col-md-6">
-                <!-- Subject Form Input -->
-                <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
-                <div class="form-group">
-                    <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
-                    <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
-                    <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
-                </div>
-
-                <!-- Message Form Input -->
-                <div class="form-group">
-                    {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
-                    {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
-
-                <!-- Submit Form Input -->
-                <div class="form-group">
-                    {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-                </div>
+    @else
+    <div class="container">
+        <h5>Start a chat</h5>
+        {!! Form::open(['route' => 'messages.store']) !!}
+        <div class="col-md-6">
+            <!-- Subject Form Input -->
+            <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
+            <div class="form-group">
+                <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
+                <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
+                <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
             </div>
-            {!! Form::close() !!}
-        </div>
 
-        @endif
+            <!-- Message Form Input -->
+            <div class="form-group">
+                {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
+                {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+            </div>
 
-        @elseif(\Auth::user()->userCategory == 1)
+            <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
 
-
-        <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
-        <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
-
-
-        <div class="row">
-            <div class="col-sm-6">
-                <h4 class="text-center">Chats</h4>
-                <div class="container">
-                    @if (Session::has('error_message'))
-                    <div class="alert alert-danger" role="alert">
-                        {!! Session::get('error_message') !!}
-                    </div>
-                    @endif
-                    @if($threads->count() > 0)
-                    @foreach($threads as $thread)
-                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                        <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                    </div>
-                    @endforeach
-                    @else
-                    <p>Sorry, no chats.</p>
-                    @endif
-                </div>
+            <!-- Submit Form Input -->
+            <div class="form-group">
+                {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
             </div>
         </div>
+        {!! Form::close() !!}
+    </div>
 
-        @elseif(\Auth::user()->userCategory == 4)
+    @endif
+
+    @elseif(\Auth::user()->userCategory == 1)
 
 
-        <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
-        <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
+    <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
+    <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
 
 
-        <div class="row">
-            <div class="col-sm-6">
-                <h4 class="text-center">Chats</h4>
-                <div class="container">
-                    @if (Session::has('error_message'))
-                    <div class="alert alert-danger" role="alert">
-                        {!! Session::get('error_message') !!}
-                    </div>
-                    @endif
-                    @if($threads->count() > 0)
-                    @foreach($threads as $thread)
-                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                        <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                    </div>
-                    @endforeach
-                    @else
-                    <p>Sorry, no chats.</p>
-                    @endif
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-center">Chats</h4>
+            <div class="container">
+                @if (Session::has('error_message'))
+                <div class="alert alert-danger" role="alert">
+                    {!! Session::get('error_message') !!}
                 </div>
+                @endif
+                @if($threads->count() > 0)
+                @foreach($threads as $thread)
+                <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
+                <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
+                    <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
+                    <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
+                    <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
+                </div>
+                @endforeach
+                @else
+                <p>Sorry, no chats.</p>
+                @endif
             </div>
         </div>
-        @elseif(\Auth::user()->userCategory == 3)
+    </div>
+
+    @elseif(\Auth::user()->userCategory == 4)
 
 
-        <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
-        <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
+    @if($threads_count > 0)
 
-
-        <div class="row">
-            <div class="col-sm-6">
-                <h4 class="text-center">Chats</h4>
-                <div class="container">
-                    @if (Session::has('error_message'))
-                    <div class="alert alert-danger" role="alert">
-                        {!! Session::get('error_message') !!}
-                    </div>
-                    @endif
-                    @if($threads->count() > 0)
-                    @foreach($threads as $thread)
-                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                        <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                    </div>
-                    @endforeach
-                    @else
-                    <p>Sorry, no chats.</p>
-                    @endif
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-center">Chats</h4>
+            <div class="container">
+                @if (Session::has('error_message'))
+                <div class="alert alert-danger" role="alert">
+                    {!! Session::get('error_message') !!}
                 </div>
+                @endif
+                @if($threads->count() > 0)
+                @foreach($threads as $thread)
+                <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
+                <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
+                    <h6 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h6>
+                    <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
+                    <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
+                </div>
+                @endforeach
+                @else
+                <p>Sorry, no chats from investors.</p>
+                @endif
             </div>
         </div>
-        @endif
-    </section>
+    </div>
+
+    @else
+    <div class="container">
+        <h5>Start a chat</h5>
+        {!! Form::open(['route' => 'messages.store']) !!}
+        <div class="col-md-6">
+            <!-- Subject Form Input -->
+            <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
+            <div class="form-group">
+                <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
+                <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
+                <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
+            </div>
+
+            <!-- Message Form Input -->
+            <div class="form-group">
+                {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
+                {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
+
+            <!-- Submit Form Input -->
+            <div class="form-group">
+                {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
+
+    @endif
+    @elseif(\Auth::user()->userCategory == 3)
+
+
+    <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
+    <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h4 class="text-center">Chats</h4>
+            <div class="container">
+                @if (Session::has('error_message'))
+                <div class="alert alert-danger" role="alert">
+                    {!! Session::get('error_message') !!}
+                </div>
+                @endif
+                @if($threads->count() > 0)
+                @foreach($threads as $thread)
+                <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
+                <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
+                    <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
+                    <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
+                    <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
+                </div>
+                @endforeach
+                @else
+                <p>Sorry, no chats.</p>
+                @endif
+            </div>
+        </div>
+    </div>
+    @endif
+</section>
 </footer>
 </article>
 </div>
