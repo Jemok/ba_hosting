@@ -15,6 +15,6 @@
     </nav>
 </div>
 
-@include('partials.innovations.funded')
+@include('partials.innovations.funded_all')
 
 @stop
