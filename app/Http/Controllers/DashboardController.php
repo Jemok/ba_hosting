@@ -89,7 +89,9 @@ class DashboardController extends Controller
 
         $fundedProjects = $this->innovationRepository->getInvestorFunded();
 
-        return view('home.investor',  compact('innovations', 'categories', 'fundedProjects'));
+        $fundedProjectsCount = $fundedProjects->count();
+
+        return view('home.investor',  compact('innovations', 'categories', 'fundedProjects', 'fundedProjectsCount'));
     }
 
 

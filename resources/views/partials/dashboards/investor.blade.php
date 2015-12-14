@@ -8,10 +8,12 @@
             <div class="innoData__title">Funding Injected (Ksh.)</div>
             <div class="innoData__content">9,999,500</div>
         </div>
+
         <div class="innoData">
             <div class="innoData__title">Projects Funded</div>
-            <div class="innoData__content">51</div>
+            <a href="{{url('innovations/funded')}}"><div class="innoData__content">{{$fundedProjectsCount}}</div></a>
         </div>
+
         <div class="innoData">
             <div class="innoData__title">In Progress</div>
             <div class="innoData__content">153</div>

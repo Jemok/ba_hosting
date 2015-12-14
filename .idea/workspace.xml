@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -62,6 +63,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DashboardController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="0" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.89285713" vertical-offset="1914" max-vertical-offset="2322">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="InnovationController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -71,10 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="funded.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="funded.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.89944136" vertical-offset="812" max-vertical-offset="1242">
+            <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="investor.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="6" selection-start="2190" selection-end="2190" vertical-scroll-proportion="-33.333332" vertical-offset="0" max-vertical-offset="1008">
               <folding />
             </state>
           </provider>
@@ -119,7 +138,6 @@
         <option value="$PROJECT_DIR$/resources/views/partials/dashboards/post-innovation-funding.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/dashboards/post-innovation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/dashboards/more-innovation-info.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/about.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/messenger/unread-count.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/messenger/show.blade.php" />
@@ -149,7 +167,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/vendor/cmgmyr/messenger/src/Cmgmyr/Messenger/Models/Thread.php" />
         <option value="$PROJECT_DIR$/resources/views/innovation/funded.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
         <option value="$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/mother.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/bongo.blade.php" />
@@ -158,6 +175,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/InnovationController.php" />
         <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" />
       </list>
     </option>
   </component>
@@ -277,6 +296,10 @@
               <option name="myItemId" value="partials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -289,6 +312,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -394,11 +471,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_23_124032_create_user_moderator_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="518" selection-end="518" vertical-scroll-proportion="0.9369863" vertical-offset="0" max-vertical-offset="666" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="5" selection-start="256" selection-end="256" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="684" />
@@ -628,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="0" selection-start="3034" selection-end="3034" vertical-scroll-proportion="-10.259259" vertical-offset="1901" max-vertical-offset="2286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Repos/Innovation/InnovationRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="18" selection-start="108" selection-end="108" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="4968">
@@ -688,7 +753,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/funded.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="0.89944136" vertical-offset="812" max-vertical-offset="1242">
+        <state line="63" column="0" selection-start="2417" selection-end="2417" vertical-scroll-proportion="-11.925926" vertical-offset="812" max-vertical-offset="1242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="6" selection-start="2190" selection-end="2190" vertical-scroll-proportion="-33.333332" vertical-offset="0" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="0" selection-start="3115" selection-end="3115" vertical-scroll-proportion="0.89285713" vertical-offset="1914" max-vertical-offset="2322">
           <folding />
         </state>
       </provider>
