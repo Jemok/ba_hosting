@@ -177,6 +177,16 @@ class InnovationRepository
      * determines the format of searched innovations
      * @return mixed
      */
+    public function getAllInnovations()
+    {
+        return Innovation::latest()
+            ->get();
+    }
+
+    /**
+     * determines the format of searched innovations
+     * @return mixed
+     */
     public function getAllFunded()
     {
         return Innovation::where('fundingStatus', '=', 1)

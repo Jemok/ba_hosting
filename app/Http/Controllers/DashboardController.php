@@ -95,7 +95,7 @@ class DashboardController extends Controller
 
     public function bongoEmployee()
     {
-        $innovations = $this->innovationRepository->getAll();
+        $innovations = $this->innovationRepository->getAllInnovations();
 
         $categories = $this->categoryRepository->getAllCategories();
 
@@ -104,7 +104,7 @@ class DashboardController extends Controller
 
     public function bongoMother()
     {
-        $innovations = $this->innovationRepository->getAll();
+        $innovations = $this->innovationRepository->getAllInnovations();
 
         $categories = $this->categoryRepository->getAllCategories();
 

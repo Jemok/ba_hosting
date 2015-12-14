@@ -36,7 +36,7 @@
                 @endif
                 @endif
 
-                @if(Request::path() == "/" || Request::path() == "auth/login")
+                @if(Request::path() == "/" || Request::path() == "login")
                 <li class="active"><a href="{{ url('/') }}">Home</a></li>
                 @else
                 <li><a href="{{ url('/') }}">Home</a></li>
@@ -45,6 +45,13 @@
 
                 @if(!\Auth::guest())
                 @if(\Auth::user()->isInvestor())
+                <li><a href="{{ url('innovations/open') }}">Open Innovations</a></li>
+                <li><a href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
+                @endif
+                @endif
+
+                @if(!\Auth::guest())
+                @if(\Auth::user()->isAdmin())
                 <li><a href="{{ url('innovations/open') }}">Open Innovations</a></li>
                 <li><a href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
                 @endif
