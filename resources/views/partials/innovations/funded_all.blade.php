@@ -28,6 +28,8 @@
 
         @endforeach
     </section>
+    {!! $fundedProjects->render() !!}
+
     @else
     <h4>No funded projects</h4>
     @endif
@@ -61,6 +63,7 @@
 
         @endforeach
     </section>
+    {!! $fundedProjects->render() !!}
     @else
     <h4>No funded projects</h4>
     @endif

@@ -108,9 +108,11 @@ class InnovationRepository
      */
     public function innovationsForUser(User $user)
     {
-        return $user->innovation()
+        return $innovations = $user->innovation()
             ->where('fundingStatus', '=', 0 )
-            ->with('category', 'thread')->latest()->get();
+            ->with('category', 'thread')
+            ->latest()
+            ->paginate(6,['*'], 'innovations');
     }
 
 
@@ -170,7 +172,7 @@ class InnovationRepository
     {
         return Innovation::where('fundingStatus', '=', 0)
             ->latest()
-            ->get();
+            ->paginate(6,['*'], 'innovations');
     }
 
     /**
@@ -180,7 +182,7 @@ class InnovationRepository
     public function getAllInnovations()
     {
         return Innovation::latest()
-            ->get();
+            ->paginate(3);
     }
 
     /**
@@ -192,7 +194,7 @@ class InnovationRepository
         return Innovation::where('fundingStatus', '=', 1)
             ->with('category', 'fund')
             ->latest()
-            ->get();
+            ->paginate(1);
     }
 
     /**
@@ -250,7 +252,8 @@ class InnovationRepository
             ->where('user_id', '=', \Auth::user()->id)
             ->where('fundingStatus', '=', 1)
             ->with('category', 'fund')
-            ->latest()->get();
+            ->latest()
+            ->paginate(2);
     }
 
     public function getPortfolio($id)
@@ -265,7 +268,8 @@ class InnovationRepository
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
             ->latest()
-            ->get();
+            ->paginate(2);
+
     }
 
 }

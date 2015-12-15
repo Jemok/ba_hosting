@@ -63,6 +63,7 @@
 
         @endforeach
     </section> <!-- end innoList -->
+    {!! $innovations->render() !!}
 
     @else
 

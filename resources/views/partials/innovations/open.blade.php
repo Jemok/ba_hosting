@@ -39,13 +39,13 @@
                     Amount for:{{ $innovation->justifyFund }}<br>
                 </div>
 
-                <div class="inno-likes">756</div>
+                <div class="inno-likes"></div>
             </footer>
         </article>
 
         @endforeach
     </section> <!-- end innoList -->
-
+    {!! $innovations->render() !!}
     @else
 
     <p class="alert-info"><h3>No open innovations</h></h3><p>

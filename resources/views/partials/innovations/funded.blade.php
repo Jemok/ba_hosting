@@ -28,6 +28,7 @@
 
         @endforeach
     </section>
+    {!! $fundedProjects->render() !!}
     @else
     <h4>No funded projects</h4>
     @endif
@@ -35,7 +36,6 @@
 
     @if($fundedProjects->count())
     <section class="innoList">
-
         @foreach($fundedProjects as $funded)
 
         <article class="inno {{$funded->innovation->category->categoryName}}" data-category="{{ $funded->innovation->category->id }}">
@@ -56,6 +56,7 @@
 
         @endforeach
     </section>
+    {!! $fundedProjects->render() !!}
     @else
     <h4>No funded projects</h4>
     @endif
