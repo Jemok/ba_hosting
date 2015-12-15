@@ -268,7 +268,7 @@ class InnovationRepository
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
             ->latest()
-            ->paginate(2);
+            ->paginate(2,['*'], 'investor');
 
     }
 
