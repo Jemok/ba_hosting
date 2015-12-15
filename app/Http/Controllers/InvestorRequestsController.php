@@ -8,6 +8,8 @@ use Md\Http\Controllers\Controller;
 use Md\Http\Requests\InvestorRequestRequest;
 use Md\Repos\InvestorRequest\InvestorRequestRepo;
 use Illuminate\Support\Facades\Session;
+use Md\Mailers\AppMailer;
+
 
 class InvestorRequestsController extends Controller
 {
@@ -41,11 +43,16 @@ class InvestorRequestsController extends Controller
         return view('request.investor.all', compact('requests'));
     }
 
-    public function bongoSendLink($request_id, InvestorRequestRepo $investorRequestRepo)
+    public function bongoSendLink($request_id, InvestorRequestRepo $investorRequestRepo, AppMailer $mailer)
     {
-        $request_link = $investorRequestRepo->sendLink($request_id);
+        $request = $investorRequestRepo->sendLink($request_id);
 
-        return view('request.investor.link', compact('request_link'));
+
+        $mailer->sendActivationLinkEmail($request->request_link, $request->investor_email);
+
+        Session::flash('flash_message', 'The email was sent successfully!');
+        return redirect()->back();
+        //return view('request.investor.link', compact('request_link'));
     }
 
     public function bongoConfirmLink($request_link, InvestorRequestRepo $investorRequestRepo)
@@ -53,10 +60,9 @@ class InvestorRequestsController extends Controller
 
         $confirm = $investorRequestRepo->confirm($request_link);
 
-
         if($confirm == null)
         {
-            return view('errors.404');
+            return view('errors.invalid_link');
         }
         else
         {

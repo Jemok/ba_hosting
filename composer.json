@@ -10,7 +10,8 @@
         "illuminate/html": "^5.0",
         "pusher/pusher-php-server": "2.2.1",
         "cmgmyr/messenger": "~2.0",
-        "laravelcollective/html": "~5.0"
+        "laravelcollective/html": "~5.0",
+        "guzzlehttp/guzzle": "~5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

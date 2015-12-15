@@ -15,6 +15,22 @@
     </nav>
 </div>
 
+<div class="container">
+    @if(Session::has('flash_message'))
+
+    <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+        @if(Session::has('flash_message_important'))
+
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+        @endif
+
+        {{ session('flash_message') }}
+
+    </div>
+
+    @endif
+</div>
 <div class="col-lg-9">
     @if($innovations->count())
 

@@ -15,11 +15,11 @@ class InvestorRequestRepo {
 
     public function persist($request)
     {
-      Investor_request::create([
+        Investor_request::create([
 
-          'investor_email' => $request->investor_email,
-          'request_link' => $this->makeRequestLink($request->investor_email)
-      ]);
+            'investor_email' => $request->investor_email,
+            'request_link' => $this->makeRequestLink($request->investor_email)
+        ]);
     }
 
     private function makeRequestLInk($investor_email)
@@ -43,7 +43,7 @@ class InvestorRequestRepo {
 
         ]);
 
-        return $request->request_link;
+        return $request;
     }
 
     public function confirm($request_link)
@@ -53,8 +53,19 @@ class InvestorRequestRepo {
         {
             return null;
         }
+        elseif(Investor_request::where('request_link', '=', $request_link)->first()->request_status != 1)
+        {
+            return null;
+        }
         else
         {
+            Investor_request::where('request_link', '=', $request_link)
+                ->first()
+                ->update([
+
+                    'request_status' => 2
+                ]);
+
             return Investor_request::where('request_link', '=', $request_link)->first();
 
         }
