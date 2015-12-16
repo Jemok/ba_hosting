@@ -44,7 +44,7 @@ class BongoRequestRepo {
 
         ]);
 
-        return $request->request_link;
+        return $request;
     }
 
     public function confirm($request_link)
@@ -52,12 +52,45 @@ class BongoRequestRepo {
 
         if(Bongo_request::where('request_link', '=', $request_link)->first() == null)
         {
-            return null;
+            return 0;
+        }
+        elseif(Bongo_request::where('request_link', '=', $request_link)->first()->request_status != 1)
+        {
+            return 0;
         }
         else
         {
-            return Bongo_request::where('request_link', '=', $request_link)->first();
+            Bongo_request::where('request_link', '=', $request_link)
+                ->first()
+                ->update([
+
+                    'request_status' => 2
+                ]);
+
+            if($request = Bongo_request::where('request_link', '=', $request_link)->first()){
+
+                if(\Md\User::where('email', '=', $request->bongo_email)->first() !=null )
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+
+
+            }
+
+
+
         }
+    }
+
+
+    public function getBongoRequest($request_link)
+    {
+
+        return Bongo_request::where('request_link', '=', $request_link)->first();
     }
 
 } 

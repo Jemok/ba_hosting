@@ -16,6 +16,7 @@
         {{ session('flash_message') }}
 
     </div>
+
     @endif
 </div>
 <form method="POST" action="{{ url('login') }}" class="form-signin">

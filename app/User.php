@@ -117,4 +117,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->first_name." ".$this->last_name;
     }
+
+    public function bongo_request()
+    {
+        return $this->belongsTo('Md\Bongo_request');
+    }
 }

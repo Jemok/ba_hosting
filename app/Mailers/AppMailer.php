@@ -22,17 +22,32 @@ class AppMailer {
 
     protected $view;
 
+    protected $subject;
+
     protected $data = [];
 
-
-
-    public function sendActivationLinkEmail($investor_link, $investor_email)
+    public function sendInvestorRegLinkEmail($investor_link, $investor_email)
     {
         $this->to = $investor_email;
 
-        $this->view = "emails.email_link";
+        $this->view = "emails.email_link_investor";
 
         $this->data = compact('investor_link');
+
+        $this->subject = "Bongo Afrika Investor Account Registration";
+
+        $this->deliver();
+    }
+
+    public function sendExpertRegLinkEmail($expert_link, $expert_email)
+    {
+        $this->to = $expert_email;
+
+        $this->view = "emails.email_link_expert";
+
+        $this->data = compact('expert_link');
+
+        $this->subject = "Bongo Afrika Expert Account Registration";
 
         $this->deliver();
     }
@@ -42,7 +57,8 @@ class AppMailer {
         Mail::send($this->view, $this->data, function($message){
 
             $message->from($this->from, 'Bongo Afrika Admin')
-                    ->to($this->to);
+                ->to($this->to)
+                ->subject($this->subject);
         });
     }
 

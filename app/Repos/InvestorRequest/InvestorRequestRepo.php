@@ -51,11 +51,11 @@ class InvestorRequestRepo {
 
         if(Investor_request::where('request_link', '=', $request_link)->first() == null)
         {
-            return null;
+            return 0;
         }
         elseif(Investor_request::where('request_link', '=', $request_link)->first()->request_status != 1)
         {
-            return null;
+            return 0;
         }
         else
         {
@@ -66,9 +66,29 @@ class InvestorRequestRepo {
                     'request_status' => 2
                 ]);
 
-            return Investor_request::where('request_link', '=', $request_link)->first();
+
+            if($request = Investor_request::where('request_link', '=', $request_link)->first()){
+
+                if(\Md\User::where('email', '=', $request->investor_email)->first() !=null )
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+
+
+            }
 
         }
+    }
+
+
+    public function getInvestorRequest($request_link)
+    {
+
+        return Investor_request::where('request_link', '=', $request_link)->first();
     }
 
 } 

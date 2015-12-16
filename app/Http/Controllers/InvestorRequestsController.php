@@ -48,7 +48,7 @@ class InvestorRequestsController extends Controller
         $request = $investorRequestRepo->sendLink($request_id);
 
 
-        $mailer->sendActivationLinkEmail($request->request_link, $request->investor_email);
+        $mailer->sendInvestorRegLinkEmail($request->request_link, $request->investor_email);
 
         Session::flash('flash_message', 'The email was sent successfully!');
         return redirect()->back();
@@ -60,15 +60,22 @@ class InvestorRequestsController extends Controller
 
         $confirm = $investorRequestRepo->confirm($request_link);
 
-        if($confirm == null)
+        if($confirm == 0)
         {
             return view('errors.invalid_link');
         }
-        else
+        elseif($confirm == 1)
+        {
+            Session::flash('flash_message', 'Already have an account, Login with your bongo account and then visit your profile page to activate other bongo accounts');
+
+            return view('auth.login');
+        }
+        elseif($confirm == 2)
         {
             \Auth::logout();
+
+            $confirm = $investorRequestRepo->getInvestorRequest($request_link);
             return view('request.investor.register', compact('confirm'));
         }
     }
-
 }

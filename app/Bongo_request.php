@@ -21,4 +21,9 @@ class Bongo_request extends Model
         'request_status',
         'request_link',
     ];
+
+    public function user(){
+
+        return $this->hasOne('Md\User');
+    }
 }
