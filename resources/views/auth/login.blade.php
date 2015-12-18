@@ -47,9 +47,12 @@
 </div>
 
 <div class="col-md-6">
+
     <div class="col-md-12">
 
         <img src="{{ asset('images/image1.jpg')}}">
+        <span class="col-md-offset-9">Be Free, Think, Live</span>
+
     </div>
 
 </div>

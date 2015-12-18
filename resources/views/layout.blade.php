@@ -127,9 +127,9 @@
                 @endif
 
                 @if(Request::path() == "request/bongo/send")
-                <li class="active"><a href="{{ url('request/bongo/send') }}">Bongo Request</a></li>
+                <li class="active"><a href="{{ url('request/bongo/send') }}">Expert Request</a></li>
                 @else
-                <li><a href="{{ url('request/bongo/send') }}">Bongo Request</a></li>
+                <li><a href="{{ url('request/bongo/send') }}">Expert Request</a></li>
                 @endif
                 @endif
             </ul>
