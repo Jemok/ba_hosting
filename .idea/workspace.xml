@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -27,10 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layout.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="85" selection-start="5735" selection-end="5735" vertical-scroll-proportion="0.6792453" vertical-offset="2106" max-vertical-offset="3726">
+            <state line="131" column="85" selection-start="5735" selection-end="5735" vertical-scroll-proportion="-9.333333" vertical-offset="2106" max-vertical-offset="3726">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="117" column="0" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.90296495" vertical-offset="1771" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -103,8 +110,8 @@
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
       </list>
     </option>
   </component>
@@ -633,16 +640,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="0" selection-start="3551" selection-end="3551" vertical-scroll-proportion="0.90296495" vertical-offset="1771" max-vertical-offset="2214">
+        <state line="131" column="85" selection-start="5735" selection-end="5735" vertical-scroll-proportion="-9.333333" vertical-offset="2106" max-vertical-offset="3726">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="85" selection-start="5735" selection-end="5735" vertical-scroll-proportion="0.6792453" vertical-offset="2106" max-vertical-offset="3726">
+        <state line="117" column="0" selection-start="3542" selection-end="3542" vertical-scroll-proportion="0.90296495" vertical-offset="1771" max-vertical-offset="2214">
           <folding />
         </state>
       </provider>

@@ -45,7 +45,7 @@
         <button type="submit" class="cta cta_btn">Login</button>
     </form>
 </div>
-
+<!--
 <div class="col-md-6">
 
     <div class="col-md-12">
@@ -56,11 +56,11 @@
     </div>
 
 </div>
-
+-->
 <div>
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-6">
 
-        <div class="col-md-4">
+        <div class="col-md-3">
 
             <img src="{{ asset('images/image2.jpg')}}">
         </div>
