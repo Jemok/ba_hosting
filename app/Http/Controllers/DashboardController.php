@@ -5,6 +5,7 @@ namespace Md\Http\Controllers;
 use Md\Repos\Innovation\InnovationRepository;
 use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -83,6 +84,12 @@ class DashboardController extends Controller
 
     public function investor()
     {
+        if(\Auth::user()->isInvestor() && \Auth::user()->investor_finance == 0)
+        {
+            Session::flash('flash_message', 'You have to add your financial details first before continuing');
+            return view('account.investor_finance');
+        }
+
         $innovations = $this->innovationRepository->getAll();
 
         $categories = $this->categoryRepository->getAllCategories();

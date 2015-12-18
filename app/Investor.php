@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Investor extends Model
 {
-    protected $fillable = [''];
+    protected $fillable = ['balance_finance'];
 
     /**
      * Links to the user the model belongs to.

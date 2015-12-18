@@ -132,6 +132,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     //Route::post('chats/make', 'ChatController@store');
 
+    Route::post('investor/add-finance', 'ProfileController@SetInvestorAmount');
+
 });
 
 

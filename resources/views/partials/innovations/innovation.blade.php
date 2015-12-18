@@ -268,11 +268,13 @@
             <div class="innoData-list">
                 <div class="innoData">
                     <div class="innoData__title">Potential Funding Available</div>
-                    <div class="innoData__content">Ksh. 71,000,500</div>
+                    <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
                 </div>
                 <div class="innoData">
                     <div class="innoData__title">Your Balance after funding this</div>
-                    <div class="innoData__content">Ksh. 70,000,500</div>
+                    <div class="innoData__content">
+                        Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}
+                    </div>
                 </div>
             </div>
             <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
@@ -304,11 +306,11 @@
     <div class="innoData-list">
         <div class="innoData">
             <div class="innoData__title">Potential Funding Available</div>
-            <div class="innoData__content">Ksh. 71,000,500</div>
+            <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
         </div>
         <div class="innoData">
             <div class="innoData__title">Your Balance after funding this</div>
-            <div class="innoData__content">Ksh. 70,000,500</div>
+            <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
         </div>
     </div>
     <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
