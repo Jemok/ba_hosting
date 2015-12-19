@@ -1,6 +1,9 @@
 .section__title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+    color: #406182;
+    margin-bottom: 15px;
+    line-height: 1.2;
 }
 
 @mixin simple-block() {
@@ -13,6 +16,9 @@
     flex-flow: $type nowrap;
 }
 
+.dashboard {
+	background-color: $gray-lightest;
+}
 .__section {
     @include simple-block();
     

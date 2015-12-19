@@ -9,163 +9,176 @@
     <!--    <link href="{{ asset('/css/all.css') }}" rel="stylesheet">-->
         <link rel="stylesheet" href="{{ asset('/css/dashboard.css') }}">
     </head>
+    
+    @if(!\Auth::guest())
+    <body class="dashboard">
+    @else
     <body>
+    @endif
         <nav class="navbar navbar-full navbar-light global-navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar-main">
-                &#9776;
-            </button>
-            <a class="navbar-brand" href="{{ url('/') }}">Bongo afrika</a>
+            @if(!\Auth::guest())
+            <div class="container">
+            @endif
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar-main">
+                    &#9776;
+                </button>
+                <a class="navbar-brand" href="{{ url('/') }}">Bongo afrika</a>
 
-            <section class="collapse navbar-toggleable-xs" id="navbar-main">
-                <ul class="nav navbar-nav navbar-left">
-                    @if(\Auth::guest())                
-                        @if(Request::path() == "about")
+                <section class="collapse navbar-toggleable-xs" id="navbar-main">
+                    <ul class="nav navbar-nav navbar-left">
+                        @if(\Auth::guest())                
+                            @if(Request::path() == "about")
+                            <li class="nav-item active">
+                            @else
+                            <li class="nav-item">
+                            @endif 
+                                <a class="nav-link" href="{{ url('/about') }}">About</a>
+                            </li>
+
+                            @if(Request::path() == "auth/register")
+                            <li class="nav-item active">
+                            @else
+                            <li class="nav-item">
+                            @endif
+                                <a class="nav-link" href="{{ url('auth/register') }}">Get Started</a>
+                            </li>
+
+                            @if(Request::path() == "request/investor/send")
+                            <li class="nav-item active">
+                            @else
+                            <li class="nav-item">
+                            @endif
+                                <a class="nav-link" href="{{ url('request/investor/send') }}">For Investors</a>
+                            </li>
+
+                            @if(Request::path() == "request/bongo/send")
+                            <li class="nav-item active">
+                            @else
+                            <li class="nav-item">
+                            @endif               
+                                <a class="nav-link" href="{{ url('request/bongo/send') }}">For Experts</a>
+                            </li>
+                        @endif
+
+
+                        @if(!\Auth::guest())
+                            @if(\Auth::user()->isInvestor())
+                                @if(Request::path() == "innovations/open")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Open Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a></li>
+                                @endif
+
+                                @if(Request::path() == "innovations/funded")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Funded Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
+                                @endif
+                            @endif
+                        @endif
+
+                        @if(!\Auth::guest())
+                            @if(\Auth::user()->isAdmin())
+                                @if(Request::path() == "innovations/open")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Open Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a>
+                                </li>
+                                @endif
+
+                                @if(Request::path() == "innovations/funded")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Funded Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a>
+                                </li>
+                                @endif
+                            @endif
+                        @endif
+
+                        @if(!\Auth::guest())
+                            @if(\Auth::user()->isMother())
+                                @if(Request::path() == "request/all/investors")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Investor Requests</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('request/all/investors') }}">Investor Requests</a>
+                                </li>
+                                @endif
+
+                                @if(Request::path() == "request/all/employees")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Employee Requests</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('request/all/employees') }}">Employee Requests</a>
+                                </li>
+                                @endif
+                                @if(Request::path() == "innovations/open")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Open Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a>
+                                </li>
+                                @endif
+
+                                @if(Request::path() == "innovations/funded")
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="">Funded Innovations</a>
+                                </li>
+                                @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a>
+                                </li>
+                                @endif
+                            @endif
+                        @endif
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @if(\Auth::user())
+
+                        @if(Request::path() == "innovator/profile/".\Auth::user()->id)
                         <li class="nav-item active">
+                        <a class="nav-link" href="">{{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
                         @else
-                        <li class="nav-item">
-                        @endif 
-                            <a class="nav-link" href="{{ url('/about') }}">About</a>
-                        </li>
-
-                        @if(Request::path() == "auth/register")
-                        <li class="nav-item active">
+                        <li class="nav-item"><a class="nav-link" href="{{ url('innovator/profile/'.\Auth::user()->id) }}">Signed in as {{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
+                        @endif
+                        <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>
                         @else
-                        <li class="nav-item">
+
                         @endif
-                            <a class="nav-link" href="{{ url('auth/register') }}">Get Started</a>
-                        </li>
-
-                        @if(Request::path() == "request/investor/send")
-                        <li class="nav-item active">
-                        @else
-                        <li class="nav-item">
-                        @endif
-                            <a class="nav-link" href="{{ url('request/investor/send') }}">For Investors</a>
-                        </li>
-
-                        @if(Request::path() == "request/bongo/send")
-                        <li class="nav-item active">
-                        @else
-                        <li class="nav-item">
-                        @endif               
-                            <a class="nav-link" href="{{ url('request/bongo/send') }}">For Experts</a>
-                        </li>
-                    @endif
-
-
-                    @if(!\Auth::guest())
-                        @if(\Auth::user()->isInvestor())
-                            @if(Request::path() == "innovations/open")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Open Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item"><a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a></li>
-                            @endif
-
-                            @if(Request::path() == "innovations/funded")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Funded Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item"><a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a></li>
-                            @endif
-                        @endif
-                    @endif
-
-                    @if(!\Auth::guest())
-                        @if(\Auth::user()->isAdmin())
-                            @if(Request::path() == "innovations/open")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Open Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a>
-                            </li>
-                            @endif
-
-                            @if(Request::path() == "innovations/funded")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Funded Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a>
-                            </li>
-                            @endif
-                        @endif
-                    @endif
-
-                    @if(!\Auth::guest())
-                        @if(\Auth::user()->isMother())
-                            @if(Request::path() == "request/all/investors")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Investor Requests</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('request/all/investors') }}">Investor Requests</a>
-                            </li>
-                            @endif
-
-                            @if(Request::path() == "request/all/employees")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Employee Requests</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('request/all/employees') }}">Employee Requests</a>
-                            </li>
-                            @endif
-                            @if(Request::path() == "innovations/open")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Open Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a>
-                            </li>
-                            @endif
-
-                            @if(Request::path() == "innovations/funded")
-                            <li class="nav-item active">
-                                <a class="nav-link" href="">Funded Innovations</a>
-                            </li>
-                            @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('innovations/funded') }}">Funded Innovations</a>
-                            </li>
-                            @endif
-                        @endif
-                    @endif
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    @if(\Auth::user())
-
-                    @if(Request::path() == "innovator/profile/".\Auth::user()->id)
-                    <li class="nav-item active">
-                    <a class="nav-link" href="">{{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
-                    @else
-                    <li class="nav-item"><a class="nav-link" href="{{ url('innovator/profile/'.\Auth::user()->id) }}">Signed in as {{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a></li>
-                    @endif
-                    <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>
-                    @else
-
-                    @endif
-                </ul>
-            </section> <!-- end collapse -->
+                    </ul>
+                </section> <!-- end collapse -->
+                
+            @if(!\Auth::guest())
+            </div>
+            @endif
         </nav> <!-- end navbar -->
 
-        <div class="container-fluid" id="main">
+<!--        <div class="container-fluid" id="main">-->
             @yield('content')
-        </div> <!-- end container main-->
+<!--        </div>-->
+        <!-- end container main-->
 
         <!-- compiled and minified javascript -->
         <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+        <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="{{ asset('js/bootstrap.js') }}"></script>

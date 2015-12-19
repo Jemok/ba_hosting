@@ -67,7 +67,7 @@ $border-width:               .0625rem !default;
 // Settings for the `<body>` element.
 
 $body-bg:                    #fff !default;
-$body-color:                 $gray-dark !default;
+$body-color:                 $gray-light !default;
 
 
 // Links
@@ -212,8 +212,8 @@ $table-border-color:            $gray-lighter !default;
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-padding-x:                  1rem;
-$btn-padding-y:                  .375rem;
+$btn-padding-x:                  20px;
+$btn-padding-y:                  10px;
 $btn-font-weight:                normal !default;
 
 $btn-primary-color:              #fff !default;

@@ -124,20 +124,35 @@
 		}
 	}
 }
-
+.innovation-pane {
+    padding: 5em 0 2.5em;
+    
+    p {
+        font-size: 18px;
+    }
+}
 .innoDetails {
+    .innoDetails__header {
+        text-align: center;
+    }
+    .innoDetails__content {
+        p {
+            margin: 1em auto;
+            text-align: justify;
+            
+            &:first-child {
+                @extend .lead;
+            }
+        }
+    }
+    .inno-title {
+        color: $gray;
+        font-weight: 800;
+        font-size: 3.25em;
+        padding: 0 0 0.2em;
+    }
     .inno-meta {
-        font-size: $font-size-base;
-        font-weight: bold;
-        
-        .inno-divider {
-            color: #000;
-            opacity: .5;
-            margin: 0 15px;
-        }
-        
-        .inno-category {
-        }
+        font-size: $font-size-lg;
     }
 	.inno-summary {
 		@extend .lead;

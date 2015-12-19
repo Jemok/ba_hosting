@@ -1,0 +1,44 @@
+.chat__head {
+    @include clearfix();
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: ($spacer-y) 0 ($spacer-x * 3);
+    
+    .section__title {
+        margin-bottom: 0;
+        flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+}
+.chat__box {
+    @include clearfix();
+    display: block;
+    width: 100%;
+    
+    .card {
+        background-color: #fff;
+        border: 1px solid $gray-lighter;
+        border-radius: $border-radius;
+        padding: $gutter $gutter $padding-reset;
+        
+        .card__title {
+            font-size: $font-size-base;
+            font-weight: normal;
+            margin: 0 0 .75em;
+        }
+        
+        .card__text {
+            font-size: $font-size-base;
+            margin: 0 0 .75em;
+        }
+        
+        .card__meta {
+            opacity: .5;
+            margin: 0 0 .5em;
+        }
+    }
+}

@@ -30,11 +30,10 @@
 	border-radius: 0;
 	box-shadow: none;
 	padding: 0 .5em;
-	margin-bottom: 3em;
     position: relative;
     z-index: 1000;
 	
-	.navbar-brand, .navbar-toggle {
+	.navbar-brand, .navbar-toggler {
 		padding: $padding-reset 0;
 		margin: 0;
 		line-height: 25px;
@@ -43,37 +42,32 @@
 	
 	.navbar-brand {
 		float: left;
-		margin-right: $gutter*2;
+		margin-right: $gutter;
 		
 		.logo__title {
 			margin-top: 0;
 		}
 	}
 	
-	.navbar-toggle {
-		border: none;
+	.navbar-toggler {
 		float: right;
-		
-		&:hover, &:active, &:focus {
-			background: none;
-		}
 	}
 	
 	.nav {
-//		font-size: $base-font-size;
-//		
-//		&.navbar-nav {
-//			margin: 0;
-//		}
-//		
-//		&.navbar-left {
-//			float: left;
-//		}
-//		
-//		&.navbar-right {
-//			float: right;
-//		}
-//		
+		font-size: $base-font-size;
+		
+		&.navbar-nav {
+			margin: 0;
+		}
+		
+		&.navbar-left {
+			float: left;
+		}
+		
+		&.navbar-right {
+			float: right;
+		}
+		
 		.nav-item {	
             margin: 0;
             

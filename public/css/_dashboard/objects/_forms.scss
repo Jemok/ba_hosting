@@ -12,37 +12,34 @@ input {
 	text-align: center;
 	
 	.form__heading {
-		margin-bottom: 25px;
+		margin-bottom: 15px;
 		margin-top: 0;
 	}
 	.checkbox, .radio {
-		font-weight: normal;
-		margin-bottom: 25px;
+//		font-weight: normal;
+//        line-height: 1.5;
+//		margin-bottom: 15px;
 	}
 	.form-control {
-		position: relative;
-		height: auto;
+//		position: relative;
+//		height: auto;
 		border-radius: 0;
 		box-sizing: border-box;
 		padding: 10px;
 		font-weight: normal;
 		margin-bottom: -1px;
 		
-		&:focus {
-			z-index: 2;
-		}
-		
-		&:first-child {
-			border-radius: 3px;
-		}
-		:last-child {
-			margin-bottom: 25px;
-			
-			.form-control {
-				margin-bottom: 15px;
-				border-top-left-radius: 0;
-				border-top-right-radius: 0;
-			}
-		}
+//		&:focus {
+//			z-index: 2;
+//		}
+//		
+//		&:first-child {
+//			border-radius: 3px;
+//		}
 	}
+    .form_field {
+        &:last-child {
+			margin-bottom: 25px;
+        }
+    }
 }

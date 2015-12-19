@@ -5,9 +5,9 @@
 <div class="__section with-columns equally-split fill-page without-moving">
     <section class="__column __left h-centered">
         <div class="contain-this">
-            <div class="__content-block">
+            <div class="__content-block m-b-lg">
                 <h3 class="section__title">Why should you be part of this community?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.<a href="{{ url('about')}}">More</a></p>
+                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea... <a href="{{ url('about')}}">Tell me more</a></p>
             </div>
             <div class="__section with-columns">            
                 <div class="__content-block">
@@ -52,7 +52,7 @@
 
                 <div class="form_field {{ $errors->has('password') ? 'has-error' : ''}}">
                     <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="password">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                 </div>
                 {!! $errors->first('password', '<span class="help-block">:message</span>' ) !!}
 

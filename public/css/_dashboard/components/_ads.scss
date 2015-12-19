@@ -5,13 +5,27 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+    object-fit: contain;
 }
 .ad_banner {
-	width: 768px;
-	height: 80px;
-	margin: 0 auto 5em;
+    width: 100%;
+    background-color: white;
+	border: solid whitesmoke;
+    border-width: 1px 0;
+    padding: 15px 0;
+    
+    img {
+        object-fit: contain;
+        height: 100%;
+    }
 }
-.ad_200 {
+.ad_200by200 {
 	width: 200px;
 	height: 200px;
+}
+.ad-h-90 {
+	height: 120px;
+}
+.ad-h-250 {
+	height: 280px;
 }
