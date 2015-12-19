@@ -60,7 +60,6 @@
                 <li><a href="{{ url('request/bongo/send') }}">For Experts</a></li>
                 @endif               
                 @endif
-                @endif
 
                 @if(!\Auth::guest())
                 @if(\Auth::user()->isInvestor())

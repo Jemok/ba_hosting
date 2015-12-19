@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -35,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="layout.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="22" selection-start="2660" selection-end="2660" vertical-scroll-proportion="-12.0" vertical-offset="810" max-vertical-offset="3816">
+            <state line="40" column="64" selection-start="1736" selection-end="1736" vertical-scroll-proportion="-0.33962265" vertical-offset="846" max-vertical-offset="3798">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".env" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="0.8321168" vertical-offset="0" max-vertical-offset="522">
+            <state line="14" column="21" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="522">
               <folding />
             </state>
           </provider>
@@ -673,16 +672,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="22" selection-start="2660" selection-end="2660" vertical-scroll-proportion="-12.0" vertical-offset="810" max-vertical-offset="3816">
+        <state line="14" column="21" selection-start="248" selection-end="248" vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="522">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/resources/views/layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="0.8321168" vertical-offset="0" max-vertical-offset="522">
+        <state line="40" column="64" selection-start="1736" selection-end="1736" vertical-scroll-proportion="-0.33962265" vertical-offset="846" max-vertical-offset="3798">
           <folding />
         </state>
       </provider>
