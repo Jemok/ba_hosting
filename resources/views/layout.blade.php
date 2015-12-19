@@ -19,14 +19,6 @@
 
             <section class="collapse navbar-toggleable-xs" id="navbar-main">
                 <ul class="nav navbar-nav navbar-left">
-                    @if(Request::path() == "/" || Request::path() == "auth/login")
-                    <li class="nav-item active">
-                    @else
-                    <li class="nav-item">
-                    @endif
-                        <a class="nav-link" href="{{ url('/') }}">Home</a>
-                    </li>
-
                     @if(\Auth::guest())                
                         @if(Request::path() == "about")
                         <li class="nav-item active">
