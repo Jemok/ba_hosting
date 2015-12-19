@@ -60,22 +60,24 @@
 	}
 	
 	.nav {
-		font-size: $base-font-size;
-		
-		&.navbar-nav {
-			margin: 0;
-		}
-		
-		&.navbar-left {
-			float: left;
-		}
-		
-		&.navbar-right {
-			float: right;
-		}
-		
-		li {			
-			a {
+//		font-size: $base-font-size;
+//		
+//		&.navbar-nav {
+//			margin: 0;
+//		}
+//		
+//		&.navbar-left {
+//			float: left;
+//		}
+//		
+//		&.navbar-right {
+//			float: right;
+//		}
+//		
+		.nav-item {	
+            margin: 0;
+            
+			.nav-link {
 				border-top: 2px solid transparent;
 				color: #000;
 				letter-spacing: .5px;
@@ -84,7 +86,7 @@
 			}
 			
 			&.active {
-				a {
+				.nav-link {
 					background: none;
 					border-top-color: $brand-color;
 					box-shadow: none;
@@ -93,7 +95,7 @@
 			}
 			
 			&:not(.active) {
-				a:hover {
+				.nav-link:hover {
 					background-color: #e7e7e7;
 				}
 			}

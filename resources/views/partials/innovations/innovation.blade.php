@@ -133,7 +133,7 @@
     <div class="row">
         <div class="col-sm-6">
             <h4 class="text-center">Chats</h4>
-            <div class="container">
+            <div class="container card-columns">
                 @if (Session::has('error_message'))
                 <div class="alert alert-danger" role="alert">
                     {!! Session::get('error_message') !!}
@@ -142,10 +142,10 @@
                 @if($threads->count() > 0)
                 @foreach($threads as $thread)
                 <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                    <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                    <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                    <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
+                <div id="thread_list_{{$thread->id}}" class="card card-block card-{!!$class!!}">
+                    <h4 class="card-title">{!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
+                    <p class="card-text" id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
+                    <p class="card-text text-muted">Sent to {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</p>
                 </div>
                 @endforeach
                 @else

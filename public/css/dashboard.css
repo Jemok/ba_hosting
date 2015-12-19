@@ -13826,19 +13826,10 @@ input {
 .global-navigation .navbar-toggle:hover, .global-navigation .navbar-toggle:active, .global-navigation .navbar-toggle:focus {
   background: none;
 }
-.global-navigation .nav {
-  font-size: 14px;
-}
-.global-navigation .nav.navbar-nav {
+.global-navigation .nav .nav-item {
   margin: 0;
 }
-.global-navigation .nav.navbar-left {
-  float: left;
-}
-.global-navigation .nav.navbar-right {
-  float: right;
-}
-.global-navigation .nav li a {
+.global-navigation .nav .nav-item .nav-link {
   border-top: 2px solid transparent;
   color: #000;
   letter-spacing: .5px;
@@ -13846,13 +13837,13 @@ input {
           transition: all .25s ease-in-out;
   padding: 14px 21px;
 }
-.global-navigation .nav li.active a {
+.global-navigation .nav .nav-item.active .nav-link {
   background: none;
   border-top-color: #E5322D;
   box-shadow: none;
   color: #E5322D;
 }
-.global-navigation .nav li:not(.active) a:hover {
+.global-navigation .nav .nav-item:not(.active) .nav-link:hover {
   background-color: #e7e7e7;
 }
 .global-navigation .navbar-collapse {
