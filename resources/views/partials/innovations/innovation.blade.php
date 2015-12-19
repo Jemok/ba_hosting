@@ -24,44 +24,42 @@
     <hgroup>
         <h3 class="inno-title">{{ $innovation->innovationTitle }}</h3>
 
-        @if(\Auth::user()->id  == $innovation->user_id)
-        <h4 class="inno-innovator">by <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">Me</a></h4>
-        @else
-        <h4 class="inno-innovator">by <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a></h4>
-        @endif
+        <h4 class="inno-meta"> 
+            @if(\Auth::user()->id  == $innovation->user_id)
+            <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">Me</a>
+            @else
+            <a class="inno-innovator" href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a>
+            @endif
+            <span class="inno-divider">|</span>
+            <a href="#" class="inno-category">{{ $innovation->category->categoryName }}</a>
+        </h4>
     </hgroup>
-    <div class="inno-meta">
-        Filed under <a href="#" class="inno-category">{{ $innovation->category->categoryName }}</a>
-    </div>
 </header>
 <section class="innoDetails__content">
     <p class="inno-summary">
-
+    <h4>About my innovation</h4>
         {!! $innovation->innovationDescription !!}
-
     </p>
-    <!--<h4>What is Robo Wunderkind?</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</p>
-    <p>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus. Sed suscipit bibendum enim, sed volutpat tortor malesuada non. Morbi fringilla dui non purus porttitor mattis. Suspendisse quis vulputate risus. Phasellus erat velit, sagittis sed varius volutpat, placerat nec urna. Nam eu metus vitae dolor fringilla feugiat. Nulla.</p>
-    <h4>How does it work?</h4>
-    <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
-    -->
+    <h4>What's the funding for?</h4>
+    <p>{{ $innovation->justifyFund }}</p>
 </section>
-<hr>
 <footer class="innoDetails__footer">
-<!--<section class="row">
-    <div class="col-md-3">
-        <h4>About this Innovator</h4>
-    </div>
-    <div class="col-md-9">
-        <div class="media">
-            <div class="media-body">
-                <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
+    @if(\Auth::user()->id  != $innovation->user_id)
+    <hr>
+    <section class="row">
+        <div class="col-md-3">
+            <h4>About this Innovator</h4>
+        </div>
+        <div class="col-md-9">
+            <div class="media">
+                <div class="media-body">
+                    <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<hr>-->
+    </section>
+    @endif
+<hr>
 
 <section class="row">
 
