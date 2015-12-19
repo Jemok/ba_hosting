@@ -1,0 +1,133 @@
+.navbar {
+    @media (min-width: 85.1em ) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    border-radius: 0;
+    padding: 0 1.5rem;
+
+    .navbar-section {
+        @media (min-width: 85.1em ) {
+            margin: 1.5em 0;
+        }
+        @media (max-width: 85em ) {
+            display: table;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        &.with-logo {
+            order: 1;
+
+            @media (min-width: 30.1em ) {
+                width: auto;
+                float: left;
+                line-height: $navbar-height;
+
+                img {
+                    height: $navbar-height;
+                }
+            }
+
+            @media (max-width: 30em ) {
+                width: 100%;
+                text-align: center;
+
+                .navbar-brand {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &.with-app-name {
+            line-height: $navbar-height;
+            width: auto;
+            float: left;
+            order: 2;
+
+            @media (min-width: 30em ) {
+                border-left: 1px solid #eee;
+                padding-left: 15px;
+                margin-left: 15px;
+            }
+        }
+
+        &.with-toggler {
+            width: auto;
+            float: right;
+            order: 5;
+        }
+
+        &.with-search {
+            order: 4;
+            @media (max-width: 85em ) {
+                padding: 15px 0;
+            }
+            @media (min-width: 70.1em ) {
+                width: auto;
+                float: right;
+                margin: .25rem 1rem .25rem 0;
+            }
+        }
+
+        &.with-nav {
+            order: 3;
+
+            @media (min-width: 50.1em ) {
+                width: 100%;
+                margin: 0;
+            }
+            @media (min-width: 85.1em ) {
+                align-self: flex-end;
+                flex: 1;
+                margin: 0 2rem;
+            }
+
+            .nav-tabs {
+                .nav-link {
+                    @media (min-width: 85.1em ) {
+                        padding: 2rem 1.5em;
+                    }
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &.with-search {
+        .navbar-section:last-child {
+            @media (min-width: 85em) {
+                flex: 1;
+            }
+        }
+    }
+
+	&.and-shared {
+		.title {
+			margin-bottom: 1rem;
+		}
+		.nav-item {
+			font-size: $font-size-sm;
+			line-height: 1.5rem;
+
+			.link-item {
+				&:before {
+					content: '\00bb';
+					margin-right: 10px;
+				}
+
+				@include hover-focus {
+					text-decoration: none;
+					color: #fff;
+				}
+			}
+		}
+	}
+    .navbar-search {
+        .search-block__button, .search-block__field-input {
+//            line-height: 30px
+        }
+    }
+}

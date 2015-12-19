@@ -1,0 +1,44 @@
+/*!
+ *  Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@import "elements.icons/variables";
+@import "elements.icons/mixins";
+@import "elements.icons/path";
+@import "elements.icons/core";
+@import "elements.icons/larger";
+@import "elements.icons/fixed-width";
+@import "elements.icons/list";
+@import "elements.icons/bordered-pulled";
+@import "elements.icons/animated";
+@import "elements.icons/rotated-flipped";
+@import "elements.icons/stacked";
+@import "elements.icons/icons";
+
+// Display classes
+.icon-list {
+	margin: 0;
+	padding: 0;
+
+	li {
+		font-size: 14px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: #222222;
+		display: block;
+		line-height: 40px;
+		height: 40px;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.icon-list__title {
+	font-size: 1.25rem;
+    line-height: 1.5em;
+    font-weight: 300;
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eeeeee;
+}

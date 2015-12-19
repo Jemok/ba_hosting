@@ -1,0 +1,20 @@
+<div id="page" class="page search with-results">
+	{{> organisms-header-with-search }}
+
+	<main role="main" class="tab-content search__results">
+        <section role="tabpanel" class="tab-pane active" id="Account">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <section class="results">
+                            {{> organisms-search-results }}
+                        </section>
+                    </div>
+                    <div class="col-lg-3">
+                        {{> organisms-account-status }}
+                    </div>
+                </div>
+            </div>
+        </section>
+	</main>
+</div>

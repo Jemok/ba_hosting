@@ -5,3 +5,4 @@ Homestead.json
 .env
 /bongo_afrika.pem
 .idea/workspace.xml
+*.cfg

@@ -1,0 +1,15 @@
+<div id="page" class="page search with-results">
+	{{> organisms-header-with-search }}
+
+	<main role="main" class="tab-content search__results">
+        <section role="tabpanel" class="tab-pane active" id="reports">
+            <header class="search__results-filter">
+                {{> organisms-search-results-reports-filter }}
+            </header>
+
+            <section class="search__results-table">
+                {{> organisms-search-results-transactions-table }}
+            </section>
+        </section>
+	</main>
+</div>

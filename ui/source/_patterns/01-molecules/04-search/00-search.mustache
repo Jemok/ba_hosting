@@ -1,0 +1,13 @@
+<form action="{{ url }}" method="post" class="form">
+    <fieldset class="search-block">
+	    <legend class="sr-only">Search</legend>
+	    <label for="search-field" class="sr-only">Search</label>
+		<div class="search-block__field">
+	    	<input type="search" placeholder="{{ search }}" id="search-field" class="form-control" tabindex="0" />
+		</div>
+	    <button class="btn btn-primary search-block__button">
+	    	<span class="fa fa-search" aria-hidden="true"></span>
+	    	<span class="sr-only">Search</span>
+	    </button>
+    </fieldset>
+</form>

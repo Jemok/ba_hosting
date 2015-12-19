@@ -1,0 +1,24 @@
+<form class="form-inline filter">
+    <div class="filter__section">
+        <div class="form-group">
+            <label class="form-control-label" for="refNumber">Generate</label>
+            <select class="form-control" id="refNumber">
+                <option selected disabled>Report Type</option>
+                {{# reports }}
+                <option>{{ report-title }}</option>
+                {{/ reports}}
+            </select>
+        </div>
+    </div>
+    <div class="filter__section">
+        <div class="form-group">
+            <label class="form-control-label" for="fromDate">From</label>
+            <input type="date" class="form-control" id="fromDate">
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="toDate"> - </label>
+            <input type="date" class="form-control" id="toDate">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Generate</button>
+</form>

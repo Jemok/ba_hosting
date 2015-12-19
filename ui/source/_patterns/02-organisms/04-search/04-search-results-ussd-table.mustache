@@ -1,0 +1,26 @@
+<div class="flex-table">
+	<header class="table__header">
+		<nav class="th__row" role="rowheader">
+			<div class="th__row-item sms__msg">Message for {{ ref }}</div>
+			<div class="th__row-item sms__recepient">Recepient</div>
+			<div class="th__row-item sms__tqueued">Time Queued</div>
+			<div class="th__row-item sms__tsent">Time Sent</div>
+			<div class="th__row-item sms__actions"></th>
+		</nav>
+	</header>
+	<div class="table__content" role="tablist">
+	   {{# sms }}
+		<section class="tc__row" role="row">
+            <div class="tc__row-items" data-target="#{{ ref }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{ ref }}">
+                <div class="tc__row-item sms__msg">{{ message }}</div>
+                <div class="tc__row-item sms__recepient">{{ recepient }}</div>
+                <div class="tc__row-item sms__tqueued">{{ tqueued }}</div>
+                <div class="tc__row-item sms__tsent">{{ tsent }}</div>
+                <div class="tc__row-item sms__actions">
+                    <button type="button" class="btn btn-primary btn-sm">Resend SMS</button>
+                </div>
+            </div>
+		</section>
+		{{/ sms }}
+	</div>
+</div>

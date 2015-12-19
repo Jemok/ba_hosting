@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html class="{{ htmlClass }}">
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width" />
+
+		<!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+		{% pattern-lab-head %}
+		<!-- End Pattern Lab -->
+
+		<link rel="stylesheet" href="{{ base_url }}/css/dashboard.css?{{ cacheBuster }}" media="all" />
+
+	    <script data-main="{{ base_url }}/js/mobikash-dist.js" src="{{ base_url}}/js/require.js"></script>
+
+	</head>
+	<body class="{{ bodyClass }}">

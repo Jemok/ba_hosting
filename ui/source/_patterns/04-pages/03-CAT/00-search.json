@@ -1,0 +1,18 @@
+{
+	"title" : "Search Users",
+	"bodyClass": "body",
+	"appName": "CAT",
+	"tabs-with-icons": [
+		{
+			"name": "Search",
+			"icon": "search",
+            "class": "active"
+		},
+		{
+			"name": "Tarrifs",
+			"icon": "user-plus",
+            "class": ""
+		}
+	],
+	"search": "Search by Username"
+}

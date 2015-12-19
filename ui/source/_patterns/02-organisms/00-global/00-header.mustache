@@ -1,0 +1,40 @@
+<!-- Begin .header -->
+<div class="collapse" id="exCollapsingNavbar">
+	<div class="bg-inverse p-a">
+		<nav class="navbar is-dark and-shared">
+			<div class="col-lg-3">
+				{{> atoms-logo-alt }}
+			</div>
+			{{# header-subnavs }}
+				<div class="col-lg-3">
+					<h4 class="title">{{ title }}</h4>
+					<ul class="nav">
+						{{# link }}
+							<li class="nav-item">
+								<a href="#" class="link-item {{ class }}">{{ name }}</a>
+							</li>
+						{{/ link }}
+					</ul>
+				</div>
+			{{/ header-subnavs }}
+		</nav>
+	</div>
+</div>
+
+<nav class="navbar navbar-light bg-faded with-search">
+    <div class="navbar-section with-logo">
+        {{> atoms-logo }}
+    </div>
+    <div class="navbar-section with-app-name">
+        <div class="navbar-brand as-app-name">
+            {{ appName }}
+        </div>
+    </div>
+
+    <div class="navbar-section with-toggler">
+        <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+            <i class="fa fa-navicon"></i>
+        </button>
+    </div>
+</nav>
+<!-- End .header -->

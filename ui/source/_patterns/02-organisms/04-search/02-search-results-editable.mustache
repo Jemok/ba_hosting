@@ -1,0 +1,68 @@
+<form action="{{ url }}" method="post" class="form">
+	<fieldset class="form-section">
+		<header class="section__header">
+			<h3 class="section-title">Personal Information</h3>
+			<div class="action-group">
+				<button type="submit" class="btn btn-link"><i class="fa fa-check"></i> Save Changes</button>
+				<button type="button" class="btn btn-link"><i class="fa fa-close"></i> Cancel</button>
+			</div>
+		</header>
+		<div class="section__content in-4s">
+			<div class="field-section">
+				<label class="form-control-label" for="f_name">First Name</label>
+				<input class="form-control" id="f_name" type="text" placeholder="David">
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="m_name">Middle Name</label>
+				<input class="form-control" id="m_name" type="text" placeholder="-">
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="l_name">Last Name</label>
+				<input class="form-control" id="l_name" type="text" placeholder="Saf">
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="u_name">User Name</label>
+				<input class="form-control" id="u_name" type="text" placeholder="dsaf">
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="id_type">Identity Type</label>
+				<select id="id_type" class="form-control">
+					<option>National</option>
+				</select>
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="id_number">ID Number</label>
+				<input class="form-control" id="id_number" type="text" placeholder="12345678">
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="email">Email</label>
+				<input class="form-control" id="email" type="email" placeholder="dshikanga@gmail.com">
+			</div>
+		</div>
+	</fieldset>
+
+	<fieldset class="form-section">
+		<header class="section__header">
+			<h3 class="section-title">Preferences</h3>
+		</header>
+		<div class="section__content in-3s">
+			<div class="field-section">
+				<h4 class="form-control-label">Send Information via?</h4>
+				<div class="checkbox-inline">
+					<input class="form-control" id="message-type_sms" name="checkbox" type="checkbox" checked="checked">
+					<label class="form-control-label" for="message-type_sms">SMS</label>
+				</div>
+				<div class="checkbox-inline">
+					<input class="form-control" id="message-type_email" name="checkbox" type="checkbox">
+					<label class="form-control-label" for="message-type_email">Email</label>
+				</div>
+			</div>
+			<div class="field-section">
+				<label class="form-control-label" for="ussd_language">USSD Language</label>
+				<select id="ussd_language" class="form-control">
+					<option>English</option>
+				</select>
+			</div>
+		</div>
+	</fieldset>
+</form>

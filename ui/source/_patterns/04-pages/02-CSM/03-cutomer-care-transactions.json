@@ -1,0 +1,146 @@
+{
+	"title" : "Customer Care",
+	"bodyClass": "body",
+	"appName": "CSM",
+	"tabs": [
+		{
+			"name": "Account",
+			"class": ""
+		},
+		{
+			"name": "Transactions",
+			"class": "active"
+		},
+		{
+			"name": "USSD",
+			"class": ""
+		},
+		{
+			"name": "Dipek",
+			"class": ""
+		},
+		{
+			"name": "Reports",
+			"class": ""
+		}
+	],
+    "table": [
+        {
+			"ref": "VAB5E4",
+			"date": "10/2/2014 10:41:48",
+			"type": "ClientCashOut",
+			"status": "Successful",
+			"amount": "64,800.00",
+			"charge": "310.00",
+			"comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere. Sed pharetra nibh eget orci convallis at posuere leo convallis."
+        },
+        {
+			"ref": "XNXGEC",
+			"date": "10/2/2014 1:40:02",
+			"type": "BillerCashIn",
+			"status": "Successful",
+			"amount": "65,108.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "GSDDAC",
+			"date": "10/2/2014 1:20:58",
+			"type": "BillerCashIn",
+			"status": "Failed",
+			"amount": "61,508.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "VAB5F5",
+			"date": "10/2/2014 10:41:48",
+			"type": "ClientCashOut",
+			"status": "Successful",
+			"amount": "64,800.00",
+			"charge": "310.00",
+			"comment": "Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue."
+        },
+        {
+			"ref": "XNZGEC",
+			"date": "10/2/2014 1:40:02",
+			"type": "BillerCashIn",
+			"status": "Successful",
+			"amount": "65,108.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "GSDDBC",
+			"date": "10/2/2014 1:20:58",
+			"type": "BillerCashIn",
+			"status": "Failed",
+			"amount": "61,508.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "VBB5E4",
+			"date": "10/2/2014 10:41:48",
+			"type": "ClientCashOut",
+			"status": "Successful",
+			"amount": "64,800.00",
+			"charge": "310.00",
+			"comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere. Sed pharetra nibh eget orci convallis at posuere leo convallis."
+        },
+        {
+			"ref": "ANXGEC",
+			"date": "10/2/2014 1:40:02",
+			"type": "BillerCashIn",
+			"status": "Successful",
+			"amount": "65,108.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "G5DDAC",
+			"date": "10/2/2014 1:20:58",
+			"type": "BillerCashIn",
+			"status": "Failed",
+			"amount": "61,508.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "VAB3D4",
+			"date": "10/2/2014 10:41:48",
+			"type": "ClientCashOut",
+			"status": "Successful",
+			"amount": "64,800.00",
+			"charge": "310.00",
+			"comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue."
+        },
+        {
+			"ref": "XF6GEC",
+			"date": "10/2/2014 1:40:02",
+			"type": "BillerCashIn",
+			"status": "Successful",
+			"amount": "65,108.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        },
+        {
+			"ref": "GSDD5G",
+			"date": "10/2/2014 1:20:58",
+			"type": "BillerCashIn",
+			"status": "Failed",
+			"amount": "61,508.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        }
+    ],
+    "sms": [
+        {
+			"message": "HVFGH1 Confirmed. Self Airtime Top Up of Ksh 60 was successful. 11/12/2015: 2:54 PM. New MobiKash Balance is Ksh. 21,024.",
+			"recepient": "254719368683",
+            "tqueued": "11/12/2015: 2:54:30 PM",
+            "tsent": "11/12/2015: 2:54:30 PM"
+        }
+    ],
+	"search": "+254799999932"
+}

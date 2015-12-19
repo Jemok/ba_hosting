@@ -1,0 +1,36 @@
+{
+	"title" : "Customer Care",
+	"bodyClass": "body",
+	"appName": "CSM",
+	"tabs": [
+		{
+			"name": "Account",
+			"class": ""
+		},
+		{
+			"name": "Transactions",
+			"class": ""
+		},
+		{
+			"name": "USSD",
+			"class": "active"
+		},
+		{
+			"name": "Dipek",
+			"class": ""
+		},
+		{
+			"name": "Reports",
+			"class": ""
+		}
+	],
+    "sms": [
+        {
+			"message": "HVFGH1 Confirmed. Self Airtime Top Up of Ksh 60 was successful. 11/12/2015: 2:54 PM. New MobiKash Balance is Ksh. 21,024.",
+			"recepient": "254719368683",
+            "tqueued": "11/12/2015: 2:54:30 PM",
+            "tsent": "11/12/2015: 2:54:30 PM"
+        }
+    ],
+	"search": "+254799999932"
+}

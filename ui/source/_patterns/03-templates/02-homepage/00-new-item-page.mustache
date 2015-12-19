@@ -1,0 +1,20 @@
+<div id="page" class="page new">
+	{{> organisms-header }}
+
+	<main role="main">
+        <div class="container">
+            <h3 class="section-title">{{ new.title }}</h3>
+            <ul class="new-options__box">
+               {{# new.options }}
+                    <li class="new-option"><a href="" class="new-option__link">{{ option-title }}</a></li>
+                {{/ new.options }}
+            </ul>
+        </div>
+	</main>
+
+    <nav class="search__navigation">
+        <div class="container">
+            {{> organisms-tabs-with-icons }}
+        </div>
+    </nav>
+</div>

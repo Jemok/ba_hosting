@@ -1,9 +1,10 @@
-node_modules
-.tmp
-.sass-cache
-.codekit-cache
-*.lock
-*.log
-.idea
-logs
-reports
+.DS_Store
+public/*
+// source/*
+config.ini
+latest-change.txt
+*-ck.js
+*.sass-cache/
+/undefined
+/MAMP-PRO-Logo.png
+/prepros.cfg

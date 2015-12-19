@@ -1,0 +1,182 @@
+// Users
+.user__name {
+    display: block;
+    font-size: $font-size-lg;
+    margin-bottom: 10px;
+}
+.user__username {
+    opacity: .5;
+}
+.user__phone {
+}
+
+// Account
+.account-status__state {
+    font-size: $font-size-xl;
+    font-weight: $lead-font-weight;
+    letter-spacing: 1px;
+    
+    &.is-active, &.is-unlocked {
+        color: $brand-success;
+    }
+    &.is-deactivated, &.is-locked {
+        color: $brand-danger;
+    }
+}
+.account-status__title {
+    font-size: $font-size-sm;
+    clear: both;
+    display: block;
+}
+.account-status__lock-state {
+    @extend .account-status__state;
+}
+.account-status__activation-state {
+    @extend .account-status__state;
+}
+.account-status__access-count {
+    font-size: $font-size-xl;
+    font-weight: $lead-font-weight;
+    
+    &::after {
+        content: " / "attr(limit);
+        opacity: .5;
+        font-size: $font-size-lg;
+    }
+}
+
+// User Management
+.user-management__nav {
+    display: flex;
+    flex-flow: row nowrap;
+    
+    .__section {
+        flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        
+        &.with-nav-previous {
+            text-align: left;
+            align-items: flex-start;
+            
+            .btn__as-link {
+                color: inherit;
+            }
+        }
+        &.with-user {
+            text-align: center;
+        }
+        &.with-nav {
+            text-align: right;
+            
+            .nav-link {
+                opacity: .5;
+                
+                &.active {
+                    opacity: 1;
+                    font-weight: bold;
+                }
+        
+                &:not(:first-child) {
+                    &:before {
+                        content: "//";
+                        font-weight: bold;
+                        position: relative;
+                        left: -1px;
+                        margin-right: 1rem;
+                        opacity: .15;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.user-management__body {
+    margin: 2rem 0;
+}
+
+.user-management__footer {
+    display: flex;
+    flex-flow: row nowrap;
+    
+    .__section {
+        flex: 1;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    
+    &.with-single-section {
+        justify-content: space-around;
+    
+        .__section {
+            justify-content: center;
+        }
+    }
+    &.with-split-sections {
+        justify-content: space-between;
+    
+        .__section {
+            justify-content: center;
+
+            &:first-child {
+                justify-content: flex-start;
+            }
+
+            &:last-child {
+                justify-content: flex-end;
+            }
+        }
+    }
+}
+
+.user-management__account-status {
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid $dimmer;
+    padding: 3rem 0;
+    align-items: center;
+    
+    .__section {
+        flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        
+        &:not(:first-child) {
+            border-left: 1px solid $dimmer;
+        }
+    }
+}
+
+
+.user-management__roles {
+    display: flex;
+    flex-flow: column nowrap;
+    
+    .user-management__roles-header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    
+        .__section {
+            flex: 1;
+            display: flex;
+            flex-flow: column nowrap;
+            
+            &.with-cta {
+                align-items: flex-start;
+            }
+            
+            &.with-pagination {
+                align-items: flex-end;
+            }
+//
+//            &:not(:first-child) {
+//                border-left: 1px solid $dimmer;
+//            }
+        }
+    }
+}

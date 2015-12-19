@@ -1,0 +1,11 @@
+<form action="{{ url }}" method="post" class="form">
+	<fieldset class="form-section">
+		<div class="section__content in-4s">
+			{{# form.content }}
+				<div class="field-section">
+					{{> atoms-text-field-static }}
+				</div>
+			{{/ form.content }}
+		</div>
+	</fieldset>
+</form>

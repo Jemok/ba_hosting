@@ -1,0 +1,24 @@
+<table class="table">
+	<thead class="table__header">
+		<tr role="rowheader">
+			<th class="sms__ref">Message for {{ ref }}</th>
+			<th class="sms__date">Recepient</th>
+			<th class="sms__type">Time Queued</th>
+			<th class="sms__status">Time Sent</th>
+			<th class="sms__actions"></th>
+		</tr>
+	</thead>
+	<tbody class="table__content" role="tablist" aria-multiselectable="true">
+	   {{# sms }}
+		<tr>
+            <td class="sms__msg">{{ message }}</td>
+            <td class="sms__recepient">{{ recepient }}</td>
+            <td class="sms__tqueued">{{ tqueued }}</td>
+            <td class="sms__tsent">{{ tsent }}</td>
+            <td class="sms__actions">
+                <button type="button" class="btn btn-primary btn-sm">Resend SMS</button>
+            </td>
+		</tr>
+		{{/ sms }}
+	</tbody>
+</table>

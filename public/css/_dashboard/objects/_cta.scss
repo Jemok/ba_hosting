@@ -1,12 +1,16 @@
 .cta {
+    @extend .btn;
 	border: none;
 	border-radius: $border-radius;
-	padding: $padding-reset-sm $gutter;
+	padding-left: $gutter;
+    padding-right: $gutter;
 	
 	&.cta__btn {
-		&:hover {
-			background-color: darken($dark-ui-color, .5);
-		}
+        @extend .btn-primary;
+        
+//		&:hover {
+//			background-color: darken($dark-ui-color, .5);
+//		}
 	}
 	
 	&.cta__create {

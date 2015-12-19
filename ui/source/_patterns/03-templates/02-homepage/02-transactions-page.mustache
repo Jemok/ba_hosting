@@ -1,0 +1,40 @@
+<div id="page" class="page new options">
+	{{> organisms-header }}
+
+	<main role="main">
+        <div class="container">
+            <h3 class="section-title">Get all transactions</h3>
+
+            <form class="form-inline filter empty">
+                <div class="filter__section">
+                    <div class="form-group">
+                        <label class="form-control-label" for="refNumber">Of</label>
+                        <select class="form-control" id="refNumber">
+                            <option selected disabled>Report Type</option>
+                            {{# reports }}
+                            <option>{{ report-title }}</option>
+                            {{/ reports}}
+                        </select>
+                    </div>
+                </div>
+                <div class="filter__section">
+                    <div class="form-group">
+                        <label class="form-control-label" for="fromDate">From</label>
+                        <input type="date" class="form-control" id="fromDate">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="toDate"> - </label>
+                        <input type="date" class="form-control" id="toDate">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Get</button>
+            </form>
+        </div>
+	</main>
+
+    <nav class="search__navigation">
+        <div class="container">
+            {{> organisms-tabs-with-icons }}
+        </div>
+    </nav>
+</div>

@@ -28,6 +28,12 @@
 
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-left">
+                @if(Request::path() == "/" || Request::path() == "auth/login")
+                <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                @else
+                <li><a href="{{ url('/') }}">Home</a></li>
+                @endif
+                
                 @if(\Auth::guest())
                 @if(Request::path() == "about")
                 <li class="active"><a href="{{ url('/about') }}">About</a></li>
@@ -35,11 +41,17 @@
                 <li><a href="{{ url('/about') }}">About</a></li>
                 @endif
                 @endif
-
-                @if(Request::path() == "/" || Request::path() == "auth/login")
-                <li class="active"><a href="{{ url('/') }}">Home</a></li>
+                
+                @if(Request::path() == "auth/register")
+                <li class="active"><a href="">Get Started</a></li>
                 @else
-                <li><a href="{{ url('/') }}">Home</a></li>
+                <li><a href="{{ url('auth/register') }}">Get Started</a></li>
+                @endif
+
+                @if(Request::path() == "request/investor/send")
+                <li class="active"><a href="{{ url('request/investor/send') }}">Invite an Investor</a></li>
+                @else
+                <li><a href="{{ url('request/investor/send') }}">Invite an Investor</a></li>
                 @endif
 
 
@@ -114,17 +126,6 @@
                 @endif
                 <li><a href="{{ url('logout') }}">Logout</a></li>
                 @else
-                @if(Request::path() == "auth/register")
-                <li class="active"><a href="">Register Innovator</a></li>
-                @else
-                <li><a href="{{ url('auth/register') }}">Register Innovator</a></li>
-                @endif
-
-                @if(Request::path() == "request/investor/send")
-                <li class="active"><a href="{{ url('request/investor/send') }}">Investor Request</a></li>
-                @else
-                <li><a href="{{ url('request/investor/send') }}">Investor Request</a></li>
-                @endif
 
                 @if(Request::path() == "request/bongo/send")
                 <li class="active"><a href="{{ url('request/bongo/send') }}">Bongo Request</a></li>
@@ -145,6 +146,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/slick.js') }}"></script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
 
 <!-- Start Messenger Demo Changes -->

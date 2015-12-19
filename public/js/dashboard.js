@@ -26,6 +26,7 @@ $(document).ready(function(){
 	// bind filter button click
 	$('.innoFilters').on( 'click', 'button', function() {
 		var filterValue = $( this ).attr('data-filter');
+        
 		// use filterFn if matches value
 		filterValue = filterFns[ filterValue ] || filterValue;
 		$grid.isotope({ filter: filterValue });
@@ -52,4 +53,7 @@ $(document).ready(function(){
 		$('.step__3').slideUp();
 		$('.step__feedback').slideDown();
 	});
+    
+    // create gallery
+    $('.gallery').slick();
 });

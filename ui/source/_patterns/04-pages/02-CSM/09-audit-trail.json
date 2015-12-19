@@ -1,0 +1,74 @@
+{
+	"title" : "Audit",
+	"bodyClass": "body",
+	"appName": "CSM",
+    "reports": [
+        {
+            "report-title": "Agent Daily Transaction (Single)"
+        },
+        {
+            "report-title": "Account Statement"
+        },
+        {
+            "report-title": "End of Month Account Statement"
+        },
+        {
+            "report-title": "SA Monthly Commission Statement"
+        },
+        {
+            "report-title": "SA Commission Statement by Period"
+        },
+        {
+            "report-title": "M & S Monthly Commission Statement"
+        },
+        {
+            "report-title": "Lead Agent SVA Balance Monitor"
+        },
+        {
+            "report-title": "Lead Agent EOD Summary"
+        },
+        {
+            "report-title": "Lead Agent EOP Summary"
+        },
+        {
+            "report-title": "Lead Agent EOM Summary"
+        },
+        {
+            "report-title": "Commisions Summary by Month"
+        },
+        {
+            "report-title": "Fees & Charges Summary"
+        },
+        {
+            "report-title": "Agency Outlets"
+        }
+    ],
+	"tabs-with-icons": [
+		{
+			"name": "Customer Support",
+			"icon": "search",
+            "class": ""
+		},
+		{
+			"name": "New Consumer",
+			"icon": "user-plus",
+            "class": ""
+		},
+		{
+			"name": "Reports",
+			"icon": "line-chart",
+            "class": "active"
+		},
+		{
+			"name": "Easy Serve",
+			"icon": "mobile",
+            "class": ""
+		},
+		{
+			"name": "Audit Trail",
+			"icon": "search",
+            "class": ""
+		}
+	],
+	"search": "Search by Username/ Customer Number or Phone Number"
+}

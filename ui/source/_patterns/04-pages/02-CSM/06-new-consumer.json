@@ -1,0 +1,44 @@
+{
+	"title" : "New Customer",
+	"bodyClass": "body",
+	"appName": "CSM",
+    "new": {
+        "title": "Pick a consumer type",
+        "options": [
+            {
+                "option-title": "Agent"
+            },
+            {
+                "option-title": "Biller"
+            }
+        ]
+    },
+	"tabs-with-icons": [
+		{
+			"name": "Customer Support",
+			"icon": "search",
+            "class": ""
+		},
+		{
+			"name": "New Consumer",
+			"icon": "user-plus",
+            "class": "active"
+		},
+		{
+			"name": "Reports",
+			"icon": "line-chart",
+            "class": ""
+		},
+		{
+			"name": "Easy Serve",
+			"icon": "mobile",
+            "class": ""
+		},
+		{
+			"name": "Audit Trail",
+			"icon": "search",
+            "class": ""
+		}
+	],
+	"search": "Search by Username/ Customer Number or Phone Number"
+}

@@ -1,0 +1,34 @@
+<div class="flex-table">
+	<header class="table__header">
+		<nav class="th__row" role="rowheader">
+			<div class="th__row-item search__ref">#</div>
+			<div class="th__row-item search__date">Date</div>
+			<div class="th__row-item search__type">Type</div>
+			<div class="th__row-item search__status">Status</div>
+			<div class="th__row-item search__amount">Amount (Ksh.)</div>
+			<div class="th__row-item search__charge">Charge (Ksh.)</div>
+			<div class="th__row-item search__comment">Comments</div>
+		</nav>
+	</header>
+	<div class="table__content" role="tablist" aria-multiselectable="true">
+        {{# table }}
+		<section class="tc__row" role="row">
+            <div class="tc__row-items" data-target="#{{ ref }}" data-toggle="collapse" aria-expanded="false" aria-controls="{{ ref }}">
+                <div class="th__row-item search__ref">
+                    <div class="btn" >{{ ref }}</div>
+                </div>
+                <div class="tc__row-item search__date">{{ date }}</div>
+                <div class="tc__row-item search__type">{{ type }}</div>
+                <div class="tc__row-item search__status">{{ status }}</div>
+                <div class="tc__row-item search__amount">{{ amount }}</div>
+                <div class="tc__row-item search__charge">{{ charge }}</div>
+                <div class="tc__row-item search__comment">{{ comment }}</div>
+            </div>
+
+            <footer class="tc__row-footer search__results-subtable collapse" id="{{ ref }}">
+                {{> organisms-table-with-send-sms }}
+            </footer>
+		</section>
+		{{/ table }}
+	</div>
+</div>

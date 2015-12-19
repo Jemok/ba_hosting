@@ -1,0 +1,285 @@
+{
+	"title" : "MobiKash Official Pattern Library",
+    "base_url": "http://localhost/projects/ba_hosting/ui/",
+	"companyName": "MobiKash Afrika Ltd",
+	"address": {
+		"street-address": "Geomaps Centre, 2nd Floor",
+		"locality": "Matumbato Close, Off Elgon Road, Upper Hill",
+		"postal-code": "P. O. Box 101123 - 00101",
+		"region": "Nairobi",
+		"country-name": "Kenya",
+		"tel": "+254(0) 703 066 000",
+		"email": "info.ke@mobikash.com"
+	},
+	"htmlClass": "pl",
+	"bodyClass": "body",
+	"appName": "App Name",
+	"img": {
+		"favicon" : "/images/favicon_16x16.png",
+		"favicon-ios" : "/images/favicon_32x32.png",
+		"landscape-4x3": {
+			"src": "/images/fpo_4x3.png",
+			"alt": "4x3 Image"
+		},
+		"landscape-16x9": {
+			"src": "/images/fpo_16x9.png",
+			"alt": "16x9 Image"
+		},
+		"square": {
+			"src": "/images/fpo_square.png",
+			"alt": "Square Thumbnail"
+		},
+		"avatar" : {
+			"src" : "/images/fpo_avatar.png",
+			"alt" : "Person Name"
+		},
+		"rectangle": {
+			"src": "http://placeimg.com/400/300/tech",
+			"alt": "Rectangle"
+		},
+		"logo": {
+			"src": "/images/logo.png",
+			"alt": "MobiKash Afrika Ltd."
+		},
+		"logo-alt": {
+			"src": "/images/logo-inverse.png",
+			"alt": "MobiKash Afrika Ltd."
+		},
+		"client-logo": {
+			"src": "/images/logo-client.gif",
+			"alt": "Ericsson"
+		}
+	},
+	"headline" : {
+		"short" : "Lorem ipsum dolor sit (37 characters)",
+		"medium" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (72 characters)"
+	},
+	"excerpt" : {
+		"short" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+		"medium" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+		"long" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	},
+	"description" : "So, setting about it as methodically as men might smoke out a wasps' nest, the Martians spread this strange stifling vapour over the Londonward country. The horns of the crescent slowly moved apart, until at last they formed a line from Hanwell to Coombe and Malden. All night through their destructive tubes advanced.",
+	"url" : "#",
+	"name" : {
+		"first": "Jude",
+		"firsti": "J",
+		"middle": "Okello",
+		"middlei": "O",
+		"last": "Way",
+		"lasti": "W"
+	},
+	"year" : {
+		"long": "2015",
+		"short": "15"
+	},
+	"month" : {
+		"long": "February",
+		"short": "Feb",
+		"digit": "02"
+	},
+	"dayofweek" : {
+		"long": "Monday",
+		"short": "Mon"
+	},
+	"day" : {
+		"long": "10",
+		"short": "10",
+		"ordinal": "th"
+	},
+	"hour" : {
+		"long": "01",
+		"short": "1",
+		"military": "13",
+		"ampm": "pm"
+	},
+	"minute" : {
+		"long": "20",
+		"short": "20"
+	},
+	"seconds" : "31",
+	"author" : {
+		"first-name": "Author",
+		"last-name": "Name"
+	},
+	"hero": true,
+	"emergency" : false,
+	"touts" : [
+		{ },
+		{ },
+		{ }
+	],
+	"latest-posts" : [
+		{ },
+		{ },
+		{ },
+		{ },
+		{ }
+	],
+	"tabs": [
+		{
+			"name": "Nav 1",
+			"class": "active"
+		},
+		{
+			"name": "Nav 2",
+			"class": ""
+		}
+	],
+	"tabs-with-icons": [
+		{
+			"name": "Icon 1",
+			"icon": "home"
+		},
+		{
+			"name": "Icon 2",
+			"icon": "line-chart"
+		}
+	],
+	"header-subnavs": [
+		{
+			"title": "My Products",
+			"link": [
+				{
+					"name": "Customer Support Manager",
+					"class": "active"
+				},
+				{
+					"name": "Configurations and Tools",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "Help & Support",
+			"link": [
+				{
+					"name": "FAQs for End Customers",
+					"class": ""
+				},
+				{
+					"name": "FAQs for MobiKash Agents",
+					"class": ""
+				},
+				{
+					"name": "Contact Us",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "My Profile",
+			"link": [
+				{
+					"name": "Update Preferences",
+					"class": ""
+				},
+				{
+					"name": "Logout",
+					"class": ""
+				}
+			]
+		}
+	],
+	"alertClass": "success",
+	"label": "Label",
+	"placeholder": "Lorem Ipsum",
+	"form": {
+		"header": "Section Title",
+		"content": [
+			{
+				"label": "First Name",
+				"placeholder": "David",
+				"type": "input"
+			},
+			{
+				"label": "Middle Name",
+				"placeholder": "-",
+				"type": "input"
+			},
+			{
+				"label": "Last Name",
+				"placeholder": "Saf",
+				"type": "input"
+			},
+			{
+				"label": "User Name",
+				"placeholder": "dsaf",
+				"type": "input"
+			},
+			{
+				"label": "Identity Type",
+				"placeholder": "National",
+				"type": "select"
+			},
+			{
+				"label": "ID Number",
+				"placeholder": "12345678",
+				"type": "input"
+			},
+			{
+				"label": "Email",
+				"placeholder": "dshikanga@gmail.com",
+				"type": "input"
+			},
+			{
+				"label": "USSD Language",
+				"placeholder": "English",
+				"type": "input"
+			}
+		]
+	},
+    "new": {
+        "title": "Variety of New items to pick from",
+        "options": [
+            {
+                "option-title": "Option 1"
+            },
+            {
+                "option-title": "Option 2"
+            }
+        ]
+    },
+    "options": {
+        "title": "Description of the Options",
+        "options": [
+            {
+                "option-title": "Option 1"
+            },
+            {
+                "option-title": "Option 2"
+            },
+            {
+                "option-title": "Option 3"
+            }
+        ]
+    },
+    "table": [
+        {
+			"ref": "GSDDAC",
+			"date": "10/2/2014 1:20:58",
+			"type": "BillerCashIn",
+			"status": "Failed",
+			"amount": "61,508.00",
+			"charge": "0.00",
+			"comment": "From: Mobikash Direct (365031) To: David Kulecho (254724848799)"
+        }
+    ],
+    "sms": [
+        {
+			"message": "HVFGH1 Confirmed. Self Airtime Top Up of Ksh 60 was successful. 11/12/2015: 2:54 PM. New MobiKash Balance is Ksh. 21,024.",
+			"recepient": "254719368683",
+            "tqueued": "11/12/2015: 2:54:30 PM",
+            "tsent": "11/12/2015: 2:54:30 PM"
+        }
+    ],
+    "reports": [
+        {
+            "report-title": "Option 1"
+        },
+        {
+            "report-title": "Option 2"
+        }
+    ],
+	"search": "Search by Username/ Customer Number or Phone Number"
+}

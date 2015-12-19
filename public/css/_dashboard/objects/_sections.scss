@@ -2,3 +2,92 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+@mixin simple-block() {
+    display: flex;
+    flex-flow: nowrap;
+}
+
+@mixin block-of-type($type) {
+    display: flex;
+    flex-flow: $type nowrap;
+}
+
+.__section {
+    @include simple-block();
+    
+    &.with-columns {
+        flex-flow: row;
+    }
+    
+    &.with-rows {
+        flex-flow: column;
+    }
+    
+    &.equally-split {
+        .__column, .__row {
+            flex: 1;
+        }
+    }
+    
+    &.fill-page {
+        height: 100vh;
+    }
+    
+    &.without-moving {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+    }
+}
+
+// Row
+.__row {
+    @include block-of-type(column);
+    justify-content: center;
+}
+    
+// Content
+.__content-block {
+    padding-left: 15px;
+    position: relative;
+    z-index: 5;
+}
+    
+// Center content h/v
+.h-centered {
+    @include block-of-type(column);
+    justify-content: center;
+}
+    
+.v-centered {
+    @include block-of-type(row);
+    justify-content: center;
+}
+
+.contain-this {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.with-background {
+    background-color: #222;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+    position: relative;
+    
+    &:before {
+        content: '';
+        background: rgba(0,0,0,.5);
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 1;
+    }
+}

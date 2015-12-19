@@ -1,0 +1,196 @@
+/*                                                                                                                                         
+                                                ,,            ,,                          ,,                                             
+ .M"""bgd mm                                    db          `7MM        mm         mm   `7MM                                    OO OO OO 
+,MI    "Y MM                                                  MM        MM         MM     MM                                    88 88 88 
+`MMb.   mmMMmm ,pW"Wq.`7MMpdMAo.     `7Mb,od8 `7MM  .P"Ybmmm  MMpMMMb.mmMMmm     mmMMmm   MMpMMMb.  .gP"Ya `7Mb,od8 .gP"Ya      || || || 
+  `YMMNq. MM  6W'   `Wb MM   `Wb       MM' "'   MM :MI  I8    MM    MM  MM         MM     MM    MM ,M'   Yb  MM' "',M'   Yb     || || || 
+.     `MM MM  8M     M8 MM    M8       MM       MM  WmmmP"    MM    MM  MM         MM     MM    MM 8M""""""  MM    8M""""""     `' `' `' 
+Mb     dM MM  YA.   ,A9 MM   ,AP       MM       MM 8M         MM    MM  MM         MM     MM    MM YM.    ,  MM    YM.    ,     ,, ,, ,, 
+P"Ybmmd"  `Mbmo`Ybmd9'  MMbmmd'      .JMML.   .JMML.YMMMMMb .JMML  JMML.`Mbmo      `Mbmo.JMML  JMML.`Mbmmd'.JMML.   `Mbmmd'     db db db 
+                        MM                         6'     dP                                                                             
+                      .JMML.                       Ybmmmd'                                                                               
+
+Pattern Lab doesn't have any CSS requirements, which means you can write your styles however you want. Hooray!
+You can use Sass, Less, vanilla CSS, or some other crazy thing I haven't heard of yet.
+So please don't use these styles. They're just here to put together the demo, and nothing more.
+They're intentionally gray, boring, and crappy because you're supposed to do this stuff yourself.
+
+Atomic design is philosophically complimentary with these CSS approaches:
+
+* SMACSS by Jonathan Snook http://smacss.com/
+* OOCSS by Nicole Sullivan http://oocss.org/
+* BEM CSS Methology : http://bem.info/method/
+* CSS Guidelines by Harry Roberts : https://github.com/csswizardry/CSS-Guidelines
+
+So feel free to use any of these approaches. Or don't. It's totally up to you.
+
+*/
+
+/*------------------------------------*\
+    $TABLE OF CONTENTS 
+    based generally on Harry Roberts excellent CSS Guidelines https://github.com/csswizardry/CSS-Guidelines
+\*------------------------------------*/
+/**
+ * VARIABLES..............................Declarations of Sass variables 
+ * .....Colors
+ * .....Typography
+ * .....Layout
+ * .....Defaults
+ * .....Breakpoints
+ * MIXINS.................................Sass mixins 
+ * RESET..................................Set reset defaults
+ * GLOBAL CLASSES.........................Set reset defaults
+ * GLOBAL ELEMENTS........................Establish global styles
+ * .....Main
+ * .....Headings
+ * .....Text-related elements (p, blockquote, lists)
+ * .....Defaults
+ * .....Breakpoints
+ * TYPOGRAPHY------------------------------
+ * MEDIA------------------------------
+ * LAYOUT------------------------------
+ * NAVIGATION------------------------------
+ * TOC To Be Continued
+ */
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+$enable-flex: true;
+
+@import "scss/variables";
+@import "scss/settings.borders";
+@import "scss/settings.breakpoints";
+@import "scss/settings.colors";
+@import "scss/settings.spacing";
+@import "scss/settings.typography";
+
+
+/*------------------------------------*\
+    $TOOLS
+\*------------------------------------*/
+@import "scss/tools.mixins";
+
+// Utilities
+@import "scss/tools.mixins.breakpoints";
+@import "scss/tools.mixins.hide-text";
+@import "scss/tools.mixins.hover";
+@import "scss/tools.mixins.image";
+@import "scss/tools.mixins.label";
+@import "scss/tools.mixins.reset-filter";
+@import "scss/tools.mixins.resize";
+@import "scss/tools.mixins.responsive-visibility";
+@import "scss/tools.mixins.screen-reader";
+@import "scss/tools.mixins.size";
+@import "scss/tools.mixins.tab-focus";
+@import "scss/tools.mixins.reset-text";
+@import "scss/tools.mixins.text-emphasis";
+@import "scss/tools.mixins.text-truncate";
+
+// // Components
+@import "scss/tools.mixins.alert";
+@import "scss/tools.mixins.buttons";
+@import "scss/tools.mixins.pagination";
+@import "scss/tools.mixins.list-group";
+@import "scss/tools.mixins.nav-divider";
+@import "scss/tools.mixins.forms";
+@import "scss/tools.mixins.progress";
+@import "scss/tools.mixins.table-row";
+
+// // Skins
+@import "scss/tools.mixins.background-variant";
+@import "scss/tools.mixins.border-radius";
+@import "scss/tools.mixins.gradients";
+
+// // Layout
+@import "scss/tools.mixins.clearfix";
+@import "scss/tools.mixins.center-block";
+@import "scss/tools.mixins.navbar-align";
+@import "scss/tools.mixins.grid-framework";
+@import "scss/tools.mixins.grid";
+@import "scss/tools.mixins.pulls";
+
+
+/*------------------------------------*\
+    $GENERIC
+\*------------------------------------*/
+@import "scss/generic.normalize";
+@import "scss/generic.print";
+@import "scss/generic.reboot";
+
+
+/*------------------------------------*\
+    $ELEMENTS
+\*------------------------------------*/
+@import "scss/elements.forms";
+@import "scss/elements.code";
+@import "scss/elements.headings";
+@import "scss/elements.links";
+@import "scss/elements.lists";
+@import "scss/elements.media";
+@import "scss/elements.tables";
+@import "scss/elements.typography";
+
+
+/*------------------------------------*\
+    $OBJECTS
+\*------------------------------------*/
+//@import "scss/objects.global";
+@import "scss/objects.buttons";
+@import "scss/objects.forms";
+@import "scss/objects.grid";
+@import "scss/objects.images";
+@import "scss/objects.tables";
+@import "scss/objects.typography";
+
+// Simple Objects
+@import "scss/objects.animation";
+@import "scss/objects.icons";
+@import "scss/objects.close";
+@import "scss/objects.dropdown";
+@import "scss/objects.button-group";
+@import "scss/objects.input-group";
+@import "scss/objects.custom-forms";
+@import "scss/objects.nav";
+@import "scss/objects.navbar";
+@import "scss/objects.card";
+@import "scss/objects.breadcrumb";
+@import "scss/objects.pagination";
+@import "scss/objects.pager";
+@import "scss/objects.labels";
+@import "scss/objects.jumbotron";
+@import "scss/objects.alert";
+@import "scss/objects.progress";
+@import "scss/objects.media";
+@import "scss/objects.lists";
+@import "scss/objects.list-group";
+@import "scss/objects.text";
+@import "scss/objects.sections";
+
+// Objects w/ JavaScript
+@import "scss/objects.modal";
+@import "scss/objects.tooltip";
+@import "scss/objects.accordion";
+@import "scss/objects.popover";
+@import "scss/objects.carousel";
+@import "scss/objects.tabs";
+@import "scss/objects.responsive-embed";
+
+
+/*------------------------------------*\
+    $COMPONENTS
+\*------------------------------------*/
+@import "scss/components.layout";
+@import "scss/components.header";
+@import "scss/components.article";
+@import "scss/components.blocks";
+@import "scss/components.comments";
+@import "scss/components.main";
+@import "scss/components.footer";
+
+
+/*------------------------------------*\
+    $TRUMPS
+\*------------------------------------*/
+@import "scss/trumps.utilities";
+@import "scss/trumps.utilities-spacing";
+@import "scss/trumps.utilities-responsive";

@@ -1,0 +1,33 @@
+{
+	"title" : "Customer Care",
+	"bodyClass": "body",
+	"appName": "CSM",
+	"tabs-with-icons": [
+		{
+			"name": "Customer Support",
+			"icon": "search",
+            "class": "active"
+		},
+		{
+			"name": "New Consumer",
+			"icon": "user-plus",
+            "class": ""
+		},
+		{
+			"name": "Reports",
+			"icon": "line-chart",
+            "class": ""
+		},
+		{
+			"name": "Easy Serve",
+			"icon": "mobile",
+            "class": ""
+		},
+		{
+			"name": "Audit Trail",
+			"icon": "search",
+            "class": ""
+		}
+	],
+	"search": "Search by Customer Number or Phone Number"
+}

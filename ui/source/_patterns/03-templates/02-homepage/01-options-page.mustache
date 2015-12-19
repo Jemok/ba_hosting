@@ -1,0 +1,40 @@
+<div id="page" class="page new options">
+	{{> organisms-header }}
+
+	<main role="main">
+        <div class="container">
+            <h3 class="section-title">{{ options.title }}</h3>
+            <ul class="new-options__box">
+               {{# options.options }}
+                    <li class="new-option">
+                        <button type="button" class="new-option__link" data-toggle="modal" data-target="#exampleModal" data-whatever="{{ option-title }}">{{ option-title }}</button>
+                    </li>
+                {{/ options.options }}
+            </ul>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <header class="modal__header">
+                            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                        </header>
+                        <section class="modal__body">
+                            <!-- Content goes here -->
+                            {{> organisms-search-results-reports-filter }}
+                        </section>
+                        <footer class="modal__footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</main>
+
+    <nav class="search__navigation">
+        <div class="container">
+            {{> organisms-tabs-with-icons }}
+        </div>
+    </nav>
+</div>

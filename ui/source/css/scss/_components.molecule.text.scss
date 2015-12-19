@@ -1,0 +1,14 @@
+.section-title {
+    display: block;
+    margin: 40px 0 20px;
+}
+.section__header {
+    padding-bottom: 9px;
+    border-bottom: 1px solid #eeeeee;
+    margin: 40px 0 20px;
+
+    .section-title {
+        display: inline-block;
+        margin: 0;
+    }
+}

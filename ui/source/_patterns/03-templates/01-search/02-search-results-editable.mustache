@@ -1,0 +1,55 @@
+<div id="page" class="page search with-results">
+	{{> organisms-header-with-search }}
+
+	<main role="main" class="tab-content search__results">
+        <section role="tabpanel" class="tab-pane active" id="Account">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <section class="results">
+                            {{> organisms-search-results-editable }}
+                        </section>
+                    </div>
+                    <div class="col-lg-3">
+                        <form action="{{ url }}" method="post" class="form">
+                            <fieldset class="form-section">
+                                <header class="section__header">
+                                    <h4 class="section-title">Administration</h4>
+                                </header>
+                                <div class="section__content">
+                                    <div class="field-section">
+                                        <button class="btn">Reset Pin</button>
+                                    </div>
+                                    <div class="field-section">
+                                        <button class="btn">Reset Security Code</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-section">
+                                <header class="section__header">
+                                    <h4 class="section-title">System Status</h4>
+                                </header>
+                                <div class="section__content">
+                                    <div class="field-section">
+                                        <div class="radio is-successful">
+                                            <input class="form-control" id="radio1" name="radio" type="radio" class="radio" checked="checked">
+                                            <label class="form-control-label" for="radio1">Activated</label>
+                                        </div>
+                                        <div class="radio is-warned">
+                                            <input class="form-control" id="radio2" name="radio" type="radio" class="radio">
+                                            <label class="form-control-label" for="radio2">Blacklisted</label>
+                                        </div>
+                                        <div class="radio is-dangerous">
+                                            <input class="form-control" id="radio3" name="radio" type="radio" class="radio">
+                                            <label class="form-control-label" for="radio3">Deactivated</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+	</main>
+</div>

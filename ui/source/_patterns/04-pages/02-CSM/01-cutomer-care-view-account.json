@@ -1,0 +1,28 @@
+{
+	"title" : "Customer Care",
+	"bodyClass": "body",
+	"appName": "CSM",
+	"tabs": [
+		{
+			"name": "Account",
+			"class": "active"
+		},
+		{
+			"name": "Transactions",
+			"class": ""
+		},
+		{
+			"name": "USSD",
+			"class": ""
+		},
+		{
+			"name": "Dipek",
+			"class": ""
+		},
+		{
+			"name": "Reports",
+			"class": ""
+		}
+	],
+	"search": "+254799999932"
+}
