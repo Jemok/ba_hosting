@@ -40,8 +40,7 @@
                 @else
                 <li><a href="{{ url('/about') }}">About</a></li>
                 @endif
-                @endif
-                
+
                 @if(Request::path() == "auth/register")
                 <li class="active"><a href="">Get Started</a></li>
                 @else
