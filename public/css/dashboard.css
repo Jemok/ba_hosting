@@ -14986,9 +14986,9 @@ input {
 }
 .innoList .inno .inno-meta .inno-likes {
   float: right;
+  padding: 7px 14px;
   background: #f0f0f0;
   border-radius: 25px;
-  padding: 7px 14px;
 }
 @media (min-width: 1200px) {
   .innoList .inno {
@@ -15061,6 +15061,15 @@ input {
   }
 }
 
+.innoDetails .inno-meta {
+  font-size: 14px;
+  font-weight: bold;
+}
+.innoDetails .inno-meta .inno-divider {
+  color: #000;
+  opacity: .5;
+  margin: 0 15px;
+}
 .innoDetails .inno-summary {
   margin: 1em 0;
   font-weight: 300;

@@ -29,6 +29,9 @@
 		.inno-title {
 			font-size: $h4-size;
 		}
+        
+        .inno-summary {
+        }
 		.inno-meta {
 			color: #808080;
 			display: table;
@@ -53,9 +56,9 @@
 
 			.inno-likes {
 				float: right;
+				padding: $padding-reset/2 $padding-reset;
 				background: #f0f0f0;
 				border-radius: 25px;
-				padding: $padding-reset/2 $padding-reset;
 			}
 		}
 		@media (min-width: 1200px) {
@@ -123,6 +126,19 @@
 }
 
 .innoDetails {
+    .inno-meta {
+        font-size: $font-size-base;
+        font-weight: bold;
+        
+        .inno-divider {
+            color: #000;
+            opacity: .5;
+            margin: 0 15px;
+        }
+        
+        .inno-category {
+        }
+    }
 	.inno-summary {
 		@extend .lead;
 		margin: 1em 0;

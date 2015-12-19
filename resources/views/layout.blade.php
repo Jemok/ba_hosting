@@ -28,21 +28,19 @@
 
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-left">
-<!--
                 @if(Request::path() == "/" || Request::path() == "auth/login")
                 <li class="active"><a href="{{ url('/') }}">Home</a></li>
                 @else
                 <li><a href="{{ url('/') }}">Home</a></li>
                 @endif
--->
                 
                 @if(\Auth::guest())                
                 @if(Request::path() == "about")
                 <li class="active"><a href="{{ url('/about') }}">About</a></li>
                 @else
                 <li><a href="{{ url('/about') }}">About</a></li>
-                @endif                
-
+                @endif
+                @endif
                 
                 @if(Request::path() == "auth/register")
                 <li class="active"><a href="">Get Started</a></li>
@@ -60,6 +58,7 @@
                 <li class="active"><a href="{{ url('request/bongo/send') }}">For Experts</a></li>
                 @else
                 <li><a href="{{ url('request/bongo/send') }}">For Experts</a></li>
+                @endif               
                 @endif
                 @endif
 
