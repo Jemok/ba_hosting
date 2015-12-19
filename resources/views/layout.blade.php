@@ -5,8 +5,8 @@
     <title>Bongo Afrika</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/all.css') }}" rel="stylesheet">
+<!--    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">-->
+<!--    <link href="{{ asset('/css/all.css') }}" rel="stylesheet">-->
     <link rel="stylesheet" href="{{ asset('/css/dashboard.css') }}">
 
 
@@ -146,7 +146,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
 <script src="{{ asset('js/slick.js') }}"></script>
 <script src="{{ asset('js/dashboard.js') }}"></script>
 
