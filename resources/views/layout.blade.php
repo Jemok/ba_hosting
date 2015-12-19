@@ -28,18 +28,20 @@
 
         <div class="navbar-collapse collapse navbar-responsive-collapse" id="navbar-main">
             <ul class="nav navbar-nav navbar-left">
+<!--
                 @if(Request::path() == "/" || Request::path() == "auth/login")
                 <li class="active"><a href="{{ url('/') }}">Home</a></li>
                 @else
                 <li><a href="{{ url('/') }}">Home</a></li>
                 @endif
+-->
                 
-                @if(\Auth::guest())
+                @if(\Auth::guest())                
                 @if(Request::path() == "about")
                 <li class="active"><a href="{{ url('/about') }}">About</a></li>
                 @else
                 <li><a href="{{ url('/about') }}">About</a></li>
-                @endif
+                @endif                
                 @endif
                 
                 @if(Request::path() == "auth/register")
@@ -49,9 +51,15 @@
                 @endif
 
                 @if(Request::path() == "request/investor/send")
-                <li class="active"><a href="{{ url('request/investor/send') }}">Invite an Investor</a></li>
+                <li class="active"><a href="{{ url('request/investor/send') }}">For Investors</a></li>
                 @else
-                <li><a href="{{ url('request/investor/send') }}">Invite an Investor</a></li>
+                <li><a href="{{ url('request/investor/send') }}">For Investors</a></li>
+                @endif
+
+                @if(Request::path() == "request/bongo/send")
+                <li class="active"><a href="{{ url('request/bongo/send') }}">For Experts</a></li>
+                @else
+                <li><a href="{{ url('request/bongo/send') }}">For Experts</a></li>
                 @endif
 
 
@@ -126,12 +134,7 @@
                 @endif
                 <li><a href="{{ url('logout') }}">Logout</a></li>
                 @else
-
-                @if(Request::path() == "request/bongo/send")
-                <li class="active"><a href="{{ url('request/bongo/send') }}">Bongo Request</a></li>
-                @else
-                <li><a href="{{ url('request/bongo/send') }}">Bongo Request</a></li>
-                @endif
+                
                 @endif
             </ul>
         </div> <!-- end nav-collapse -->

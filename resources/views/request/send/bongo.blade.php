@@ -5,7 +5,7 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
             <div class="__content-block">
-                <h3 class="section__title">Become a Moderator</h3>
+                <h3 class="section__title">Are you an expert in your field?</h3>
                 <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
                 <p>Here's what you can do:</p>
                 <ol>
@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-    <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/moderator.jpg') }}')">
+    <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/expert.jpg') }}')">
         <div class="__content-block">
             <form method="post" action="{{ url('request/bongo/send') }}" class="form-signin">
 

@@ -1,8 +1,25 @@
+<div class="container">
+    @if(Session::has('flash_message'))
+
+    <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+        @if(Session::has('flash_message_important'))
+
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+        @endif
+
+        {{ session('flash_message') }}
+
+    </div>
+
+    @endif
+</div>
+
 <div class="col-lg-12">
     <div class="innoData-grid">
         <div class="innoData">
             <div class="innoData__title">Funding Available (Ksh.)</div>
-            <div class="innoData__content">71,000,500</div>
+            <div class="innoData__content">{{ \Auth::user()->investor_amount }}</div>
         </div>
         <div class="innoData">
             <div class="innoData__title">Funding Injected (Ksh.)</div>

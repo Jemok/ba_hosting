@@ -7,7 +7,7 @@
         <div class="contain-this">
             <div class="__content-block">
                 <h3 class="section__title">Why should you be part of this community?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
+                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.<a href="{{ url('about')}}">More</a></p>
             </div>
             <div class="__section with-columns">            
                 <div class="__content-block">
@@ -73,6 +73,3 @@
 <script>
     $('div.alert-message').not('.alert-important').delay(2000).slideUp(300);
 </script>
-
-
-

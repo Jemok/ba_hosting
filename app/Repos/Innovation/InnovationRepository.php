@@ -206,7 +206,6 @@ class InnovationRepository
         $innovation = Innovation::findOrFail($id);
 
 
-
         $fund = $innovation->fund()
             ->create([
                 'innovator_id' => $innovation->user_id,
@@ -219,6 +218,12 @@ class InnovationRepository
 
             'fundingStatus' => 1,
             'innovationFund' => ($innovation->innovationFund)-($fund->amount)
+
+        ]);
+
+        \Auth::user()->update([
+
+            'investor_amount' => (\Auth::user()->investor_amount) - ($fund->amount)
 
         ]);
     }
@@ -241,6 +246,12 @@ class InnovationRepository
 
             'fundingStatus' => 1,
             'innovationFund' => ($innovation->innovationFund)-($request->partialFund)
+
+        ]);
+
+        \Auth::user()->update([
+
+            'investor_amount' => (\Auth::user()->investor_amount) - ($request->partialFund)
 
         ]);
     }
@@ -267,6 +278,7 @@ class InnovationRepository
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
+            ->groupBy('investor_id')
             ->latest()
             ->paginate(2,['*'], 'investor');
 
