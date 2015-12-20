@@ -40,7 +40,7 @@ trait ResetsPasswords
 
                 Session::flash('flash_message', 'Reset Link was successfully sent to your email');
 
-                return redirect()->back()->with('status', trans($response));
+                return redirect()->back();
 
             case Password::INVALID_USER:
                 return redirect()->back()->withErrors(['email' => trans($response)]);
