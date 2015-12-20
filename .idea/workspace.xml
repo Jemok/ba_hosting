@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" afterPath="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -36,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResetsPasswords.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ResetsPasswords.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="88" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-9.333333" vertical-offset="504" max-vertical-offset="2610">
+            <state line="43" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.5625" vertical-offset="558" max-vertical-offset="2610">
               <folding>
                 <element signature="e#46#74#0" expanded="true" />
               </folding>
@@ -47,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="5459" selection-end="5459" vertical-scroll-proportion="0.17520216" vertical-offset="3229" max-vertical-offset="3672">
+            <state line="192" column="0" selection-start="5459" selection-end="5459" vertical-scroll-proportion="-9.740741" vertical-offset="3031" max-vertical-offset="3672">
               <folding />
             </state>
           </provider>
@@ -59,7 +58,7 @@
       <file leaf-file-name="reset.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/auth/reset.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="6" selection-start="398" selection-end="398" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1134">
+            <state line="15" column="6" selection-start="398" selection-end="398" vertical-scroll-proportion="-4.0" vertical-offset="162" max-vertical-offset="1134">
               <folding />
             </state>
           </provider>
@@ -132,8 +131,8 @@
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Auth/Passwords/PasswordBroker.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/reset.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/password.blade.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php" />
       </list>
     </option>
   </component>
@@ -747,26 +746,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="0" selection-start="5459" selection-end="5459" vertical-scroll-proportion="-9.740741" vertical-offset="3031" max-vertical-offset="3672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/reset.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="6" selection-start="398" selection-end="398" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1134">
+        <state line="15" column="6" selection-start="398" selection-end="398" vertical-scroll-proportion="-4.0" vertical-offset="162" max-vertical-offset="1134">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="88" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-9.333333" vertical-offset="504" max-vertical-offset="2610">
+        <state line="43" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.5625" vertical-offset="558" max-vertical-offset="2610">
           <folding>
             <element signature="e#46#74#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="5459" selection-end="5459" vertical-scroll-proportion="0.17520216" vertical-offset="3229" max-vertical-offset="3672">
-          <folding />
         </state>
       </provider>
     </entry>
