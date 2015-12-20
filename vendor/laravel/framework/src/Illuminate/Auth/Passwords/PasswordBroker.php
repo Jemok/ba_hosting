@@ -5,9 +5,10 @@ namespace Illuminate\Auth\Passwords;
 use Closure;
 use UnexpectedValueException;
 use Illuminate\Contracts\Auth\UserProvider;
-use Illuminate\Contracts\Mail\Mailer as MailerContract;
+//use Illuminate\Contracts\Mail\Mailer as MailerContract;
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Md\Mailers\AppMailer;
 
 class PasswordBroker implements PasswordBrokerContract
 {
@@ -57,11 +58,9 @@ class PasswordBroker implements PasswordBrokerContract
      */
     public function __construct(TokenRepositoryInterface $tokens,
                                 UserProvider $users,
-                                MailerContract $mailer,
                                 $emailView)
     {
         $this->users = $users;
-        $this->mailer = $mailer;
         $this->tokens = $tokens;
         $this->emailView = $emailView;
     }
@@ -107,15 +106,16 @@ class PasswordBroker implements PasswordBrokerContract
         // We will use the reminder view that was given to the broker to display the
         // password reminder e-mail. We'll pass a "token" variable into the views
         // so that it may be displayed for an user to click for password reset.
-        $view = $this->emailView;
+        //$view = $this->emailView;
 
-        return $this->mailer->send($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
+        AppMailer::sendEmailResetLink($user->email, $token);
+        /*return $this->mailer->send($view, compact('token', 'user'), function ($m) use ($user, $token, $callback) {
             $m->to($user->getEmailForPasswordReset());
 
             if (! is_null($callback)) {
                 call_user_func($callback, $m, $user, $token);
             }
-        });
+        });*/
     }
 
     /**

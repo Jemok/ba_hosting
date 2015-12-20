@@ -62,7 +62,12 @@
                     </label>
                 </div>
                 <button type="submit" class="cta cta__btn">Login</button>
+
+                <a href="{{ url('password/email') }}">Forgot Password?</a>
             </form>
+
+
+
         </div>
     </section>
 </div>

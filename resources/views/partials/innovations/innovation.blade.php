@@ -50,7 +50,7 @@
                         <h4 class="section__title">About this Innovator</h4>
                     </div>
                     <div class="col-md-9">
-                        <p>Facilisi. Etiam enim metus, luctus in adipiscing at, consectetur quis sapien. Duis imperdiet egestas ligula, quis hendrerit ipsum ullamcorper et. Phasellus id tristique orci. Proin consequat mi at felis scelerisque ullamcorper. Etiam tempus, felis vel eleifend porta, velit nunc mattis urna, at ullamcorper erat diam dignissim ante. Pellentesque justo risus.</p>
+                        <p>{{ $innovation->user->more_details }}</p>
                     </div>
                 </section>
                 @endif

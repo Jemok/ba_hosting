@@ -11,6 +11,7 @@ namespace Md\Mailers;
 
 
 use Illuminate\Support\Facades\Mail;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class AppMailer {
 
@@ -25,6 +26,16 @@ class AppMailer {
     protected $subject;
 
     protected $data = [];
+
+     protected static $from_reset = 'karokijames40@gmail.com';
+
+    protected static  $to_reset;
+
+    protected static  $view_reset;
+
+    protected static  $subject_reset;
+
+    protected static $data_reset = [];
 
     public function sendInvestorRegLinkEmail($investor_link, $investor_email)
     {
@@ -52,6 +63,19 @@ class AppMailer {
         $this->deliver();
     }
 
+    public static function  sendEmailResetLink($user_email, $token)
+    {
+        AppMailer::$to_reset = $user_email;
+
+        AppMailer::$view_reset = "emails.password";
+
+        AppMailer::$data_reset = compact('token');
+
+        AppMailer::$subject_reset = "Bongo Afrika Reset Your Password";
+
+        AppMailer::deliverReset();
+    }
+
     public function deliver()
     {
         Mail::send($this->view, $this->data, function($message){
@@ -59,6 +83,16 @@ class AppMailer {
             $message->from($this->from, 'Bongo Afrika Admin')
                 ->to($this->to)
                 ->subject($this->subject);
+        });
+    }
+
+    public static function deliverReset()
+    {
+        Mail::send(AppMailer::$view_reset, AppMailer::$data_reset, function($message){
+
+            $message->from(AppMailer::$from_reset, 'Bongo Afrika Admin')
+                ->to(AppMailer::$to_reset)
+                ->subject(AppMailer::$subject_reset);
         });
     }
 

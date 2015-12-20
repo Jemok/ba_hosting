@@ -47,7 +47,7 @@ class PasswordResetServiceProvider extends ServiceProvider
             // password e-mails, as well as validating that password reset process as an
             // aggregate service of sorts providing a convenient interface for resets.
             return new PasswordBroker(
-                $tokens, $users, $app['mailer'], $view
+                $tokens, $users, $view
             );
         });
     }
