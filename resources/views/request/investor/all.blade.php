@@ -37,7 +37,7 @@
                 </p>
                 
                 @if($request->request_status == 0)
-                <button type="submit">Send invitation</button>
+                <button type="submit" class="btn btn-primary">Send invitation</button>
                 @elseif($request->request_status == 1)
                 <p>Invitation sent </p>
                 @elseif($request->request_status == 2)
