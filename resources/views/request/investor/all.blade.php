@@ -25,7 +25,7 @@
             
             @if($request->request_status == 0)
             <form method="get" action="{{ url('request/bongo/send/'.$request->id) }}" class="card card-block request-card">
-            @if($request->request_status != 0) 
+            @elseif($request->request_status != 0) 
             <div class="card card-block request-card">
             @endif
 
@@ -46,7 +46,7 @@
                 
             @if($request->request_status == 0)
             </form>
-            @if($request->request_status != 0) 
+            @elseif($request->request_status != 0) 
             </div>
             @endif
 
