@@ -35,7 +35,7 @@
                     $(div).text(count).removeClass('hidden');
 
                     // if on messages.index - add alert class and update latest message
-                    $('#thread_list_' + thread_id).addClass('alert-info');
+                    $('#thread_list_' + thread_id).addClass('card-success');
                     $('#thread_list_' + thread_id + '_text').html(thread_plain_text);
                 }
             });
