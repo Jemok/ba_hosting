@@ -33,6 +33,7 @@ class UserTableSeeder extends Seeder
             'first_name' => 'Investor',
             'last_name'  => 'Investor',
             'email'=> 'investor@bongo.com',
+            'investor_finance' => 1,
             'investor_amount' => 1000000,
             'password' =>  bcrypt('123456'),
             'userCategory' => 2

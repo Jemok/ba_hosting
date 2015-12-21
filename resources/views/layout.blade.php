@@ -28,49 +28,19 @@
                 <section class="collapse navbar-toggleable-xs" id="navbar-main">
                     <ul class="nav navbar-nav navbar-left">
                         @if(\Auth::guest())                
-                            @if(Request::path() == "about")
-                            <li class="nav-item active">
-                            @else
-                            <li class="nav-item">
-                            @endif 
-                                <a class="nav-link" href="{{ url('/about') }}">About</a>
-                            </li>
 
-                            @if(Request::path() == "auth/register")
-                            <li class="nav-item active">
-                            @else
-                            <li class="nav-item">
-                            @endif
-                                <a class="nav-link" href="{{ url('auth/register') }}">Get Started</a>
-                            </li>
+                            @include('partials.layout.guest')
 
-                            @if(Request::path() == "request/investor/send")
-                            <li class="nav-item active">
-                            @else
-                            <li class="nav-item">
-                            @endif
-                                <a class="nav-link" href="{{ url('request/investor/send') }}">For Investors</a>
-                            </li>
-
-                            @if(Request::path() == "request/bongo/send")
-                            <li class="nav-item active">
-                            @else
-                            <li class="nav-item">
-                            @endif               
-                                <a class="nav-link" href="{{ url('request/bongo/send') }}">For Experts</a>
-                            </li>
                         @endif
 
 
                         @if(!\Auth::guest())
                             @if(\Auth::user()->isInvestor())
-                                @if(Request::path() == "innovations/open")
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="">Open Innovations</a>
+
+                                <li class="nav-item {{Request::path() == 'innovations/open' ? 'active' : ''}}">
+                                    <a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a>
                                 </li>
-                                @else
-                                <li class="nav-item"><a class="nav-link" href="{{ url('innovations/open') }}">Open Innovations</a></li>
-                                @endif
+
 
                                 @if(Request::path() == "innovations/funded")
                                 <li class="nav-item active">
