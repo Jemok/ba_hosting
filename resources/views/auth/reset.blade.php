@@ -31,26 +31,22 @@
     @endif
 
     <div class="form-field">
-        Email <br>
+        <label>Email</label>
         <input type="email" name="email" value="{{ old('email') }}">
     </div>
 
-    <div>
-        New Password <br>
+    <div class="form-field">
+        <label>New Password</label>
         <input type="password" name="password">
     </div>
 
-    <div>
-        Confirm Password <br>
+    <div class="form-field">
+        <label>Confirm Password</label>
         <input type="password" name="password_confirmation">
     </div>
 
-    <br>
-
     <div>
-        <button type="submit" class="cta cta__btn">
-            Reset Password
-        </button>
+        <button type="submit" class="cta cta__btn">Reset Password</button>
     </div>
 </form>
 </div>
