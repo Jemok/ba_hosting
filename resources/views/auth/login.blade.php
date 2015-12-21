@@ -56,18 +56,15 @@
                 </div>
                 {!! $errors->first('password', '<span class="help-block">:message</span>' ) !!}
 
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember"> Remember me
+                <div class="form_field">
+                    <label class="c-input c-checkbox">
+                        <input type="checkbox" value="remember">
+                        <span class="c-indicator"></span>
+                        Remember me | <a href="{{ url('password/email') }}">Forgot Password?</a>
                     </label>
                 </div>
                 <button type="submit" class="cta cta__btn">Login</button>
-
-                <a href="{{ url('password/email') }}">Forgot Password?</a>
             </form>
-
-
-
         </div>
     </section>
 </div>

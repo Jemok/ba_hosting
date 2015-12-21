@@ -12,13 +12,21 @@ input {
 	text-align: center;
 	
 	.form__heading {
+        font-size: 28px;
+        font-weight: normal;
 		margin-bottom: 15px;
 		margin-top: 0;
 	}
-	.checkbox, .radio {
-//		font-weight: normal;
-//        line-height: 1.5;
-//		margin-bottom: 15px;
+	.c-checkbox, .c-radio {
+        line-height: 20px;
+        color: inherit;
+		margin: 15px auto;
+        display: table;
+        
+        .c-indicator {
+            height: 20px;
+            width: 20px;
+        }
 	}
 	.form-control {
 //		position: relative;
@@ -37,9 +45,25 @@ input {
 //			border-radius: 3px;
 //		}
 	}
-    .form_field {
-        &:last-child {
-			margin-bottom: 25px;
+//    .form_field {
+//        &:last-child {
+//			margin-bottom: 25px;
+//        }
+//    }
+    .form-group {
+        display: flex;
+        flex-flow: row nowrap;
+        
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+        
+        .form_field {
+            flex: 1;
+            
+            &:not(:first-child) {
+                margin-left: -1px;
+            }
         }
     }
 }

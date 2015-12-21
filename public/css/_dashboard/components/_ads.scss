@@ -29,3 +29,13 @@
 .ad-h-250 {
 	height: 280px;
 }
+.ad-full-width {
+    object-fit: cover;
+    padding: 0;
+    
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+}
