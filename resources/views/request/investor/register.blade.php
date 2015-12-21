@@ -55,9 +55,7 @@
 
                 {!! $errors->first('userCategory', '<span class="help-block">:message</span>' ) !!}
 
-                <div class="form_field">
-                    <button type="submit" class="cta cta_btn">Register</button>
-                </div>
+                <button type="submit" class="cta cta_btn">Register</button>
             </form>
         </div>
     </section>

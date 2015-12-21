@@ -17,22 +17,7 @@
         </div>
     </section>
     <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/investor.jpg') }}')">
-        <div class="__content-block">
-           @if(Session::has('flash_message'))
-
-            <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-                @if(Session::has('flash_message_important'))
-
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                @endif
-
-                {{ session('flash_message') }}
-
-            </div>
-
-            @endif
-                       
+        <div class="__content-block">                       
             <form method="post" action="{{ url('investor/add-finance') }}" class="form-signin">
                 {!! CSRF_FIELD() !!}
 
@@ -43,9 +28,7 @@
                 </div>
                 {!! $errors->first('financial_amount', '<span class="help-block">:message</span>' ) !!}
 
-                <div class="form_field">
-                    <button type="submit" class="cta cta_btn">Set funding</button>
-                </div>
+                <button type="submit" class="cta cta_btn">Set funding</button>
             </form>
         </div>
     </section>
