@@ -22,22 +22,33 @@
         <h2 class="section__title">Investor requests</h2>
         <div class="card-columns">
             @foreach($requests as $request)
-
+            
+            @if($request->request_status == 0)
+            <form method="get" action="{{ url('request/bongo/send/'.$request->id) }}" class="card card-block request-card">
+            @if($request->request_status != 0) 
             <div class="card card-block request-card">
+            @endif
+
                 <h4 class="request__name">Lorem Ipsum</h4>
                 <p class="card-text">
                     <span class="request__company"><i class="ion-briefcase"></i> Company Name</span>
                     <span class="request__job-title"><i class="ion-pound"></i> Job title</span>
                     <span class="request__email"><i class="ion-at"></i> {{ $request->investor_email }}</span>
                 </p>
+                
                 @if($request->request_status == 0)
-                <a class="btn btn-primary" href="{{ url('request/bongo/send/'.$request->id) }}">Send link</a>
+                <button type="submit">Send invitation</button>
                 @elseif($request->request_status == 1)
-                <button class="btn btn-primary">Link sent </button>
+                <p>Invitation sent </p>
                 @elseif($request->request_status == 2)
-                <button class="btn btn-primary">Registered</button>
+                <p class="text-success">Registered</p>
                 @endif
+                
+            @if($request->request_status == 0)
+            </form>
+            @if($request->request_status != 0) 
             </div>
+            @endif
 
             @endforeach
         </div>
