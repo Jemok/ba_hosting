@@ -11,6 +11,8 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
+        \Md\Category::truncate();
+
         DB::table('categories')->insert([
 
             'categoryName' => 'Art',
