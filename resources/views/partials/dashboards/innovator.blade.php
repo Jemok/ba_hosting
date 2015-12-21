@@ -7,25 +7,23 @@
     });
 </script>
 
-<!--Alert for successfully submitted innovation -->
-<div class="col-lg-12">
+<div class="container">
 
-    <div class="container">
-        @if(Session::has('flash_message'))
+    <!--Alert for successfully submitted innovation -->
+    @if(Session::has('flash_message'))
 
-        <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-            @if(Session::has('flash_message_important'))
+    <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+        @if(Session::has('flash_message_important'))
 
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-            @endif
-
-            {{ session('flash_message') }}
-
-        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
         @endif
+
+        {{ session('flash_message') }}
+
     </div>
+
+    @endif
 
     <!-- This div has been left out to avoid repetition -->
     <!--<div class="step__feedback msg__box">
@@ -39,14 +37,9 @@
 
         @foreach ($errors->all() as $message)
 
-
         <li>{{ $message }}</li>
 
-
         @endforeach
-
-
-
     </div>
     @endif
 
@@ -110,9 +103,9 @@
             </footer>
         </div>
     </form>
-</div> <!-- end col-lg-9 -->
+</div> <!-- end container -->
 
-<div class="row innovation-pane">
+<div class="container-fluid">
     <div class="col-lg-12">
         <nav class="innoFilters">
             <button class="filter current" data-filter="*">Show all</button>
