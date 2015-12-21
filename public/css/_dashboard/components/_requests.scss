@@ -1,0 +1,28 @@
+.requests {
+    margin: 50px 0;
+    
+    .request-card {        
+        .request__name {
+            @extend .section__title;
+        }
+        .request__company {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .request__job-title {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .request__email {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+        .ion {
+            opacity: .25;
+            margin-right: 10px;
+        }
+    }
+}
