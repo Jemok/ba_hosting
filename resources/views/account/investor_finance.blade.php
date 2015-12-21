@@ -1,31 +1,53 @@
-<link rel="stylesheet" href="{{ asset('/css/dashboard.css') }}">
+@extends('......layout')
 
-
-<div class="container">
-    @if(Session::has('flash_message'))
-
-    <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-        @if(Session::has('flash_message_important'))
-
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-        @endif
-
-        {{ session('flash_message') }}
-
-    </div>
-
-    @endif
-</div>
-
-<div class="col-md-4 col-md-offset-3">
-    <form method="post" action="{{ url('investor/add-finance') }}">
-        {!! CSRF_FIELD() !!}
-        <div class="form_field {{ $errors->has('financial_amount') ? 'has-error' : ''}}" >
-            <label for="financial_amount">Amount</label>
-            <input type="text" name="financial_amount" value="{{ old('financial_amount') }}" class="form-control" placeholder="amount">
-            <button type="submit" class="btn btn-info">Fund</button>
+@section('content')
+<div class="__section with-columns equally-split fill-page without-moving">
+    <section class="__column __left h-centered">
+        <div class="contain-this">
+            <div class="__content-block">
+                <h3 class="section__title">Glad to have another investor onboard!</h3>
+                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
+                <p>Here's what you can do:</p>
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Aliquam tincidunt mauris eu risus.</li>
+                    <li>Vestibulum auctor dapibus neque.</li>
+                </ol>
+            </div>
         </div>
-        {!! $errors->first('financial_amount', '<span class="help-block">:message</span>' ) !!}
-    </form>
+    </section>
+    <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/investor.jpg') }}')">
+        <div class="__content-block">
+           @if(Session::has('flash_message'))
+
+            <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+                @if(Session::has('flash_message_important'))
+
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+                @endif
+
+                {{ session('flash_message') }}
+
+            </div>
+
+            @endif
+                       
+            <form method="post" action="{{ url('investor/add-finance') }}">
+                {!! CSRF_FIELD() !!}
+
+                <h3 class="form__heading">... One more thing!</h3>
+                <div class="form_field {{ $errors->has('financial_amount') ? 'has-error' : ''}}" >
+                    <label for="financial_amount">Amount</label>
+                    <input type="text" name="financial_amount" value="{{ old('financial_amount') }}" class="form-control" placeholder="amount">
+                </div>
+                {!! $errors->first('financial_amount', '<span class="help-block">:message</span>' ) !!}
+
+                <div class="form_field">
+                    <button type="submit" class="cta cta_btn">Set funding</button>
+                </div>
+            </form>
+        </div>
+    </section>
 </div>
+@stop
