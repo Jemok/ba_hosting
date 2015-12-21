@@ -1,0 +1,1 @@
+<a href="{{ url('messages/'.$innovation->id.'/create-investor/')}}"><button class="btn btn-info">+New chat with an investor</button></a>

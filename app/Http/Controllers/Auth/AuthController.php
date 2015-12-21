@@ -8,6 +8,7 @@ use Validator;
 use Md\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Md\Mailers\AppMailer;
 
 class AuthController extends Controller
 {
@@ -24,14 +25,18 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    protected $mailer;
+
     /**
      * Create a new authentication controller instance.
      *
      * @return \Md\Http\Controllers\Auth\AuthController
      */
-    public function __construct()
+    public function __construct(AppMailer $appMailer)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $this->mailer = $appMailer;
     }
 
     /**
@@ -85,17 +90,21 @@ class AuthController extends Controller
 
         if(Request::path() == "auth/register/investor")
         {
-            return User::create([
+             $user = User::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'userCategory' => 2
             ]);
+
+            //$this->mailer->sendConfirmEmailLink();
+
+            return $user;
         }
         elseif(Request::path() == "auth/register/innovator")
         {
-            return User::create([
+            $user = User::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
@@ -104,16 +113,26 @@ class AuthController extends Controller
                 'terms'   => $data['terms'],
                 'userCategory' => 1
             ]);
+
+            //$this->mailer->sendConfirmEmailLink($user);
+
+            return $user;
+
         }
         elseif(Request::path() == "auth/register/bongo-employee")
         {
-            return User::create([
+            $user = User::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'userCategory' => 3
             ]);
+
+            //$this->mailer->sendConfirmEmailLink($user);
+
+            return $user;
+
         }
     }
 }

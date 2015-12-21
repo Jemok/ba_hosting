@@ -76,7 +76,15 @@ class MessagesController extends Controller
         $users = User::where('userCategory', '=', 3)
             ->where('id', '!=', Auth::id())->get();
 
-        return view('messenger.create-expert', compact('users', 'innovation_id'));
+        return view('messenger.with_subject', compact('users', 'innovation_id'));
+    }
+
+    public function createInvestor($innovation_id)
+    {
+        $users = User::where('userCategory', '=', 2)
+            ->where('id', '!=', Auth::id())->get();
+
+        return view('messenger.with_subject', compact('users', 'innovation_id'));
     }
 
     /**
@@ -93,9 +101,9 @@ class MessagesController extends Controller
 
     public function createMother($innovation_id)
     {
-        $mother = User::where('id', '=', 1)->first();
+        $users = User::where('id', '=', 1)->get();
 
-        return view('messenger.create-mother', compact('mother', 'innovation_id'));
+        return view('messenger.with_subject', compact('users', 'innovation_id'));
     }
 
     /**

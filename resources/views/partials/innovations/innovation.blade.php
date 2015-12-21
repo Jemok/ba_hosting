@@ -57,177 +57,22 @@
 
                 <hr>
                 <section class="row">
-                    @if(\Auth::user()->userCategory == 2)
-                       
-                        @if($threads_count > 0)
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h4 class="text-center">Chats</h4>
-                                <div class="container">
-                                    @if (Session::has('error_message'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {!! Session::get('error_message') !!}
-                                    </div>
-                                    @endif
-                                    @if($threads->count() > 0)
-                                    @foreach($threads as $thread)
-                                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                                        <h6 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h6>
-                                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                                    </div>
-                                    @endforeach
-                                    @else
-                                    <p>Sorry, no chats here</p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        @else
-                        <div class="container">
-                            <h5>Start a chat with <h4 class="inno-innovator">by <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a></h4> about {{ $innovation->innovationTitle }} </h5>
-                            {!! Form::open(['route' => 'messages.store']) !!}
-                            <div class="col-md-6">
-                                <!-- Subject Form Input -->
-                                <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
-                                <div class="form-group">
-                                    <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
-                                    <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
-                                    <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
-                                </div>
+                    @if(\Auth::user()->isInvestor())
 
-                                <!-- Message Form Input -->
-                                <div class="form-group">
-                                    {!! Form::label('message', 'Your Message:', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-                                </div>
+                        @include('partials.messenger.investor')
 
-                                <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
+                    @elseif(\Auth::user()->isInnovator())
 
-                                <!-- Submit Form Input -->
-                                <div class="form-group">
-                                    {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-                                </div>
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-                        @endif
-                        
-                    @elseif(\Auth::user()->userCategory == 1)
-                        <header class="chat__head">
-                            <h4 class="section__title">Chats</h4>
-                            <div class="section__toolbox btn-group">
-                                <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}" class="btn btn-info">+ New chat with moderator</a>
-                                <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}" class="btn btn-info">+ New chat with expert</a>
-                            </div>
-                        </header>
-                        <div class="chat__box">
-                            @if (Session::has('error_message'))
-                            <div class="alert alert-danger" role="alert">
-                                {!! Session::get('error_message') !!}
-                            </div>
-                            @endif
-                            @if($threads->count() > 0)
-                            <div class="card-columns">
-                                @foreach($threads as $thread)
-                                <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                                <div id="thread_list_{{$thread->id}}" class="card card-block card-{!!$class!!}">
-                                    <h4 class="card__title">{!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                                    <p class="card__text" id="thread_list_{{$thread->id}}_text">{!! $thread->latestMessage->body !!}</p>
-                                    <p class="card__meta"><small class="text-muted">Sent to {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                                </div>
-                                @endforeach
-                            </div>
-                            @else
-                            <p>Sorry, no chats.</p>
-                            @endif
-                        </div>
+                        @include('partials.messenger.innovator')
 
-                    @elseif(\Auth::user()->userCategory == 4)
-                        @if($threads_count > 0)
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h4 class="text-center">Chats</h4>
-                                <div class="container">
-                                    @if (Session::has('error_message'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {!! Session::get('error_message') !!}
-                                    </div>
-                                    @endif
-                                    @if($threads->count() > 0)
-                                    @foreach($threads as $thread)
-                                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                                        <h6 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h6>
-                                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                                    </div>
-                                    @endforeach
-                                    @else
-                                    <p>Sorry, no chats from investors.</p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        @else
-                        <div class="container">
-                            <h5>Start a chat with <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a> about {{ $innovation->innovationTitle }} </h5>
-                            {!! Form::open(['route' => 'messages.store']) !!}
-                            <div class="col-md-6">
-                                <!-- Subject Form Input -->
-                                <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
-                                <div class="form-group">
-                                    <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
-                                    <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
-                                    <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
-                                </div>
+                    @elseif(\Auth::user()->isMother())
 
-                                <!-- Message Form Input -->
-                                <div class="form-group">
-                                    {!! Form::label('message', 'Your Message:', ['class' => 'control-label']) !!}
-                                    {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-                                </div>
+                        @include('partials.messenger.mother')
 
-                                <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
+                    @elseif(\Auth::user()->isAdmin())
 
-                                <!-- Submit Form Input -->
-                                <div class="form-group">
-                                    {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-                                </div>
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
-                        @endif
-                        
-                    @elseif(\Auth::user()->userCategory == 3)
-                        <a href="{{ url('messages/'.$innovation->id.'/create-mother/')}}"><button class="btn btn-info">+New chat with moderator</button></a>
-                        <a href="{{ url('messages/'.$innovation->id.'/create-expert/')}}"><button class="btn btn-info">+New chat with expert</button></a>
+                         @include('partials.messenger.expert')
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h4 class="text-center">Chats</h4>
-                                <div class="container">
-                                    @if (Session::has('error_message'))
-                                    <div class="alert alert-danger" role="alert">
-                                        {!! Session::get('error_message') !!}
-                                    </div>
-                                    @endif
-                                    @if($threads->count() > 0)
-                                    @foreach($threads as $thread)
-                                    <?php $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; ?>
-                                    <div id="thread_list_{{$thread->id}}" class="col-md-4 media alert {!!$class!!}">
-                                        <h4 class="media-heading">Reply to : {!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
-                                        <p id="thread_list_{{$thread->id}}_text">Message : {!! $thread->latestMessage->body !!}</p>
-                                        <p><small><strong>A chat with:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
-                                    </div>
-                                    @endforeach
-                                    @else
-                                    <p>Sorry, no chats.</p>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
                     @endif
                 </section>
             </footer>

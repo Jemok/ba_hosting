@@ -76,20 +76,6 @@ Route::group(['middleware' => 'auth'], function() {
 
     get('innovation/portfolio/{is}', 'InnovationController@getPortfolio');
 
-    get('innovations', function()
-    {
-        $query = Request::get('q');
-
-        $repo = App::make('Md\Repos\Innovation\InnovationRepository');
-
-        $innovations = $query
-
-            ? $repo->search($query)
-            : $repo->getAll();
-
-        return View('dashboards.innovator')->withInnovations($innovations);
-    });
-
     //Dashboard retrieval routes
     get('dashboard/innovator', [
         'as' => 'innovatorDashboard', 'uses' => 'DashboardController@innovator'
@@ -197,6 +183,7 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::get('{innovation_id}/create-expert', ['as' => 'messages.create-expert', 'uses' => 'MessagesController@createExpert']);
     Route::get('{innovation_id}/create-mother', ['as' => 'messages.create-mother', 'uses' => 'MessagesController@createMother']);
+    Route::get('{innovation_id}/create-investor', ['as' => 'messages.create-investor', 'uses' => 'MessagesController@createInvestor']);
     Route::get('{id}/read', ['as' => 'messages.read', 'uses' => 'MessagesController@read']);
     Route::get('unread', ['as' => 'messages.unread', 'uses' => 'MessagesController@unread']);
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);

@@ -122,4 +122,15 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsTo('Md\Bongo_request');
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($user){
+
+            $user->token = str_random(30);
+
+        });
+    }
 }

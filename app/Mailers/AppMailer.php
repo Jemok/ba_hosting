@@ -37,6 +37,11 @@ class AppMailer {
 
     protected static $data_reset = [];
 
+    public function sendConfirmEmailLink()
+    {
+
+    }
+
     public function sendInvestorRegLinkEmail($investor_link, $investor_email)
     {
         $this->to = $investor_email;
@@ -95,6 +100,8 @@ class AppMailer {
                 ->subject(AppMailer::$subject_reset);
         });
     }
+
+
 
 
 

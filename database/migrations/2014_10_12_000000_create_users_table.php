@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('more_details');
             $table->integer('terms');
             $table->integer('userCategory');
-            $table->boolean('verified')->default(0);
+            $table->boolean('verified')->default(false);
             $table->integer('investor_finance')->default(0);
             $table->integer('investor_amount');
             $table->string('token')->nullable();
