@@ -24,7 +24,7 @@
             
             @if($request->request_status == 0)
             <form method="get" action="{{ url('request/bongo-employee/send/'.$request->id) }}" class="card card-block request-card">
-            @if($request->request_status != 0) 
+            @elseif($request->request_status != 0) 
             <div class="card card-block request-card">
             @endif
                 <h4 class="request__name">Lorem Ipsum</h4>
@@ -43,7 +43,7 @@
                 @endif
             @if($request->request_status == 0)
             </form>
-            @if($request->request_status != 0) 
+            @elseif($request->request_status != 0) 
             </div>
             @endif
             
