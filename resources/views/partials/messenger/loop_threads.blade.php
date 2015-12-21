@@ -7,7 +7,7 @@
     @if($threads->count() > 0)
     <div class="card-columns">
         @foreach($threads as $thread)
-        <?php $class = $thread->isUnread($currentUserId) ? 'card-inverse card-success' : ''; ?>
+        <?php $class = $thread->isUnread($currentUserId) ? 'card-success' : ''; ?>
         <div id="thread_list_{{$thread->id}}" class="card card-block {!!$class !!}">
             <h4 class="card__title">{!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
             <p class="card__text" id="thread_list_{{$thread->id}}_text">{!! $thread->latestMessage->body !!}</p>
