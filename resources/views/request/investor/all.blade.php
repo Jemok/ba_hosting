@@ -41,7 +41,7 @@
                 @elseif($request->request_status == 1)
                 <p>Invitation sent </p>
                 @elseif($request->request_status == 2)
-                <p>Registered</p>
+                <p class="text-success">Registered</p>
                 @endif
                 
             @if($request->request_status == 0)
