@@ -33,13 +33,13 @@
 
             @endif
                        
-            <form method="post" action="{{ url('investor/add-finance') }}">
+            <form method="post" action="{{ url('investor/add-finance') }}" class="form-signin">
                 {!! CSRF_FIELD() !!}
 
                 <h3 class="form__heading">... One more thing!</h3>
                 <div class="form_field {{ $errors->has('financial_amount') ? 'has-error' : ''}}" >
-                    <label for="financial_amount">Amount</label>
-                    <input type="text" name="financial_amount" value="{{ old('financial_amount') }}" class="form-control" placeholder="amount">
+                    <label for="financial_amount" class="sr-only">Amount</label>
+                    <input type="text" name="financial_amount" value="{{ old('financial_amount') }}" class="form-control" placeholder="What amount would you like to invest?">
                 </div>
                 {!! $errors->first('financial_amount', '<span class="help-block">:message</span>' ) !!}
 
