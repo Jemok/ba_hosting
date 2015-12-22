@@ -40,7 +40,7 @@
 
                 <div class="form_field {{ $errors->has('email') ? 'has-error' : ''}}">
                     <label for="email" class="sr-only">Email address</label>
-                    <p name="email" class="form-control">{{ old('email') }}</p>
+                    <p name="email" class="form-control">{{ $email }}</p>
                 </div>
                 {!! $errors->first('email', '<span class="help-block">:message</span>' ) !!}
 

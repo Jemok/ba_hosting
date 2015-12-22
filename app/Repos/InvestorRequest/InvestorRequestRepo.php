@@ -93,4 +93,10 @@ class InvestorRequestRepo {
         return Investor_request::where('request_link', '=', $request_link)->first();
     }
 
+    public function getEmail($request_link)
+    {
+
+        return Investor_request::where('request_link', '=', $request_link)->first()->investor_email;
+    }
+
 } 
