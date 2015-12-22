@@ -25,6 +25,8 @@ class BongoRequestRequest extends Request
     {
         return [
             'bongo_email' => 'email|required|unique:bongo_requests',
+            'first_name'  => 'required',
+            'last_name'   => 'required',
             'company'     => 'required',
             'job_title'   => 'required',
             'field'       => 'required'

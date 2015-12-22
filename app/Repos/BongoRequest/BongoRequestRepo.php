@@ -18,6 +18,8 @@ class BongoRequestRepo {
         Bongo_request::create([
 
             'bongo_email' => $request->bongo_email,
+            'first_name'  => $request->first_name,
+            'last_name'   => $request->last_name,
             'company'     => $request->company,
             'job_title'   => $request->job_title,
             'field'       => $request->field,

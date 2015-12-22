@@ -62,13 +62,13 @@
                 {!! $errors->first('more_details', '<span class="help-block">:message</span>' ) !!}
 -->
 
-                <div class="form_field {{ $errors->has('name') ? 'has-error' : ''}}">
+                <div class="form_field {{ $errors->has('email') ? 'has-error' : ''}}">
                     <label for="email" class="sr-only">Email</label>
                     <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
                 </div>
                 {!! $errors->first('email', '<span class="help-block">:message</span>' ) !!}
 
-                <div class="form_field {{ $errors->has('name') ? 'has-error' : ''}}">
+                <div class="form_field {{ $errors->has('password') ? 'has-error' : ''}}">
                     <label for="password" class="sr-only">Password</label>
                     <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>

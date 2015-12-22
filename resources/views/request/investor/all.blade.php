@@ -19,7 +19,7 @@
     @endif
 
     <section class="requests">
-        <h2 class="section__title">Investor requests</h2>
+        <h2 class="section__title">Bongo Investor requests</h2>
         <div class="card-columns">
             @foreach($requests as $request)
             
