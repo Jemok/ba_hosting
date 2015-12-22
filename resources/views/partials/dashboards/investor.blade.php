@@ -13,9 +13,7 @@
     </div>
 
     @endif
-</div>
-
-<div class="col-lg-12">
+    
     <div class="innoData-grid">
         <div class="innoData">
             <div class="innoData__title">Funding Available (Ksh.)</div>
@@ -36,10 +34,8 @@
             <div class="innoData__content">153</div>
         </div>
     </div>
-</div> <!-- end col-lg-9 -->
 
-<div class="row innovation-pane">
-    <div class="col-lg-12">
+    <div class="row">
         <nav class="innoFilters">
             <button class="filter current" data-filter="*">Show all</button>
             <button class="filter" data-filter=".art">Art</button>
@@ -56,13 +52,13 @@
             <button class="filter" data-filter=".photography">Photography</button>
             <button class="filter" data-filter=".technology">Technology</button>
         </nav>
-    </div>
 
-    <div class="col-lg-9">
-        @include('partials.innovations.open')
-    </div>
+        <div class="col-lg-9">
+            @include('partials.innovations.open')
+        </div>
 
-    <aside class="col-lg-3">
-        @include('partials.innovations.funded')
-    </aside>
-</div>
+        <aside class="col-lg-3">
+            @include('partials.innovations.funded')
+        </aside>
+    </div>
+</div> <!-- end container -->

@@ -80,78 +80,109 @@
     </div>
 
     <aside class="col-lg-3">
-        <div class="innoData-list">
-            <div class="innoData">
-                <div class="innoData__title">Funding Needed</div>
-                <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
-                @if($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )
-
-                <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Partially funded</button></a>
-                <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Portfollio</button></a>
-
-                @if(\Auth::user()->userCategory == 2)
+        <!-- If funding exists notify investors -->
+        @if($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )
+        <div class="alert alert-info" role="alert">
+            This innovation has already began attracting funding from investors.<br><br>
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}">See who's invested so far</a>
+        </div>
+        @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+        <div class="alert alert-success" role="alert">
+            <h4>Funded</h4>
+            This innovation has been fully funded.<br><br>
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}">View funding history</a>
+        </div>
+        @endif
+        
+        <!-- If not show funding progress -->
+        @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+           
+            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success btn-block">View Innovation's Portfolio</button></a>
+            
+        @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )       
+            <div class="innoData-list">
+                <div class="innoData">
+                    <div class="innoData__title">Funding Still Expected</div>
+                    <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                </div>    
+            </div>        
+            @if(\Auth::user()->userCategory == 2)
+            <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">                    
+                {!! CSRF_FIELD() !!}            
                 <div class="innoData-list">
                     <div class="innoData">
                         <div class="innoData__title">Potential Funding Available</div>
                         <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
                     </div>
-                    <div class="innoData">
-                        <div class="innoData__title">Your Balance after funding this</div>
-                        <div class="innoData__content">
-                            Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}
+                    <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
+                        <label for="partialFund">Amount to invest in this project</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">Ksh.</div>
+                            <input type="text" name="partialFund" value="{{ $innovation->innovationFund }}" class="form-control" placeholder="amount">
+                            <div class="input-group-addon">.00</div>
                         </div>
                     </div>
+    <!--
+                    <div class="btn-group">
+                        <a href="{{url('innovation/fund/'.$innovation->id)}}" class="btn btn-primary btn-block">Fund fully</a>
+                        <button type="button" class="btn btn-block">Fund Partially</button>
+                    </div>
+    -->
+                    <div class="innoData">
+                        <div class="innoData__title">Your Balance after funding this</div>
+                        <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                    </div>
+                    {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
                 </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
+            </form>
+                
+<!--
                 <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
 
                 <br>or partially Fund this project
-
+-->
+            @endif            
+        @elseif($innovation->fundingStatus == 0 )
+            @if(\Auth::user()->userCategory == 2)
                 <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
                     {!! CSRF_FIELD() !!}
-
-                    <div class="form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
-                        <label for="partialFund">Amount</label>
-                        <input type="text" name="partialFund" value="{{ old('partialFund') }}" class="form-control" placeholder="amount">
-                        <button type="submit" class="cta cta_btn">Fund</button>
+                    <div class="innoData-list">
+                        <div class="innoData">
+                            <div class="innoData__title">Funding Needed</div>
+                            <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                        </div>
                     </div>
-                    {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
+                    <div class="innoData-list">
+                        <div class="innoData">
+                            <div class="innoData__title">Potential Funding Available</div>
+                            <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
+                        </div>
+                        <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
+                            <label for="partialFund">Amount to invest in this project</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">Ksh.</div>
+                                <input type="text" name="partialFund" value="{{ $innovation->innovationFund }}" class="form-control" placeholder="amount">
+                                <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+        <!--
+                        <div class="btn-group">
+                            <a href="{{url('innovation/fund/'.$innovation->id)}}" class="btn btn-primary btn-block">Fund fully</a>
+                            <button type="button" class="btn btn-block">Fund Partially</button>
+                        </div>
+        -->
+                        <div class="innoData">
+                            <div class="innoData__title">Your Balance after funding this</div>
+                            <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                        </div>
+                        {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
                 </form>
-                @endif
-                @endif
-                @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
-                <button class="btn btn-success">Fully funded</button>
-                <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success">Portfollio</button></a>
-                @endif
-            </div>
-        </div>
-
-        @if(\Auth::user()->userCategory == 2)
-        @if($innovation->fundingStatus == 0 )
-
-        <div class="innoData-list">
-            <div class="innoData">
-                <div class="innoData__title">Potential Funding Available</div>
-                <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
-            </div>
-            <div class="innoData">
-                <div class="innoData__title">Your Balance after funding this</div>
-                <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
-            </div>
-        </div>
-        <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
-
-        <br>or partially Fund this project
-
-        <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
-            {!! CSRF_FIELD() !!}
-            <div class="form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
-                <label for="partialFund">Amount</label>
-                <input type="text" name="partialFund" value="{{ old('partialFund') }}" class="form-control" placeholder="amount">
-                <button type="submit" class="cta cta_btn">Fund</button>
-            </div>
-            {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
-        </form>
-        @endif
+            @endif
         @endif
     </aside>
 </div>

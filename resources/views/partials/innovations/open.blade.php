@@ -26,7 +26,6 @@
             </section>
             <footer class="inno-meta">
                 <span class="inno-category">{{ $innovation->category->categoryName }}</span>
-                <div class="inno-likes">0</div>
             </footer>
         </article>
 

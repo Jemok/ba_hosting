@@ -1,0 +1,67 @@
+.mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset {
+    :after, :before {
+        color: inherit !important;
+    }
+}
+.mce-panel {
+    background-color: transparent !important;
+    border: none !important;
+    
+    .mce-stack-layout-item {
+        .mce-stack-layout {}
+    }
+    
+    .mce-flow-layout {
+        .mce-flow-layout-item {
+            margin: 0 2px 0 0 !important;
+        }
+    }
+    .mce-menubar {
+        border: none !important;
+        margin-bottom: 5px !important;
+        
+        .mce-menubtn {
+            .button {
+                color: darkgray !important;
+                font-family: inherit !important;
+            }
+        }
+    }
+    .mce-toolbar {
+    }
+    .mce-toolbar-grp {
+        .mce-flow-layout-item {
+            margin: 0 !important;
+        }
+    }
+    .mce-ico {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: inherit;
+    }
+    .mce-caret {
+        border-top-color: darkgray !important;
+    }
+    .mce-btn {
+        border-radius: 2px !important;
+        background-color: transparent !important;
+        
+        button {
+            color: darkgray !important;
+        }
+    }
+    .mce-btn-group {        
+        &:not(:first-child) {
+            margin-left: 20px !important;
+            border: none !important;
+        }
+    }
+    .mce-statusbar, .mce-menubar {
+        display: none !important;
+    }
+    .mce-edit-area {
+        border: 1px solid $gray-lighter;
+    }
+}

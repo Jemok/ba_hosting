@@ -1,8 +1,8 @@
 @extends('layout')
+
 @section('content')
 
-
-<div class="col-lg-12">
+<div class="container">
     <nav class="innoFilters">
         <button class="filter current" data-filter="*">Show all</button>
         @if($categories->count())
@@ -13,9 +13,7 @@
 
         @endif
     </nav>
-</div>
-
-<div class="col-lg-9">
+    
     @if($innovations->count())
 
     <section class="innoList innoGrid">
@@ -34,31 +32,23 @@
                 @if(\Auth::user()->id == $innovation->user_id)
 
                 @else
-                <p class="inno-innovator">Posted by: {{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</p>
+                <p class="inno-innovator">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</p>
                 @endif
             </header>
-            <p class="inno-summary">
+            <div class="inno-summary">
                 {!! $innovation->innovationDescription !!}
-            </p>
+            </div>
+            <span>Ksh. {{ $innovation->innovationFund }}</span>
             <footer class="inno-meta">
-
-                <div class="inno-category">Category:{{ $innovation->category->categoryName }}</div>
-
-                <br>
-                <div class="inno-category">
-                    Amount Needed : {{ $innovation->innovationFund }}<br>
-
-                    Amount for:{{ $innovation->justifyFund }}<br>
-                </div>
-                <div class="inno-likes">756</div>
+                <div class="inno-category">{{ $innovation->category->categoryName }}</div>
+                @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+                <div class="inno-funding funded">Fully funded</div>
+                @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0)
+                <div class="inno-funding partial">Partially funded</div>
+                @else
+                <div class="inno-funding">Open</div>
+                @endif
             </footer>
-            @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
-            <div class="inno-likes">Status:Fully funded</div>
-            @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0)
-            <div class="inno-likes">Status:Partially funded</div>
-            @else
-            <div class="inno-likes">Status:Open</div>
-            @endif
         </article>
 
         @endforeach

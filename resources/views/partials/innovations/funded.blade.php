@@ -22,7 +22,6 @@
             </header>
             <footer class="inno-meta">
                 <div class="inno-category">{{ $funded->category->categoryName}}</div>
-                <div class="inno-innovator"></div>
             </footer>
         </article>
 
@@ -30,7 +29,7 @@
     </section>
     {!! $fundedProjects->render() !!}
     @else
-    <h4>No funded projects</h4>
+    <p>Unfortunately none of your projects has been funded so far</p>
     @endif
     @else
 

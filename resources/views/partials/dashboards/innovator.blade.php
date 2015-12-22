@@ -1,9 +1,10 @@
 <script type="text/javascript" src="{{ asset('js/tinymce/tinymce.min.js') }}"></script>
 <script type="text/javascript">
     tinymce.init({
-        selector : "textarea.yes",
-        plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
-        toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link ",
+        selector : ".with-wysiwyg",
+//        plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
+//        toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link ",
+        toolbar : "insertfile undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link ",
     });
 </script>
 
@@ -42,61 +43,80 @@
         @endforeach
     </div>
     @endif
-
+        
     <form class="innoNew" action="{{ url('create/innovation') }}" method="post">
 
         {!! csrf_field() !!}
+        
         <header class="innoDetails__header">
             <input type="text" name="innovationTitle" placeholder="Your innovation title" class="inno-title" value="{{ old('innovationTitle') }}">
-            <button type="button" class="cta cta__btn cta__create">Create</button>
+            <button type="button" class="cta cta__btn cta__create">
+            @if (count($errors) > 0)
+                Edit Innovation
+            @else
+                Create
+            @endif
+            </button>
         </header>
 
         <div class="step__2">
             <section class="innoDetails__content">
-                <!--<textarea class="inno-summary" name="innovationDescription" rows="5" placeholder="Tell us about your something about that idea...">//{{ old('innovationDescription') }}</textarea>-->
-                <textarea class="yes" name="innovationDescription"></textarea>
+                <fieldset name="personal" class="form__cluster">
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label>Short Summary</label>
+                            <textarea class="form-control" name="innovationShortDescription" placeholder="In one paragraph tell us, what's this innovation about?"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label>Detailed Summary</label>
+                            <div class="form-control">
+                                <!--<textarea class="inno-summary" name="innovationDescription" rows="5" placeholder="Tell us about your something about that idea...">//{{ old('innovationDescription') }}</textarea>-->
+                                <textarea class="with-wysiwyg" name="innovationDescription">Tell us more about your innovation</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label>Field</label>
+                            <select name="innovationCategory" class="form-control">
+                                <option value="{{ old('innovationTitle') }}" disabled selected>Uncategorized</option>
+
+                                @if($categories->count())
+                                    @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
+                                    @endforeach
+                                @else
+                                    <option value="" disabled selected>No listed categories here</option>
+                                @endif
+                            </select>
+                        </div>
+                        <div class="form__field">
+                            <label>Trademark Name(if any)</label>
+                            <input type="name" name="tradeMarkName" placeholder="Trademark Name" value="{{ old('tradeMarkName') }}" class="form-control">
+                        </div>
+                        <div class="form__field">
+                            <label>Trademark Registration Number(if any)</label>
+                            <input type="name" name="tradeMarkNumber" placeholder="Registration Number" value="{{ old('tradeMarkNumber') }}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label for="">How much do you need?</label>
+                            <input type="name" name="innovationFund" placeholder="Ksh. 1,000,000" class="form-control" value="{{ old('innovationFund') }}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label>What's the funding for?</label>
+                            <textarea class="form-control" name="justifyFund" rows="5" placeholder="Whats the money for?">{{ old('justifyFund') }}</textarea>
+                        </div>
+                    </div>
+                </fieldset>
             </section>
+            
             <footer class="innoDetails__footer">
-                <div class="pull-left">
-                    Filed under
-                    <select name="innovationCategory" class="inno-category">
-
-                        <option value="{{ old('innovationTitle') }}" disabled selected>Uncategorized</option>
-
-                        @if($categories->count())
-
-                        @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
-                        @endforeach
-
-                        @else
-
-                        <option value="" disabled selected>No listed categories here</option>
-
-                        @endif
-
-
-                    </select>
-                </div>
-                <div class="pull-right">
-                    <a href="#" class="cta cta__prev cta__link">&larr; Back</a>
-                    <button type="button" class="cta cta__next cta__btn">Step 3 of 3: Enter funding details</button>
-                </div>
-            </footer>
-        </div>
-
-        <div class="step__3">
-            <footer class="innoDetails__footer">
-                <div class="pull-left">
-                    <input type="name" name="innovationFund" placeholder="Ksh. 1,000,000" value="{{ old('innovationFund') }}">
-                </div>
-                <div>
-                    <textarea class="inno-summary" name="justifyFund" rows="5" placeholder="Whats the money for?">{{ old('justifyFund') }}</textarea>
-                </div>
-                <div>
-                    <input type="name" name="tradeMarkName" placeholder="Trademark Name" value="{{ old('tradeMarkName') }}">
-                    <input type="name" name="tradeMarkNumber" placeholder="Registration Number" value="{{ old('tradeMarkNumber') }}">
-                </div>
                 <div class="pull-right">
                     <button type="submit" class="cta cta__btn cta__publish">Publish</button>
                 </div>
@@ -105,27 +125,27 @@
     </form>
 </div> <!-- end container -->
 
-<div class="container-fluid">
-    <div class="col-lg-12">
-        <nav class="innoFilters">
-            <button class="filter current" data-filter="*">Show all</button>
-            @if($categories->count())
+<div class="container">
+    <nav class="innoFilters">
+        <button class="filter current" data-filter="*">Show all</button>
+        @if($categories->count())
 
-            @foreach($categories as $category)
-            <button class="filter" data-filter=".{{ $category->categoryName }}">{{ $category->categoryName }}</button>
-            @endforeach
+        @foreach($categories as $category)
+        <button class="filter" data-filter=".{{ $category->categoryName }}">{{ $category->categoryName }}</button>
+        @endforeach
 
-            @endif
-        </nav>
-    </div>
+        @endif
+    </nav>
+    
+    <section class="row">
+        <div class="col-lg-9">
+            @include('partials.innovations.open')
+        </div>
 
-    <div class="col-lg-9">
-        @include('partials.innovations.open')
-    </div>
-
-    <aside class="col-lg-3">
-        @include('partials.innovations.funded')
-    </aside>
+        <aside class="col-lg-3">
+            @include('partials.innovations.funded')
+        </aside>
+    </section>
 </div>
 
 <script src="{{ asset('js/jquery.min.js') }}"></script>
