@@ -39,17 +39,19 @@
                 {!! csrf_field() !!}
 
                 <h3 class="form__heading">Let's get started!</h3>
+                {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
+                {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
                 <div class="form-group">
                     <div class="form_field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
                         <label for="first_name" class="sr-only">Name</label>
                         <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
                     </div>
-                    {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
+
                     <div class="form_field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
                         <label for="last_name" class="sr-only">Name</label>
                         <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name">
                     </div>
-                    {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
+
                 </div>
 <!--
                 <div class="form_field {{ $errors->has('more_details') ? 'has-error' : ''}}" >
