@@ -10,6 +10,8 @@ namespace Md\Repos\InvestorRequest;
 
 use Md\Investor_request;
 
+use Carbon\Carbon;
+
 class InvestorRequestRepo {
 
 
@@ -63,12 +65,21 @@ class InvestorRequestRepo {
         }
         else
         {
-            Investor_request::where('request_link', '=', $request_link)
-                ->first()
-                ->update([
+            $request = Investor_request::where('request_link', '=', $request_link)
+                ->first();
+
+
+            $created = new Carbon($request->created_at);
+            $now = Carbon::now();
+            $difference = ($created->diff($now)->days > 7)
+                ? $request->update([
 
                     'request_status' => 2
-                ]);
+                ])
+                :$request->update([
+
+                    'request_status' => 1
+                ]) ;
 
 
             if($request = Investor_request::where('request_link', '=', $request_link)->first()){

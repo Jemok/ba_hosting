@@ -9,7 +9,7 @@
 namespace Md\Repos\BongoRequest;
 
 use Md\Bongo_request;
-
+use Carbon\Carbon;
 
 class BongoRequestRepo {
 
@@ -63,12 +63,21 @@ class BongoRequestRepo {
         }
         else
         {
-            Bongo_request::where('request_link', '=', $request_link)
-                ->first()
-                ->update([
+            $request = Bongo_request::where('request_link', '=', $request_link)
+                ->first();
+
+            $created = new Carbon($request->created_at);
+            $now = Carbon::now();
+            $difference = ($created->diff($now)->days > 7)
+                ? $request->update([
 
                     'request_status' => 2
-                ]);
+                ])
+                :$request->update([
+
+                    'request_status' => 1
+                ]) ;
+
 
             if($request = Bongo_request::where('request_link', '=', $request_link)->first()){
 
