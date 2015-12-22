@@ -20,9 +20,21 @@
             width: 100%;
             margin-bottom: 5px;
         }
-        .ion {
-            opacity: .25;
-            margin-right: 10px;
+        .request__details {
+            .ion {
+                opacity: .25;
+                margin-right: 10px;
+            }
+        }
+        .btn {
+            .ion {
+                margin-right: 10px;
+            }
+        }
+        .request__status {
+            .ion {
+                float: right;
+            }
         }
     }
 }

@@ -30,18 +30,18 @@
             @endif
 
                 <h4 class="request__name">Lorem Ipsum</h4>
-                <p class="card-text">
+                <p class="request__details">
                     <span class="request__company"><i class="ion-briefcase"></i> Company Name</span>
                     <span class="request__job-title"><i class="ion-pound"></i> Job title</span>
                     <span class="request__email"><i class="ion-at"></i> {{ $request->investor_email }}</span>
                 </p>
                 
                 @if($request->request_status == 0)
-                <button type="submit" class="btn btn-primary">Send invitation</button>
+                <button type="submit" class="btn btn-primary"><i class="ion-paper-airplane"></i> Send invitation</button>
                 @elseif($request->request_status == 1)
-                <p>Invitation sent </p>
+                <div class="request__status text-info">Invitation sent </div>
                 @elseif($request->request_status == 2)
-                <p class="text-success">Registered</p>
+                <div class="request__status text-success">Registered <i class="ion-checkmark-round"></i></div>
                 @endif
                 
             @if($request->request_status == 0)
