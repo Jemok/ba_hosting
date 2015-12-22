@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repos/BongoRequest/BongoRequestRepo.php" afterPath="$PROJECT_DIR$/app/Repos/BongoRequest/BongoRequestRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Bongo_request.php" afterPath="$PROJECT_DIR$/app/Bongo_request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/investor/all.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/investor/all.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/_dashboard/objects/_rotating-card.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/_dashboard/_5_objects.scss" afterPath="$PROJECT_DIR$/public/css/_dashboard/_5_objects.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/_dashboard/objects/_forms.scss" afterPath="$PROJECT_DIR$/public/css/_dashboard/objects/_forms.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/dashboard.css" afterPath="$PROJECT_DIR$/public/css/dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -44,19 +39,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="register.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="36" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-0.6666667" vertical-offset="666" max-vertical-offset="1854">
+            <state line="195" column="50" selection-start="11582" selection-end="11582" vertical-scroll-proportion="0.613941" vertical-offset="3281" max-vertical-offset="3726">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="31" selection-start="3487" selection-end="3487" vertical-scroll-proportion="0.6888519" vertical-offset="1404" max-vertical-offset="2484">
+            <state line="100" column="22" selection-start="3282" selection-end="3282" vertical-scroll-proportion="-10.666667" vertical-offset="1404" max-vertical-offset="2484">
               <folding />
             </state>
           </provider>
@@ -138,8 +133,8 @@
         <option value="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/investor/all.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
       </list>
     </option>
   </component>
@@ -388,7 +383,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32824427" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -754,16 +749,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="36" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-0.6666667" vertical-offset="666" max-vertical-offset="1854">
+        <state line="100" column="22" selection-start="3282" selection-end="3282" vertical-scroll-proportion="-10.666667" vertical-offset="1404" max-vertical-offset="2484">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="31" selection-start="3487" selection-end="3487" vertical-scroll-proportion="0.6888519" vertical-offset="1404" max-vertical-offset="2484">
+        <state line="195" column="50" selection-start="11582" selection-end="11582" vertical-scroll-proportion="0.613941" vertical-offset="3281" max-vertical-offset="3726">
           <folding />
         </state>
       </provider>
