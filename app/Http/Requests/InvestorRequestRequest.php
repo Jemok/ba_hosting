@@ -25,7 +25,9 @@ class InvestorRequestRequest extends Request
     {
         return [
 
-            'investor_email' => 'email|required|unique:investor_requests'
+            'investor_email' => 'email|required|unique:investor_requests',
+            'company'        => 'required',
+            'job_title'      => 'required'
         ];
     }
 }

@@ -20,5 +20,7 @@ class Investor_request extends Model
         'investor_email',
         'request_status',
         'request_link',
+        'job_title',
+        'company'
     ];
 }
