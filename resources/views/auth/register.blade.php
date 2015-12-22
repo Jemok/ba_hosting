@@ -62,7 +62,6 @@
 
             <form method="POST" action="{{ url('auth/register/innovator') }}" class="form-signin">
                 {!! csrf_field() !!}
-                
                 <div class="r-card-container manual-flip">
                     <div class="r-card">
                         <div class="front">

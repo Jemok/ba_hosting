@@ -18,7 +18,7 @@
     @endif
 
     <section class="requests">
-        <h2 class="section__title">Bongo employee requests</h2>
+        <h2 class="section__title">Bongo Expert requests</h2>
         <div class="card-columns">
             @foreach($requests as $request)
             
@@ -27,7 +27,7 @@
             @elseif($request->request_status != 0) 
             <div class="card card-block request-card">
             @endif
-                <h4 class="request__name">Lorem Ipsum</h4>
+                <h4 class="request__name">{{ $request->first_name }} {{ $request->last_name }}</h4>
                 <p class="request__details">
                     <span class="request__company"><i class="ion-briefcase"></i>{{ $request->company }}</span>
                     <span class="request__job-title"><i class="ion-pound"></i>{{ $request->job_title }}</span>

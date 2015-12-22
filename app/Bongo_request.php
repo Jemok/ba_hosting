@@ -18,6 +18,8 @@ class Bongo_request extends Model
      */
     protected $fillable = [
         'bongo_email',
+        'first_name',
+        'last_name',
         'request_status',
         'request_link',
         'company',

@@ -15,6 +15,8 @@ class CreateBongoRequestsMigrationTable extends Migration
         Schema::create('bongo_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('bongo_email')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('company');
             $table->string('job_title');
             $table->string('field');

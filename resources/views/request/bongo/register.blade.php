@@ -23,19 +23,17 @@
 
                 <h5 class="form__heading">Register as a Bongo Expert</h5>
                 <fieldset class="form__cluster">
-                    <div class="form-group">    
+                    <div class="form-group">
                         <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
                             <label for="first_name" class="sr-only">Name</label>
                             {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
-                            <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="first name">
+                            <input type="text" name="first_name" value="{{ $confirm->first_name }}" class="form-control" placeholder="first name">
                         </div>
-                    </div>
 
-                    <div class="form-group">
                         <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
                             <label for="last_name" class="sr-only">Name</label>
                             {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
-                            <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="last name">
+                            <input type="text" name="last_name" value="{{ $confirm->last_name }}" class="form-control" placeholder="last name">
                         </div>
                     </div>
 
@@ -60,6 +58,7 @@
                             <div name="field" class="form-control">{{ $confirm->field }}</div>
                         </div>
                     </div>
+
 
                     <div class="form-group">
                         <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}">
