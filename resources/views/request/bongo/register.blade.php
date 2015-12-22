@@ -1,66 +1,94 @@
 @extends('......layout')
 
-
 @section('content')
-<form method="POST" action="{{ url('auth/register/bongo-employee') }}" class="form-signin">
-
-    {!! csrf_field() !!}
-
-    <h5 class="form__heading">Register as a Bongo Expert</h5>
-
-    <div class="form-group">
-        <div class="form_field {{ $errors->has('company') ? 'has-error' : ''}}" >
-            <label for="company" class="sr-only">Company</label>
-            <div name="company" class="form-control">{{ $confirm->company }}</div>
+<div class="__section with-columns equally-split fill-page without-moving">
+    <section class="__column __left h-centered">
+        <div class="contain-this">
+            <div class="__content-block">
+                <h3 class="section__title">Are you an expert in your field?</h3>
+                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
+                <p>Here's what you can do:</p>
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+                    <li>Aliquam tincidunt mauris eu risus.</li>
+                    <li>Vestibulum auctor dapibus neque.</li>
+                </ol>
+            </div>
         </div>
-        {!! $errors->first('company', '<span class="help-block">:message</span>' ) !!}
+    </section>
+    <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/expert.jpg') }}')">
+        <div class="__content-block">
+            <form method="POST" action="{{ url('auth/register/bongo-employee') }}" class="form-signin">
+                {!! csrf_field() !!}
 
-        <div class="form_field {{ $errors->has('field') ? 'has-error' : ''}}" >
-            <label for="field" class="sr-only">Field</label>
-            <div name="field" class="form-control">{{ $confirm->field }}</div>
+                <h5 class="form__heading">Register as a Bongo Expert</h5>
+                <fieldset class="form__cluster">
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
+                            <label for="first_name" class="sr-only">Name</label>
+                            {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="first_name" value="{{ $confirm->first_name }}" class="form-control" placeholder="first name">
+                        </div>
+
+                        <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                            <label for="last_name" class="sr-only">Name</label>
+                            {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="last_name" value="{{ $confirm->last_name }}" class="form-control" placeholder="last name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('company') ? 'has-error' : ''}}" >
+                            <label for="company" class="sr-only">Company</label>
+                            {!! $errors->first('company', '<label class="help-block">:message</label>' ) !!}
+                            <div name="company" class="form-control">{{ $confirm->company }}</div>
+                        </div>
+
+                        <div class="form__field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
+                            <label for="job_title" class="sr-only">Job Title</label>
+                            {!! $errors->first('job_title', '<label class="help-block">:message</label>' ) !!}
+                            <div name="job_title" class="form-control">{{ $confirm->job_title }}</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('field') ? 'has-error' : ''}}" >
+                            <label for="field" class="sr-only">Field</label>
+                            {!! $errors->first('field', '<label class="help-block">:message</label>' ) !!}
+                            <div name="field" class="form-control">{{ $confirm->field }}</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}">
+                            <label for="email" class="sr-only">Email</label>
+                            {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                            <input type="email" name="email" value="{{ $confirm->bongo_email }}" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('password') ? 'has-error' : ''}}">
+                            <label for="password" class="sr-only">Password</label>
+                            {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}
+                            <input type="password" name="password" class="form-control" placeholder="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form__field">
+                            <label for="password" class="sr-only">Confirm Password</label>
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <footer class="form__footer">
+                    <button type="submit" class="cta cta_btn">Register</button>
+                </footer>
+            </form>
         </div>
-        {!! $errors->first('field', '<span class="help-block">:message</span>' ) !!}
-
-        <div class="form_field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
-            <label for="job_title" class="sr-only">Job Title</label>
-            <div name="job_title" class="form-control">{{ $confirm->job_title }}</div>
-        </div>
-        {!! $errors->first('job_title', '<span class="help-block">:message</span>' ) !!}
-
-    </div>
-
-
-    <div class="form_field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
-        <label for="first_name" class="sr-only">Name</label>
-        <input type="text" name="first_name" value="{{ $confirm->first_name }}" class="form-control" placeholder="first name">
-    </div>
-    {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
-
-    <div class="form_field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
-        <label for="last_name" class="sr-only">Name</label>
-        <input type="text" name="last_name" value="{{ $confirm->last_name }}" class="form-control" placeholder="last name">
-    </div>
-    {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
-
-    <div class="form_field {{ $errors->has('email') ? 'has-error' : ''}}">
-        <label for="email" class="sr-only">Email</label>
-        <input type="email" name="email" value="{{ $confirm->bongo_email }}" class="form-control" placeholder="Email">
-    </div>
-    {!! $errors->first('email', '<span class="help-block">:message</span>' ) !!}
-
-    <div class="form_field {{ $errors->has('password') ? 'has-error' : ''}}">
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="password">
-    </div>
-    {!! $errors->first('password', '<span class="help-block">:message</span>' ) !!}
-
-    <div class="form_field">
-        <label for="password" class="sr-only">Confirm Password</label>
-        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
-    </div>
-
-    <div class="form_field">
-        <button type="submit" class="cta cta_btn">Register</button>
-    </div>
-</form>
+    </section>
+</div>
 @stop

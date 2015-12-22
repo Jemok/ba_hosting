@@ -41,20 +41,22 @@
             <form method="POST" action="{{ url('/password/email') }}" class="form-signin">
                 {!! csrf_field() !!}
 
-                @if (count($errors) > 0)
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-                @endif
+                <fieldset class="form__cluster">
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}" >
+                            @if (count($errors) > 0)
+                                @foreach ($errors->all() as $error)
+                                <label class="help-block">{{ $error }}</label>
+                                @endforeach
+                            @else
+                            <label>Which email did you open an account with?</label>
+                            @endif
+                            <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                </fieldset>
 
-                <p class="form-field">
-                    <label>Email</label>
-                    <input type="email" name="email" value="{{ old('email') }}" class="form-control">
-                </p>
-
-                <div class="form-field">
+                <div class="form__footer">
                     <button type="submit" class="cta cta__btn">
                         Reset my password
                     </button>

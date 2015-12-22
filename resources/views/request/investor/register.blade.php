@@ -21,55 +21,56 @@
             <form method="POST" action="{{ url('auth/register/investor') }}" class="form-signin">
                 {!! csrf_field() !!}
 
-                {!! $errors->first('company', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('job_title', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('email', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('password', '<span class="help-block">:message</span>' ) !!}
 
                 <h3 class="form__heading">Let's secure your account!</h3>
-                <div class="form-group">
-                    <div class="form_field {{ $errors->has('company') ? 'has-error' : ''}}" >
-                        <label for="company" class="sr-only">Company</label>
-                        <div name="company" class="form-control">{{ $confirm->company }}</div>
+                <fieldset class="form__cluster">
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('company') ? 'has-error' : ''}}" >
+                            <label for="company" class="sr-only">Company</label>
+                            {!! $errors->first('company', '<label class="help-block">:message</label>' ) !!}
+                            <div name="company" class="form-control">{{ $confirm->company }}</div>
+                        </div>
+
+                        <div class="form__field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
+                            <label for="job_title" class="sr-only">Job Title</label>
+                            {!! $errors->first('job_title', '<label class="help-block">:message</label>' ) !!}
+                            <div name="job_title" class="form-control">{{ $confirm->job_title }}</div>
+                        </div>
                     </div>
 
-
-                    <div class="form_field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
-                        <label for="job_title" class="sr-only">Job Title</label>
-                        <div name="job_title" class="form-control">{{ $confirm->job_title }}</div>
+                    <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
+                        <label for="first_name" class="sr-only">First Name</label>
+                        {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                        <input name="first_name" value="{{ $confirm->first_name }}" class="form-control" placeholder="First Name">
                     </div>
 
-                </div>
+                    <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                        <label for="last_name" class="sr-only">Last Name</label>
+                        {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                        <input name="last_name" value="{{ $confirm->last_name }}" class="form-control" placeholder="Last Name">
+                    </div>
 
-                <div class="form_field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
-                    <label for="first_name" class="sr-only">First Name</label>
-                    <input name="first_name" value="{{ $confirm->first_name }}" class="form-control" placeholder="First Name">
-                </div>
+                    <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}">
+                        <label for="email" class="sr-only">Email</label>
+                        {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                        <input type="email" name="email" value="{{ $confirm->investor_email}}" class="form-control" placeholder="Email">
+                    </div>
 
+                    <div class="form__field {{ $errors->has('password') ? 'has-error' : ''}}">
+                        <label for="password" class="sr-only">Password</label>
+                        {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}
+                        <input type="password" name="password" class="form-control" placeholder="password">
+                    </div>
 
-                <div class="form_field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
-                    <label for="last_name" class="sr-only">Last Name</label>
-                    <input name="last_name" value="{{ $confirm->last_name }}" class="form-control" placeholder="Last Name">
-                </div>
-
-                <div class="form_field {{ $errors->has('email') ? 'has-error' : ''}}">
-                    <label for="email" class="sr-only">Email</label>
-                    <input type="email" name="email" value="{{ $confirm->investor_email}}" class="form-control" placeholder="Email">
-                </div>
-
-                <div class="form_field {{ $errors->has('password') ? 'has-error' : ''}}">
-                    <label for="password" class="sr-only">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="password">
-                </div>
-
-                <div class="form_field">
-                    <label for="password" class="sr-only">Confirm Password</label>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
-                </div>
-
-                <button type="submit" class="cta cta_btn">Register</button>
+                    <div class="form__field">
+                        <label for="password" class="sr-only">Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
+                    </div>
+                </fieldset>
+                
+                <footer class="form__footer">
+                    <button type="submit" class="cta cta_btn">Register</button>
+                </footer>
             </form>
         </div>
     </section>

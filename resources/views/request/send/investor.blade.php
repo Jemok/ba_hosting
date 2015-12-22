@@ -23,45 +23,46 @@
                 
                 <h3 class="form__heading">Request Invitation</h3>
 
-                {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('company', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('job_title', '<span class="help-block">:message</span>' ) !!}
-                {!! $errors->first('investor_email', '<span class="help-block">:message</span>' ) !!}
-                
-                <div class="form-group">
-                    <div class="form_field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
-                        <label for="first_name" class="sr-only">First Name</label>
-                        <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
+                <fieldset class="form__cluster">
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
+                            <label for="first_name" class="sr-only">First Name</label>
+                            {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
+                        </div>
+
+                        <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                            <label for="last_name" class="sr-only">Last Name</label>
+                            {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name">
+                        </div>
                     </div>
 
-                    <div class="form_field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
-                        <label for="last_name" class="sr-only">Last Name</label>
-                        <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name">
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('company') ? 'has-error' : ''}}" >
+                            <label for="company" class="sr-only">Company</label>
+                            {!! $errors->first('company', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="company" class="form-control" placeholder="Your company" />
+                        </div>
+
+                        <div class="form__field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
+                            <label for="job_title" class="sr-only">Job Title</label>
+                            {!! $errors->first('job_title', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="job_title" class="form-control" placeholder="Job title" />
+                        </div>
                     </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="form_field {{ $errors->has('company') ? 'has-error' : ''}}" >
-                        <label for="company" class="sr-only">Company</label>
-                        <input type="text" name="company" class="form-control" placeholder="Your company" />
+                    
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('investor_email') ? 'has-error' : ''}}" >
+                            <label for="investor_email" class="sr-only">Your Email</label>
+                            {!! $errors->first('investor_email', '<label class="help-block">:message</label>' ) !!}
+                            <input type="email" name="investor_email" class="form-control" placeholder="Please enter a valid email address" />
+                        </div>
                     </div>
-
-
-                    <div class="form_field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
-                        <label for="job_title" class="sr-only">Job Title</label>
-                        <input type="text" name="job_title" class="form-control" placeholder="Job title" />
-                    </div>
-
-                </div>
-
-                <p class="form_field {{ $errors->has('investor_email') ? 'has-error' : ''}}" >
-                    <label for="investor_email" class="sr-only">Your Email</label>
-                    <input type="email" name="investor_email" class="form-control" placeholder="Please enter a valid email address" />
-                </p>
-
-                <button type="submit" class="cta cta__btn">Send Invitation</button>
+                </fieldset>
+                <footer class="form__footer">
+                    <button type="submit" class="cta cta__btn">Send Invitation</button>
+                </footer>
             </form>
         </div>
     </section>

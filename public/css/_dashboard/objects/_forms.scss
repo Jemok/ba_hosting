@@ -105,7 +105,6 @@ input {
 
         label {
             flex: 1;
-//            color: burlywood;
             display: table;
             font-size: $font-size-sm;
             font-weight: bold;
@@ -130,6 +129,12 @@ input {
             padding: 5px 10px;
             margin: 0;
             resize: none;
+        }
+        
+        &:not(.has-error) {
+            label, .help-block {
+                color: burlywood;
+            }
         }
         
         &.has-error {

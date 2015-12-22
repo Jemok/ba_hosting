@@ -10485,6 +10485,10 @@ input {
   resize: none;
 }
 
+.form__cluster .form__field:not(.has-error) label, .form__cluster .form__field:not(.has-error) .help-block {
+  color: burlywood;
+}
+
 .form__cluster .form__field.has-error {
   background-color: cornsilk;
 }
