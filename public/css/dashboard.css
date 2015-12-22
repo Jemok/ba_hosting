@@ -10401,37 +10401,13 @@ input {
   width: 15px;
 }
 
-.form-signin .form-control {
-  border-radius: 0;
-  box-sizing: border-box;
-  padding: 10px;
-  font-weight: normal;
-  margin-bottom: -1px;
+.form-signin .btn-group {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.form-signin .form-group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-}
-
-.form-signin .form-group:not(:last-child) {
-  margin-bottom: 0;
-}
-
-.form-signin .form-group .form_field {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.form-signin .form-group .form_field:not(:first-child) {
-  margin-left: -1px;
+.form-signin .form__footer {
+  margin-top: 15px;
 }
 
 .form__cluster {
@@ -10478,6 +10454,7 @@ input {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   width: 100%;
+  padding: 10px;
 }
 
 .form__cluster .form__field label {
@@ -10485,16 +10462,16 @@ input {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: burlywood;
   display: table;
   font-size: 0.85rem;
   font-weight: bold;
+  text-align: left;
   letter-spacing: 1px;
   width: 100%;
   height: 30px;
   line-height: 20px;
-  margin: 15px 0 0 0;
-  padding: 5px 20px;
+  margin: 0;
+  padding: 5px 10px;
 }
 
 .form__cluster .form__field .form-control {
@@ -10503,9 +10480,21 @@ input {
   font-weight: normal;
   width: 100%;
   line-height: 20px;
-  padding: 5px 20px;
-  margin-bottom: 15px;
+  padding: 5px 10px;
+  margin: 0;
   resize: none;
+}
+
+.form__cluster .form__field.has-error {
+  background-color: cornsilk;
+}
+
+.form__cluster .form__field.has-error .help-block {
+  font-weight: normal;
+}
+
+.form__cluster .form__field.has-error .help-block:before {
+  content: "* ";
 }
 
 .form__cluster .form__field.pro__pic {
@@ -10657,6 +10646,109 @@ input {
   left: 0px;
   top: 0px;
   z-index: 1;
+}
+
+.btn:hover, .cta:hover, .btn:focus, .cta:focus, .btn:active, .cta:active {
+  outline: 0 !important;
+}
+
+/* entire container, keeps perspective */
+.r-card-container {
+  -webkit-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  margin-bottom: 30px;
+}
+
+.r-card-container:not(.manual-flip):hover .r-card, .r-card-container.hover.manual-flip .r-card {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+
+.r-card-container.static:hover .r-card, .r-card-container.static.hover .r-card {
+  -webkit-transform: none;
+  -ms-transform: none;
+      transform: none;
+}
+
+/* flip the pane when hovered */
+/* flip speed goes here */
+.r-card {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: 3;
+}
+
+/* Style */
+.r-card-container, .front, .back {
+  width: 100%;
+  height: 400px;
+}
+
+.r-card .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*      Just for presentation        */
+/*       Fix bug for IE      */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .front {
+    -ms-backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+  }
+  .back {
+    -ms-backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+    visibility: hidden;
+    -ms-transition: all 0.2s cubic-bezier(0.92, 0.01, 0.83, 0.67);
+  }
+  .front {
+    z-index: 4;
+  }
+  .r-card-container:not(.manual-flip):hover .back, .r-card-container.manual-flip.hover .back {
+    z-index: 5;
+    visibility: visible;
+  }
 }
 
 .global-container,
