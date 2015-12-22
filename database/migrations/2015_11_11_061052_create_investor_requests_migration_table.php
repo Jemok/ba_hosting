@@ -15,6 +15,8 @@ class CreateInvestorRequestsMigrationTable extends Migration
         Schema::create('investor_requests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('investor_email')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('company');
             $table->string('job_title');
             $table->integer('request_status')->default(0);

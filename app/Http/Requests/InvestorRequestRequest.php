@@ -27,7 +27,9 @@ class InvestorRequestRequest extends Request
 
             'investor_email' => 'email|required|unique:investor_requests',
             'company'        => 'required',
-            'job_title'      => 'required'
+            'job_title'      => 'required',
+            'first_name'     => 'required',
+            'last_name'      => 'required'
         ];
     }
 }

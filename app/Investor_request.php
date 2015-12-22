@@ -18,6 +18,8 @@ class Investor_request extends Model
      */
     protected $fillable = [
         'investor_email',
+        'first_name',
+        'last_name',
         'request_status',
         'request_link',
         'job_title',

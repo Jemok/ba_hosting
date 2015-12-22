@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/BongoRequestController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/BongoRequestController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repos/BongoRequest/BongoRequestRepo.php" afterPath="$PROJECT_DIR$/app/Repos/BongoRequest/BongoRequestRepo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Bongo_request.php" afterPath="$PROJECT_DIR$/app/Bongo_request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php" afterPath="$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Investor_request.php" afterPath="$PROJECT_DIR$/app/Investor_request.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/request/investor/register.blade.php" afterPath="$PROJECT_DIR$/resources/views/request/investor/register.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -35,29 +32,9 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="register.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/request/investor/register.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1440">
-              <folding>
-                <element signature="n#style#0;n#section#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/request/bongo/all.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="100" selection-start="1271" selection-end="1271" vertical-scroll-proportion="-7.3333335" vertical-offset="378" max-vertical-offset="1134">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/request/bongo/register.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="34" selection-start="2288" selection-end="2288" vertical-scroll-proportion="0.50759876" vertical-offset="697" max-vertical-offset="1278">
+            <state line="48" column="34" selection-start="2288" selection-end="2288" vertical-scroll-proportion="-32.0" vertical-offset="0" max-vertical-offset="1278">
               <folding />
             </state>
           </provider>
@@ -67,42 +44,6 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BongoRequestController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="60" column="0" selection-start="1667" selection-end="1667" vertical-scroll-proportion="-6.0" vertical-offset="810" max-vertical-offset="1566">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bongo.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/request/send/bongo.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="20" selection-start="1730" selection-end="1730" vertical-scroll-proportion="-5.6666665" vertical-offset="405" max-vertical-offset="1026">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2015_11_13_062038_create_bongo_requests_migration_table.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="36" selection-start="535" selection-end="535" vertical-scroll-proportion="-6.0" vertical-offset="162" max-vertical-offset="738">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bongo_request.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Bongo_request.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="20" selection-start="437" selection-end="437" vertical-scroll-proportion="-7.3333335" vertical-offset="216" max-vertical-offset="684">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BongoRequestRequest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="5" selection-start="421" selection-end="421" vertical-scroll-proportion="-6.0" vertical-offset="270" max-vertical-offset="702">
               <folding />
             </state>
           </provider>
@@ -120,7 +61,61 @@
       <file leaf-file-name="investor.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/request/send/investor.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1235" selection-end="1961" vertical-scroll-proportion="-9.0" vertical-offset="405" max-vertical-offset="1008">
+            <state line="29" column="101" selection-start="1790" selection-end="1790" vertical-scroll-proportion="-7.0" vertical-offset="333" max-vertical-offset="1332">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_09_10_115619_create_investors_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_09_10_115619_create_investors_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="630">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2015_11_11_061052_create_investor_requests_migration_table.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="55" selection-start="427" selection-end="427" vertical-scroll-proportion="-6.6666665" vertical-offset="90" max-vertical-offset="756">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Investor_request.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Investor_request.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="-5.5185184" vertical-offset="229" max-vertical-offset="612">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/request/investor/register.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="22" selection-start="4071" selection-end="4071" vertical-scroll-proportion="0.53094465" vertical-offset="1079" max-vertical-offset="1476">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvestorRequestRepo.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="50" selection-start="421" selection-end="421" vertical-scroll-proportion="-6.6666665" vertical-offset="108" max-vertical-offset="1872">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvestorRequestRequest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="43" selection-start="605" selection-end="605" vertical-scroll-proportion="-5.185185" vertical-offset="382" max-vertical-offset="738">
               <folding />
             </state>
           </provider>
@@ -178,23 +173,23 @@
         <option value="$PROJECT_DIR$/resources/views/pages/about.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php" />
-        <option value="$PROJECT_DIR$/app/Investor_request.php" />
         <option value="$PROJECT_DIR$/resources/views/request/investor/all.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/InvestorRequestsController.php" />
-        <option value="$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php" />
         <option value="$PROJECT_DIR$/resources/views/account/logout_auth.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/send/bongo.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php" />
         <option value="$PROJECT_DIR$/app/Bongo_request.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/BongoRequestRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/request/investor/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/request/bongo/all.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BongoRequestController.php" />
         <option value="$PROJECT_DIR$/app/Repos/BongoRequest/BongoRequestRepo.php" />
         <option value="$PROJECT_DIR$/resources/views/request/bongo/register.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php" />
+        <option value="$PROJECT_DIR$/app/Investor_request.php" />
+        <option value="$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php" />
+        <option value="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/request/investor/register.blade.php" />
       </list>
     </option>
   </component>
@@ -287,6 +282,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="request" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="request" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="send" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -438,6 +459,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="InvestorRequest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="BongoRequest" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -457,6 +500,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Requests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -531,17 +596,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23272438" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29308975" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32824427" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -598,11 +663,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/messenger/expert.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="48" selection-start="0" selection-end="48" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="144" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/messenger/innovator.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="48" selection-start="48" selection-end="48" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="162" />
@@ -773,27 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="409" selection-end="409" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="259" selection-end="259" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="702">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Investor_request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="427" selection-end="427" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/request/investor/link.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
@@ -822,13 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="5" selection-start="2094" selection-end="2094" vertical-scroll-proportion="-10.148149" vertical-offset="1364" max-vertical-offset="1836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InvestorRequestsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="61" selection-start="1735" selection-end="1735" vertical-scroll-proportion="-8.481482" vertical-offset="779" max-vertical-offset="1620">
@@ -842,13 +874,6 @@
           <folding>
             <element signature="n#style#0;n#section#1;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/request/send/investor.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1235" selection-end="1961" vertical-scroll-proportion="-9.0" vertical-offset="405" max-vertical-offset="1008">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,15 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/request/investor/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
-          <folding>
-            <element signature="n#style#0;n#section#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/request/bongo/all.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="100" selection-start="1271" selection-end="1271" vertical-scroll-proportion="-7.3333335" vertical-offset="378" max-vertical-offset="1134">
@@ -910,9 +926,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_09_10_115619_create_investors_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="55" selection-start="427" selection-end="427" vertical-scroll-proportion="-6.6666665" vertical-offset="90" max-vertical-offset="756">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Investor_request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="20" selection-start="399" selection-end="399" vertical-scroll-proportion="-5.5185184" vertical-offset="229" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/InvestorRequest/InvestorRequestRepo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="50" selection-start="421" selection-end="421" vertical-scroll-proportion="-6.6666665" vertical-offset="108" max-vertical-offset="1872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="43" selection-start="605" selection-end="605" vertical-scroll-proportion="-5.185185" vertical-offset="382" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/request/bongo/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="34" selection-start="2288" selection-end="2288" vertical-scroll-proportion="0.50759876" vertical-offset="697" max-vertical-offset="1278">
+        <state line="48" column="34" selection-start="2288" selection-end="2288" vertical-scroll-proportion="-32.0" vertical-offset="0" max-vertical-offset="1278">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/request/send/investor.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="101" selection-start="1790" selection-end="1790" vertical-scroll-proportion="-7.0" vertical-offset="333" max-vertical-offset="1332">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/request/investor/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="22" selection-start="4071" selection-end="4071" vertical-scroll-proportion="0.53094465" vertical-offset="1079" max-vertical-offset="1476">
           <folding />
         </state>
       </provider>
