@@ -18,6 +18,8 @@ class InvestorRequestRepo {
         Investor_request::create([
 
             'investor_email' => $request->investor_email,
+            'company'      => $request->company,
+            'job_title'    => $request->job_title,
             'request_link' => $this->makeRequestLink($request->investor_email)
         ]);
     }

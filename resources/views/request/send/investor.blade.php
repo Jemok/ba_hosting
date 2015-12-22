@@ -22,7 +22,20 @@
 
                 {!! csrf_field() !!}
 
-                <p class="form_field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                <p class="form_field {{ $errors->has('company') ? 'has-error' : ''}}" >
+                    <label for="company">Company</label>
+                    <input type="text" name="company" class="form-control" placeholder="Your company" />
+                </p>
+                {!! $errors->first('company', '<span class="help-block">:message</span>' ) !!}
+
+                <p class="form_field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
+                    <label for="job_title">Job Title</label>
+                    <input type="text" name="job_title" class="form-control" placeholder="Job title" />
+                </p>
+                {!! $errors->first('job_title', '<span class="help-block">:message</span>' ) !!}
+
+
+                <p class="form_field {{ $errors->has('investor_email') ? 'has-error' : ''}}" >
                     <label for="investor_email">Your Email</label>
                     <input type="email" name="investor_email" class="form-control" placeholder="Please enter a valid email address" />
                 </p>
