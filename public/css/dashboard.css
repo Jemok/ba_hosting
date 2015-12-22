@@ -11098,6 +11098,10 @@ input {
   margin-bottom: 14px;
 }
 
+.innoList .inno .inno-amount-needed {
+  opacity: .5;
+}
+
 .innoList .inno .inno-meta {
   color: #808080;
   display: table;
@@ -11233,6 +11237,14 @@ input {
 
 .innoDetails .innoDetails__header {
   text-align: center;
+}
+
+.innoDetails .innoDetails__content {
+  margin-bottom: 1.5em;
+}
+
+.innoDetails .innoDetails__content:not(:last-child) {
+  margin-bottom: 3em;
 }
 
 .innoDetails .innoDetails__content p {

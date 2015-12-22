@@ -36,10 +36,13 @@
             </header>
 
             <section class="innoDetails__content">
+                <p>{!! $innovation->innovationShortDescription !!}</p>
                 {!! $innovation->innovationDescription !!}
+            </section>
 
+            <section class="innoDetails__content">
                 <h4 class="section__title">What's the funding for?</h4>
-                <p>{{ $innovation->justifyFund }}</p>
+                <p>{{ $innovation->justifyFund }}</p>    
             </section>
 
             <footer class="innoDetails__footer">
@@ -145,15 +148,15 @@
 -->
             @endif            
         @elseif($innovation->fundingStatus == 0 )
+            <div class="innoData-list">
+                <div class="innoData">
+                    <div class="innoData__title">Funding Needed</div>
+                    <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                </div>
+            </div>
             @if(\Auth::user()->userCategory == 2)
                 <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
                     {!! CSRF_FIELD() !!}
-                    <div class="innoData-list">
-                        <div class="innoData">
-                            <div class="innoData__title">Funding Needed</div>
-                            <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
-                        </div>
-                    </div>
                     <div class="innoData-list">
                         <div class="innoData">
                             <div class="innoData__title">Potential Funding Available</div>
