@@ -40,6 +40,7 @@
 
                 <h3 class="form__heading">Let's get started!</h3>
                 {!! $errors->first('first_name', '<span class="help-block">:message</span>' ) !!}
+                <br>
                 {!! $errors->first('last_name', '<span class="help-block">:message</span>' ) !!}
                 <div class="form-group">
                     <div class="form_field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
