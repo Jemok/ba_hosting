@@ -20,6 +20,9 @@ class Bongo_request extends Model
         'bongo_email',
         'request_status',
         'request_link',
+        'company',
+        'job_title',
+        'field'
     ];
 
     public function user(){

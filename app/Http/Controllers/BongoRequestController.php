@@ -57,7 +57,9 @@ class BongoRequestController extends Controller
     {
         if(\Auth::check())
         {
-            return view('account.logout_auth');
+            $email = $bongoRequestRepo->getEmail($request_link);
+
+            return view('account.logout_auth', compact('email'));
         }
         else
         {

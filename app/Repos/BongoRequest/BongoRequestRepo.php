@@ -18,6 +18,9 @@ class BongoRequestRepo {
         Bongo_request::create([
 
             'bongo_email' => $request->bongo_email,
+            'company'     => $request->company,
+            'job_title'   => $request->job_title,
+            'field'       => $request->field,
             'request_link' => $this->makeRequestLink($request->bongo_email)
         ]);
     }
@@ -91,6 +94,12 @@ class BongoRequestRepo {
     {
 
         return Bongo_request::where('request_link', '=', $request_link)->first();
+    }
+
+    public function getEmail($request_link)
+    {
+
+        return Bongo_request::where('request_link', '=', $request_link)->first()->bongo_email;
     }
 
 } 

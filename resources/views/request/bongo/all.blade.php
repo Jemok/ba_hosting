@@ -29,8 +29,8 @@
             @endif
                 <h4 class="request__name">Lorem Ipsum</h4>
                 <p class="request__details">
-                    <span class="request__company"><i class="ion-briefcase"></i> Company Name</span>
-                    <span class="request__job-title"><i class="ion-pound"></i> Job title</span>
+                    <span class="request__company"><i class="ion-briefcase"></i>{{ $request->company }}</span>
+                    <span class="request__job-title"><i class="ion-pound"></i>{{ $request->job_title }}</span>
                     <span class="request__email"><i class="ion-at"></i> {{ $request->bongo_email }}</span>
                 </p>
                 
