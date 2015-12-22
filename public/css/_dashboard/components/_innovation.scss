@@ -28,6 +28,7 @@
 		
 		.inno-title {
 			font-size: $h4-size;
+            margin-bottom: $padding-reset;
 		}
         
         .inno-summary {
@@ -59,6 +60,23 @@
 				padding: $padding-reset/2 $padding-reset;
 				background: #f0f0f0;
 				border-radius: 25px;
+			}
+
+			.inno-funding {
+				float: right;
+				padding: $padding-reset/2 $padding-reset;
+				background: #f0f0f0;
+				border-radius: 25px;
+                
+                &.partial {
+                    background: $brand-info;
+                    color: #fff;
+                }
+                
+                &.funded {
+                    background: $brand-success;
+                    color: #fff;
+                }
 			}
 		}
 		@media (min-width: 1200px) {
@@ -162,9 +180,7 @@
 }
 
 .innoNew {
-	background-color: #fff;
-	box-shadow: 0 0 1px rgba(136,136,153,.25);
-	margin-bottom: $gutter;
+	margin: $gutter 0 $gutter;
 
 	.inno-summary, .inno-title, .inno-category {
 		outline: none;
@@ -194,6 +210,8 @@
 	}
 
 	.innoDetails__header {
+	    background-color: #fff;
+        border: 1px solid $gray-lighter;
 		display: flex;
 		justify-content: space-between;
 		padding: $padding-reset;
@@ -209,7 +227,7 @@
 	}
 	.innoDetails__content {
 		width: 100%;
-		padding: 0 $padding-reset;
+		margin-top: $padding-reset;
 	}
 	.innoDetails__footer {
 		background: whitesmoke;
@@ -232,7 +250,7 @@
 }
 
 .innoFilters {
-	margin-bottom: $padding-reset;
+	margin: $gutter 0 $padding-reset;
 	
 	.filter {
 		background-color: $dark-ui-color;
@@ -274,7 +292,7 @@
 .innoData-list {
 	display: flex;
 	flex-flow: column nowrap;
-	margin-bottom: $gutter;
+	margin: $padding-reset 0;
 }
 
 .innoData-grid {
@@ -285,7 +303,7 @@
 		flex-wrap: wrap;
 	}
 	
-	margin-bottom: $gutter;
+	margin: $padding-reset 0 0;
 	
 	
 	.innoData {

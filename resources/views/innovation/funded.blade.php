@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-lg-12">
+<div class="container">
     <nav class="innoFilters">
         <button class="filter current" data-filter="*">Show all</button>
         @if($categories->count())
@@ -13,8 +13,8 @@
 
         @endif
     </nav>
-</div>
 
-@include('partials.innovations.funded_all')
+    @include('partials.innovations.funded_all')
+</div>
 
 @stop

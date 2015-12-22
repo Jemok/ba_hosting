@@ -22,7 +22,6 @@
             </header>
             <footer class="inno-meta">
                 <div class="inno-category">{{ $funded->category->categoryName}}</div>
-                <div class="inno-innovator"></div>
             </footer>
         </article>
 

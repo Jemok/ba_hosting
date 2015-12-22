@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-lg-12">
+<div class="container">
     <nav class="innoFilters">
         <button class="filter current" data-filter="*">Show all</button>
         @if($categories->count())
@@ -13,9 +13,9 @@
 
         @endif
     </nav>
-</div>
 
-@include('partials.innovations.open')
+    @include('partials.innovations.open')
+</div>
 
 @stop
 
