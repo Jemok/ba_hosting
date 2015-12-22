@@ -55,24 +55,31 @@ class BongoRequestController extends Controller
 
     public function bongoConfirmLink($request_link, BongoRequestRepo $bongoRequestRepo)
     {
-        $confirm = $bongoRequestRepo->confirm($request_link);
-
-        if($confirm == 0)
+        if(\Auth::check())
         {
-            return view('errors.invalid_link');
+            return view('account.logout_auth');
         }
-        elseif($confirm == 1)
+        else
         {
-            Session::flash('flash_message', 'Already have an account, Login with your bongo account and then visit your profile page to activate other bongo accounts');
+            $confirm = $bongoRequestRepo->confirm($request_link);
 
-            return view('auth.login');
-        }
-        elseif($confirm == 2)
-        {
-            \Auth::logout();
-            $confirm = $bongoRequestRepo->getBongoRequest($request_link);
+            if($confirm == 0)
+            {
+                return view('errors.invalid_link');
+            }
+            elseif($confirm == 1)
+            {
+                Session::flash('flash_message', 'Already have an account, Login with your bongo account and then visit your profile page to activate other bongo accounts');
 
-            return view('request.bongo.register', compact('confirm'));
+                return view('auth.login');
+            }
+            elseif($confirm == 2)
+            {
+                \Auth::logout();
+                $confirm = $bongoRequestRepo->getBongoRequest($request_link);
+
+                return view('request.bongo.register', compact('confirm'));
+            }
         }
     }
 }

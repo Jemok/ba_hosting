@@ -58,24 +58,31 @@ class InvestorRequestsController extends Controller
     public function bongoConfirmLink($request_link, InvestorRequestRepo $investorRequestRepo)
     {
 
-        $confirm = $investorRequestRepo->confirm($request_link);
-
-        if($confirm == 0)
+        if(\Auth::check())
         {
-            return view('errors.invalid_link');
+            return view('account.logout_auth');
         }
-        elseif($confirm == 1)
-        {
-            Session::flash('flash_message', 'Already have an account, Login with your bongo account and then visit your profile page to activate other bongo accounts');
+        else{
 
-            return view('auth.login');
-        }
-        elseif($confirm == 2)
-        {
-            \Auth::logout();
+            $confirm = $investorRequestRepo->confirm($request_link);
 
-            $confirm = $investorRequestRepo->getInvestorRequest($request_link);
-            return view('request.investor.register', compact('confirm'));
+            if($confirm == 0)
+            {
+                return view('errors.invalid_link');
+            }
+            elseif($confirm == 1)
+            {
+                Session::flash('flash_message', 'Already have an account, Login with your bongo account and then visit your profile page to activate other bongo accounts');
+
+                return view('auth.login');
+            }
+            elseif($confirm == 2)
+            {
+                $confirm = $investorRequestRepo->getInvestorRequest($request_link);
+                return view('request.investor.register', compact('confirm'));
+            }
+
         }
+
     }
 }

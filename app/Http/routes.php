@@ -123,12 +123,11 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 
+get('request/bongo-employee/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
+
+get('request/bongo/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
+
 Route::group(['middleware' => 'guest'], function() {
-
-    get('request/bongo-employee/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
-
-    get('request/bongo/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
-
     // Login routes
     get('/auth/login', [
         'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'

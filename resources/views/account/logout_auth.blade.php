@@ -1,0 +1,1 @@
+<a href="{{ url('/logout') }}">Another user is logged in, click to log them out, then go click your link again</a>
