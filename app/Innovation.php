@@ -14,6 +14,7 @@ class Innovation extends Model
     protected $fillable = [
 
         'innovationTitle',
+        'innovationShortDescription',
         'innovationDescription',
         'tradeMarkName',
         'tradeMarkNumber',

@@ -26,6 +26,7 @@ class InnovationsRequest extends Request
         return [
 
             'innovationTitle' => 'required',
+            'innovationShortDescription' => 'required|max:144',
             'innovationDescription' => 'required',
             'innovationCategory' => 'required',
             'innovationFund' => 'required | numeric',

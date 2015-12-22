@@ -65,15 +65,14 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label>Short Summary</label>
-                            <textarea class="form-control" name="innovationShortDescription" placeholder="In one paragraph tell us, what's this innovation about?"></textarea>
+                            <textarea class="form-control" name="innovationShortDescription" placeholder="In one paragraph tell us, what's this innovation about?">{{old('innovationShortDescription')}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form__field">
                             <label>Detailed Summary</label>
                             <div class="form-control">
-                                <!--<textarea class="inno-summary" name="innovationDescription" rows="5" placeholder="Tell us about your something about that idea...">//{{ old('innovationDescription') }}</textarea>-->
-                                <textarea class="with-wysiwyg" name="innovationDescription">Tell us more about your innovation</textarea>
+                                <textarea class="with-wysiwyg" name="innovationDescription" placeholder="Tell us more about your innovation">{{old('innovationDescription')}}</textarea>
                             </div>
                         </div>
                     </div>
@@ -81,11 +80,11 @@
                         <div class="form__field">
                             <label>Field</label>
                             <select name="innovationCategory" class="form-control">
-                                <option value="{{ old('innovationTitle') }}" disabled selected>Uncategorized</option>
+                                <option disabled selected>Uncategorized</option>
 
                                 @if($categories->count())
                                     @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->categoryName }}</option>
+                                    <option value="{{ $category->id }}" @if (old('innovationCategory') == $category->categoryName)  selected="selected" @endif>{{ $category->categoryName }}</option>
                                     @endforeach
                                 @else
                                     <option value="" disabled selected>No listed categories here</option>

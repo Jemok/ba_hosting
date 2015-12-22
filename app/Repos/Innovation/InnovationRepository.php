@@ -53,6 +53,7 @@ class InnovationRepository
         \Auth::user()->innovation()->create([
 
             'innovationTitle'       => $request->innovationTitle,
+            'innovationShortDescription' => $request->innovationShortDescription,
             'innovationDescription' => $request->innovationDescription,
             'innovationFund'        => $request->innovationFund,
             'category_id'           => $request->innovationCategory,

@@ -15,6 +15,7 @@ class CreateInnovationsTable extends Migration
         Schema::create('innovations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('innovationTitle');
+            $table->string('innovationShortDescription');
             $table->text('innovationDescription');
             $table->integer('innovationFund');
             $table->string('tradeMarkName')->nullable();

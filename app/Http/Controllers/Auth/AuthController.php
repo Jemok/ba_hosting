@@ -132,7 +132,6 @@ class AuthController extends Controller
             //$this->mailer->sendConfirmEmailLink($user);
 
             return $user;
-
         }
     }
 }
