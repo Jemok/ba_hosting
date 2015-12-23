@@ -34,4 +34,16 @@ class ProfileRepository {
         ]);
     }
 
+    public function updateProfile($profile_id, $request)
+    {
+        $user = User::findOrFail($profile_id);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+            'email'      => $request->email,
+            'more_details' => $request->more_details
+        ]);
+    }
+
 } 
