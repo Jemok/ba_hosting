@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Cmgmyr\Messenger\Models\Thread;
 use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests\PartialFundingRequest;
+use Md\User;
 
 class InnovationController extends Controller
 {
@@ -75,6 +76,8 @@ class InnovationController extends Controller
 
         $chatWithInnovator = $conversationRepository->checkChatWithInnovator($id);
 
+        $users = User::where('id', '=', 1)->get();
+
         // All threads that user is participating in
         //$threads = Thread::forUser($currentUserId)->get();
 
@@ -84,7 +87,7 @@ class InnovationController extends Controller
 
         $threads_count = $threads->count();
 
-        return view('innovation.show', compact('chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
+        return view('innovation.show', compact('users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
 
