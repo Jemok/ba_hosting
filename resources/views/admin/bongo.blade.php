@@ -50,14 +50,17 @@
                 <span class="inno-innovator">Posted by: {{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</span>
                 @endif
             </header>
-            <div class="inno-summary">
-                {!! $innovation->innovationShortDescription !!}
-            </div>
-            @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
 
-            @else
-            <span>Ksh. {{ $innovation->innovationFund }}</span>
-            @endif
+            <section class="inno-summary">
+                <p>{!! $innovation->innovationShortDescription !!}</p>
+                @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+
+                @else
+                <span class="inno-funding-needed">Ksh. {{ $innovation->innovationFund }}</span>
+                @endif
+
+            </section>
+
             <footer class="inno-meta">
                 <div class="inno-category">{{ $innovation->category->categoryName }}</div>
 <!--                <div class="inno-likes">756</div>-->

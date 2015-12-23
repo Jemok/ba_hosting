@@ -32,9 +32,6 @@ input {
         margin-left: auto;
         margin-right: auto;
     }
-    .form__footer {
-        margin-top: 15px;
-    }
 //	.form-control {
 //		border-radius: 0;
 //		box-sizing: border-box;
@@ -73,12 +70,18 @@ input {
 //    }
 }
 
+.form__footer {
+    margin-top: 15px;
+}
 .form__cluster {
     display: flex;
     flex-flow: row nowrap;
     background-color: #fff;
     border: 1px solid $gray-lighter;
-//    margin-bottom: 15px;
+    
+    & + .form__cluster {
+        margin-top: 15px;
+    }
 
     .form-group {
         display: flex;
