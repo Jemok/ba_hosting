@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('more_details');
             $table->integer('terms');
+            $table->string('hash_id')->unique();
             $table->integer('userCategory');
             $table->boolean('verified')->default(false);
             $table->integer('investor_finance')->default(0);

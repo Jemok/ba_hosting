@@ -14,13 +14,13 @@ class ProfileRepository {
 
     public function load($innovator_id)
     {
-        if(User::where('id', '=', $innovator_id )->first() == null)
+        if(User::where('hash_id', '=', $innovator_id )->first() == null)
         {
             return null;
         }
         else
         {
-            return User::where('id', '=', $innovator_id )->with('investor_request')->first();
+            return User::where('hash_id', '=', $innovator_id )->with('investor_request')->first();
         }
     }
 

@@ -98,7 +98,8 @@ class AuthController extends Controller
                 'more_details' => $data['more_details'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'userCategory' => 2
+                'userCategory' => 2,
+                'hash_id'     => str_random(100)
             ]);
 
             //$this->mailer->sendConfirmEmailLink();
@@ -114,7 +115,8 @@ class AuthController extends Controller
                 'password' => bcrypt($data['password']),
                 'more_details' => $data['more_details'],
                 'terms'   => $data['terms'],
-                'userCategory' => 1
+                'userCategory' => 1,
+                'hash_id'     => str_random(100)
             ]);
 
             //$this->mailer->sendConfirmEmailLink($user);
@@ -129,7 +131,8 @@ class AuthController extends Controller
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'userCategory' => 3
+                'userCategory' => 3,
+                'hash_id'     => str_random(100)
             ]);
 
             //$this->mailer->sendConfirmEmailLink($user);

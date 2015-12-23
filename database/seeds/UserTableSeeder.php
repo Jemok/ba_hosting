@@ -18,25 +18,31 @@ class UserTableSeeder extends Seeder
             'last_name'  => 'bongo',
             'email'=> 'mother@bongo.com',
             'password' =>  bcrypt('123456'),
-            'userCategory' => 4
+            'more_details' => 'I am an the mother admin',
+            'userCategory' => 4,
+            'hash_id'    => str_random(100)
         ]);
 
         DB::table('users')->insert([
             'first_name' => 'Expert',
             'last_name'  => 'Expert',
             'email'=> 'expert@bongo.com',
+            'more_details' => 'I am an Expert in my field',
             'password' =>  bcrypt('123456'),
-            'userCategory' => 3
+            'userCategory' => 3,
+            'hash_id'    => str_random(100)
         ]);
 
         DB::table('users')->insert([
             'first_name' => 'Investor',
             'last_name'  => 'Investor',
             'email'=> 'investor@bongo.com',
+            'more_details' => 'I am an Investor',
             'investor_finance' => 1,
             'investor_amount' => 1000000,
             'password' =>  bcrypt('123456'),
-            'userCategory' => 2
+            'userCategory' => 2,
+            'hash_id'    => str_random(100)
         ]);
 
         DB::table('users')->insert([
@@ -45,7 +51,8 @@ class UserTableSeeder extends Seeder
             'more_details' => 'I am an Innovator',
             'email'=> 'innovator@bongo.com',
             'password' =>  bcrypt('123456'),
-            'userCategory' => 1
+            'userCategory' => 1,
+            'hash_id'    => str_random(100)
         ]);
     }
 }
