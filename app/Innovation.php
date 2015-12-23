@@ -66,4 +66,9 @@ class Innovation extends Model
     {
         return $this->hasMany('Cmgmyr\Messenger\Models\Thread');
     }
+
+    public function progress()
+    {
+        return $this->hasMany('Md\Progress');
+    }
 }

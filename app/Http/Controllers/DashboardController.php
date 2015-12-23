@@ -98,9 +98,11 @@ class DashboardController extends Controller
 
         $fundedProjectsCount = $fundedProjects->count();
 
+        $onProgress =$this->innovationRepository->onProgress();
+
         $totalFundsInjected = $fundedProjects->sum('amount');
 
-        return view('home.investor',  compact('innovations', 'categories', 'fundedProjects', 'fundedProjectsCount', 'totalFundsInjected'));
+        return view('home.investor',  compact('onProgress','innovations', 'categories', 'fundedProjects', 'fundedProjectsCount', 'totalFundsInjected'));
     }
 
 

@@ -3,7 +3,11 @@
 
 use Md\Category;
 use Md\Innovation;
+use Md\Progress;
 use Md\User;
+use Cmgmyr\Messenger\Models\Thread;
+
+use Cmgmyr\Messenger\Models\Message;
 
 
 class InnovationRepository
@@ -198,11 +202,8 @@ class InnovationRepository
             ->paginate(1);
     }
 
-    /**
-     * Set an innovation as being funded
-     * @param $id
-     */
-    public function fundInnovation($id)
+
+    /*public function fundInnovation($id)
     {
         $innovation = Innovation::findOrFail($id);
 
@@ -222,12 +223,13 @@ class InnovationRepository
 
         ]);
 
+
         \Auth::user()->update([
 
             'investor_amount' => (\Auth::user()->investor_amount) - ($fund->amount)
 
         ]);
-    }
+    }*/
 
     public function fundInnovationPartial($id, $request)
     {
@@ -249,6 +251,14 @@ class InnovationRepository
             'innovationFund' => ($innovation->innovationFund)-($request->partialFund)
 
         ]);
+
+        Progress::where('innovation_id', '=', $innovation->id)
+            ->first()
+            ->update([
+
+                'progress_status' => 0
+
+            ]);
 
         \Auth::user()->update([
 
@@ -279,10 +289,17 @@ class InnovationRepository
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
-            ->groupBy('investor_id')
             ->latest()
+            ->distinct()
             ->paginate(2,['*'], 'investor');
 
+    }
+
+    public function onProgress()
+    {
+        return Progress::where('investor_id', '=', \Auth::user()->id)
+                        ->where('progress_status', '=', 1)
+                        ->count();
     }
 
 }

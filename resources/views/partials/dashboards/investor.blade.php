@@ -31,7 +31,7 @@
 
         <div class="innoData">
             <div class="innoData__title">In Progress</div>
-            <div class="innoData__content">153</div>
+            <div class="innoData__content">{{$onProgress}}</div>
         </div>
     </div>
 

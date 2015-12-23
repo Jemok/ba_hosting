@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Md\Services\PusherWrapper as Pusher;
 use Md\User;
+use Md\Progress;
 
 class MessagesController extends Controller
 {
@@ -132,6 +133,15 @@ class MessagesController extends Controller
                 'body'      => $input['message'],
             ]
         );
+
+        Progress::create([
+
+            'innovation_id' => $input['innovation_id'],
+            'investor_id'   => Auth::user()->id,
+            'progress_status' => 1
+
+        ]);
+
 
         // Sender
         Participant::create(

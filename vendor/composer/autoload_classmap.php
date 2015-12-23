@@ -22,6 +22,7 @@ return array(
     'CreateMessagesTable' => $baseDir . '/database/migrations/2014_10_28_175710_create_messages_table.php',
     'CreateParticipantsTable' => $baseDir . '/database/migrations/2014_10_28_180224_create_participants_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateProgressMigrationTable' => $baseDir . '/database/migrations/2015_12_23_123234_create_progress_migration_table.php',
     'CreateThreadsTable' => $baseDir . '/database/migrations/2014_10_28_175635_create_threads_table.php',
     'CreateUserModeratorTable' => $baseDir . '/database/migrations/2015_11_23_124032_create_user_moderator_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
