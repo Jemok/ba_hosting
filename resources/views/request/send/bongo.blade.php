@@ -24,6 +24,19 @@
                 <h3 class="form__heading">Request Invitation</h3>
                 <fieldset class="form__cluster">
                     <div class="form-group">
+                        <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
+                            <label for="first_name" class="sr-only">First Name</label>
+                            {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
+                        </div>
+
+                        <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                            <label for="last_name" class="sr-only">Last Name</label>
+                            {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="form__field {{ $errors->has('company') ? 'has-error' : ''}}" >
                             <label class="sr-only">Company Name</label>
                             {!! $errors->first('company', '<label class="help-block">:message</label>' ) !!}

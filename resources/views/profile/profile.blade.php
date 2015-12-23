@@ -18,9 +18,9 @@
 
 @endif
 
-@if(\Auth::user()->isInnovator())
+@if(Request::is('innovator/profile/*'))
 
-    @if(\Auth::user()->id == $profile->id)
+    @if(\Auth::user()->isInnovator() && \Auth::user()->id == $profile->id)
         <form method="post" action="{{ url('innovator/profile/update/'.$profile->id) }}" class="profile">
 
             {!! CSRF_FIELD() !!}
@@ -65,7 +65,6 @@
             </footer>
         </form>
     @else
-
     <form method="get" class="profile">
         <h3 class="section__title">Personal Profile</h3>
         <fieldset name="personal" class="form__cluster">
@@ -104,9 +103,9 @@
 
 @endif
 
-@if(\Auth::user()->isInvestor())
+@if(Request::is('investor/profile/*'))
 
-    @if(\Auth::user()->id == $profile->id)
+    @if(\Auth::user()->isInvestor() && \Auth::user()->id == $profile->id)
         <form method="post" action="{{ url('investor/profile/update/'.$profile->id) }}" class="profile">
             <h3 class="section__title">Personal Profile</h3>
             <fieldset name="personal" class="form__cluster">
@@ -237,10 +236,13 @@
     @endif
 @endif
 
-@if(\Auth::user()->isAdmin())
+@if(Request::is('expert/profile/*'))
 
-    <form method="get" class="profile">
+    @if(\Auth::user()->isAdmin() && \Auth::user()->id == $profile->id)
+
+    <form method="post" action="{{ url('expert/profile/update/'.$profile->id) }}" class="profile">
         <h3 class="section__title">Personal Profile</h3>
+        {!! CSRF_FIELD() !!}
         <fieldset name="personal" class="form__cluster">
             <div class="form-group">
                 <div class="form__field pro__pic">
@@ -250,11 +252,13 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label>First Name</label>
-                            <div class="form-control">{{$profile->first_name}}</div>
+                            {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="first_name" value="{{ $profile->first_name }}" class="form-control">
                         </div>
                         <div class="form__field">
                             <label>Last Name</label>
-                            <div class="form-control">{{$profile->last_name}}</div>
+                            {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="last_name" value="{{ $profile->last_name }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -278,7 +282,8 @@
             <div class="form-group">
                 <div class="form__field">
                     <label>About you</label>
-                    <div class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</div>
+                    {!! $errors->first('more_details', '<label class="help-block">:message</label>' ) !!}
+                    <input type="text" name="more_details" value="{{ $profile->more_details }}" class="form-control">
                 </div>
             </div>
             <div class="form-group">
@@ -287,13 +292,71 @@
                     <div class="form-control">Arts, Crafts, Design</div>
                 </div>
             </div>
-        </fieldset>
+         </fieldset>
+
+        <footer class="form__footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </footer>
     </form>
+
+    @else
+        <form method="get" class="profile">
+            <h3 class="section__title">Personal Profile</h3>
+            <fieldset name="personal" class="form__cluster">
+                <div class="form-group">
+                    <div class="form__field pro__pic">
+                        <label>User profile pic</label>
+                    </div>
+                    <div class="form__field">
+                        <div class="form-group">
+                            <div class="form__field">
+                                <label>First Name</label>
+                                <div class="form-control">{{$profile->first_name}}</div>
+                            </div>
+                            <div class="form__field">
+                                <label>Last Name</label>
+                                <div class="form-control">{{$profile->last_name}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form__field">
+                                <label>Email</label>
+                                <div class="form-control">{{$profile->email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Company</label>
+                        <div class="form-control">-</div>
+                    </div>
+                    <div class="form__field">
+                        <label>Job Title</label>
+                        <div class="form-control">Job Title</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>About you</label>
+                        <div class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Field(s) of expertise</label>
+                        <div class="form-control">Arts, Crafts, Design</div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    @endif
 
 @endif
 
-@if(\Auth::user()->isMother())
+@if(Request::is('mother/profile/*'))
 
+    @if(\Auth::user()->isMother() && \Auth::user()->id == $profile->id)
     <form method="get" class="profile">
         <h3 class="section__title">Profile</h3>
         <fieldset name="personal" class="form__cluster">
@@ -322,6 +385,37 @@
             </div>
         </fieldset>
     </form>
+
+    @else
+        <form method="get" class="profile">
+            <h3 class="section__title">Profile</h3>
+            <fieldset name="personal" class="form__cluster">
+                <div class="form-group">
+                    <div class="form__field pro__pic">
+                        <label>User profile pic</label>
+                    </div>
+                    <div class="form__field">
+                        <div class="form-group">
+                            <div class="form__field">
+                                <label>First Name</label>
+                                <div class="form-control">{{$profile->first_name}}</div>
+                            </div>
+                            <div class="form__field">
+                                <label>Last Name</label>
+                                <div class="form-control">{{$profile->last_name}}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form__field">
+                                <label>Email</label>
+                                <div class="form-control">{{$profile->email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    @endif
 
 @endif
 

@@ -57,4 +57,16 @@ class ProfileRepository {
         ]);
     }
 
+    public function updateProfileExpert($profile_id, $request)
+    {
+        $user = User::findOrFail($profile_id);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+            'more_details' => $request->more_details,
+            'investor_amount' =>  $request->financial_amount
+        ]);
+    }
+
 } 

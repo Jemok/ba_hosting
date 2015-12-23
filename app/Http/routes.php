@@ -108,6 +108,9 @@ Route::group(['middleware' => 'auth'], function() {
      * Profile routes
      */
     get('innovator/profile/{innovator_id}', 'ProfileController@loadProfile');
+    get('investor/profile/{innovator_id}', 'ProfileController@loadProfile');
+    get('expert/profile/{innovator_id}', 'ProfileController@loadProfile');
+    get('mother/profile/{innovator_id}', 'ProfileController@loadProfile');
 
     /**Route::resource('chats', 'ChatController',
     ['except' => ['create', 'edit']]);*/
@@ -122,6 +125,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     post('innovator/profile/update/{profile_id}', 'ProfileController@updateProfileInnovator');
     post('investor/profile/update/{profile_id}', 'ProfileController@updateProfileInvestor');
+    post('expert/profile/update/{profile_id}', 'ProfileController@updateProfileExpert');
+
 
 });
 
