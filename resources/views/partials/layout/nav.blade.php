@@ -9,7 +9,9 @@
 
         <a class="navbar-brand {{Request::path() == 'auth/login' ? 'active' : ''}}" href="{{ url('auth/login') }}">Bongo afrika</a>
 
+
         <section class="collapse navbar-toggleable-xs" id="navbar-main">
+
             <ul class="nav navbar-nav navbar-left">
                 @if(\Auth::guest())
 

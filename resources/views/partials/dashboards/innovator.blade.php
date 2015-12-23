@@ -26,6 +26,8 @@
 
     @endif
 
+
+
     <!-- This div has been left out to avoid repetition -->
     <!--<div class="step__feedback msg__box">
 		Project created successfully.

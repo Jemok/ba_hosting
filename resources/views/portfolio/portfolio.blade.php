@@ -23,7 +23,6 @@
                     <a href="{{ url('investor/profile/'.$fund->investor->hash_id) }}">{{$fund->name}}</a>
                     @endif
 
-
                     {!! $fund->created_at->diffForHumans() !!}
                 </h5>
                 @endforeach
@@ -33,6 +32,5 @@
 
                 @endif
 </div>
-
 
 @stop

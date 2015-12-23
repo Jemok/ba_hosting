@@ -1,3 +1,7 @@
+<li class="nav-item {{Request::path() == 'innovations/open' ? 'active' : ''}}">
+    <a class="nav-link" href="{{ route('messages') }}">Messages @include('messenger.unread-count')</a>
+</li>
+
 @if(\Auth::user()->isInvestor())
 
 @include('partials.layout.funded_open')
