@@ -9,7 +9,7 @@ use Md\Repos\Profile\ProfileRepository;
 use Md\Http\Requests\InvestorFundRequest;
 use Illuminate\Support\Facades\Session;
 use Md\Http\Requests\ProfileUpdation;
-
+use Md\Http\Requests\ProfileUpdationMother;
 class ProfileController extends Controller
 {
     protected $repo;
@@ -60,6 +60,15 @@ class ProfileController extends Controller
     }
 
     public function updateProfileExpert($profile_id,  ProfileUpdation $request)
+    {
+        $this->repo->updateProfileExpert($profile_id, $request);
+
+        Session::flash('flash_message', 'Profile was updated successfully');
+        return redirect()->back();
+
+    }
+
+    public function updateProfileMother($profile_id,  ProfileUpdationMother $request)
     {
         $this->repo->updateProfileExpert($profile_id, $request);
 

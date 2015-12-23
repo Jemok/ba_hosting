@@ -126,6 +126,8 @@ Route::group(['middleware' => 'auth'], function() {
     post('innovator/profile/update/{profile_id}', 'ProfileController@updateProfileInnovator');
     post('investor/profile/update/{profile_id}', 'ProfileController@updateProfileInvestor');
     post('expert/profile/update/{profile_id}', 'ProfileController@updateProfileExpert');
+    post('mother/profile/update/{profile_id}', 'ProfileController@updateProfileMother');
+
 
 
 });

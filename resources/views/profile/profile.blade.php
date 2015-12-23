@@ -357,9 +357,12 @@
 @if(Request::is('mother/profile/*'))
 
     @if(\Auth::user()->isMother() && \Auth::user()->id == $profile->id)
-    <form method="get" class="profile">
+    <form method="post" action="{{ url('mother/profile/update/'.$profile->id) }}" class="profile">
         <h3 class="section__title">Profile</h3>
         <fieldset name="personal" class="form__cluster">
+
+            {{ CSRF_FIELD() }}
+
             <div class="form-group">
                 <div class="form__field pro__pic">
                     <label>User profile pic</label>
@@ -368,11 +371,11 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label>First Name</label>
-                            <div class="form-control">{{$profile->first_name}}</div>
+                            <input type="text" name="first_name" value="{{ $profile->first_name }}" class="form-control">
                         </div>
                         <div class="form__field">
                             <label>Last Name</label>
-                            <div class="form-control">{{$profile->last_name}}</div>
+                            <input type="text" name="last_name" value="{{ $profile->last_name }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
@@ -384,10 +387,13 @@
                 </div>
             </div>
         </fieldset>
+        <footer class="form__footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </footer>
     </form>
 
     @else
-        <form method="get" class="profile">
+        <form method="get"  class="profile">
             <h3 class="section__title">Profile</h3>
             <fieldset name="personal" class="form__cluster">
                 <div class="form-group">

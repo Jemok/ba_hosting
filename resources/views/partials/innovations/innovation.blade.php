@@ -27,9 +27,9 @@
                 <h2 class="inno-title">{{ $innovation->innovationTitle }}</h2>
                 <p class="inno-meta">by <strong>  
                     @if(\Auth::user()->id  == $innovation->user_id)
-                    <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">Me</a>
+                    <a href="{{ url('innovator/profile/'.$innovation->user->hash_id) }}">Me</a>
                     @else
-                    <a class="inno-innovator" href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a>
+                    <a class="inno-innovator" href="{{ url('innovator/profile/'.$innovation->user->hash_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a>
                     @endif
                 </strong> 
                 — Posted in <strong><a href="#" class="inno-category">{{ $innovation->category->categoryName }}</a></strong> on <strong>May 21, 2014</strong></p>
