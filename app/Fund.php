@@ -21,7 +21,7 @@ class Fund extends Model
      */
     public function investor()
     {
-        return $this->belongsTo('Md\Investor');
+        return $this->belongsTo('Md\User', 'investor_id');
     }
 
 

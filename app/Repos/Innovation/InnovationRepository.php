@@ -289,9 +289,15 @@ class InnovationRepository
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
+            ->groupBy('innovation_id')
             ->latest()
-            ->distinct()
             ->paginate(2,['*'], 'investor');
+
+    }
+
+    public function getTotalInjected()
+    {
+        return \Md\Fund::where('investor_id', '=', \Auth::user()->id)->sum('amount');
 
     }
 

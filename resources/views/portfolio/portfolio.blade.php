@@ -17,10 +17,10 @@
 
                     @if(\Auth::user()->id == $fund->investor_id)
 
-                    <a href="{{ url('innovator/profile/'.$fund->investor_id) }}">Me</a>
+                    <a href="{{ url('investor/profile/'.$fund->investor->hash_id) }}">Me</a>
 
                     @else
-                    <a href="{{ url('innovator/profile/'.$fund->investor_id) }}">{{$fund->name}}</a>
+                    <a href="{{ url('investor/profile/'.$fund->investor->hash_id) }}">{{$fund->name}}</a>
                     @endif
 
 
