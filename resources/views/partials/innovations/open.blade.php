@@ -21,7 +21,7 @@
                 @endif
             </header>
             <section class="inno-summary">
-                {!! $innovation->innovationShortDescription !!}
+                <p>{!! $innovation->innovationShortDescription !!}</p>
                 <div class="inno-amount-needed">Ksh. {{ $innovation->innovationFund }}</div>
             </section>
             <footer class="inno-meta">

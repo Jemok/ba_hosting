@@ -30,8 +30,12 @@
 			font-size: $h4-size;
             margin-bottom: $padding-reset;
 		}
-        
+
         .inno-summary {
+        }
+        
+        .inno-amount-needed {
+            opacity: .5;
         }
 		.inno-meta {
 			color: #808080;
@@ -154,6 +158,12 @@
         text-align: center;
     }
     .innoDetails__content {
+        margin-bottom: 1.5em;
+        
+        &:not(:last-child) {
+            margin-bottom: 3em;
+        }
+        
         p {
             margin: 1em auto;
             text-align: justify;
