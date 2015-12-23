@@ -1,22 +1,29 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
-    <div class="col-md-6">
-        <h5>Started  by: {!! $thread->subject !!}</h5>
-
-        <div id="thread_{{$thread->id}}">
-            @foreach($thread->messages()->oldest()->get() as $message)
-            @include('messenger.html-message', $message)
-            @endforeach
+<div class="chat_window">
+    <div class="top_menu">
+        <div class="buttons">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
         </div>
+        <div class="title">Conversation with {!! $thread->subject !!}</div>
+    </div>
 
-        <h5>Add a new message</h5>
+    <ul class="messages" id="thread_{{$thread->id}}">
+        @foreach($thread->messages()->oldest()->get() as $message)
+        @include('messenger.html-message', $message)
+        @endforeach
+    </ul>
+        
+    <div class="bottom_wrapper clearfix">
         {!! Form::open(['route' => ['messages.update', $thread->id], 'method' => 'PUT']) !!}
-        <!-- Message Form Input -->
-        <div class="form-group">
-            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+        <div class="message_input_wrapper">
+            {!! Form::textarea('message', 'Type your message here...', ['class' => 'form-control message_input']) !!}
         </div>
+        {!! Form::submit('Submit', ['class' => 'form-control send_message']) !!}
+           
 
         <!--
         @if($users->count() > 0)
@@ -27,11 +34,8 @@
         </div>
         @endif-->
 
-        <!-- Submit Form Input -->
-        <div class="form-group">
-            {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-        </div>
         {!! Form::close() !!}
     </div>
+
 </div>
 @stop
