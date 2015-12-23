@@ -22,10 +22,10 @@
 
     @if(\Auth::user()->id == $profile->id)
         <form method="post" action="{{ url('innovator/profile/update/'.$profile->id) }}" class="profile">
+
+            {!! CSRF_FIELD() !!}
             <h3 class="section__title">Personal Profile</h3>
             <fieldset name="personal" class="form__cluster">
-
-                {!! CSRF_FIELD() !!}
                 <div class="form-group">
                     <div class="form__field pro__pic">
                         <label>User profile pic</label>

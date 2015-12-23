@@ -35,10 +35,10 @@
                 <p class="inno-innovator">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</p>
                 @endif
             </header>
-            <div class="inno-summary">
-                {!! $innovation->innovationDescription !!}
-            </div>
-            <span>Ksh. {{ $innovation->innovationFund }}</span>
+            <section class="inno-summary">
+                <p>{!! $innovation->innovationShortDescription !!}</p>
+                <span class="inno-funding-needed">Ksh. {{ $innovation->innovationFund }}</span>
+            </section>
             <footer class="inno-meta">
                 <div class="inno-category">{{ $innovation->category->categoryName }}</div>
                 @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)

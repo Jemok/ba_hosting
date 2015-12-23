@@ -22,7 +22,7 @@
             </header>
             <section class="inno-summary">
                 <p>{!! $innovation->innovationShortDescription !!}</p>
-                <div class="inno-amount-needed">Ksh. {{ $innovation->innovationFund }}</div>
+                <span class="inno-funding-needed">Ksh. {{ $innovation->innovationFund }}</span>
             </section>
             <footer class="inno-meta">
                 <span class="inno-category">{{ $innovation->category->categoryName }}</span>

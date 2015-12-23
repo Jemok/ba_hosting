@@ -10406,7 +10406,7 @@ input {
   margin-right: auto;
 }
 
-.form-signin .form__footer {
+.form__footer {
   margin-top: 15px;
 }
 
@@ -10420,6 +10420,10 @@ input {
           flex-flow: row nowrap;
   background-color: #fff;
   border: 1px solid #eceeef;
+}
+
+.form__cluster + .form__cluster {
+  margin-top: 15px;
 }
 
 .form__cluster .form-group {
@@ -11098,7 +11102,7 @@ input {
   margin-bottom: 14px;
 }
 
-.innoList .inno .inno-amount-needed {
+.innoList .inno .inno-funding-needed {
   opacity: .5;
 }
 
