@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/layout/auth.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/layout/auth.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Repos/Conversation/ConversationRepository.php" afterPath="$PROJECT_DIR$/app/Repos/Conversation/ConversationRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/InnovationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/InnovationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
@@ -25,7 +27,35 @@
     <favorites_list name="bongo" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="innovation.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="21" selection-start="3518" selection-end="3518" vertical-scroll-proportion="0.33870968" vertical-offset="1530" max-vertical-offset="3924">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InnovationController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="65" selection-start="2471" selection-end="2471" vertical-scroll-proportion="-10.444445" vertical-offset="1086" max-vertical-offset="2250">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConversationRepository.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Repos/Conversation/ConversationRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="-7.7777777" vertical-offset="726" max-vertical-offset="1188">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -43,8 +73,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/account/logout_auth.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BongoRequestController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_11_11_061052_create_investor_requests_migration_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/InvestorRequestRequest.php" />
         <option value="$PROJECT_DIR$/resources/views/request/send/investor.blade.php" />
@@ -74,7 +102,6 @@
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/ProfileUpdationMother.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/dashboards/investor.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_12_23_123234_create_progress_migration_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MessagesController.php" />
@@ -94,6 +121,9 @@
         <option value="$PROJECT_DIR$/resources/views/messenger/unread-count.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/layout/auth.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/layout/message.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/InnovationController.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php" />
+        <option value="$PROJECT_DIR$/app/Repos/Conversation/ConversationRepository.php" />
       </list>
     </option>
   </component>
@@ -137,6 +167,110 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="bongo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Conversation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bongo_three" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -187,11 +321,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
-    <editor active="false" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23113582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23113582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -255,13 +389,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_11_13_062038_create_bongo_requests_migration_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="38" selection-start="540" selection-end="540" vertical-scroll-proportion="0.4974093" vertical-offset="132" max-vertical-offset="774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Bongo_request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="20" selection-start="390" selection-end="390" vertical-scroll-proportion="0.55440414" vertical-offset="164" max-vertical-offset="720">
@@ -397,23 +524,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="26" selection-start="549" selection-end="549" vertical-scroll-proportion="-7.3333335" vertical-offset="216" max-vertical-offset="3852">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="7" selection-start="1777" selection-end="1777" vertical-scroll-proportion="-7.111111" vertical-offset="852" max-vertical-offset="2520">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="28.222221" vertical-offset="762" max-vertical-offset="2214">
           <folding />
         </state>
       </provider>
@@ -623,6 +736,27 @@
     <entry file="file://$PROJECT_DIR$/resources/views/partials/layout/message.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="5" selection-start="180" selection-end="180" vertical-scroll-proportion="0.09917355" vertical-offset="0" max-vertical-offset="363">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InnovationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="65" selection-start="2471" selection-end="2471" vertical-scroll-proportion="-10.444445" vertical-offset="1086" max-vertical-offset="2250">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repos/Conversation/ConversationRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="0" selection-start="1270" selection-end="1270" vertical-scroll-proportion="-7.7777777" vertical-offset="726" max-vertical-offset="1188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/innovations/innovation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="21" selection-start="3518" selection-end="3518" vertical-scroll-proportion="0.33870968" vertical-offset="1530" max-vertical-offset="3924">
           <folding />
         </state>
       </provider>

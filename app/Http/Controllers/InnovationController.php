@@ -73,6 +73,8 @@ class InnovationController extends Controller
 
         $currentUserId = Auth::user()->id;
 
+        $chatWithInnovator = $conversationRepository->checkChatWithInnovator($id);
+
         // All threads that user is participating in
         //$threads = Thread::forUser($currentUserId)->get();
 
@@ -82,7 +84,7 @@ class InnovationController extends Controller
 
         $threads_count = $threads->count();
 
-        return view('innovation.show', compact('innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
+        return view('innovation.show', compact('chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
 

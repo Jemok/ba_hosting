@@ -183,7 +183,11 @@
                         {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
+                    @if($chatWithInnovator == true)
+                        <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
+                    @else
+                        <button type="submit" class="btn btn-primary btn-block" disabled>Converse with innovator first</button>
+                    @endif
                 </form>
             @endif
         @endif

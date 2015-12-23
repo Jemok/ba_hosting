@@ -3,6 +3,7 @@
 use Md\Chat;
 use Md\Innovation;
 use Md\Message;
+use Md\Progress;
 
 class ConversationRepository {
 
@@ -44,6 +45,20 @@ class ConversationRepository {
         else
         {
             return 2;
+        }
+    }
+
+    public function checkChatWithInnovator($id)
+    {
+        if (Progress::where('investor_id', '=', \Auth::user()->id)
+            ->where('innovation_id', '=', $id)
+            ->exists()) {
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 } 
