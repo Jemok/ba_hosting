@@ -25,4 +25,9 @@ class Investor_request extends Model
         'job_title',
         'company'
     ];
+
+    public function user()
+    {
+        return $this->hasOne('Md\User');
+    }
 }

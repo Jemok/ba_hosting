@@ -120,7 +120,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::post('investor/add-finance', 'ProfileController@SetInvestorAmount');
 
-    post('innovator/profile/update/{profile_id}', 'ProfileController@updateProfile');
+    post('innovator/profile/update/{profile_id}', 'ProfileController@updateProfileInnovator');
+    post('investor/profile/update/{profile_id}', 'ProfileController@updateProfileInvestor');
 
 });
 

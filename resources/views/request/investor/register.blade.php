@@ -56,6 +56,13 @@
                         <input type="email" name="email" value="{{ $confirm->investor_email}}" class="form-control" placeholder="Email">
                     </div>
 
+                    <div class="form__field {{ $errors->has('more_details') ? 'has-error' : ''}}" >
+                         <label for="more_details" class="sr-only">More about you</label>
+                         {!! $errors->first('more_details', '<label class="help-block">:message</label>' ) !!}
+                         <textarea name="more_details" class="form-control" placeholder="Tell us about yourself in a paragraph or two" rows="7">{{ old('more_details') }}</textarea>
+                    </div>
+
+
                     <div class="form__field {{ $errors->has('password') ? 'has-error' : ''}}">
                         <label for="password" class="sr-only">Password</label>
                         {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}

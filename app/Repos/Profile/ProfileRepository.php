@@ -20,7 +20,7 @@ class ProfileRepository {
         }
         else
         {
-            return User::where('id', '=', $innovator_id )->first();
+            return User::where('id', '=', $innovator_id )->with('investor_request')->first();
         }
     }
 
@@ -34,15 +34,26 @@ class ProfileRepository {
         ]);
     }
 
-    public function updateProfile($profile_id, $request)
+    public function updateProfileInnovator($profile_id, $request)
     {
         $user = User::findOrFail($profile_id);
 
         $user->update([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
-            'email'      => $request->email,
             'more_details' => $request->more_details
+        ]);
+    }
+
+    public function updateProfileInvestor($profile_id, $request)
+    {
+        $user = User::findOrFail($profile_id);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+            'more_details' => $request->more_details,
+            'investor_amount' =>  $request->financial_amount
         ]);
     }
 

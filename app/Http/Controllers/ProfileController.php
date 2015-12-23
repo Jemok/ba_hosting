@@ -41,12 +41,22 @@ class ProfileController extends Controller
         return redirect('/home');
     }
 
-    public function updateProfile($profile_id,  ProfileUpdation $request)
+    public function updateProfileInnovator($profile_id,  ProfileUpdation $request)
     {
-        $this->repo->updateProfile($profile_id, $request);
+        $this->repo->updateProfileInnovator($profile_id, $request);
 
         Session::flash('flash_message', 'Profile was updated successfully');
         return redirect()->back();
 
     }
+
+    public function updateProfileInvestor($profile_id,  ProfileUpdation $request)
+    {
+        $this->repo->updateProfileInvestor($profile_id, $request);
+
+        Session::flash('flash_message', 'Profile was updated successfully');
+        return redirect()->back();
+
+    }
+
 }

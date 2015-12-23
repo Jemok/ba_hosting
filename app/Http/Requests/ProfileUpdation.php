@@ -26,7 +26,6 @@ class ProfileUpdation extends Request
         return [
             'first_name' => 'required|max:255',
             'last_name'  => 'required|max:255',
-            'email' => 'required|email|max:255',
             'more_details' => 'required',
         ];
     }

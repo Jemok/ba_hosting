@@ -44,10 +44,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}" >
+                            <div class="form__field">
                                 <label>Email</label>
-                                {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
-                                <input name="email" class="form-control" value="{{$profile->email}}">
+                                <div class="form-control" >{{$profile->email}}</div>
                             </div>
                         </div>
                     </div>
@@ -107,6 +106,76 @@
 
 @if(\Auth::user()->isInvestor())
 
+    @if(\Auth::user()->id == $profile->id)
+        <form method="post" action="{{ url('investor/profile/update/'.$profile->id) }}" class="profile">
+            <h3 class="section__title">Personal Profile</h3>
+            <fieldset name="personal" class="form__cluster">
+
+                {!! CSRF_FIELD() !!}
+                <div class="form-group">
+                    <div class="form__field pro__pic">
+                        <label>User profile pic</label>
+                    </div>
+                    <div class="form__field">
+                        <div class="form-group">
+                            <div class="form__field {{ $errors->has('first_name') ? 'has-error' : ''}}" >
+                                <label>First Name</label>
+                                {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
+                                <input name="first_name" class="form-control" value="{{$profile->first_name}}">
+                            </div>
+                            <div class="form__field {{ $errors->has('last_name') ? 'has-error' : ''}}" >
+                                <label>Last Name</label>
+                                {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
+                                <input name="last_name" class="form-control" value="{{$profile->last_name}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form__field">
+                                <label>Email</label>
+                                <div class="form-control" >{{$profile->email}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Company</label>
+                        <div class="form-control">-</div>
+                    </div>
+                    <div class="form__field">
+                        <label>Job Title</label>
+                        <div class="form-control">Job Title</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>About you</label>
+                        <input name="more_details" value="{{ $profile->more_details }}" class="form-control">
+                    </div>
+                </div>
+            </fieldset>
+
+            <h3 class="section__title">Virtual Bank Account</h3>
+            <fieldset name="financial" class="form__cluster">
+                <div class="form-group">
+                    <div class="form__field {{ $errors->has('financial_amount') ? 'has-error' : ''}}">
+                        <label>Funding Available (Ksh.)</label>
+                        {!! $errors->first('financial_amount', '<label class="help-block">:message</label>' ) !!}
+                        <input name="financial_amount" value="{{$profile->investor_amount}}" class="form-control">
+                    </div>
+                    <div class="form__field">
+                        <label>Funding Injected (Ksh.)</label>
+                        <div class="form-control">{{$profile->fund->sum('amount')}}</div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <footer class="form__footer">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </footer>
+        </form>
+    @else
     <form method="get" class="profile">
         <h3 class="section__title">Personal Profile</h3>
         <fieldset name="personal" class="form__cluster">
@@ -165,7 +234,7 @@
             </div>
         </fieldset>
     </form>
-
+    @endif
 @endif
 
 @if(\Auth::user()->isAdmin())

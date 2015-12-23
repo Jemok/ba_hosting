@@ -36,9 +36,13 @@
                 @endif
             </header>
             <div class="inno-summary">
-                {!! $innovation->innovationDescription !!}
+                {!! $innovation->innovationShortDescription !!}
             </div>
+            @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+
+            @else
             <span>Ksh. {{ $innovation->innovationFund }}</span>
+            @endif
             <footer class="inno-meta">
                 <div class="inno-category">{{ $innovation->category->categoryName }}</div>
                 @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)

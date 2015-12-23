@@ -53,6 +53,7 @@ class AuthController extends Controller
                 'first_name' => 'required|max:255',
                 'last_name'  => 'required|max:255',
                 'email' => 'required|email|max:255|unique:users',
+                'more_details' => 'required',
                 'password' => 'required|confirmed|min:6',
                 //'userCategory' => 'required'
             ]);
@@ -93,6 +94,7 @@ class AuthController extends Controller
              $user = User::create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
+                'more_details' => $data['more_details'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'userCategory' => 2

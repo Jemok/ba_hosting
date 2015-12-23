@@ -110,7 +110,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function fund()
     {
-        return $this->hasMany('Md\Fund');
+        return $this->hasMany('Md\Fund', 'investor_id');
     }
 
     public function fullName()
@@ -121,6 +121,11 @@ class User extends Model implements AuthenticatableContract,
     public function bongo_request()
     {
         return $this->belongsTo('Md\Bongo_request');
+    }
+
+    public function investor_request()
+    {
+        return $this->belongsTo('Md\Investor_request');
     }
 
     public static function boot()
