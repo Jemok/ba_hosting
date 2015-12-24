@@ -26,6 +26,10 @@
             </section>
             <footer class="inno-meta">
                 <span class="inno-category">{{ $innovation->category->categoryName }}</span>
+                @if(\Auth::user()->id == $innovation->user_id)
+                <span class="inno-category pull-right"><a href="{{url('innovation/edit/'.$innovation->id)}}">Edit</a></span>
+                @endif
+
             </footer>
         </article>
 
@@ -36,5 +40,5 @@
 
     <p class="alert-info"><h3>No open innovations</h></h3><p>
 
-        @endif
+    @endif
 </div> <!-- end innovations-pane -->

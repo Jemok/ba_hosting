@@ -39,6 +39,26 @@ class InnovationController extends Controller
 
     }
 
+    public function editInnovation($innovation_id)
+    {
+        $innovation = $this->repo->retrieve($innovation_id);
+
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('innovation.edit', compact('innovation', 'categories'));
+
+    }
+
+    public function updateInnovation(InnovationsRequest $request, $innovation_id)
+    {
+        $this->repo->update($request, $innovation_id);
+
+        Session::flash('flash_message', 'Awesome!! Your Innovation was updated successfully!');
+
+        return redirect()->back();
+
+    }
+
     public function open()
     {
         $innovations = $this->repo->getAll();

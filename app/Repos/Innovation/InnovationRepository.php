@@ -75,10 +75,23 @@ class InnovationRepository
      * @param array $details
      * @return Innovation
      */
-    public function update(Innovation $innovation, Array $details)
+    public function update($request, $innovation_id)
     {
-        $innovation->update($details);
-        return $innovation;
+      $innovation = Innovation::findOrFail($innovation_id);
+
+      $innovation->update([
+
+          'innovationTitle'       => $request->innovationTitle,
+          'innovationShortDescription' => $request->innovationShortDescription,
+          'innovationDescription' => $request->innovationDescription,
+          'innovationFund'        => $request->innovationFund,
+          'category_id'           => $request->innovationCategory,
+          'justifyFund'           => $request->justifyFund,
+          'tradeMarkName'         => $request->tradeMarkName,
+          'tradeMarkNumber'       => $request->tradeMarkNumber
+      ]);
+
+
     }
 
 

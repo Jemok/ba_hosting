@@ -53,6 +53,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     get('innovations/investor/funded', 'InnovationController@investorFunded');
 
+    get('innovation/edit/{innovation_id}', 'InnovationController@editInnovation');
+
+    post('innovation/update/{innovation_id}', 'InnovationController@updateInnovation');
+
+
 
     get('innovation/{id}/update', [
         'as' => 'editInnovation', 'uses' => 'InnovationController@edit'
