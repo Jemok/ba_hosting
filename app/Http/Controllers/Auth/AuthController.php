@@ -51,9 +51,9 @@ class AuthController extends Controller
                 'first_name' => 'required|min:2|max:20|alpha',
                 'last_name'  => 'required|min:2|max:20|alpha',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha|between:5,144',
-                'password' => 'required|confirmed|alpha|min:6|max:15',
-                'password_confirmation' => 'required|alpha|min:6|max:15'
+                'more_details' => 'required|alpha_dash|between:5,144',
+                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
+                'password_confirmation' => 'required|alpha|alpha_dash|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }elseif(Request::path() == "auth/register/innovator")
@@ -62,10 +62,10 @@ class AuthController extends Controller
                 'first_name' => 'required|min:2|max:20|alpha',
                 'last_name'  => 'required|min:2|max:20|alpha',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha|between:5,144',
+                'more_details' => 'required|alpha_dash|between:5,144',
                 'terms'        => 'required|numeric|accepted:1',
-                'password' => 'required|confirmed|alpha|min:6|max:15',
-                'password_confirmation' => 'required|alpha|min:6|max:15'
+                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
+                'password_confirmation' => 'required|alpha_dash|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }elseif(Request::path() == "auth/register/bongo-employee")
@@ -74,9 +74,9 @@ class AuthController extends Controller
                 'first_name' => 'required|min:2|max:20|alpha',
                 'last_name'  => 'required|min:2|max:20|alpha',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha|between:5,144',
-                'password' => 'required|confirmed|alpha|min:6|max:15',
-                'password_confirmation' => 'required|alpha|min:6|max:15'
+                'more_details' => 'required|alpha_dash|between:5,144',
+                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
+                'password_confirmation' => 'required|alpha_dash|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }

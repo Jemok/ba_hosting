@@ -40,7 +40,7 @@ class ProfileUpdation extends Request
          return [
                 'first_name' => 'required|min:2|max:20|alpha',
                 'last_name'  => 'required|min:2|max:20|alpha',
-                'more_details' => 'required|alpha|between:5,144',
+                'more_details' => 'required|alpha_dash|between:5,144',
                 'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
                 'financial_amount' => 'required|numeric|min:1'
             ];
@@ -62,7 +62,7 @@ class ProfileUpdation extends Request
             return [
                 'first_name' => 'required|min:2|max:20|alpha',
                 'last_name'  => 'required|min:2|max:20|alpha',
-                'more_details' => 'required|alpha|between:5,144',
+                'more_details' => 'required|alpha_dash|between:5,144',
                 'email'        => 'required|email|between:3,64|unique:users,email,'.\Auth::user()->id,
             ];
         }

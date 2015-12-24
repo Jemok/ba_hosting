@@ -27,9 +27,9 @@ class BongoRequestRequest extends Request
             'bongo_email' => 'email|required|between:3,64|unique:bongo_requests',
             'first_name' => 'required|min:2|max:20|alpha',
             'last_name'  => 'required|min:2|max:20|alpha',
-            'company'     => 'required|alpha|min:2|max:200',
-            'job_title'   => 'required|alpha|min:2|max:20',
-            'field'       => 'required|alpha|min:2|max:20'
+            'company'     => 'required|alpha_dash|min:2|max:200',
+            'job_title'   => 'required|alpha_dash|min:2|max:20',
+            'field'       => 'required|alpha_dash|min:2|max:20'
         ];
     }
 }
