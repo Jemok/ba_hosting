@@ -41,6 +41,7 @@ class ProfileRepository {
         $user->update([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
+            'email'      => $request->email,
             'more_details' => $request->more_details
         ]);
     }
@@ -53,6 +54,7 @@ class ProfileRepository {
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'more_details' => $request->more_details,
+            'email'      => $request->email,
             'investor_amount' =>  $request->financial_amount
         ]);
     }
@@ -65,7 +67,18 @@ class ProfileRepository {
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
             'more_details' => $request->more_details,
-            'investor_amount' =>  $request->financial_amount
+            'email'      => $request->email,
+        ]);
+    }
+
+    public function updateProfileMother($profile_id, $request)
+    {
+        $user = User::findOrFail($profile_id);
+
+        $user->update([
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+            'email'      => $request->email,
         ]);
     }
 

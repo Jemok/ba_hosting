@@ -24,7 +24,7 @@ class MessagesRequest extends Request
     public function rules()
     {
         return [
-            'message' => 'required'
+            'message' => 'required|min:1|max:144|alpha',
         ];
     }
 }

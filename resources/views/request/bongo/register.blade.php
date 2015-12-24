@@ -83,7 +83,7 @@
 
                     <div class="form-group">
                         <div class="form__field">
-                            <label for="password" class="sr-only">Confirm Password</label>
+                            <label for="password_confirmation" class="sr-only">Confirm Password</label>
                             <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
                         </div>
                     </div>

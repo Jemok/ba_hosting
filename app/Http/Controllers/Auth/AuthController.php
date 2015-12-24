@@ -28,9 +28,7 @@ class AuthController extends Controller
     protected $mailer;
 
     /**
-     * Create a new authentication controller instance.
-     *
-     * @return \Md\Http\Controllers\Auth\AuthController
+     * @param AppMailer $appMailer
      */
     public function __construct(AppMailer $appMailer)
     {
@@ -50,32 +48,35 @@ class AuthController extends Controller
         if(Request::path() == "auth/register/investor")
         {
             return Validator::make($data, [
-                'first_name' => 'required|max:255',
-                'last_name'  => 'required|max:255',
-                'email' => 'required|email|max:255|unique:users',
-                'more_details' => 'required',
-                'password' => 'required|confirmed|min:6',
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'email' => 'required|email|between:3,64|unique:users',
+                'more_details' => 'required|alpha|between:5,144',
+                'password' => 'required|confirmed|alpha|min:6|max:15',
+                'password_confirmation' => 'required|alpha|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }elseif(Request::path() == "auth/register/innovator")
         {
             return Validator::make($data, [
-                'first_name' => 'required|max:255',
-                'last_name'  => 'required|max:255',
-                'email' => 'required|email|max:255|unique:users',
-                'more_details' => 'required',
-                'terms'        => 'required|numeric',
-                'password' => 'required|confirmed|min:6',
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'email' => 'required|email|between:3,64|unique:users',
+                'more_details' => 'required|alpha|between:5,144',
+                'terms'        => 'required|numeric|accepted:1',
+                'password' => 'required|confirmed|alpha|min:6|max:15',
+                'password_confirmation' => 'required|alpha|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }elseif(Request::path() == "auth/register/bongo-employee")
         {
             return Validator::make($data, [
-                'first_name' => 'required|max:255',
-                'last_name'  => 'required|max:255',
-                'email' => 'required|email|max:255|unique:users',
-                'more_details' => 'required',
-                'password' => 'required|confirmed|min:6',
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'email' => 'required|email|between:3,64|unique:users',
+                'more_details' => 'required|alpha|between:5,144',
+                'password' => 'required|confirmed|alpha|min:6|max:15',
+                'password_confirmation' => 'required|alpha|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }

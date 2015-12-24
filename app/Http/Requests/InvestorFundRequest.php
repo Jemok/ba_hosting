@@ -25,7 +25,7 @@ class InvestorFundRequest extends Request
     {
         return [
 
-            'financial_amount' => 'required | numeric'
+            'financial_amount' => 'required|numeric|min:1'
         ];
     }
 }

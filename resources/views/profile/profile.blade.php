@@ -15,7 +15,13 @@
     {{ session('flash_message') }}
 
 </div>
+@endif
 
+<!-- Alert for errors in profile submission form -->
+@if (count($errors) > 0)
+<div class="alert alert-danger" role="alert" >
+    <h6>Oh snap! Failed to update, <b>Change a few things up</b> and try submitting again!</h6>
+</div>
 @endif
 
 @if(Request::is('innovator/profile/*'))
@@ -46,7 +52,8 @@
                         <div class="form-group">
                             <div class="form__field">
                                 <label>Email</label>
-                                <div class="form-control" >{{$profile->email}}</div>
+                                {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                                <input name="email" class="form-control" value="{{$profile->email}}">
                             </div>
                         </div>
                     </div>
@@ -131,7 +138,8 @@
                         <div class="form-group">
                             <div class="form__field">
                                 <label>Email</label>
-                                <div class="form-control" >{{$profile->email}}</div>
+                                {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                                <input type="text" name="email" class="form-control" value="{{$profile->email}}">
                             </div>
                         </div>
                     </div>
@@ -264,7 +272,8 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label>Email</label>
-                            <div class="form-control">{{$profile->email}}</div>
+                            {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="email" value="{{ $profile->email }}" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -371,17 +380,20 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label>First Name</label>
+                            {!! $errors->first('first_name', '<label class="help-block">:message</label>' ) !!}
                             <input type="text" name="first_name" value="{{ $profile->first_name }}" class="form-control">
                         </div>
                         <div class="form__field">
                             <label>Last Name</label>
+                            {!! $errors->first('last_name', '<label class="help-block">:message</label>' ) !!}
                             <input type="text" name="last_name" value="{{ $profile->last_name }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form__field">
                             <label>Email</label>
-                            <div class="form-control">{{$profile->email}}</div>
+                            {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                            <input type="text" name="email" value="{{ $profile->email }}" class="form-control">
                         </div>
                     </div>
                 </div>

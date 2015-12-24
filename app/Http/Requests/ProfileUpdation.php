@@ -21,12 +21,52 @@ class ProfileUpdation extends Request
      *
      * @return array
      */
+
     public function rules()
     {
+        if(\Auth::user()->isInnovator())
+        {
         return [
-            'first_name' => 'required|max:255',
-            'last_name'  => 'required|max:255',
-            'more_details' => 'required',
+            'first_name' => 'required|min:2|max:20|alpha',
+            'last_name'  => 'required|min:2|max:20|alpha',
+            'more_details' => 'required|alpha|between:5,144',
+            'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id
         ];
+        }
+
+        if(\Auth::user()->isInvestor())
+        {
+
+         return [
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'more_details' => 'required|alpha|between:5,144',
+                'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
+                'financial_amount' => 'required|numeric|min:1'
+            ];
+        }
+
+        if(\Auth::user()->isMother())
+        {
+
+            return [
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
+            ];
+        }
+
+        if(\Auth::user()->isAdmin())
+        {
+
+            return [
+                'first_name' => 'required|min:2|max:20|alpha',
+                'last_name'  => 'required|min:2|max:20|alpha',
+                'more_details' => 'required|alpha|between:5,144',
+                'email'        => 'required|email|between:3,64|unique:users,email,'.\Auth::user()->id,
+            ];
+        }
+
+
     }
 }

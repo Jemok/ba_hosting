@@ -68,9 +68,9 @@ class ProfileController extends Controller
 
     }
 
-    public function updateProfileMother($profile_id,  ProfileUpdationMother $request)
+    public function updateProfileMother($profile_id,  ProfileUpdation $request)
     {
-        $this->repo->updateProfileExpert($profile_id, $request);
+        $this->repo->updateProfileMother($profile_id, $request);
 
         Session::flash('flash_message', 'Profile was updated successfully');
         return redirect()->back();

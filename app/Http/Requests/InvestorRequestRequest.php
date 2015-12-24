@@ -25,11 +25,11 @@ class InvestorRequestRequest extends Request
     {
         return [
 
-            'investor_email' => 'email|required|unique:investor_requests',
-            'company'        => 'required',
-            'job_title'      => 'required',
-            'first_name'     => 'required',
-            'last_name'      => 'required'
+            'investor_email' => 'email|required|between:3,64|unique:investor_requests',
+            'first_name' => 'required|min:2|max:20|alpha',
+            'last_name'  => 'required|min:2|max:20|alpha',
+            'company'     => 'required|alpha|min:2|max:200',
+            'job_title'   => 'required|alpha|min:2|max:30',
         ];
     }
 }
