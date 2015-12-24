@@ -11,7 +11,7 @@
         <div class="title">Conversation with {!! $thread->subject !!}</div>
     </div>
 
-    <ul class="messages" id="thread_{{$thread->id}}">
+    <ul class="messages" >
         @foreach($thread->messages()->oldest()->get() as $message)
         @include('messenger.html-message', $message)
         @endforeach
@@ -20,7 +20,8 @@
     <div class="bottom_wrapper clearfix">
         {!! Form::open(['route' => ['messages.update', $thread->id], 'method' => 'PUT']) !!}
         <div class="message_input_wrapper">
-            {!! Form::textarea('message', 'Type your message here...', ['class' => 'form-control message_input']) !!}
+            {!! $errors->first('message', '<label class="help-block">:message</label>' ) !!}
+            {!! Form::textarea('message', null, ['class' => 'form-control message_input']) !!}
         </div>
         {!! Form::submit('Submit', ['class' => 'form-control send_message']) !!}
            

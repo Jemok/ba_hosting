@@ -79,7 +79,7 @@ class InnovationController extends Controller
 
         $check_chat = $conversationRepository->chatExists($id);
 
-        //$message =  $conversationRepository->retrieveChat($id);
+       
 
         //$conversation = $conversationRepository->startConversation();
 
@@ -87,7 +87,13 @@ class InnovationController extends Controller
 
         $chatWithInnovator = $conversationRepository->checkChatWithInnovator($id);
 
-        $users = User::where('id', '=', 1)->get();
+        $mother = User::where('id', '=', 1)->first();
+
+        $users = User::where('userCategory', '=', 3)->get();
+
+        $investors = User::where('userCategory', '=', 2)->get();
+
+
 
         // All threads that user is participating in
         //$threads = Thread::forUser($currentUserId)->get();
@@ -98,7 +104,7 @@ class InnovationController extends Controller
 
         $threads_count = $threads->count();
 
-        return view('innovation.show', compact('users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
+        return view('innovation.show', compact('investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
 

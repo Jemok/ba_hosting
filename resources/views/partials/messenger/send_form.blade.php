@@ -6,6 +6,7 @@
     <div class="form-group">
         <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
         <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
+        <input type="hidden" name="progress" value="{{\Auth::user()->fullName()}}">
         <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
     </div>
     
@@ -19,3 +20,4 @@
 
     {!! Form::close() !!}
 </div>
+

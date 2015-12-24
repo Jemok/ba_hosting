@@ -1,5 +1,5 @@
 <div class="container">
-    <h5>Chat with Mother:</h5>
+    <h5>Chat with an Investor:</h5>
     {!! Form::open(['route' => 'messages.store']) !!}
 
     <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
@@ -18,9 +18,17 @@
 
 
 
-            <input type="hidden" name="recipients[]" value="{!!$mother->id!!}">
+        <select id="select2" name="recipients[]" class="form-control">
+            <option disabled selected>Select Investor</option>
 
-
+            @if($users->count())
+            @foreach($investors as $user)
+            <option value="{!!$user->id!!}" @if (old('recipients[]') == $user->first_name)  selected="selected" @endif>{{ $user->first_name }}</option>
+            @endforeach
+            @else
+            <option value="" disabled selected>No Experts found</option>
+            @endif
+        </select>
 
 
         <!-- Submit Form Input -->

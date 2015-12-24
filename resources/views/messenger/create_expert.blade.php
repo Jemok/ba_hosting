@@ -16,13 +16,19 @@
             {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
         </div>
 
-        @if($users->count() > 0)
-        <div class="checkbox">
+
+
+        <select id="select2" name="recipients[]" class="form-control">
+            <option disabled selected>Select Expert</option>
+
+            @if($users->count())
             @foreach($users as $user)
-            <label title="{!!$user->first_name!!} {!!$user->last_name!!}"><input type="checkbox" name="recipients[]" value="{!!$user->id!!}">{!!$user->first_name!!}</label>
+            <option value="{!!$user->id!!}" @if (old('recipients[]') == $user->first_name)  selected="selected" @endif>{{ $user->first_name }}</option>
             @endforeach
-        </div>
-        @endif
+            @else
+            <option value="" disabled selected>No Experts found</option>
+            @endif
+        </select>
 
 
         <!-- Submit Form Input -->

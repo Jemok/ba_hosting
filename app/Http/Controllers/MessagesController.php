@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use Md\Http\Requests\MessagesCreateRequest;
+use Md\Http\Requests\MessagesRequest;
 use Md\Services\PusherWrapper as Pusher;
 use Md\User;
 use Md\Progress;
@@ -112,9 +114,9 @@ class MessagesController extends Controller
      *
      * @return mixed
      */
-    public function store()
+    public function store(MessagesCreateRequest $request)
     {
-        $input = Input::all();
+        $input = $request;
 
 
         $thread = Thread::create(
@@ -134,13 +136,16 @@ class MessagesController extends Controller
             ]
         );
 
-        Progress::create([
+        if (Input::has('progress')) {
+            Progress::create([
 
-            'innovation_id' => $input['innovation_id'],
-            'investor_id'   => Auth::user()->id,
-            'progress_status' => 1
+                'innovation_id' => $input['innovation_id'],
+                'investor_id'   => Auth::user()->id,
+                'progress_status' => 1
 
-        ]);
+            ]);
+        }
+
 
 
         // Sender
@@ -168,7 +173,7 @@ class MessagesController extends Controller
      * @param $id
      * @return mixed
      */
-    public function update($id)
+    public function update($id, MessagesRequest $request)
     {
         try {
             $thread = Thread::findOrFail($id);
@@ -185,7 +190,7 @@ class MessagesController extends Controller
             [
                 'thread_id' => $thread->id,
                 'user_id'   => Auth::id(),
-                'body'      => Input::get('message'),
+                'body'      => $request->message
             ]
         );
 

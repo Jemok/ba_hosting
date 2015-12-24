@@ -1,7 +1,7 @@
 <div class="col-sm-3">
     <ul class="list-group" id="myTab" role="tablist">
         <button class="list-group-item active" data-toggle="tab" data-target="#innovator" role="tab" aria-controls="innovator">
-            Innovator
+            Messages
             <span class="label label-success label-pill pull-right">@include('messenger.unread-count')</span>
         </button>
         <button class="list-group-item" data-toggle="tab" data-target="#expert" role="tab" aria-controls="expert">

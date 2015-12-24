@@ -8,7 +8,7 @@
     </div>
 </div>
 -->
-
+@if(\Auth::user()->id == $message->user_id)
 <li class="message left appeared">
     <div class="avatar">
         <img src="//www.gravatar.com/avatar/{!! md5($message->user->email) !!}?s=64" alt="{!! $message->user->first_name !!}">
@@ -19,7 +19,7 @@
     </div>
 </li>
 
-
+@elseif(\Auth::user()->id != $message->user_id)
 <li class="message right appeared">
     <div class="avatar">
         <img src="//www.gravatar.com/avatar/{!! md5($message->user->email) !!}?s=64" alt="{!! $message->user->first_name !!}">
@@ -29,3 +29,4 @@
         <div class="text-muted">{!! $message->created_at->diffForHumans() !!}</div>
     </div>
 </li>
+@endif

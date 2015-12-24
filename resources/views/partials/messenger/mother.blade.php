@@ -1,34 +1,32 @@
-@include('partials.messenger.new_chat_selector')
+<div class="col-sm-3">
+    <ul class="list-group" id="myTab" role="tablist">
+        <button class="list-group-item active" data-toggle="tab" data-target="#messages" role="tab" aria-controls="messages">
+            Messages
+            <span class="label label-success label-pill pull-right"></span>
+        </button>
+        <button class="list-group-item " data-toggle="tab" data-target="#innovator" role="tab" aria-controls="innovator">
+            Innovator
+            <span class="label label-success label-pill pull-right"></span>
+        </button>
 
-@if($threads_count > 0)
-    @include('partials.messenger.loop_threads')
-@else
-<div class="container">
-    <h5>Start a chat with <a href="{{ url('innovator/profile/'.$innovation->user_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a> about {{ $innovation->innovationTitle }} </h5>
-
-    {!! Form::open(['route' => 'messages.store']) !!}
-    <div class="col-md-6">
-        <!-- Subject Form Input -->
-        <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
-        <div class="form-group">
-            <!--{!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}-->
-            <!--{!! Form::hidden('subject', null, ['class' => 'form-control', 'value' => '{{\Auth::user()->fullName()}}']) !!}-->
-            <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
-        </div>
-
-        <!-- Message Form Input -->
-        <div class="form-group">
-            {!! Form::label('message', 'Your Message:', ['class' => 'control-label']) !!}
-            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
-        </div>
-
-        <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
-
-        <!-- Submit Form Input -->
-        <div class="form-group">
-            {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
-        </div>
-    </div>
-    {!! Form::close() !!}
+        <button class="list-group-item" data-toggle="tab" data-target="#expert" role="tab" aria-controls="expert">
+            Expert <i class="ion-plus-round pull-right"></i>
+        </button>
+        <button class="list-group-item" data-toggle="tab" data-target="#investor" role="tab" aria-controls="investor">
+            Investor <i class="ion-plus-round pull-right"></i>
+        </button>
+    </ul>
 </div>
-@endif
+
+<div class="tab-content col-sm-9">
+    <div class="tab-pane active" id="messages" role="tabpanel">
+        @if($threads_count > 0)
+        @include('partials.messenger.loop_threads')
+        @else
+        <h4>No chats available</h4>
+        @endif
+    </div>
+    <div class="tab-pane" id="innovator" role="tabpanel">@include('partials.messenger.send_form')</div>
+    <div class="tab-pane" id="expert" role="tabpanel">@include('messenger.create_expert')</div>
+    <div class="tab-pane" id="investor" role="tabpanel">@include('messenger.create_investor')</div>
+</div>
