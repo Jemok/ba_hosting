@@ -36,7 +36,7 @@
             </header>
 
             <section class="innoDetails__content">
-                <p>{!! $innovation->innovationShortDescription !!}</p>
+                <p>{{ $innovation->innovationShortDescription }}</p>
                 {!! $innovation->innovationDescription !!}
             </section>
 

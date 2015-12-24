@@ -12,13 +12,13 @@
         <input type="hidden" name="innovation_id" value="{{$innovation_id}}">
         <div class="form-group">
             {!! Form::label('subject', 'Subject', ['class' => 'control-label']) !!}
-            {!! Form::text('subject', null, ['class' => 'form-control']) !!}
+            {!! Form::text('subject', '{{ old('subject') }}', ['class' => 'form-control']) !!}
         </div>
 
         <!-- Message Form Input -->
         <div class="form-group">
             {!! Form::label('message', 'Message', ['class' => 'control-label']) !!}
-            {!! Form::textarea('message', null, ['class' => 'form-control']) !!}
+            {!! Form::textarea('message', '{{ old('message') }}', ['class' => 'form-control']) !!}
         </div>
 
         @if($users->count() > 0)

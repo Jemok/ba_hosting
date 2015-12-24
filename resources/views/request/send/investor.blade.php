@@ -42,13 +42,13 @@
                         <div class="form__field {{ $errors->has('company') ? 'has-error' : ''}}" >
                             <label for="company" class="sr-only">Company</label>
                             {!! $errors->first('company', '<label class="help-block">:message</label>' ) !!}
-                            <input type="text" name="company" class="form-control" placeholder="Your company" />
+                            <input type="text" name="company" value="{{ old('company') }}"  class="form-control" placeholder="Your company" />
                         </div>
 
                         <div class="form__field {{ $errors->has('job_title') ? 'has-error' : ''}}" >
                             <label for="job_title" class="sr-only">Job Title</label>
                             {!! $errors->first('job_title', '<label class="help-block">:message</label>' ) !!}
-                            <input type="text" name="job_title" class="form-control" placeholder="Job title" />
+                            <input type="text" name="job_title" value="{{ old('job_title') }}"  class="form-control" placeholder="Job title" />
                         </div>
                     </div>
                     

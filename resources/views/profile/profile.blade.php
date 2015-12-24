@@ -222,7 +222,7 @@
             <div class="form-group">
                 <div class="form__field">
                     <label>About you</label>
-                    <div class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</div>
+                    <div class="form-control">{{ $profile->more_details }}</div>
                 </div>
             </div>
         </fieldset>
@@ -232,11 +232,11 @@
             <div class="form-group">
                 <div class="form__field">
                     <label>Funding Available (Ksh.)</label>
-                    <div class="form-control">-</div>
+                    <div class="form-control">{{ $profile->investor_amount }}</div>
                 </div>
                 <div class="form__field">
                     <label>Funding Injected (Ksh.)</label>
-                    <div class="form-control">-</div>
+                    <div class="form-control">{{$profile->fund->sum('amount')}}</div>
                 </div>
             </div>
         </fieldset>
@@ -348,7 +348,7 @@
                 <div class="form-group">
                     <div class="form__field">
                         <label>About you</label>
-                        <div class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum. Vivamus sit amet libero turpis, non venenatis urna. In blandit, odio convallis suscipit venenatis, ante ipsum cursus augue.</div>
+                        <div class="form-control">{{ $profile->more_details }}</div>
                     </div>
                 </div>
                 <div class="form-group">

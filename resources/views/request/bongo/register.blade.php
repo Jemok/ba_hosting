@@ -84,6 +84,7 @@
                     <div class="form-group">
                         <div class="form__field">
                             <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                            {!! $errors->first('password_confirmation', '<label class="help-block">:message</label>' ) !!}
                             <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
                         </div>
                     </div>

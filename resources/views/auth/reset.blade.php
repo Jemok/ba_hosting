@@ -22,26 +22,21 @@
     {!! csrf_field() !!}
     <input type="hidden" name="token" value="{{ $token }}">
 
-    @if (count($errors) > 0)
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif
-
     <div class="form-field">
         <label>Email</label>
+        {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
         <input type="email" name="email" value="{{ old('email') }}">
     </div>
 
     <div class="form-field">
         <label>New Password</label>
+        {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}
         <input type="password" name="password">
     </div>
 
     <div class="form-field">
         <label>Confirm Password</label>
+        {!! $errors->first('password_confirmation', '<label class="help-block">:message</label>' ) !!}
         <input type="password" name="password_confirmation">
     </div>
 

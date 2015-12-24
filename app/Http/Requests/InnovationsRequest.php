@@ -25,12 +25,12 @@ class InnovationsRequest extends Request
     {
         return [
 
-            'innovationTitle' => 'required|alpha_dash|min:2|max:60',
-            'innovationShortDescription' => 'required|alpha_dash|min:10|max:144',
-            'innovationDescription' => 'required|alpha_dash|min:100|max:50000',
+            'innovationTitle' => 'required|min:2|max:30',
+            'innovationShortDescription' => 'required|min:10|max:144',
+            'innovationDescription' => 'required|min:100|max:50000',
             'innovationCategory' => 'required|numeric',
             'innovationFund' => 'required|numeric|min:1',
-            'justifyFund'    => 'required|alpha_dash|min:2'
+            'justifyFund'    => 'required|min:2'
         ];
     }
 }
