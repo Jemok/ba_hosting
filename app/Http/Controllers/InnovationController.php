@@ -48,6 +48,17 @@ class InnovationController extends Controller
         return view('innovation.open', compact('innovations', 'categories'));
     }
 
+    public function investorFunded()
+    {
+        $fundedProjects =$this->repo->getInvestorFunded();
+
+        $categories = $this->categoryRepository->getAllCategories();
+
+
+        return view('innovation.funded', compact('fundedProjects', 'categories'));
+
+    }
+
     public function funded()
     {
         $fundedProjects = $this->repo->getAllFunded();

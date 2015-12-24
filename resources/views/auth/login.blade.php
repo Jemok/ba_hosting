@@ -67,7 +67,7 @@
                     </label>
                 </div>
                 <footer class="form__footer">
-                    <button type="submit" class="cta cta__btn">Login</button>
+                    <button type="submit" class="cta cta__btn" id="btnADD" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Login</button>
                 </footer>
             </form>
         </div>
@@ -79,4 +79,15 @@
 
 <script>
     $('div.alert-message').not('.alert-important').delay(2000).slideUp(300);
+</script>
+
+<script>
+    $('div.alert-message').not('.alert-important').delay(2000).slideUp(300);
+
+    var $myForm = $("#my_form");
+    $myForm.submit(function(){
+        $myForm.submit(function(){
+            return false;
+        });
+    });
 </script>

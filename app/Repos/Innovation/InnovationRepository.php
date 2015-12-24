@@ -199,7 +199,7 @@ class InnovationRepository
         return Innovation::where('fundingStatus', '=', 1)
             ->with('category', 'fund')
             ->latest()
-            ->paginate(1);
+            ->paginate(4);
     }
 
 
@@ -285,13 +285,20 @@ class InnovationRepository
         return $innovation->fund->where('innovation_id', '=', $id)->get();
     }
 
+    public function countInvestorFunded()
+    {
+        return \Md\Fund::where('investor_id', '=', \Auth::user()->id)->distinct('innovation_id')->count('innovation_id');
+
+
+    }
+
     public function getInvestorFunded()
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
             ->with('innovation','innovation.user', 'innovation.category')
             ->groupBy('innovation_id')
             ->latest()
-            ->paginate(2,['*'], 'investor');
+            ->paginate(3,['*'], 'investor');
 
     }
 

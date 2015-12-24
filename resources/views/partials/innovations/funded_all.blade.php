@@ -1,11 +1,11 @@
-<div class="funded-projects">
+<div class="open-projects">
     <header>
         <h2 class="section__title">Funded Projects</h2>
     </header>
 
     @if(\Auth::user()->userCategory == 1)
     @if($fundedProjects->count())
-    <section class="innoList">
+    <section class="innoList innoGrid">
 
         @foreach($fundedProjects as $funded)
 

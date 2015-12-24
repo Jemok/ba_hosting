@@ -96,7 +96,7 @@ class DashboardController extends Controller
 
         $fundedProjects = $this->innovationRepository->getInvestorFunded();
 
-        $fundedProjectsCount = $fundedProjects->count();
+        $fundedProjectsCount = $this->innovationRepository->countInvestorFunded();
 
         $onProgress =$this->innovationRepository->onProgress();
 

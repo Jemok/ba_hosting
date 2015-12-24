@@ -21,7 +21,7 @@
         </div>
         <div class="innoData">
             <div class="innoData__title">Funding Injected (Ksh.)</div>
-            <a href="{{url('innovations/funded')}}"><div class="innoData__content">{{$totalFundsInjected}}</div></a>
+            <a href="{{url('innovations/investor/funded')}}"><div class="innoData__content">{{$totalFundsInjected}}</div></a>
         </div>
 
         <div class="innoData">
