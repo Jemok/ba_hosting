@@ -55,17 +55,17 @@ class InnovationController extends Controller
         $categories = $this->categoryRepository->getAllCategories();
 
 
-        return view('innovation.funded', compact('fundedProjects', 'categories'));
+        return view('innovation.funded_investor', compact('fundedProjects', 'categories'));
 
     }
 
     public function funded()
     {
-        $fundedProjects = $this->repo->getAllFunded();
+        $innovations = $this->repo->getAllFunded();
 
         $categories = $this->categoryRepository->getAllCategories();
 
-        return view('innovation.funded', compact('fundedProjects', 'categories'));
+        return view('innovation.all_funded', compact('innovations', 'categories'));
     }
 
     /**

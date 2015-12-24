@@ -1,11 +1,11 @@
-<div class="funded-projects">
+<div class="open-projects">
     <header>
         <h2 class="section__title">Funded Projects</h2>
     </header>
 
     @if(\Auth::user()->userCategory == 1)
     @if($fundedProjects->count())
-    <section class="innoList">
+    <section class="innoList innoGrid">
 
         @foreach($fundedProjects as $funded)
 
@@ -16,6 +16,7 @@
                         {{ $funded->innovationTitle }}
                     </a>
                 </h3>
+                <p class="inno-innovator">Funded by:{{ $funded->fund->name }}</p>
                 <p class="inno-innovator">Total Funded:{{ $funded->fund->where('innovation_id', '=', $funded->id)->sum('amount') }}</p>
                 <p class="inno-innovator"><a href="{{ url('innovation/portfolio/'.$funded->id)}}">Portfollio</a></p>
             </header>
@@ -33,7 +34,7 @@
     @else
 
     @if($fundedProjects->count())
-    <section class="innoList">
+    <section class="innoList innoGrid">
         @foreach($fundedProjects as $funded)
 
         <article class="inno {{$funded->innovation->category->categoryName}}" data-category="{{ $funded->innovation->category->id }}">

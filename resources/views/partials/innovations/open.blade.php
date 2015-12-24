@@ -17,7 +17,7 @@
                 </h3>
                 @if(\Auth::user()->id == $innovation->user_id)
                 @else
-                <p class="inno-innovator">{{ $innovation->user->name }}</p>
+                <p class="inno-innovator">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</p>
                 @endif
             </header>
             <section class="inno-summary">
