@@ -100,6 +100,12 @@ class InvestorRequestRepo {
     }
 
 
+    public function getThem()
+    {
+        return Investor_request::where('request_status', '=', 0)->get();
+    }
+
+
     public function getInvestorRequest($request_link)
     {
 

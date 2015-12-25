@@ -6,6 +6,7 @@ use Md\Repos\Innovation\InnovationRepository;
 use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use Md\Repos\InvestorRequest\InvestorRequestRepo;
 
 
 
@@ -23,17 +24,21 @@ class DashboardController extends Controller
      */
     private $categoryRepository;
 
+    private $investorRequest;
+
 
     /**
-     * Initializer constructor for this controller class
      * @param InnovationRepository $innovationRepository
+     * @param InvestorRequestRepo $investorRequestRepo
      * @param CategoryRepository $categoryRepository
      */
-    function __construct(InnovationRepository $innovationRepository, CategoryRepository $categoryRepository)
+    function __construct(InnovationRepository $innovationRepository, InvestorRequestRepo $investorRequestRepo, CategoryRepository $categoryRepository)
     {
         $this->innovationRepository = $innovationRepository;
 
         $this->categoryRepository = $categoryRepository;
+
+        $this->investorRequest = $investorRequestRepo;
     }
 
     /**
@@ -119,9 +124,11 @@ class DashboardController extends Controller
     {
         $innovations = $this->innovationRepository->getAllInnovations();
 
+        $investor_requests = $this->investorRequest->getThem();
+
         $categories = $this->categoryRepository->getAllCategories();
 
-        return view('admin.mother', compact('innovations', 'categories'));
+        return view('admin.mother', compact('investor_requests','innovations', 'categories'));
     }
 
     public function viewInnovation()
