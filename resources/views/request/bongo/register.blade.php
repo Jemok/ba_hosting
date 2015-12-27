@@ -18,7 +18,7 @@
     </section>
     <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/expert.jpg') }}')">
         <div class="__content-block">
-            <form method="POST" action="{{ url('auth/register/bongo-employee') }}" class="form-signin">
+            <form method="POST" action="{{ url('auth/register/expert') }}" class="form-signin">
                 {!! csrf_field() !!}
 
                 <h5 class="form__heading">Register as a Bongo Expert</h5>

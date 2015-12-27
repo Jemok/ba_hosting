@@ -11,5 +11,5 @@
 </li>
 
 <li class="nav-item {{Request::path() == 'request/bongo/send' ? 'active' : ''}}">
-    <a class="nav-link" href="{{ url('request/bongo/send') }}">For Experts</a>
+    <a class="nav-link" href="{{ url('request/expert/send') }}">For Experts</a>
 </li>

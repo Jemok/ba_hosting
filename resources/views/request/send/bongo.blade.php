@@ -18,7 +18,7 @@
     </section>
     <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/expert.jpg') }}')">
         <div class="__content-block">
-            <form method="post" action="{{ url('request/bongo/send') }}" class="form-signin">
+            <form method="post" action="{{ url('request/expert/send') }}" class="form-signin">
                 {!! csrf_field() !!}
                 
                 <h3 class="form__heading">Request Invitation</h3>

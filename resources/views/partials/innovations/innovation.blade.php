@@ -87,20 +87,20 @@
         @if($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )
         <div class="alert alert-info" role="alert">
             This innovation has already began attracting funding from investors.<br><br>
-            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}">See who's invested so far</a>
+            <a href="{{ route('innovationPortfolio',[$innovation->id])}}">See who's invested so far</a>
         </div>
         @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
         <div class="alert alert-success" role="alert">
             <h4>Funded</h4>
             This innovation has been fully funded.<br><br>
-            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}">View funding history</a>
+            <a href="{{ route('innovationPortfolio', [$innovation->id])}}">View funding history</a>
         </div>
         @endif
         
         <!-- If not show funding progress -->
         @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
            
-            <a href="{{ url('innovation/portfolio/'.$innovation->id)}}"><button class="btn btn-success btn-block">View Innovation's Portfolio</button></a>
+            <a href="{{ route('innovationPortfolio', [$innovation->id])}}"><button class="btn btn-success btn-block">View Innovation's Portfolio</button></a>
             
         @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )       
             <div class="innoData-list">
@@ -110,7 +110,7 @@
                 </div>    
             </div>        
             @if(\Auth::user()->userCategory == 2)
-            <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">                    
+            <form method="post" action="{{ route('fundInnovation', [$innovation->id])}}">
                 {!! CSRF_FIELD() !!}            
                 <div class="innoData-list">
                     <div class="innoData">
@@ -155,7 +155,7 @@
                 </div>
             </div>
             @if(\Auth::user()->userCategory == 2)
-                <form method="post" action="{{ url('innovation/fund/'.$innovation->id)}}">
+                <form method="post" action="{{ route('fundInnovation', [$innovation->id])}}">
                     {!! CSRF_FIELD() !!}
                     <div class="innoData-list">
                         <div class="innoData">

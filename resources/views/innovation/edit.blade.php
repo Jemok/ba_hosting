@@ -44,7 +44,7 @@
     </div>
     @endif
 
-    <form class="innoNew" action="{{ url('innovation/update/'.$innovation->id) }}" method="post">
+    <form class="innoNew" action="{{route('updateInnovation', [$innovation->id]) }}" method="post">
 
         {!! csrf_field() !!}
         {!! $errors->first('innovationTitle', '<label class="help-block">:message</label>' ) !!}

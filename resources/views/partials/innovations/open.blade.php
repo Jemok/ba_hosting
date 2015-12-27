@@ -27,7 +27,7 @@
             <footer class="inno-meta">
                 <span class="inno-category">{{ $innovation->category->categoryName }}</span>
                 @if(\Auth::user()->id == $innovation->user_id)
-                <span class="inno-category pull-right"><a href="{{url('innovation/edit/'.$innovation->id)}}">Edit</a></span>
+                <span class="inno-category pull-right"><a href="{{route('getEditInnovationPage', [$innovation->id] )}}">Edit</a></span>
                 @endif
 
             </footer>

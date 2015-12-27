@@ -48,35 +48,35 @@ class AuthController extends Controller
         if(Request::path() == "auth/register/investor")
         {
             return Validator::make($data, [
-                'first_name' => 'required|min:2|max:20|alpha',
-                'last_name'  => 'required|min:2|max:20|alpha',
+                'first_name' => 'required|min:2|max:20',
+                'last_name'  => 'required|min:2|max:20',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha_dash|between:5,144',
-                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
-                'password_confirmation' => 'required|alpha|alpha_dash|min:6|max:15'
+                'more_details' => 'required|between:5,144',
+                'password' => 'required|confirmed|min:6|max:15',
+                'password_confirmation' => 'required|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }elseif(Request::path() == "auth/register/innovator")
         {
             return Validator::make($data, [
-                'first_name' => 'required|min:2|max:20|alpha',
-                'last_name'  => 'required|min:2|max:20|alpha',
+                'first_name' => 'required|min:2|max:20',
+                'last_name'  => 'required|min:2|max:20',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha_dash|between:5,144',
+                'more_details' => 'required|between:5,144',
                 'terms'        => 'required|numeric|accepted:1',
-                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
-                'password_confirmation' => 'required|alpha_dash|min:6|max:15'
+                'password' => 'required|confirmed|min:6|max:15',
+                'password_confirmation' => 'required|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
-        }elseif(Request::path() == "auth/register/bongo-employee")
+        }elseif(Request::path() == "auth/register/expert")
         {
             return Validator::make($data, [
-                'first_name' => 'required|min:2|max:20|alpha',
-                'last_name'  => 'required|min:2|max:20|alpha',
+                'first_name' => 'required|min:2|max:20',
+                'last_name'  => 'required|min:2|max:20',
                 'email' => 'required|email|between:3,64|unique:users',
-                'more_details' => 'required|alpha_dash|between:5,144',
-                'password' => 'required|confirmed|alpha_dash|min:6|max:15',
-                'password_confirmation' => 'required|alpha_dash|min:6|max:15'
+                'more_details' => 'required|between:5,144',
+                'password' => 'required|confirmed|min:6|max:15',
+                'password_confirmation' => 'required|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
         }
@@ -125,7 +125,7 @@ class AuthController extends Controller
             return $user;
 
         }
-        elseif(Request::path() == "auth/register/bongo-employee")
+        elseif(Request::path() == "auth/register/expert")
         {
             $user = User::create([
                 'first_name' => $data['first_name'],

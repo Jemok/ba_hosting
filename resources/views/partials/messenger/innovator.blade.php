@@ -4,12 +4,14 @@
             Messages
             <span class="label label-success label-pill pull-right"></span>
         </button>
-        <button class="list-group-item" data-toggle="tab" data-target="#expert" role="tab" aria-controls="expert">
-            Expert <i class="ion-plus-round pull-right"></i>
-        </button>
-        <button class="list-group-item" data-toggle="tab" data-target="#mother" role="tab" aria-controls="mother">
-            Moderator <i class="ion-plus-round pull-right"></i>
-        </button>
+        @if($threads_count > 0)
+            <button class="list-group-item" data-toggle="tab" data-target="#expert" role="tab" aria-controls="expert">
+                Expert <i class="ion-plus-round pull-right"></i>
+            </button>
+            <button class="list-group-item" data-toggle="tab" data-target="#mother" role="tab" aria-controls="mother">
+                Moderator <i class="ion-plus-round pull-right"></i>
+            </button>
+        @endif
     </ul>
 </div>
 

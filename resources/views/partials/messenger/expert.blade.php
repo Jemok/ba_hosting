@@ -4,9 +4,11 @@
             Messages
             <span class="label label-success label-pill pull-right"></span>
         </button>
+        @if($threads_count > 0)
         <button class="list-group-item" data-toggle="tab" data-target="#mother" role="tab" aria-controls="mother">
             Mother <i class="ion-plus-round pull-right"></i>
         </button>
+        @endif
     </ul>
 </div>
 

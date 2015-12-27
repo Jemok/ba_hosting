@@ -40,7 +40,7 @@
     </div>
     @endif
         
-    <form class="innoNew" action="{{ url('create/innovation') }}" method="post">
+    <form class="innoNew" action="{{ route('createInnovation') }}" method="post">
 
         {!! csrf_field() !!}
         {!! $errors->first('innovationTitle', '<label class="help-block">:message</label>' ) !!}

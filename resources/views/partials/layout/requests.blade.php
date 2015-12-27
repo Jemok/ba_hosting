@@ -8,6 +8,6 @@
     </a>
 </li>
 
-<li class="nav-item {{Request::path() == 'request/all/employees' ? 'active' : ''}}">
-    <a class="nav-link" href="{{ url('request/all/employees') }}">Expert Requests</a>
+<li class="nav-item {{Request::path() == 'request/all/experts' ? 'active' : ''}}">
+    <a class="nav-link" href="{{ url('request/all/experts') }}">Expert Requests</a>
 </li>

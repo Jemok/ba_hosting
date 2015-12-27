@@ -26,63 +26,73 @@ Route::group(['middleware' => 'auth'], function() {
     get('logout',[
         'as' => 'logout', 'uses' =>   'Auth\AuthController@getLogout'
     ]);
-    /*
-     * Home routes
-     */
-    get('/', [
-        'as' => 'home', 'uses' => 'DashboardController@home'
-    ]);
 
-
-    /*
-     *Logout Route(s)
-     */
-    get('logout',[
-        'as' => 'logout', 'uses' =>   'Auth\AuthController@getLogout'
-    ]);
     /*
      * Routes for the innovations
+     *
+     * Get a specific innovation
      */
     get('innovation/{id}', [
         'as' => 'specificInnovation', 'uses' => 'InnovationController@show'
     ]);
 
-    get('innovations/open', 'InnovationController@open');
+    /*
+     * Route for getting all open innovations
+     */
 
-    get('innovations/funded', 'InnovationController@funded');
+    get('innovations/open', [
 
-    get('innovations/investor/funded', 'InnovationController@investorFunded');
-
-    get('innovation/edit/{innovation_id}', 'InnovationController@editInnovation');
-
-    post('innovation/update/{innovation_id}', 'InnovationController@updateInnovation');
-
-
-
-    get('innovation/{id}/update', [
-        'as' => 'editInnovation', 'uses' => 'InnovationController@edit'
+        'as' => 'allOpenInnovations', 'uses' => 'InnovationController@open'
     ]);
 
-    get('innovation/{id}/delete', [
-        'as' => 'deleteInnovation', 'uses' => 'InnovationController@destroy'
+    /*
+     *Route for getting all funded innovations
+     */
+    get('innovations/funded', [
+        'as' => 'allFundedInnovations', 'uses' => 'InnovationController@funded'
     ]);
+
+    /*
+     * Route for getting all innovations funded by an investor
+     */
+
+    get('innovations/investor/funded', [
+
+        'as' => 'investorFundedInnovations', 'uses' => 'InnovationController@investorFunded'
+    ]);
+
+    /*
+     * Route for getting innovation edit page
+     */
+
+    get('innovation/{innovation_id}/edit', [
+
+        'as' => 'getEditInnovationPage', 'uses' =>  'InnovationController@editInnovation'
+
+    ]);
+
+    /*
+     *Route for updating an innovation
+     */
+
 
 
     post('create/innovation/', [
         'as' => 'createInnovation', 'uses' => 'InnovationController@store'
     ]);
 
-    post('innovation/{id}/update', [
-        'as' => 'updateInnovation', 'uses' => 'InnovationController@update'
+    post('innovation/{innovation_id}/update', [
+        'as' => 'updateInnovation', 'uses' => 'InnovationController@updateInnovation'
     ]);
 
-    get('innovation/fund/{id}', [
-        'as' => 'fundInnovation', 'uses' => 'InnovationController@fund'
+    post('innovation/{id}/fund', [
+
+        'as' => 'fundInnovation', 'uses' =>  'InnovationController@fundPartial'
     ]);
 
-    post('innovation/fund/{id}', 'InnovationController@fundPartial');
-
-    get('innovation/portfolio/{is}', 'InnovationController@getPortfolio');
+    get('innovation/{is}/portfolio', [
+        'as' => 'innovationPortfolio', 'uses' => 'InnovationController@getPortfolio'
+    ]);
 
     //Dashboard retrieval routes
     get('dashboard/innovator', [
@@ -101,7 +111,6 @@ Route::group(['middleware' => 'auth'], function() {
 
     get('request/bongo-employee/send/{request_id}/', 'BongoRequestController@bongoSendLink');
 
-
     //Logout Route(s)
     get('auth/logout',[
         'as' => 'logout', 'uses' =>   'Auth\AuthController@getLogout'
@@ -110,7 +119,7 @@ Route::group(['middleware' => 'auth'], function() {
     get('request/all/investors', 'InvestorRequestsController@getAll');
 
 
-    get('request/all/employees/', 'BongoRequestController@getAll');
+    get('request/all/experts/', 'BongoRequestController@getAll');
 
     /*
      * Profile routes
@@ -136,63 +145,6 @@ Route::group(['middleware' => 'auth'], function() {
     post('expert/profile/update/{profile_id}', 'ProfileController@updateProfileExpert');
     post('mother/profile/update/{profile_id}', 'ProfileController@updateProfileMother');
 
-
-
-});
-
-
-get('request/bongo-employee/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
-
-get('request/bongo/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
-
-Route::group(['middleware' => 'guest'], function() {
-    // Login routes
-    get('/auth/login', [
-        'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'
-    ]);
-
-    get('/about', 'DashboardController@about');
-
-    post('login', [
-        'as' => 'login', 'uses' => 'Auth\AuthController@postLogin'
-    ]);
-
-// Registration routes...
-    get('auth/register', [
-        'as' => 'register', 'uses' => 'Auth\AuthController@getRegister'
-    ]);
-
-    post('auth/register/innovator', [
-        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
-    ]);
-
-    post('auth/register/investor', [
-        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
-    ]);
-
-    post('auth/register/bongo-employee', [
-        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
-    ]);
-
-    /*
-     * Request routes
-     */
-
-    get('request/investor/send/', 'InvestorRequestsController@getSendRequest');
-
-    get('request/bongo/send', 'BongoRequestController@getSendRequest');
-
-    post('request/investor/send/', 'InvestorRequestsController@persistRequest');
-
-    post('request/bongo/send/', 'BongoRequestController@persistRequest');
-
-    // Password reset link request routes...
-    get('password/email', 'Auth\PasswordController@getEmail');
-    post('password/email', 'Auth\PasswordController@postEmail');
-
-    // Password reset routes...
-    get('password/reset/{token}', 'Auth\PasswordController@getReset');
-    post('password/reset', 'Auth\PasswordController@postReset');
 });
 
 Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
@@ -207,5 +159,66 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
+
+
+    get('request/expert/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
+
+    get('request/investor/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
+
+
+
+
+
+Route::group(['middleware' => 'guest'], function() {
+    // Login routes
+    get('/auth/login', [
+        'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'
+    ]);
+
+    get('/about', 'DashboardController@about');
+
+    post('login', [
+        'as' => 'login', 'uses' => 'Auth\AuthController@postLogin'
+    ]);
+
+    // Registration routes...
+    get('auth/register', [
+        'as' => 'register', 'uses' => 'Auth\AuthController@getRegister'
+    ]);
+
+    post('auth/register/innovator', [
+        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
+    ]);
+
+    post('auth/register/investor', [
+        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
+    ]);
+
+    post('auth/register/expert', [
+        'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
+    ]);
+
+    /*
+     * Request routes
+     */
+
+    get('request/investor/send/', 'InvestorRequestsController@getSendRequest');
+
+    get('request/expert/send', 'BongoRequestController@getSendRequest');
+
+    post('request/investor/send/', 'InvestorRequestsController@persistRequest');
+
+    post('request/expert/send/', 'BongoRequestController@persistRequest');
+
+    // Password reset link request routes...
+    get('password/email', 'Auth\PasswordController@getEmail');
+    post('password/email', 'Auth\PasswordController@postEmail');
+
+    // Password reset routes...
+    get('password/reset/{token}', 'Auth\PasswordController@getReset');
+    post('password/reset', 'Auth\PasswordController@postReset');
+});
+
+
 
 

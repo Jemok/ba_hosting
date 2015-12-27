@@ -25,11 +25,11 @@ class BongoRequestRequest extends Request
     {
         return [
             'bongo_email' => 'email|required|between:3,64|unique:bongo_requests',
-            'first_name' => 'required|min:2|max:20|alpha',
-            'last_name'  => 'required|min:2|max:20|alpha',
-            'company'     => 'required|alpha_dash|min:2|max:200',
-            'job_title'   => 'required|alpha_dash|min:2|max:20',
-            'field'       => 'required|alpha_dash|min:2|max:20'
+            'first_name' => 'required|min:2|max:20',
+            'last_name'  => 'required|min:2|max:20',
+            'company'     => 'required|min:2|max:200',
+            'job_title'   => 'required|min:2|max:20',
+            'field'       => 'required|min:2|max:20'
         ];
     }
 }
