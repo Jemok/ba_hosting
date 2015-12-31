@@ -9,10 +9,9 @@
         <input type="hidden" name="progress" value="{{\Auth::user()->fullName()}}">
         <input type="hidden" name="subject" value="{{\Auth::user()->fullName()}}">
     </div>
-    
+        Start a conversation with the innovator:
     <div class="message_input_wrapper">
-        {!! Form::label('message', 'Your Message:', ['class' => 'control-label sr-only']) !!}
-        {!! Form::textarea('message', 'Type your message here...', ['class' => 'form-control message_input']) !!}
+        {!! Form::textarea('message', null, ['class' => 'form-control message_input']) !!}
         
         <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
     </div>
