@@ -10,6 +10,6 @@
     <a class="nav-link" href="{{ url('request/investor/send') }}">For Investors</a>
 </li>
 
-<li class="nav-item {{Request::path() == 'request/bongo/send' ? 'active' : ''}}">
+<li class="nav-item {{Request::path() == 'request/expert/send' ? 'active' : ''}}">
     <a class="nav-link" href="{{ url('request/expert/send') }}">For Experts</a>
 </li>

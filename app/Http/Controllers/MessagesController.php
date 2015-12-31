@@ -70,9 +70,8 @@ class MessagesController extends Controller
 
 
     /**
-     * Creates a new message thread.
-     *
-     * @return mixed
+     * @param $innovation_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function createExpert($innovation_id)
     {
@@ -93,7 +92,9 @@ class MessagesController extends Controller
     /**
      * Creates a new message thread.
      *
-     * @return mixed
+     * @return mixedi0
+     *
+     * .
      */
     public function create()
     {
@@ -110,9 +111,8 @@ class MessagesController extends Controller
     }
 
     /**
-     * Stores a new message thread.
-     *
-     * @return mixed
+     * @param MessagesCreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(MessagesCreateRequest $request)
     {
@@ -168,10 +168,9 @@ class MessagesController extends Controller
     }
 
     /**
-     * Adds a new message to a current thread.
-     *
      * @param $id
-     * @return mixed
+     * @param MessagesRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, MessagesRequest $request)
     {

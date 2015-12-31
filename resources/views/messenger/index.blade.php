@@ -12,7 +12,8 @@
     @foreach($threads as $thread)
     <?php $class = $thread->isUnread($currentUserId) ? 'card-info' : ''; ?>
     <div id="thread_list_{{$thread->id}}" class="card card-block alert {!!$class!!}">
-        <h4 class="card__title">{!! link_to('messages/' . $thread->id, $thread->subject) !!} about <a href="{{ url('innovation/'.$thread->innovation->id) }}">{{$thread->innovation->innovationTitle}}</a></h4>
+        <h4 class="card__title">{!! link_to('messages/' . $thread->id, $thread->subject) !!} about <a href="{{ url('innovation/'.$thread->innovation->id) }}">{{$thread->innovation->innovationTitle}}</a> - <span class="card__text">{!! $thread->latestMessage->created_at->diffForHumans() !!}</span>
+        </h4>
         <p class="card__text" id="thread_list_{{$thread->id}}_text">{!! $thread->latestMessage->body !!}</p>
         <p class="card__meta"><small><strong>Participants:</strong> {!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>
     </div>

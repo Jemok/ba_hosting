@@ -7,6 +7,7 @@ use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests;
 use Illuminate\Support\Facades\Session;
 use Md\Repos\InvestorRequest\InvestorRequestRepo;
+use Md\Repos\BongoRequest\BongoRequestRepo;
 
 
 
@@ -26,19 +27,23 @@ class DashboardController extends Controller
 
     private $investorRequest;
 
+    private $expertRequest;
+
 
     /**
      * @param InnovationRepository $innovationRepository
      * @param InvestorRequestRepo $investorRequestRepo
      * @param CategoryRepository $categoryRepository
      */
-    function __construct(InnovationRepository $innovationRepository, InvestorRequestRepo $investorRequestRepo, CategoryRepository $categoryRepository)
+    function __construct(BongoRequestRepo $bongoRequestRepo, InnovationRepository $innovationRepository, InvestorRequestRepo $investorRequestRepo, CategoryRepository $categoryRepository)
     {
         $this->innovationRepository = $innovationRepository;
 
         $this->categoryRepository = $categoryRepository;
 
         $this->investorRequest = $investorRequestRepo;
+
+        $this->expertRequest = $bongoRequestRepo;
     }
 
     /**
@@ -94,6 +99,11 @@ class DashboardController extends Controller
             Session::flash('flash_message', 'You have to add your financial details first before continuing');
             return view('account.investor_finance');
         }
+        $innovations_open = $this->innovationRepository->getAllOPen();
+
+        $innovations_fully = $this->innovationRepository->getAllFullyFunded();
+
+        $innovations_partial = $this->innovationRepository->getAllPartials();
 
         $innovations = $this->innovationRepository->getAll();
 
@@ -107,7 +117,7 @@ class DashboardController extends Controller
 
         $totalFundsInjected = $this->innovationRepository->getTotalInjected();
 
-        return view('home.investor',  compact('onProgress','innovations', 'categories', 'fundedProjects', 'fundedProjectsCount', 'totalFundsInjected'));
+        return view('home.investor',  compact('innovations_fully','innovations_partial','innovations_open','onProgress','innovations', 'categories', 'fundedProjects', 'fundedProjectsCount', 'totalFundsInjected'));
     }
 
 
@@ -117,18 +127,32 @@ class DashboardController extends Controller
 
         $categories = $this->categoryRepository->getAllCategories();
 
-        return view('admin.bongo', compact('innovations', 'categories'));
+        $innovations_open = $this->innovationRepository->getAllOPen();
+
+        $innovations_partial = $this->innovationRepository->getAllPartials();
+
+        $innovations_fully = $this->innovationRepository->getAllFullyFunded();
+
+        return view('admin.bongo', compact('innovations_fully','innovations_partial','innovations_open','innovations', 'categories'));
     }
 
     public function bongoMother()
     {
         $innovations = $this->innovationRepository->getAllInnovations();
 
+        $innovations_open = $this->innovationRepository->getAllOPen();
+
+        $innovations_partial = $this->innovationRepository->getAllPartials();
+
+        $innovations_fully = $this->innovationRepository->getAllFullyFunded();
+
         $investor_requests = $this->investorRequest->getThem();
+
+        $expert_requests = $this->expertRequest->getThem();
 
         $categories = $this->categoryRepository->getAllCategories();
 
-        return view('admin.mother', compact('investor_requests','innovations', 'categories'));
+        return view('admin.mother', compact('innovations_fully','innovations_partial','innovations_open','expert_requests','investor_requests','innovations', 'categories'));
     }
 
     public function viewInnovation()

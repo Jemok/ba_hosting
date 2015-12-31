@@ -30,7 +30,7 @@ function removeItem( id ) {
 
             $( "#title" ).val( '' );
         });
-        
+
         return false;
     });
 

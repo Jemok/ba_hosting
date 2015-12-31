@@ -130,7 +130,7 @@ class InnovationRepository
             ->where('fundingStatus', '=', 0 )
             ->with('category', 'thread')
             ->latest()
-            ->paginate(6,['*'], 'innovations');
+            ->paginate(9,['*'], 'innovations');
     }
 
 
@@ -190,7 +190,27 @@ class InnovationRepository
     {
         return Innovation::where('fundingStatus', '=', 0)
             ->latest()
-            ->paginate(6,['*'], 'innovations');
+            ->paginate(9,['*'], 'innovations');
+    }
+
+    public function getAllOPen()
+    {
+        return Innovation::where('fundingStatus', '=', 0);
+
+    }
+
+    public function getAllPartials()
+    {
+        return Innovation::where('fundingStatus', '=', 1)
+                           ->where('innovationFund', '>=', 1);
+
+    }
+
+    public function getAllFullyFunded()
+    {
+        return Innovation::where('fundingStatus', '=', 1)
+                            ->where('innovationFund', '<=', 0);
+
     }
 
     /**
@@ -200,7 +220,7 @@ class InnovationRepository
     public function getAllInnovations()
     {
         return Innovation::latest()
-            ->paginate(3);
+            ->paginate(9);
     }
 
     /**
@@ -288,7 +308,7 @@ class InnovationRepository
             ->where('fundingStatus', '=', 1)
             ->with('category', 'fund')
             ->latest()
-            ->paginate(2);
+            ->paginate(3);
     }
 
     public function getPortfolio($id)

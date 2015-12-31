@@ -160,14 +160,11 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
     Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
-
     get('request/expert/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
 
     get('request/investor/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
 
-
-
-
+    get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
 
 Route::group(['middleware' => 'guest'], function() {
     // Login routes

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->integer('terms');
             $table->string('hash_id')->unique();
             $table->integer('userCategory');
-            $table->boolean('verified')->default(false);
+            $table->boolean('verified');
             $table->integer('investor_finance')->default(0);
             $table->integer('investor_amount');
             $table->string('token')->nullable();

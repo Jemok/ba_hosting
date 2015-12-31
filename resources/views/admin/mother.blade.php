@@ -23,10 +23,10 @@
             <header>
                 <h3 class="inno-title">
 
-                    <a  href="{{url('innovation/'.$innovation->id)}}">
-
+                    <a href="{{url('innovation/'.$innovation->id)}}">
                         {{ $innovation->innovationTitle }}
                     </a>
+                    ({{$innovation->created_at->diffForHumans()}})
 
                 </h3>
                 @if(\Auth::user()->id == $innovation->user_id)
@@ -43,7 +43,6 @@
                 @else
                     <span class="inno-funding-needed">Ksh. {{ $innovation->innovationFund }}</span>
                 @endif
-
             </section>
             <footer class="inno-meta">
                 <div class="inno-category">{{ $innovation->category->categoryName }}</div>

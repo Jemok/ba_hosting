@@ -12,6 +12,7 @@ namespace Md\Mailers;
 
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Md\User;
 
 class AppMailer {
 
@@ -37,9 +38,17 @@ class AppMailer {
 
     protected static $data_reset = [];
 
-    public function sendConfirmEmailLink()
+    public function sendConfirmEmailLink(User $user)
     {
+        $this->to = $user->email;
 
+        $this->view = 'emails.confirm';
+
+        $this->subject = "Bongo Afrika Confirm Email";
+
+        $this->data = compact('user');
+
+        $this->deliver();
     }
 
     public function sendInvestorRegLinkEmail($investor_link, $investor_email)

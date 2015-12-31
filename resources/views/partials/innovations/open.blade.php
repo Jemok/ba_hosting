@@ -14,6 +14,7 @@
                     <a  href="{{url('innovation/'.$innovation->id)}}">
                         {{ $innovation->innovationTitle }}
                     </a>
+                    ({{$innovation->created_at->diffForHumans()}})
                 </h3>
                 @if(\Auth::user()->id == $innovation->user_id)
                 @else

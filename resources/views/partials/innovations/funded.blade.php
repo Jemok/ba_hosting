@@ -1,6 +1,6 @@
 <div class="funded-projects">
     <header>
-        <h2 class="section__title">Funded Projects</h2>
+        <h2 class="section__title">My Funded Projects</h2>
     </header>
 
     @if(\Auth::user()->userCategory == 1)
@@ -15,6 +15,7 @@
                     <a href="{{url('innovation/'.$funded->id)}}">
                         {{ $funded->innovationTitle }}
                     </a>
+                    ({{$funded->created_at->diffForHumans()}})
                 </h3>
                 <p class="inno-innovator">Total Funded:{{ $funded->fund->where('innovation_id', '=', $funded->id)->sum('amount') }}</p>
                 <p class="inno-innovator"><a href="{{ route('innovationPortfolio', [$funded->id])}}">Portfollio</a></p>
@@ -41,6 +42,7 @@
                 <h3 class="inno-title">
                     <a href="{{ url('innovation/'.$funded->innovation_id)}}">{{ $funded->innovation->innovationTitle }}</a>
                 </h3>
+                ({{$funded->innovation->created_at->diffForHumans()}})
                 <p class="inno-innovator">Posted by: {{ $funded->innovation->user->first_name }} {{ $funded->innovation->user->last_name }}</p>
                 <p class="inno-innovator">Amount Funded: {{ $funded->where('innovation_id', '=', $funded->innovation_id)->sum('amount') }}</p>
                 <p class="inno-innovator">Times funded by you: {{ $funded->where('innovation_id', '=', $funded->innovation_id)->count() }}</p>

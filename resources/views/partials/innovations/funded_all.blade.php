@@ -14,6 +14,7 @@
                     <a  href="{{url('innovation/'.$innovation->id)}}">
                         {{ $innovation->innovationTitle }}
                     </a>
+                    ({{$innovation->created_at->diffForHumans()}})
                 </h3>
                 @if(\Auth::user()->id == $innovation->user_id)
                 @else
@@ -23,9 +24,19 @@
             <section class="inno-summary">
                 <p>{!! $innovation->innovationShortDescription !!}</p>
                 <span class="inno-funding-needed">Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount')  }}</span>
+                <p class="inno-innovator"><a href="{{ route('innovationPortfolio', [$innovation->id])}}">Portfollio</a></p>
+
             </section>
             <footer class="inno-meta">
                 <span class="inno-category">{{ $innovation->category->categoryName }}</span>
+                <div class="inno-category">{{ $innovation->category->categoryName }}</div>
+                @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+                <div class="inno-funding funded">Fully funded</div>
+                @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0)
+                <div class="inno-funding partial">Partially funded</div>
+                @else
+                <div class="inno-funding">Open</div>
+                @endif
             </footer>
         </article>
 

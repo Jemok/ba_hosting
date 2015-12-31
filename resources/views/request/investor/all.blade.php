@@ -29,7 +29,7 @@
             <div class="card card-block request-card">
             @endif
 
-                <h4 class="request__name">{{ $request->first_name }} {{ $request->last_name }}</h4>
+                <h4 class="request__name">{{ $request->first_name }} {{ $request->last_name }} ({{ $request->created_at->diffForHumans() }})</h4>
                 <p class="request__details">
                     <span class="request__company"><i class="ion-briefcase"></i>{{ $request->company }}</span>
                     <span class="request__job-title"><i class="ion-pound"></i>{{ $request->job_title }}</span>

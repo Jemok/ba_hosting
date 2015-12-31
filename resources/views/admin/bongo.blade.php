@@ -42,6 +42,7 @@
 
                         {{ $innovation->innovationTitle }}
                     </a>
+                    ({{$innovation->created_at->diffForHumans()}})
 
                 </h3>
                 @if(\Auth::user()->id == $innovation->user_id)

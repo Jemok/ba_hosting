@@ -113,4 +113,9 @@ class BongoRequestRepo {
         return Bongo_request::where('request_link', '=', $request_link)->first()->bongo_email;
     }
 
+    public function getThem()
+    {
+        return Bongo_request::where('request_status', '=', 0)->get();
+    }
+
 } 

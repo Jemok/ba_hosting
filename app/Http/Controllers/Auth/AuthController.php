@@ -9,6 +9,7 @@ use Md\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Md\Mailers\AppMailer;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -100,7 +101,8 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'userCategory' => 2,
-                'hash_id'     => str_random(100)
+                'hash_id'     => str_random(100),
+                 'verified' => 1
             ]);
 
             //$this->mailer->sendConfirmEmailLink();
@@ -117,10 +119,11 @@ class AuthController extends Controller
                 'more_details' => $data['more_details'],
                 'terms'   => $data['terms'],
                 'userCategory' => 1,
-                'hash_id'     => str_random(100)
+                'hash_id'     => str_random(100),
+                'verified'  => 0
             ]);
 
-            //$this->mailer->sendConfirmEmailLink($user);
+            $this->mailer->sendConfirmEmailLink($user);
 
             return $user;
 
@@ -133,12 +136,23 @@ class AuthController extends Controller
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
                 'userCategory' => 3,
-                'hash_id'     => str_random(100)
+                'hash_id'     => str_random(100),
+                'verified'    => 1
             ]);
 
             //$this->mailer->sendConfirmEmailLink($user);
 
             return $user;
         }
+    }
+
+    public function confirmEmail($token)
+    {
+        User::whereToken($token)->firstOrFail()->confirmEmail();
+
+        Session::flash('flash_message', 'Account was successfully confirmed, you can now publish your innovations!');
+
+
+        return redirect('/home');
     }
 }

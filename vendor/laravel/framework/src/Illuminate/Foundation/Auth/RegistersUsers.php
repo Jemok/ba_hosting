@@ -4,6 +4,8 @@ namespace Illuminate\Foundation\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 trait RegistersUsers
 {
@@ -33,6 +35,15 @@ trait RegistersUsers
             $this->throwValidationException(
                 $request, $validator
             );
+        }
+
+        if($request->path() == 'auth/register/innovator')
+        {
+            $this->create($request->all());
+
+            Session::flash('flash_message', 'A confirmation email has been sent to you, confirm it to enable login.');
+
+            return redirect('auth/login');
         }
 
         Auth::login($this->create($request->all()));
