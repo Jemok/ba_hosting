@@ -49,6 +49,39 @@ class AuthController extends Controller
     }
 
     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        if(Request::path() == "auth/register/innovator")
+        {
+            $this->create($request->all());
+
+            Session::flash('flash_message', 'A confirmation email has been sent to you, confirm it to enable login.');
+
+            return redirect('auth/login');
+        }
+        else
+        {
+            Auth::login($this->create($request->all()));
+
+            return redirect($this->redirectPath());
+        }
+    }
+
+
+        /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
