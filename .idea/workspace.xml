@@ -97,8 +97,10 @@
       <file leaf-file-name="PasswordController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="5" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.90082645" vertical-offset="825" max-vertical-offset="1296">
-              <folding />
+            <state line="12" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.59504133" vertical-offset="0" max-vertical-offset="1422">
+              <folding>
+                <element signature="e#44#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +117,7 @@
       <file leaf-file-name="ResetsPasswords.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="520" selection-end="1359" vertical-scroll-proportion="-15.333333" vertical-offset="270" max-vertical-offset="2520">
+            <state line="5" column="12" selection-start="46" selection-end="287" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="2610">
               <folding />
             </state>
           </provider>
@@ -711,13 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="520" selection-end="1359" vertical-scroll-proportion="-15.333333" vertical-offset="270" max-vertical-offset="2520">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="192" column="61" selection-start="6323" selection-end="6323" vertical-scroll-proportion="27.037037" vertical-offset="4024" max-vertical-offset="4428">
@@ -725,10 +720,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="12" selection-start="46" selection-end="287" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="2610">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/PasswordController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="5" selection-start="1836" selection-end="1836" vertical-scroll-proportion="0.90082645" vertical-offset="825" max-vertical-offset="1296">
-          <folding />
+        <state line="12" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.59504133" vertical-offset="0" max-vertical-offset="1422">
+          <folding>
+            <element signature="e#44#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
