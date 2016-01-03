@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Request as Reque;
 
 
 trait RegistersUsers
@@ -37,7 +38,7 @@ trait RegistersUsers
             );
         }
 
-        if($request->path() == 'auth/register/innovator')
+        if(Reque::path() == "auth/register/innovator")
         {
             $this->create($request->all());
 
@@ -45,9 +46,12 @@ trait RegistersUsers
 
             return redirect('auth/login');
         }
+        else
+        {
 
         Auth::login($this->create($request->all()));
 
         return redirect($this->redirectPath());
+        }
     }
 }
