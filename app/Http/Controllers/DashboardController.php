@@ -8,7 +8,7 @@ use Md\Http\Requests;
 use Illuminate\Support\Facades\Session;
 use Md\Repos\InvestorRequest\InvestorRequestRepo;
 use Md\Repos\BongoRequest\BongoRequestRepo;
-
+use Md\User;
 
 
 class DashboardController extends Controller
@@ -164,4 +164,6 @@ class DashboardController extends Controller
     {
         return view('pages.about');
     }
+
+
 }

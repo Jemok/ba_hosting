@@ -49,6 +49,20 @@ class AuthController extends Controller
     }
 
     /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogin()
+    {
+        if (view()->exists('auth.authenticate')) {
+            return view('auth.authenticate');
+        }
+
+        return view('auth.login');
+    }
+
+    /**
      * Handle a registration request for the application.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -199,9 +213,10 @@ class AuthController extends Controller
     {
         User::whereToken($token)->firstOrFail()->confirmEmail();
 
-        Session::flash('flash_message', 'Account was successfully confirmed, you can now publish your innovations!');
+        Session::flash('flash_message', 'Account was successfully confirmed, you can now login & publish your innovations!');
 
-
-        return redirect('/home');
+        return redirect('auth/login');
     }
+
+
 }

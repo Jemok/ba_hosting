@@ -188,13 +188,17 @@ Route::group(['prefix' => 'messages', 'middleware' => 'auth', 'before' => 'csrf'
 
     get('request/investor/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
 
+    get('register/confirm/{token}', 'DashboardController@confirmEmail');
+
     get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
+
 
 Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
     // Login routes
     get('/auth/login', [
         'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'
     ]);
+
 
     get('/about', 'DashboardController@about');
 
