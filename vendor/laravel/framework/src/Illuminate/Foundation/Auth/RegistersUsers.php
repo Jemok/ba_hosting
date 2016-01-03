@@ -49,9 +49,9 @@ trait RegistersUsers
         else
         {
 
-            Auth::login($this->create($request->all()));
+            /**Auth::login($this->create($request->all()));
 
-            return redirect($this->redirectPath());
+            return redirect($this->redirectPath());**/
         }
     }
 }
