@@ -56,7 +56,7 @@
       <file leaf-file-name="RegistersUsers.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="826" selection-end="826" vertical-scroll-proportion="0.5645161" vertical-offset="474" max-vertical-offset="1152">
+            <state line="36" column="14" selection-start="815" selection-end="815" vertical-scroll-proportion="0.46774194" vertical-offset="474" max-vertical-offset="1152">
               <folding>
                 <element signature="e#46#74#0" expanded="true" />
               </folding>
@@ -703,7 +703,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="826" selection-end="826" vertical-scroll-proportion="0.5645161" vertical-offset="474" max-vertical-offset="1152">
+        <state line="36" column="14" selection-start="815" selection-end="815" vertical-scroll-proportion="0.46774194" vertical-offset="474" max-vertical-offset="1152">
           <folding>
             <element signature="e#46#74#0" expanded="true" />
           </folding>

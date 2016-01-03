@@ -37,7 +37,7 @@ trait RegistersUsers
             );
         }
 
-        dd($request->path() == "auth/register/innovator");
+        dd($request->path());
 
         if($request->path() == "auth/register/innovator")
         {
