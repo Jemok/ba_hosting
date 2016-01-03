@@ -38,8 +38,7 @@ trait RegistersUsers
         }
 
 
-
-        if($request->has('terms'))
+        if(1 == 1)
         {
             $this->create($request->all());
 
