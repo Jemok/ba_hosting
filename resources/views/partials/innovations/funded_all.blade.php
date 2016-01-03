@@ -1,6 +1,6 @@
 <div class="open-projects">
     <header>
-        <h2 class="section__title">Open Projects</h2>
+        <h2 class="section__title">Funded Projects</h2>
     </header>
 
     @if($innovations->count())
@@ -23,7 +23,8 @@
             </header>
             <section class="inno-summary">
                 <p>{!! $innovation->innovationShortDescription !!}</p>
-                <span class="inno-funding-needed">Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount')  }}</span>
+                <span class="inno-funding-needed">Needed: Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount') + $innovation->innovationFund  }}</span>
+                <span class="inno-funding-needed">Funded: Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount')  }}</span>
                 <p class="inno-innovator"><a href="{{ route('innovationPortfolio', [$innovation->id])}}">Portfollio</a></p>
 
             </section>
@@ -45,7 +46,7 @@
     {!! $innovations->render() !!}
     @else
 
-    <p class="alert-info"><h3>No open innovations</h></h3><p>
+    <p class="alert-info"><h3>No funded innovations</h></h3><p>
 
         @endif
 </div> <!-- end innovations-pane -->

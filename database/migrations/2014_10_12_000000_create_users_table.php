@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->integer('investor_finance')->default(0);
             $table->integer('investor_amount');
             $table->string('token')->nullable();
+            $table->integer('bongo_request_id');
+            $table->integer('investor_request_id');
             $table->rememberToken();
             $table->timestamps();
         });

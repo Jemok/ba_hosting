@@ -3,6 +3,8 @@
 namespace Md\Http\Controllers\Auth;
 
 use Md\User;
+use Md\Bongo_request;
+use Md\Investor_request;
 use Illuminate\Support\Facades\Request;
 use Validator;
 use Md\Http\Controllers\Controller;
@@ -28,14 +30,22 @@ class AuthController extends Controller
 
     protected $mailer;
 
+    private $bongo_request;
+
+    private $investor_request;
+
     /**
      * @param AppMailer $appMailer
      */
-    public function __construct(AppMailer $appMailer)
+    public function __construct(AppMailer $appMailer, Bongo_request $bongo_request, Investor_request $investor_request)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
 
         $this->mailer = $appMailer;
+
+        $this->bongo_request =$bongo_request;
+
+        $this->investor_request = $investor_request;
     }
 
     /**
@@ -91,10 +101,9 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-
         if(Request::path() == "auth/register/investor")
         {
-             $user = User::create([
+             $user = $this->investor_request->where('investor_email', '=', $data['email'])->first()->user()->create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'more_details' => $data['more_details'],
@@ -102,8 +111,10 @@ class AuthController extends Controller
                 'password' => bcrypt($data['password']),
                 'userCategory' => 2,
                 'hash_id'     => str_random(100),
-                 'verified' => 1
+                'verified' => 1
             ]);
+
+            $user->prof_pic()->create([]);
 
             //$this->mailer->sendConfirmEmailLink();
 
@@ -123,6 +134,8 @@ class AuthController extends Controller
                 'verified'  => 0
             ]);
 
+            $user->prof_pic()->create([]);
+
             $this->mailer->sendConfirmEmailLink($user);
 
             return $user;
@@ -130,15 +143,18 @@ class AuthController extends Controller
         }
         elseif(Request::path() == "auth/register/expert")
         {
-            $user = User::create([
+            $user = $this->bongo_request->where('bongo_email', '=', $data['email'])->first()->user()->create([
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
+                'more_details' => $data['more_details'],
                 'userCategory' => 3,
                 'hash_id'     => str_random(100),
                 'verified'    => 1
             ]);
+
+            $user->prof_pic()->create([]);
 
             //$this->mailer->sendConfirmEmailLink($user);
 

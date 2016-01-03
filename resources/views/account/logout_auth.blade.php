@@ -57,7 +57,7 @@
                         Remember me | <a href="{{ url('password/email') }}">Forgot Password?</a>
                     </label>
                 </div>
-                <button type="submit" class="btn">Login</button> <a href="{{ url('/logout') }}" class="btn btn-primary">Logout</a>
+                <button type="submit" class="btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Login</button> <a href="{{ url('/logout') }}" class="btn btn-primary">Logout</a>
             </form>
         </div>
     </section>

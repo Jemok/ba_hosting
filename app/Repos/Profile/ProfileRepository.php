@@ -20,7 +20,7 @@ class ProfileRepository {
         }
         else
         {
-            return User::where('hash_id', '=', $innovator_id )->with('investor_request')->first();
+            return User::where('hash_id', '=', $innovator_id )->with('investor_request', 'prof_pic')->first();
         }
     }
 
@@ -57,6 +57,13 @@ class ProfileRepository {
             'email'      => $request->email,
             'investor_amount' =>  $request->financial_amount
         ]);
+
+        $user->investor_request()->update([
+
+            'company'   => $request->company,
+            'job_title' => $request->job_title
+
+        ]);
     }
 
     public function updateProfileExpert($profile_id, $request)
@@ -68,6 +75,15 @@ class ProfileRepository {
             'last_name'  => $request->last_name,
             'more_details' => $request->more_details,
             'email'      => $request->email,
+        ]);
+
+        $user->bongo_request()->update([
+
+            'company'   => $request->company,
+            'job_title' => $request->job_title,
+            'field'     => $request->field
+
+
         ]);
     }
 

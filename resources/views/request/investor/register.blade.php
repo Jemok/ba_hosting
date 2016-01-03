@@ -77,7 +77,7 @@
                 </fieldset>
                 
                 <footer class="form__footer">
-                    <button type="submit" class="cta cta_btn">Register</button>
+                    <button type="submit" class="cta cta_btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Register</button>
                 </footer>
             </form>
         </div>

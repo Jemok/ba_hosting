@@ -13,6 +13,11 @@
 
         @endif
     </nav>
+
+    <header>
+
+        <h2 class="section__title">All Projects: @include('partials.innovations.all_innovations_count')</h2>
+    </header>
     
     @if(Session::has('flash_message'))
 
@@ -81,7 +86,7 @@
 
     @else
 
-    <p class="alert-info"><h3>No open innovations</h></h3><p>
+    <p class="alert-info"><h3>No innovations found</h></h3><p>
 
         @endif
 </div>

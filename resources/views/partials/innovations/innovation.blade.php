@@ -32,7 +32,18 @@
                     <a class="inno-innovator" href="{{ url('innovator/profile/'.$innovation->user->hash_id) }}">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</a>
                     @endif
                 </strong> 
-                — Posted in <strong><a href="#" class="inno-category">{{ $innovation->category->categoryName }}</a></strong> on <strong>May 21, 2014</strong></p>
+                — Posted in <strong>
+
+                        @if(!(\Auth::user()->isInnovator()))
+
+                        <a href="{{ route('innovationCategory', $innovation->category_id) }}" class="inno-category">{{ $innovation->category->categoryName }}</a>
+
+                        @else
+                        <span class="inno-category">{{ $innovation->category->categoryName }}</span>
+
+                        @endif
+
+                        </strong> on <strong>{{ $innovation->created_at }}</strong></p>
             </header>
 
             <section class="innoDetails__content">
@@ -125,28 +136,38 @@
                             <div class="input-group-addon">.00</div>
                         </div>
                     </div>
-    <!--
-                    <div class="btn-group">
-                        <a href="{{url('innovation/fund/'.$innovation->id)}}" class="btn btn-primary btn-block">Fund fully</a>
-                        <button type="button" class="btn btn-block">Fund Partially</button>
-                    </div>
-    -->
+
                     <div class="innoData">
                         <div class="innoData__title">Your Balance after funding this</div>
                         <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
                     </div>
+                    @if(!(\Auth::user()->investor_amount == 0))
+                    <div class="innoData">
+                        <div class="innoData__title">Your Balance after funding this</div>
+                        <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                        @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
+                        <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
+                        @else
+                        <span class="alert-info">You can fund this innovation partially or full amount</span>
+                        @endif
+                    </div>
                     {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
+                    @endif
+
                 </div>
+                @if(\Auth::user()->investor_amount > 0)
 
-                <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
+                @if($chatWithInnovator == true)
+                <button type="submit" class="btn btn-primary btn-block" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Proceed with Funding</button>
+                @elseif($chatWithInnovator == false)
+                <button type="submit" class="btn btn-primary btn-block" disabled>Converse with innovator first</button>
+                @endif
+
+                @else
+                <button type="submit" class="btn btn-danger btn-block" disabled>Not allowed, Your investment is low</button>
+                @endif
             </form>
-                
-<!--
-                <a href="{{url('innovation/fund/'.$innovation->id)}}"><button class="cta cta_btn">Fully Fund this project</button></a>
-
-                <br>or partially Fund this project
--->
-            @endif            
+          @endif
         @elseif($innovation->fundingStatus == 0 )
             <div class="innoData-list">
                 <div class="innoData">
@@ -162,6 +183,7 @@
                             <div class="innoData__title">Potential Funding Available</div>
                             <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
                         </div>
+                        @if(!(\Auth::user()->investor_amount == 0))
                         <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
                             <label for="partialFund">Amount to invest in this project</label>
                             <div class="input-group">
@@ -170,23 +192,29 @@
                                 <div class="input-group-addon">.00</div>
                             </div>
                         </div>
-        <!--
-                        <div class="btn-group">
-                            <a href="{{url('innovation/fund/'.$innovation->id)}}" class="btn btn-primary btn-block">Fund fully</a>
-                            <button type="button" class="btn btn-block">Fund Partially</button>
-                        </div>
-        -->
                         <div class="innoData">
                             <div class="innoData__title">Your Balance after funding this</div>
                             <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                            @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
+                            <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
+                            @else
+                            <span class="alert-info">You can fund this innovation partially or full amount</span>
+                            @endif
                         </div>
                         {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
+                        @endif
                     </div>
 
+                    @if(\Auth::user()->investor_amount > 0)
+
                     @if($chatWithInnovator == true)
-                        <button type="submit" class="btn btn-primary btn-block">Proceed with Funding</button>
-                    @else
+                        <button type="submit" class="btn btn-primary btn-block" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Proceed with Funding</button>
+                    @elseif($chatWithInnovator == false)
                         <button type="submit" class="btn btn-primary btn-block" disabled>Converse with innovator first</button>
+                    @endif
+
+                    @else
+                        <button type="submit" class="btn btn-danger btn-block" disabled>Not allowed, Your investment is low</button>
                     @endif
                 </form>
             @endif

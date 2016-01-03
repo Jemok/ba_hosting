@@ -285,13 +285,16 @@ class InnovationRepository
 
         ]);
 
-        Progress::where('innovation_id', '=', $innovation->id)
-            ->first()
-            ->update([
+        if($request->partialFund >= $innovation->innovationFund )
+        {
+            Progress::where('innovation_id', '=', $innovation->id)
+                ->first()
+                ->update([
 
-                'progress_status' => 0
+                    'progress_status' => 0
 
-            ]);
+                ]);
+        }
 
         \Auth::user()->update([
 
@@ -346,6 +349,34 @@ class InnovationRepository
         return Progress::where('investor_id', '=', \Auth::user()->id)
                         ->where('progress_status', '=', 1)
                         ->count();
+    }
+
+    public function getOnProgress()
+    {
+        return Progress::where('investor_id', '=', \Auth::user()->id)
+            ->where('progress_status', '=', 1)
+            ->with('innovation.category', 'innovation.user')
+            ->latest()
+            ->paginate(9);
+
+    }
+
+    public function getCategory($category)
+    {
+        return Innovation::where('category_id', '=', $category)
+            ->where('fundingStatus', '=', 0)
+            ->latest()
+            ->paginate(9);
+    }
+
+    public function getInnovationFund($id)
+    {
+       return Innovation::where('id', $id)->first()->innovationFund;
+    }
+
+    public function getInnovationName($id)
+    {
+        return Innovation::where('id', $id)->first()->innovationTitle;
     }
 
 }

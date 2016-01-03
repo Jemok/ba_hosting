@@ -1,4 +1,4 @@
-@extends('......layout')
+@extends('layout')
 
 
 @section('content')
@@ -133,7 +133,7 @@
                                         <button type="button" class="btn btn-link" onclick="rotateCard(this)">
                                             <i class="fa fa-reply"></i> Back
                                         </button>
-                                        <button type="submit" class="cta cta__btn">Complete Profile</button>
+                                        <button type="submit" class="cta cta__btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Complete Profile</button>
                                     </div>
                                 </footer>
                             </div>

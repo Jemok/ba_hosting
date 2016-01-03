@@ -35,7 +35,9 @@ class MessagesController extends Controller
      */
     public function index()
     {
+        
         $currentUserId = Auth::user()->id;
+
 
         // All threads that user is participating in
         $threads = Thread::forUser($currentUserId)->get();

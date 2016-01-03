@@ -9,7 +9,7 @@
         @foreach($threads as $thread)
         <?php $class = $thread->isUnread($currentUserId) ? 'card-inverse card-info' : ''; ?>
         <div id="thread_list_{{$thread->id}}" class="card card-block {!!$class !!}">
-            <h4 class="card__title">{!! link_to('messages/' . $thread->id, $thread->subject) !!}</h4>
+            <h4 class="card__title">{!! link_to('messages/' . $thread->id, 'Chat '. $thread->subject) !!}</h4>
             <p class="card__text" id="thread_list_{{$thread->id}}_text">{!! $thread->latestMessage->body !!}</p>
             <span class="card__text">{!! $thread->latestMessage->created_at->diffForHumans() !!}</span>
             <p class="card__meta"><small class="text-muted">Participant:{!! $thread->participantsString(Auth::id(), ['first_name']) !!}</small></p>

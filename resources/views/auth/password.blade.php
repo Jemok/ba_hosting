@@ -57,7 +57,7 @@
                 </fieldset>
 
                 <div class="form__footer">
-                    <button type="submit" class="cta cta__btn">
+                    <button type="submit" class="cta cta__btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">
                         Reset my password
                     </button>
                 </div>

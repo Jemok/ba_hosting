@@ -14,6 +14,7 @@ use Cmgmyr\Messenger\Models\Thread;
 use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests\PartialFundingRequest;
 use Md\User;
+use Md\Category;
 
 class InnovationController extends Controller
 {
@@ -153,6 +154,19 @@ class InnovationController extends Controller
 
     public function fundPartial($id, PartialFundingRequest $request)
     {
+        $innovationFund = $this->repo->getInnovationFund($id);
+
+        $partialFund = $request->partialFund;
+
+        if($partialFund > $innovationFund)
+        {
+            $error[] = ['partialFund' => 'Not allowed, amount exceeds needed amount'];
+
+            return redirect()->back()->withErrors($error);
+        }
+
+
+
         $this->repo->fundInnovationPartial($id, $request);
 
         return redirect('innovation/'.$id);
@@ -162,8 +176,30 @@ class InnovationController extends Controller
     {
         $funds= $this->repo->getPortfolio($id);
 
+        $totalNeeded = $this->repo->getInnovationFund($id);
 
-        return view('portfolio.portfolio', compact('funds'));
+        $innovationTitle = $this->repo->getInnovationName($id);
 
+
+        return view('portfolio.portfolio', compact('innovationTitle','totalNeeded','funds', 'id'));
+
+    }
+
+    public function getCategory($category)
+    {
+       $innovations = $this->repo->getCategory($category);
+
+       $categoryName = Category::where('id', '=', $category)->first()->categoryName;
+
+        return view('innovation.category', compact('categoryName','innovations'));
+    }
+
+    public function getOnProgress()
+    {
+        $onProgress = $this->repo->getOnProgress();
+
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('innovation.progress', compact('categories','onProgress'));
     }
 }

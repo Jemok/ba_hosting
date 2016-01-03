@@ -19,6 +19,12 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategoryTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(ProfpicTableSeeder::class);
+        $this->call(ExpertRequestsSeeder::class);
+        $this->call(InvestorRequestsSeeder::class);
+
+
+
 
         // supposed to only apply to a single connection and reset it's self
         // but I like to explicitly undo what I've done for clarity

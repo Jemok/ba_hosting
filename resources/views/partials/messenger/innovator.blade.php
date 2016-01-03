@@ -9,7 +9,7 @@
                 Expert <i class="ion-plus-round pull-right"></i>
             </button>
             <button class="list-group-item" data-toggle="tab" data-target="#mother" role="tab" aria-controls="mother">
-                Moderator <i class="ion-plus-round pull-right"></i>
+               My Moderator <i class="ion-plus-round pull-right"></i>
             </button>
         @endif
     </ul>

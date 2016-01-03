@@ -24,8 +24,8 @@ class MessagesCreateRequest extends Request
     public function rules()
     {
         return [
-            'subject' => 'required|min:1|max:30',
-            'message' => 'required|min:1|max:144',
+            'subject' => 'required|min:1|max:80',
+            'message' => 'required|min:1|max:1000',
             'recipients' => 'required'
         ];
     }

@@ -61,7 +61,7 @@
                     </div>
                 </fieldset>
                 <footer class="form__footer">
-                    <button type="submit" class="cta cta__btn">Send Invitation</button>
+                    <button type="submit" class="cta cta__btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Send Invitation</button>
                 </footer>
             </form>
         </div>

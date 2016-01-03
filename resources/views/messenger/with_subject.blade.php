@@ -30,7 +30,7 @@
 
         <!-- Submit Form Input -->
         <div class="form-group">
-            {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control']) !!}
+            {!! Form::submit('Submit', ['class' => 'btn btn-primary form-control', 'onclick' => "this.disabled=true;this.value='Sending, please wait...';this.form.submit();"]) !!}
         </div>
     </div>
     {!! Form::close() !!}

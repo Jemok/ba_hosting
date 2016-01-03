@@ -30,7 +30,8 @@ class ProfileUpdation extends Request
             'first_name' => 'required|min:2|max:20',
             'last_name'  => 'required|min:2|max:20',
             'more_details' => 'required|between:5,144',
-            'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id
+            'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
+            'image' => 'image'
         ];
         }
 
@@ -42,7 +43,11 @@ class ProfileUpdation extends Request
                 'last_name'  => 'required|min:2|max:20',
                 'more_details' => 'required|between:5,144',
                 'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
-                'financial_amount' => 'required|numeric|min:1'
+                'financial_amount' => 'required|numeric|min:1',
+                'company'     => 'required|min:2|max:200',
+                'job_title'   => 'required|min:2|max:20',
+                'image' => 'image'
+
             ];
         }
 
@@ -53,6 +58,7 @@ class ProfileUpdation extends Request
                 'first_name' => 'required|min:2|max:20',
                 'last_name'  => 'required|min:2|max:20',
                 'email'        => 'required|email|between:3,64|max:255|unique:users,email,'.\Auth::user()->id,
+                'image' => 'image'
             ];
         }
 
@@ -63,6 +69,10 @@ class ProfileUpdation extends Request
                 'last_name'  => 'required|min:2|max:20',
                 'more_details' => 'required|between:5,144',
                 'email'        => 'required|email|between:3,64|unique:users,email,'.\Auth::user()->id,
+                'company'     => 'required|min:2|max:200',
+                'job_title'   => 'required|min:2|max:20',
+                'field'       => 'required|min:2|max:20',
+                'image' => 'image'
             ];
         }
     }

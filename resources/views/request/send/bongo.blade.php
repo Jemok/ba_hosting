@@ -68,7 +68,7 @@
                 </fieldset>
                 
                 <footer class="form__footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Submit</button>
                 </footer>
             </form>
         </div>

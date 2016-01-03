@@ -128,6 +128,11 @@ class User extends Model implements AuthenticatableContract,
         return $this->belongsTo('Md\Investor_request');
     }
 
+    public function prof_pic()
+    {
+        return $this->hasOne('Md\Profpic');
+    }
+
     public static function boot()
     {
         parent::boot();

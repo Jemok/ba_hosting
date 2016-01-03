@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+
     <nav class="innoFilters">
         <button class="filter current" data-filter="*">Show all</button>
         @if($categories->count())
@@ -13,6 +14,11 @@
 
         @endif
     </nav>
+
+    <header>
+
+        <h2 class="section__title">All Projects: @include('partials.innovations.all_innovations_count')</h2>
+    </header>
     
     @if($innovations->count())
 
@@ -62,7 +68,7 @@
 
     @else
 
-    <p class="alert-info"><h3>No open innovations</h></h3><p>
+    <p class="alert-info"><h3>No innovations found</h></h3><p>
 
         @endif
 </div>

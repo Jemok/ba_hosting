@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
             'password' =>  bcrypt('123456'),
             'more_details' => 'I am an the mother admin',
             'userCategory' => 4,
+            'verified' => 1,
             'hash_id'    => str_random(100)
         ]);
 
@@ -27,9 +28,11 @@ class UserTableSeeder extends Seeder
             'first_name' => 'Expert',
             'last_name'  => 'Expert',
             'email'=> 'expert@bongo.com',
+            'bongo_request_id' => '1',
             'more_details' => 'I am an Expert in my field',
             'password' =>  bcrypt('123456'),
             'userCategory' => 3,
+            'verified' => 1,
             'hash_id'    => str_random(100)
         ]);
 
@@ -37,11 +40,13 @@ class UserTableSeeder extends Seeder
             'first_name' => 'Investor',
             'last_name'  => 'Investor',
             'email'=> 'investor@bongo.com',
+            'investor_request_id' => '1',
             'more_details' => 'I am an Investor',
             'investor_finance' => 1,
             'investor_amount' => 1000000,
             'password' =>  bcrypt('123456'),
             'userCategory' => 2,
+            'verified' => 1,
             'hash_id'    => str_random(100)
         ]);
 
@@ -52,6 +57,7 @@ class UserTableSeeder extends Seeder
             'email'=> 'innovator@bongo.com',
             'password' =>  bcrypt('123456'),
             'userCategory' => 1,
+            'verified' => 1,
             'hash_id'    => str_random(100)
         ]);
     }

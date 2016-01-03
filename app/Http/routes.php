@@ -10,7 +10,7 @@
 |
 */
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'before' => 'csrf'], function() {
     /*
      * Home routes
      */
@@ -28,12 +28,26 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 
     /*
+     * Password routes
+     */
+
+    post('account/change/password', [
+        'as' => 'changePassword', 'uses' => 'ProfileController@changePassword'
+    ]);
+
+    /*
      * Routes for the innovations
      *
      * Get a specific innovation
      */
     get('innovation/{id}', [
         'as' => 'specificInnovation', 'uses' => 'InnovationController@show'
+    ]);
+
+    get('innovation/{category}/category',[
+
+        'as' => 'innovationCategory', 'uses' => 'InnovationController@getCategory'
+
     ]);
 
     /*
@@ -62,6 +76,15 @@ Route::group(['middleware' => 'auth'], function() {
     ]);
 
     /*
+     * Route for getting on progress innovations
+     */
+
+    get('innovations/progress', [
+
+        'as' => 'onProgressInnovations', 'uses' => 'InnovationController@getOnProgress'
+    ]);
+
+    /*
      * Route for getting innovation edit page
      */
 
@@ -74,8 +97,6 @@ Route::group(['middleware' => 'auth'], function() {
     /*
      *Route for updating an innovation
      */
-
-
 
     post('create/innovation/', [
         'as' => 'createInnovation', 'uses' => 'InnovationController@store'
@@ -129,6 +150,7 @@ Route::group(['middleware' => 'auth'], function() {
     get('expert/profile/{innovator_id}', 'ProfileController@loadProfile');
     get('mother/profile/{innovator_id}', 'ProfileController@loadProfile');
 
+
     /**Route::resource('chats', 'ChatController',
     ['except' => ['create', 'edit']]);*/
 
@@ -145,9 +167,11 @@ Route::group(['middleware' => 'auth'], function() {
     post('expert/profile/update/{profile_id}', 'ProfileController@updateProfileExpert');
     post('mother/profile/update/{profile_id}', 'ProfileController@updateProfileMother');
 
+    Route::post('apply/upload', 'ProfileController@uploadProfPic');
+
 });
 
-Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
+Route::group(['prefix' => 'messages', 'middleware' => 'auth', 'before' => 'csrf'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::get('{innovation_id}/create-expert', ['as' => 'messages.create-expert', 'uses' => 'MessagesController@createExpert']);
@@ -166,7 +190,7 @@ Route::group(['prefix' => 'messages', 'before' => 'auth'], function () {
 
     get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
 
-Route::group(['middleware' => 'guest'], function() {
+Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
     // Login routes
     get('/auth/login', [
         'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'

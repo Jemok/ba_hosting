@@ -18,7 +18,7 @@
 @endif
 
 <div class="col-md-6 col-md-offset-4">
-<form method="POST" action="/password/reset">
+<form method="POST" action="{{ url('password/reset') }}">
     {!! csrf_field() !!}
     <input type="hidden" name="token" value="{{ $token }}">
 
@@ -41,7 +41,7 @@
     </div>
 
     <div>
-        <button type="submit" class="cta cta__btn">Reset Password</button>
+        <button type="submit" class="cta cta__btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Reset Password</button>
     </div>
 </form>
 </div>

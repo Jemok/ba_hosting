@@ -3,15 +3,46 @@
 @section('content')
 <div class="chat_window">
     <div class="top_menu">
-        <div class="buttons">
-            <div class="button close"></div>
-            <div class="button minimize"></div>
-            <div class="button maximize"></div>
+
+        <div class="title">
+            Chat {!! $thread->subject !!},
+
+            @if($thread->messages()->with('user')->oldest()->first()->user->userCategory == 1)
+            <a href="{{ url('innovator/profile/'.$thread->messages()->with('user')->oldest()->first()->user->hash_id) }}">
+                started by:{{\Auth::user()->id == $thread->messages()->with('user')->oldest()->first()->user->id ? 'Me' : $thread->messages()->with('user')->oldest()->first()->user->first_name. ' -
+                (Innovator)' }}
+            </a>
+            @endif
+
+            @if($thread->messages()->with('user')->oldest()->first()->user->userCategory == 2)
+            <a href="{{ url('investor/profile/'.$thread->messages()->with('user')->oldest()->first()->user->hash_id) }}">
+                started by:{{\Auth::user()->id == $thread->messages()->with('user')->oldest()->first()->user->id ? 'Me' : $thread->messages()->with('user')->oldest()->first()->user->first_name. ' -
+                (Investor)' }}
+            </a>
+            @endif
+
+            @if($thread->messages()->with('user')->oldest()->first()->user->userCategory == 3)
+            <a href="{{ url('expert/profile/'.$thread->messages()->with('user')->oldest()->first()->user->hash_id) }}">
+                started by:{{\Auth::user()->id == $thread->messages()->with('user')->oldest()->first()->user->id ? 'Me' : $thread->messages()->with('user')->oldest()->first()->user->first_name. ' -
+                (Expert)' }}
+            </a>
+            @endif
+
+            @if($thread->messages()->with('user')->oldest()->first()->user->userCategory == 4)
+            <a href="{{ url('mother/profile/'.$thread->messages()->with('user')->oldest()->first()->user->hash_id) }}">
+                started by:{{\Auth::user()->id == $thread->messages()->with('user')->oldest()->first()->user->id ? 'Me' : $thread->messages()->with('user')->oldest()->first()->user->first_name. ' -
+                (Moderator)' }}
+            </a>
+            @endif
+
+            {{$thread->messages()->with('user')->oldest()->first()->created_at->diffForHumans()}}
+
+            about <a href="{{ url('innovation/'.$thread->innovation->id) }}">{{$thread->innovation->innovationTitle}}</a>
+
         </div>
-        <div class="title">Conversation with {!! $thread->subject !!}</div>
     </div>
 
-    <ul class="messages" >
+    <ul class="messages"  id="thread_{{$thread->id}}">
         @foreach($thread->messages()->oldest()->get() as $message)
         @include('messenger.html-message', $message)
         @endforeach
@@ -23,7 +54,7 @@
             {!! $errors->first('message', '<label class="help-block">:message</label>' ) !!}
             {!! Form::textarea('message', null, ['class' => 'form-control message_input']) !!}
         </div>
-        {!! Form::submit('Submit', ['class' => 'form-control send_message']) !!}
+        {!! Form::submit('Submit', ['class' => 'form-control send_message', 'onclick' => "this.disabled=true;this.value='Sending, please wait...';this.form.submit();"]) !!}
            
 
         <!--

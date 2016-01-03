@@ -22,7 +22,7 @@ class Thread extends Eloquent
      *
      * @var array
      */
-    protected $fillable = ['subject', 'innovation_id'];
+    protected $fillable = ['subject', 'innovation_id', 'user_id'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -258,6 +258,8 @@ class Thread extends Eloquent
         }
 
         $userNames = $participantNames->lists($this->getUsersTable() . '.name');
+
+
 
         return implode(', ', $userNames);
     }

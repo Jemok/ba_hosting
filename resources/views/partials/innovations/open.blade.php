@@ -1,6 +1,12 @@
 <div class="open-projects">
     <header>
+        @if(!Request::is('innovation/*'))
+        @if(\Auth::user()->isInnovator())
+        <h2 class="section__title">My Open Projects</h2>
+        @else
         <h2 class="section__title">Open Projects</h2>
+        @endif
+        @endif
     </header>
 
     @if($innovations->count())

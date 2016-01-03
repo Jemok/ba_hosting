@@ -28,7 +28,7 @@
                 </div>
                 {!! $errors->first('financial_amount', '<span class="help-block">:message</span>' ) !!}
 
-                <button type="submit" class="cta cta_btn">Set funding</button>
+                <button type="submit" class="cta cta_btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Set funding</button>
             </form>
         </div>
     </section>

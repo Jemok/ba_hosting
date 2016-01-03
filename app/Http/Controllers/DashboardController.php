@@ -31,6 +31,7 @@ class DashboardController extends Controller
 
 
     /**
+     * @param BongoRequestRepo $bongoRequestRepo
      * @param InnovationRepository $innovationRepository
      * @param InvestorRequestRepo $investorRequestRepo
      * @param CategoryRepository $categoryRepository
@@ -96,7 +97,6 @@ class DashboardController extends Controller
     {
         if(\Auth::user()->isInvestor() && \Auth::user()->investor_finance == 0)
         {
-            Session::flash('flash_message', 'You have to add your financial details first before continuing');
             return view('account.investor_finance');
         }
         $innovations_open = $this->innovationRepository->getAllOPen();

@@ -18,9 +18,12 @@
         <div class="innoData">
             <div class="innoData__title">Funding Available (Ksh.)</div>
             <div class="innoData__content">{{ \Auth::user()->investor_amount }}</div>
+            @if(\Auth::user()->investor_amount <=0)
+            <span class="alert-danger">Your investment is low</span>
+            @endif
         </div>
         <div class="innoData">
-            <div class="innoData__title">Funding Injected (Ksh.)</div>
+            <div class="innoD=ata__title">Funding Injected (Ksh.)</div>
             <a href="{{route('investorFundedInnovations')}}"><div class="innoData__content">{{$totalFundsInjected}}</div></a>
         </div>
 
@@ -31,7 +34,7 @@
 
         <div class="innoData">
             <div class="innoData__title">In Progress</div>
-            <div class="innoData__content">{{$onProgress}}</div>
+            <a href="{{route('onProgressInnovations')}}"><div class="innoData__content">{{$onProgress}}</div></a>
         </div>
     </div>
 
