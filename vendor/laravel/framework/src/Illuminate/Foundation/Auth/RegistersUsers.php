@@ -37,9 +37,9 @@ trait RegistersUsers
             );
         }
 
-        dd($request->path());
 
-        if($request->path() == "auth/register/innovator")
+
+        if($request->has('terms'))
         {
             $this->create($request->all());
 
