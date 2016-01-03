@@ -5,9 +5,9 @@ namespace Md\Http\Controllers\Auth;
 use Md\User;
 use Md\Bongo_request;
 use Md\Investor_request;
-use Illuminate\Support\Facades\Request;
 use Validator;
 use Md\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Md\Mailers\AppMailer;
@@ -64,7 +64,7 @@ class AuthController extends Controller
             );
         }
 
-        if(Request::path() == "auth/register/innovator")
+        if(\Request::path() == "auth/register/innovator")
         {
             $this->create($request->all());
 
@@ -89,7 +89,7 @@ class AuthController extends Controller
      */
     protected function validator(array $data)
     {
-        if(Request::path() == "auth/register/investor")
+        if(\Request::path() == "auth/register/investor")
         {
             return Validator::make($data, [
                 'first_name' => 'required|min:2|max:20',
@@ -100,7 +100,7 @@ class AuthController extends Controller
                 'password_confirmation' => 'required|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
-        }elseif(Request::path() == "auth/register/innovator")
+        }elseif(\Request::path() == "auth/register/innovator")
         {
             return Validator::make($data, [
                 'first_name' => 'required|min:2|max:20',
@@ -112,7 +112,7 @@ class AuthController extends Controller
                 'password_confirmation' => 'required|min:6|max:15'
                 //'userCategory' => 'required'
             ]);
-        }elseif(Request::path() == "auth/register/expert")
+        }elseif(\Request::path() == "auth/register/expert")
         {
             return Validator::make($data, [
                 'first_name' => 'required|min:2|max:20',
@@ -134,7 +134,7 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        if(Request::path() == "auth/register/investor")
+        if(\Request::path() == "auth/register/investor")
         {
              $user = $this->investor_request->where('investor_email', '=', $data['email'])->first()->user()->create([
                 'first_name' => $data['first_name'],
@@ -153,7 +153,7 @@ class AuthController extends Controller
 
             return $user;
         }
-        elseif(Request::path() == "auth/register/innovator")
+        elseif(\Request::path() == "auth/register/innovator")
         {
             $user = User::create([
                 'first_name' => $data['first_name'],
@@ -174,7 +174,7 @@ class AuthController extends Controller
             return $user;
 
         }
-        elseif(Request::path() == "auth/register/expert")
+        elseif(\Request::path() == "auth/register/expert")
         {
             $user = $this->bongo_request->where('bongo_email', '=', $data['email'])->first()->user()->create([
                 'first_name' => $data['first_name'],

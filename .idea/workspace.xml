@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="46989685-8b1a-4080-8d1e-e20a0496805c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bongo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +29,7 @@
       <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="0" selection-start="1816" selection-end="1816" vertical-scroll-proportion="0.6345178" vertical-offset="920" max-vertical-offset="3834">
+            <state line="207" column="0" selection-start="6800" selection-end="6800" vertical-scroll-proportion="0.9086294" vertical-offset="3368" max-vertical-offset="3834">
               <folding>
                 <element signature="e#44#56#0" expanded="true" />
               </folding>
@@ -39,7 +40,7 @@
       <file leaf-file-name="AuthenticatesAndRegistersUsers.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="38" selection-start="168" selection-end="168" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="288">
+            <state line="4" column="6" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="288">
               <folding />
             </state>
           </provider>
@@ -57,10 +58,8 @@
       <file leaf-file-name="RegistersUsers.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="401" selection-end="1256" vertical-scroll-proportion="-16.592592" vertical-offset="344" max-vertical-offset="1134">
-              <folding>
-                <element signature="e#46#74#0" expanded="true" />
-              </folding>
+            <state line="4" column="28" selection-start="46" selection-end="75" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="1134">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -773,17 +772,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="38" selection-start="168" selection-end="168" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="288">
+        <state line="4" column="6" selection-start="52" selection-end="52" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="288">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="401" selection-end="1256" vertical-scroll-proportion="-16.592592" vertical-offset="344" max-vertical-offset="1134">
-          <folding>
-            <element signature="e#46#74#0" expanded="true" />
-          </folding>
+        <state line="4" column="28" selection-start="46" selection-end="75" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="1134">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -796,7 +793,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="1816" selection-end="1816" vertical-scroll-proportion="0.6345178" vertical-offset="920" max-vertical-offset="3834">
+        <state line="207" column="0" selection-start="6800" selection-end="6800" vertical-scroll-proportion="0.9086294" vertical-offset="3368" max-vertical-offset="3834">
           <folding>
             <element signature="e#44#56#0" expanded="true" />
           </folding>
