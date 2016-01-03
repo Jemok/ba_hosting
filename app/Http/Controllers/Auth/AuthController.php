@@ -88,7 +88,7 @@ class AuthController extends Controller
         }
         else
         {
-            Auth::login($this->create($request->all()));
+            \Auth::login($this->create($request->all()));
 
             return redirect($this->redirectPath());
         }
