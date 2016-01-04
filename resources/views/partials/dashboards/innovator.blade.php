@@ -59,14 +59,14 @@
             <section class="innoDetails__content">
                 <fieldset name="personal" class="form__cluster">
                     <div class="form-group">
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('innovationShortDescription') ? 'has-error' : ''}}">
                             <label>Short Summary</label>
                             {!! $errors->first('innovationShortDescription', '<label class="help-block">:message</label>' ) !!}
                             <textarea class="form-control" name="innovationShortDescription" placeholder="In one paragraph tell us, what's this innovation about?">{{old('innovationShortDescription')}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('innovationDescription') ? 'has-error' : ''}}">
                             <label>Detailed Summary</label>
                             {!! $errors->first('innovationDescription', '<label class="help-block">:message</label>' ) !!}
                             <div class="form-control">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('innovationCategory') ? 'has-error' : ''}}">
                             <label>Field</label>
                             {!! $errors->first('innovationCategory', '<label class="help-block">:message</label>' ) !!}
                             <select name="innovationCategory" class="form-control">
@@ -90,26 +90,26 @@
                                 @endif
                             </select>
                         </div>
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('tradeMarkName') ? 'has-error' : ''}}">
                             <label>Trademark Name(if any)</label>
                             {!! $errors->first('tradeMarkName', '<label class="help-block">:message</label>' ) !!}
                             <input type="name" name="tradeMarkName" placeholder="Trademark Name" value="{{ old('tradeMarkName') }}" class="form-control">
                         </div>
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('tradeMarkNumber') ? 'has-error' : ''}}">
                             <label>Trademark Registration Number(if any)</label>
                             {!! $errors->first('tradeMarkNumber', '<label class="help-block">:message</label>' ) !!}
                             <input type="name" name="tradeMarkNumber" placeholder="Registration Number" value="{{ old('tradeMarkNumber') }}" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('innovationFund') ? 'has-error' : ''}}">
                             <label for="">How much do you need?</label>
                             {!! $errors->first('innovationFund', '<label class="help-block">:message</label>' ) !!}
                             <input type="name" name="innovationFund" placeholder="Ksh. 1,000,000" class="form-control" value="{{ old('innovationFund') }}">
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="form__field">
+                        <div class="form__field {{ $errors->has('justifyFund') ? 'has-error' : ''}}">
                             <label>What's the funding for?</label>
                             {!! $errors->first('justifyFund', '<label class="help-block">:message</label>' ) !!}
                             <textarea class="form-control" name="justifyFund" rows="5" placeholder="Whats the money for?">{{ old('justifyFund') }}</textarea>
