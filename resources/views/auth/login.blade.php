@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <div class="form_field">
+                <div class="form__field">
                     <label class="c-input c-checkbox">
                         <input type="checkbox" value="remember">
                         <span class="c-indicator"></span>

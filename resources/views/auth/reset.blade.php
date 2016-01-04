@@ -1,49 +1,77 @@
 @extends('layout')
 
+
 @section('content')
+<div class="__section with-columns equally-split fill-page without-moving">
+    <section class="__column __left h-centered">
+        <div class="contain-this">
+            <div class="__content-block m-b-lg">
+                <h3 class="section__title">Why should you be part of this community?</h3>
+                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea... <a href="{{ url('about')}}">Tell me more</a></p>
+            </div>
+            <div class="__section with-columns">            
+                <div class="__content-block">
+                    <h4 class="section__title">For Innovators</h4>
+                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
+                    <a href="{{ url('auth/register') }}" class="btn btn-primary">Get Started Today</a>
+                </div>
+                <div class="__content-block">
+                    <h4 class="section__title">For Investors</h4>
+                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
+                    <a href="{{ url('request/investor/send') }}">Request Invitation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/innovation-1.jpg') }}')">
+        <div class="__content-block">
+            @if(Session::has('flash_message'))
+            <div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
+                @if(Session::has('flash_message_important'))
 
-@if(Session::has('flash_message'))
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
-<div class="alert-message alert alert-success {{ Session::has('flash_message_important') ? 'alert-important' : '' }}">
-    @if(Session::has('flash_message_important'))
+                @endif
 
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ session('flash_message') }}
 
-    @endif
+            </div>
 
-    {{ session('flash_message') }}
+            @endif
 
+            <form method="POST" action="{{ url('password/reset') }}" class="form-signin">
+                <h3 class="form__heading">Set your new password</h3>
+                {!! csrf_field() !!}
+                <input type="hidden" name="token" value="{{ $token }}">
+                    
+                <fieldset class="form__cluster">    
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('email') ? 'has-error' : ''}}">
+                            <label for="email" class="sr-only">Email address</label>
+                            {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
+                            <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('password') ? 'has-error' : ''}}">
+                            <label for="password" class="sr-only">New Password</label>
+                            {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}
+                            <input type="password" name="password" class="form-control" placeholder="New Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form__field {{ $errors->has('password_confirmation') ? 'has-error' : ''}}">
+                            <label for="password_confirmation" class="sr-only">Confirm Password</label>
+                            {!! $errors->first('password_confirmation', '<label class="help-block">:message</label>' ) !!}
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
+                        </div>
+                    </div>
+                </fieldset>
+                <footer class="form__footer">
+                    <button type="submit" class="btn btn-primary" data-clicked="Sending, please wait...">Reset Password</button>
+                </footer>
+            </form>
+        </div>
+    </section>
 </div>
-
-@endif
-
-<div class="col-md-6 col-md-offset-4">
-<form method="POST" action="{{ url('password/reset') }}">
-    {!! csrf_field() !!}
-    <input type="hidden" name="token" value="{{ $token }}">
-
-    <div class="form-field">
-        <label>Email</label>
-        {!! $errors->first('email', '<label class="help-block">:message</label>' ) !!}
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
-
-    <div class="form-field">
-        <label>New Password</label>
-        {!! $errors->first('password', '<label class="help-block">:message</label>' ) !!}
-        <input type="password" name="password">
-    </div>
-
-    <div class="form-field">
-        <label>Confirm Password</label>
-        {!! $errors->first('password_confirmation', '<label class="help-block">:message</label>' ) !!}
-        <input type="password" name="password_confirmation">
-    </div>
-
-    <div>
-        <button type="submit" class="cta cta__btn" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Reset Password</button>
-    </div>
-</form>
-</div>
-
 @stop
