@@ -54,7 +54,14 @@ $(document).ready(function () {
         };
     
     toggleBtnText.simple(btnEl);
-//    toggleBtnText.disabledOnSubmit(btnElSubmit);
+    toggleBtnText.disabledOnSubmit(btnElSubmit);
+    
+    
+    $.uploadPreview({
+        input_field: "#pro__pic-upload",
+        preview_box: "#pro__pic-preview",
+        label_field: "#pro__pic-label"
+    });
 
     setTimeout(function () {
         $('.msg__box').fadeOut();

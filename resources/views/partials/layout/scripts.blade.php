@@ -1,6 +1,7 @@
 <!-- compiled and minified javascript -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('js/jquery.uploadPreview.min.js') }}"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="{{ asset('js/bootstrap.js') }}"></script>
