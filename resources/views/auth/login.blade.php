@@ -69,7 +69,7 @@
                     </label>
                 </div>
                 <footer class="form__footer">
-                    <button type="submit" class="cta cta__btn" id="btnADD" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Login</button>
+                    <button type="submit" class="btn btn-primary" id="btnADD" data-clicked="Logging you in...">Login</button>
                 </footer>
             </form>
         </div>

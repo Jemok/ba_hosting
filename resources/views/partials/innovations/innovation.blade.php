@@ -103,15 +103,39 @@
         @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
         <div class="alert alert-success" role="alert">
             <h4>Funded</h4>
-            This innovation has been fully funded.<br><br>
-            <a href="{{ route('innovationPortfolio', [$innovation->id])}}">View funding history</a>
+            This innovation has been fully funded.
         </div>
+
+        <div class="innoData-list">
+            <div class="collapse" id="viewFundingHistory">
+                <div class="innoData">
+                    <div class="innoData__title">Funding Needed</div>
+                    <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                </div>
+                <!-- For each funding load one of these -->
+                <div class="innoData">
+                    <div class="innoData__content">Ksh x</div>
+                    <div class="innoData__meta">by y &middot; 1 hour ago</div>
+                </div>
+
+                <div class="innoData">
+                    <div class="innoData__title">Total Funded</div>
+                    <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                </div>
+                <div class="innoData">
+                    <div class="innoData__title">Still Expected</div>
+                    <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                </div>
+            </div>
+        </div>
+        
+        <button type="button" data-toggle="collapse" data-target="#viewFundingHistory" aria-expanded="false" aria-controls="viewFundingHistory" class="btn btn-link btn-block collapsed" id="history" data-clicked="Hide Funding History">Show funding history</button>
         @endif
         
         <!-- If not show funding progress -->
         @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
            
-            <a href="{{ route('innovationPortfolio', [$innovation->id])}}"><button class="btn btn-success btn-block">View Innovation's Portfolio</button></a>
+            <a href="{{ route('innovationPortfolio', [$innovation->id])}}" class="btn btn-success btn-block">View Innovation's Portfolio</a>
             
         @elseif($innovation->fundingStatus == 1 && $innovation->innovationFund > 0  )       
             <div class="innoData-list">
@@ -186,6 +210,11 @@
                         @if(!(\Auth::user()->investor_amount == 0))
                         <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
                             <label for="partialFund">Amount to invest in this project</label>
+                            @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
+                            <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
+                            @else
+                            <span class="alert-info">You can fund this innovation partially or full amount</span>
+                            @endif
                             <div class="input-group">
                                 <div class="input-group-addon">Ksh.</div>
                                 <input type="text" name="partialFund" value="{{ $innovation->innovationFund }}" class="form-control" placeholder="amount">
@@ -195,11 +224,6 @@
                         <div class="innoData">
                             <div class="innoData__title">Your Balance after funding this</div>
                             <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
-                            @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
-                            <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
-                            @else
-                            <span class="alert-info">You can fund this innovation partially or full amount</span>
-                            @endif
                         </div>
                         {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
                         @endif

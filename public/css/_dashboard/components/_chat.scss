@@ -115,7 +115,7 @@
         
         &.left {
             .avatar {
-//                border: 1px solid #f5886e;
+                background-color: $gray-lighter;
                 float: left;
             }
             .text_wrapper {
@@ -133,7 +133,7 @@
         }
         &.right {
             .avatar {
-//                background-color: #fdbf68;
+                background-color: #fdbf68;
                 float: right;
             }
             .text_wrapper {

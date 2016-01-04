@@ -11599,6 +11599,7 @@ input {
 }
 
 .messages .message.left .avatar {
+  background-color: #eceeef;
   float: left;
 }
 
@@ -11608,6 +11609,7 @@ input {
 }
 
 .messages .message.right .avatar {
+  background-color: #fdbf68;
   float: right;
 }
 
