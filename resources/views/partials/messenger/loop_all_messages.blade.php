@@ -49,7 +49,7 @@
 
     <form class="addForm" data-id="{{$thread->unique_id}}">
     <!--{!! Form::open(['id'=> 'addFrmOne', 'role'=>'form']) !!}-->
-    <label class="help-block text-danger" id="help-block_{{$thread->id}}"></label>
+    <label class="help-block text-info" id="help-block_{{$thread->id}}"></label>
     <div class="message_input_wrapper">
         {!! $errors->first('message', '<label class="help-block" id="help-block_{{$thread->id}}">:message</label>' ) !!}
         {!! Form::textarea('message', null, ['class' => 'form-control message_input']) !!}

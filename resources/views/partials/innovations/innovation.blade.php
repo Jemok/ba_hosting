@@ -364,7 +364,7 @@
 
                 if(form.find('textarea').val() == '')
                 {
-                    $(this).find('#help-block_'+thread_id).text('Ooops, a message is required');
+                    $(this).find('#help-block_'+thread_id).text('Type your message here:');
                 }
 
                 $.ajax( '/messages/' + id + '/unique-id/'+ unique_id, {
@@ -376,6 +376,11 @@
                 });
 
                 form.find('textarea').val('');
+
+                var submit = form.find('.send_message');
+
+                submit.prop('disabled', false);
+
             });
     })
   });
