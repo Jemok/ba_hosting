@@ -1,5 +1,5 @@
 <div class="bottom_wrapper clearfix">
-    {!! Form::open(['route' => 'messages.store']) !!}
+    {!! Form::open(['route' => 'messages.store', 'role'=>'form']) !!}
    
     <!-- Subject Form Input -->
     <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
@@ -15,10 +15,13 @@
         
         <input type="hidden" name="recipients[]" value="{!!$innovation->user->id!!}">
     </div>
-    {!! Form::submit('Send', ['class' => 'form-control send_message', 'onclick' => "this.disabled=true;this.value='Sending, please wait...';this.form.submit();" ]) !!}
+    {!! Form::submit('Send', ['class' => 'form-control send_message']) !!}
 
     {!! Form::close() !!}
 </div>
+
+
+
 
 
 

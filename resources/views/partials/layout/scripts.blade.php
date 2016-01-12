@@ -9,3 +9,11 @@
 
 <!-- Start Messenger Demo Changes -->
 <script src="{{ asset('/js/all.js') }}" type="text/javascript"></script>
+
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $( 'meta[name="csrf-token"]' ).attr( 'content' )
+        }
+    });
+</script>

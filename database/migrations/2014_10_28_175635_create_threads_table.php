@@ -17,6 +17,8 @@ class CreateThreadsTable extends Migration
             $table->string('subject');
             $table->integer('innovation_id')->unsigned();
             $table->integer('user_id');
+            $table->string('unique_id');
+            $table->integer('receiver_id');
             $table->timestamps();
         });
     }

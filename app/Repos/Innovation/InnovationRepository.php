@@ -114,6 +114,15 @@ class InnovationRepository
      */
     public function retrieve($id)
     {
+
+        try {
+            Innovation::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
+
+            return redirect()->back();
+        }
+
         return $this->innovation->where('id', '=', $id)->with('user', 'category')->first();
     }
 

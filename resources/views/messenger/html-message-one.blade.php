@@ -1,5 +1,5 @@
 @if(\Auth::user()->id == $message->user_id)
-<li class="message left appeared" data-id="{{ $thread->id }}">
+<li class="message left appeared" id="message" data-id="{{ $thread_mother->id }}">
     @if(\Auth::user()->prof_pic->image != null)
     <div class="avatar">
         <img src="{{ asset('uploads/'.\Auth::user()->prof_pic->image)}}" alt="{!! \Auth::user()->first_name !!}">
@@ -15,6 +15,7 @@
         <div class="text-muted">{!! $message->created_at->diffForHumans() !!}</div>
     </div>
 </li>
+
 @elseif(\Auth::user()->id != $message->user_id)
 <li class="message right appeared">
     @if($message->user->prof_pic->image != null)
@@ -32,4 +33,3 @@
     </div>
 </li>
 @endif
-

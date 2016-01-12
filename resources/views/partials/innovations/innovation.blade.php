@@ -20,7 +20,7 @@
 </div>
 -->
 
-<div class="container innovation-pane">
+<div class="container innovation-pane" id="innovation_title" data-id="{{ $innovation->id }}">
     <div class="col-lg-9">
         <article class="inno innoDetails education" data-category="education">
             <header class="innoDetails__header">
@@ -70,7 +70,7 @@
                 @endif
 
                 <hr>
-                <section class="row">
+                <section class="row" id="messages">
                     @if(\Auth::user()->isInvestor())
 
                         @include('partials.messenger.investor')
@@ -221,8 +221,6 @@
         @endif
     </aside>
 </div>
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ asset('/js/jquery.min.js')}}"></script>
 
@@ -233,9 +231,128 @@
         }
     });
 </script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="//js.pusher.com/2.2/pusher.min.js"></script>
+@if(\Auth::user()->isInvestor())
 <script>
-    var pusher = new Pusher("{{ env('PUSHER_KEY')}}");
+ $(function(){
+
+     var active_tab_content = $(this).find('.tab-content');
+
+     var active = active_tab_content.find('.active');
+
+     var active_id = active.attr('id');
+
+     var active_tab_data_id = active.attr('data-id');
+
+     var form = active.find('.addForm').attr('id', active_id);
+
+     var thread_id = active_tab_data_id;
+
+     active.find('span').attr('class', 'label label-info label-pill text-info');
+
+     $.ajax({
+         url: "/messages/" + thread_id + "/read"
+     });
+
+
+
+     form.on('submit', function(e)
+     {
+         e.preventDefault();
+
+         $(this).find('#help-block_'+thread_id).text('');
+
+         var id = $('#innovation_title').data('id');
+
+         var unique_id = form.attr('data-id');
+
+         if(form.find('textarea').val() == '')
+         {
+             $(this).find('#help-block_'+thread_id).text('Ooops, a message is required');
+         }
+
+         $.ajax( '/messages/' + id + '/unique-id/'+ unique_id, {
+             data: form.serialize(),
+             method: 'GET',
+             success: function() {
+                 addMessage(thread_id);
+             }
+         });
+
+         form.find('textarea').val('');
+     });
+
+ });
 </script>
-<script src="{{ asset('js/pusher.js') }}"></script>
+@endif
+
+<script type="text/javascript">
+
+    //variable definitions
+    var show_tab = 'shown.bs.tab';
+    //active tab
+    var tab;
+    //clicked tab data-id
+    var target;
+
+    //renders messagess new state to the page
+    function addMessage( thread_id ) {
+        $.get( "/messages/single/" + thread_id, function( data ) {
+            $( ".messages_"+thread_id).append("<li>" + data + "</li>" );
+
+        });
+    }
+
+    //Identify opened tab and submits message to tab's thread
+
+    $(function () {
+        $('a[data-toggle="tab"]').on(show_tab, function (e) {
+
+            tab = $(e.target);
+
+            target = tab.attr('data-id');
+
+            var open_tab = $('.tab-content').find('#'+target);
+
+            var open_tab_id = open_tab.attr('id');
+
+            var open_tab_data_id = open_tab.attr('data-id');
+
+            var form = $('#'+open_tab_id).find('.addForm').attr('id', open_tab_id);
+
+            var thread_id = open_tab_data_id;
+
+            tab.find('span').attr('class', 'label label-info label-pill text-info');
+
+
+            $.ajax({
+                url: "/messages/" + thread_id + "/read"
+            });
+
+            form.on('submit', function(e)
+            {
+                e.preventDefault();
+
+                $(this).find('#help-block_'+thread_id).text('');
+
+                var id = $('#innovation_title').data('id');
+
+                var unique_id = form.attr('data-id');
+
+                if(form.find('textarea').val() == '')
+                {
+                    $(this).find('#help-block_'+thread_id).text('Ooops, a message is required');
+                }
+
+                $.ajax( '/messages/' + id + '/unique-id/'+ unique_id, {
+                    data: form.serialize(),
+                    method: 'GET',
+                    success: function() {
+                        addMessage(thread_id);
+                    }
+                });
+
+                form.find('textarea').val('');
+            });
+    })
+  });
+</script>

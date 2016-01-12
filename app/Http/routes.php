@@ -44,6 +44,11 @@ Route::group(['middleware' => 'auth', 'before' => 'csrf'], function() {
         'as' => 'specificInnovation', 'uses' => 'InnovationController@show'
     ]);
 
+    /*get('messages/innovation/{id}/{innovation_id}', [
+        'as' => 'specificInnovationWithChat', 'uses' => 'InnovationController@showWithChat'
+    ]);*/
+
+
     get('innovation/{category}/category',[
 
         'as' => 'innovationCategory', 'uses' => 'InnovationController@getCategory'
@@ -173,6 +178,7 @@ Route::group(['middleware' => 'auth', 'before' => 'csrf'], function() {
 
 Route::group(['prefix' => 'messages', 'middleware' => 'auth', 'before' => 'csrf'], function () {
     Route::get('/', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+    Route::get('/first/{id}', ['as' => 'messages/all', 'uses' => 'MessagesController@first']);
     Route::get('create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
     Route::get('{innovation_id}/create-expert', ['as' => 'messages.create-expert', 'uses' => 'MessagesController@createExpert']);
     Route::get('{innovation_id}/create-mother', ['as' => 'messages.create-mother', 'uses' => 'MessagesController@createMother']);
@@ -181,24 +187,21 @@ Route::group(['prefix' => 'messages', 'middleware' => 'auth', 'before' => 'csrf'
     Route::get('unread', ['as' => 'messages.unread', 'uses' => 'MessagesController@unread']);
     Route::post('/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
     Route::get('{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-    Route::put('{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+    Route::get('/single/{id}', ['as' => 'messages.show-single', 'uses' => 'MessagesController@showMessage']);
+    Route::get('{id}/unique-id/{unique_id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 });
 
     get('request/expert/confirm/{request_link}', 'BongoRequestController@bongoConfirmLink');
 
     get('request/investor/confirm/{request_link}', 'InvestorRequestsController@bongoConfirmLink');
 
-    get('register/confirm/{token}', 'DashboardController@confirmEmail');
-
     get('register/confirm/{token}', 'Auth\AuthController@confirmEmail');
-
 
 Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
     // Login routes
     get('/auth/login', [
         'as' => '/auth/login', 'uses' => 'Auth\AuthController@getLogin'
     ]);
-
 
     get('/about', 'DashboardController@about');
 

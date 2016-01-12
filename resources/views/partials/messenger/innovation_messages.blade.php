@@ -1,7 +1,4 @@
-@extends('layout')
-
-@section('content')
-<div class="chat_window">
+<div class="chat_window" id="chat_window">
     <div class="top_menu">
 
         <div class="title">
@@ -46,11 +43,9 @@
         @foreach($thread->messages()->oldest()->get() as $message)
         @include('messenger.html-message', $message)
         @endforeach
-
     </ul>
 
 
-        
     <div class="bottom_wrapper clearfix">
         {!! Form::open(['id'=>'addFrmOne', 'role'=>'form']) !!}
         <div class="message_input_wrapper">
@@ -63,4 +58,3 @@
 
 </div>
 
-@stop

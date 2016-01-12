@@ -10,9 +10,12 @@
 
         if (thread.length) {
             // add new message to thread
-            thread.append(data.html);
 
-            // make sure the thread is set to read
+
+            var last_li = thread.find('li').last();
+
+            last_li.after('<li class="message right appeared">'+data.html+'</li>');
+
             $.ajax({
                 url: "/messages/" + thread_id + "/read"
             });
@@ -42,5 +45,4 @@
         }
     });
 </script>
-
 @endif

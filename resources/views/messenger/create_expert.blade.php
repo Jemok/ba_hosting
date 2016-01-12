@@ -3,6 +3,7 @@
     {!! Form::open(['route' => 'messages.store']) !!}
 
     <input type="hidden" name="innovation_id" value="{{$innovation->id}}">
+
     <div class="col-md-6">
         <!-- Subject Form Input -->
         <div class="form-group">

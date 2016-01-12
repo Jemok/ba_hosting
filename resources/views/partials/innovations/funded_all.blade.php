@@ -22,9 +22,17 @@
                 @endif
             </header>
             <section class="inno-summary">
+
+                <?php
+
+                    $fundingNeeded = $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount') + $innovation->innovationFund;
+
+                    $fundingFunded =  $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount');
+                ?>
+
                 <p>{!! $innovation->innovationShortDescription !!}</p>
-                <span class="inno-funding-needed">Needed: Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount') + $innovation->innovationFund  }}</span>
-                <span class="inno-funding-needed">Funded: Ksh. {{ $innovation->fund->where('innovation_id', '=', $innovation->fund->innovation_id)->sum('amount')  }}</span>
+                <span class="inno-funding-needed">Needed: Ksh. {{ number_format($fundingNeeded)  }}</span><br>
+                <span class="inno-funding-needed">Funded: Ksh. {{ number_format($fundingFunded)}}</span>
                 <p class="inno-innovator"><a href="{{ route('innovationPortfolio', [$innovation->id])}}">Portfollio</a></p>
 
             </section>

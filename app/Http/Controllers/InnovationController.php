@@ -89,6 +89,22 @@ class InnovationController extends Controller
         return view('innovation.all_funded', compact('innovations', 'categories'));
     }
 
+    public function showWithChat($innovation_id, $id,ConversationRepository $conversationRepository)
+    {
+        try {
+            $thread = Thread::findOrFail($innovation_id);
+        } catch (ModelNotFoundException $e) {
+            Session::flash('error_message', 'The thread with ID: ' . $innovation_id . ' was not found.');
+
+            return redirect('messages');
+        }
+
+        $userId = Auth::user()->id;
+
+        $thread->markAsRead($userId);
+
+        return $this->show($id, $conversationRepository);
+    }
     /**
      * @param $id
      * @param ConversationRepository $conversationRepository
@@ -96,11 +112,10 @@ class InnovationController extends Controller
      */
     public function show($id, ConversationRepository $conversationRepository)
     {
+
         $innovation = $this->repo->retrieve($id);
 
         $check_chat = $conversationRepository->chatExists($id);
-
-       
 
         //$conversation = $conversationRepository->startConversation();
 
@@ -117,15 +132,45 @@ class InnovationController extends Controller
 
 
         // All threads that user is participating in
-        //$threads = Thread::forUser($currentUserId)->get();
+        $threads = Thread::forUser($currentUserId)->get();
 
-        $threads = Thread::forUser($currentUserId)
-            ->where('innovation_id', '=', $id)
-            ->latest()->get();
+       /* $threads = Thread::
+            where('innovation_id', '=', $id)
+            ->latest()->get();*/
 
         $threads_count = $threads->count();
 
-        return view('innovation.show', compact('investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
+        if(\Auth::user()->isInvestor())
+        {
+            if((Thread::where('innovation_id', '=', $id)
+                    ->where('user_id', '=', \Auth::user()->id)
+                    ->exists()) == true)
+            {
+                $thread =Thread::where('innovation_id', '=', $id)
+                    ->where('user_id', '=', \Auth::user()->id)->first();
+            }
+
+        }
+
+        if(\Auth::user()->isMother())
+        {
+            if((Thread::where('innovation_id', '=', $id)
+                    ->where('user_id', '=', \Auth::user()->id)
+                    ->exists()) == true)
+            {
+                $thread_mother =Thread::where('innovation_id', '=', $id)
+                    ->where('user_id', '=', \Auth::user()->id)->first();
+            }
+            else
+            {
+                $thread_mother = null;
+            }
+
+
+
+        }
+
+        return view('innovation.show', compact('thread_mother','thread','investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
 

@@ -71,4 +71,9 @@ class Innovation extends Model
     {
         return $this->hasMany('Md\Progress');
     }
+
+    public function messages()
+    {
+        return $this->hasMany('Cmgmyr\Messenger\Models\Message');
+    }
 }

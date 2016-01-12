@@ -1,5 +1,5 @@
 //renders item's new state to the page
-function addItem(id) {
+function addItem( id) {
     $.get( "/chats/" + id, function( data ) {
 
             $( "#messages" ).append( data );
@@ -18,13 +18,13 @@ function removeItem( id ) {
 
 (function($, addItem, removeItem) {
 
-    $.get( "/chats", function( data ) {
+    $.get( "/chats/", function( data ) {
         $( "#itemsList" ).html( data );
     });
 
 
     $( ".addFrm" ).submit(function() {
-        $.post( "/chats/z", $( this ).serialize(), function( data ) {
+        $.post( "/chats/", $( this ).serialize(), function( data ) {
 
             //addItem( data.id, false );
 
