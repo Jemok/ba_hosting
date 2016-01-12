@@ -20,8 +20,8 @@
                     <a  href="{{url('innovation/'.$innovation->id)}}">
                         {{ $innovation->innovationTitle }}
                     </a>
-                    ({{$innovation->created_at->diffForHumans()}})
                 </h3>
+                <p><small>{{$innovation->created_at->diffForHumans()}}</small></p>
                 @if(\Auth::user()->id == $innovation->user_id)
                 @else
                 <p class="inno-innovator">{{ $innovation->user->first_name }} {{ $innovation->user->last_name }}</p>

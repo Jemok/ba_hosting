@@ -50,12 +50,7 @@
             <fieldset name="personal" class="form__cluster">
                 <div class="form-group">
                     <div class="form__field pro__pic">
-                        @if(\Auth::user()->prof_pic()->first()->image != null)
-                        <img src="{{ asset('uploads/'.\Auth::user()->prof_pic()->first()->image)}}" height="160" width="160">
-                        @else
-                        <img src="{{ asset('uploads/default.png')}}">
-                        @endif
-
+                        @include('account.profile_image')
                     </div>
                     <div class="form__field">
                         <div class="form-group">
@@ -92,9 +87,7 @@
                 <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Save</button>
             </footer>
         </form>
-
-    @include('account.profile_image')
-
+        
     @include('account.change_password')
     @else
     <form method="get" class="profile">

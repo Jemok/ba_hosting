@@ -50,85 +50,76 @@
         {!! $errors->first('innovationTitle', '<label class="help-block">:message</label>' ) !!}
         <header class="innoDetails__header">
             <input type="text" name="innovationTitle" class="inno-title" value="{{ $innovation->innovationTitle }}">
-            <button type="button" class="cta cta__btn cta__create">
-                @if (count($errors) > 0)
-                Edit Innovation
-                @else
-                Update
-                @endif
-            </button>
         </header>
-
-        <div class="step__2">
-            <section class="innoDetails__content">
-                <fieldset name="personal" class="form__cluster">
-                    <div class="form-group">
-                        <div class="form__field">
-                            <label>Short Summary</label>
-                            {!! $errors->first('innovationShortDescription', '<label class="help-block">:message</label>' ) !!}
-                            <textarea class="form-control" name="innovationShortDescription">{{ $innovation->innovationShortDescription }}</textarea>
-                        </div>
+           
+        <section class="innoDetails__content">
+            <fieldset name="personal" class="form__cluster">
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Short Summary</label>
+                        {!! $errors->first('innovationShortDescription', '<label class="help-block">:message</label>' ) !!}
+                        <textarea class="form-control" name="innovationShortDescription">{{ $innovation->innovationShortDescription }}</textarea>
                     </div>
-                    <div class="form-group">
-                        <div class="form__field">
-                            <label>Detailed Summary</label>
-                            {!! $errors->first('innovationDescription', '<label class="help-block">:message</label>' ) !!}
-                            <div class="form-control">
-                                <textarea class="with-wysiwyg" name="innovationDescription">{{ $innovation->innovationDescription }}</textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form__field">
-                            <label>Field</label>
-                            {!! $errors->first('innovationCategory', '<label class="help-block">:message</label>' ) !!}
-                            <select name="innovationCategory" class="form-control">
-                                <option disabled selected>Uncategorized</option>
-
-                                @if($categories->count())
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}" @if ($innovation->category_id == $category->id)  selected="selected" @endif>{{ $category->categoryName }}</option>
-                                @endforeach
-                                @else
-                                <option value="" disabled selected>No listed categories here</option>
-                                @endif
-                            </select>
-
-                        </div>
-                        <div class="form__field">
-                            <label>Trademark Name(if any)</label>
-                            {!! $errors->first('tradeMarkName', '<label class="help-block">:message</label>' ) !!}
-                            <input type="name" name="tradeMarkName" value="{{ $innovation->tradeMarkName }}" class="form-control">
-                        </div>
-                        <div class="form__field">
-                            <label>Trademark Registration Number(if any)</label>
-                            {!! $errors->first('tradeMarkNumber', '<label class="help-block">:message</label>' ) !!}
-                            <input type="name" name="tradeMarkNumber" value="{{ $innovation->tradeMarkNumber }}" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form__field">
-                            <label for="">How much do you need?</label>
-                            {!! $errors->first('innovationFund', '<label class="help-block">:message</label>' ) !!}
-                            <input type="name" name="innovationFund" class="form-control" value="{{ $innovation->innovationFund }}">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form__field">
-                            <label>What's the funding for?</label>
-                            {!! $errors->first('justifyFund', '<label class="help-block">:message</label>' ) !!}
-                            <textarea class="form-control" name="justifyFund" rows="5" >{{ $innovation->justifyFund }}</textarea>
-                        </div>
-                    </div>
-                </fieldset>
-            </section>
-
-            <footer class="innoDetails__footer">
-                <div class="pull-right">
-                    <button type="submit"  class="cta cta__btn cta__publish" id="btnADD" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Update</button>
                 </div>
-            </footer>
-        </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Detailed Summary</label>
+                        {!! $errors->first('innovationDescription', '<label class="help-block">:message</label>' ) !!}
+                        <div class="form-control">
+                            <textarea class="with-wysiwyg" name="innovationDescription">{{ $innovation->innovationDescription }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>Field</label>
+                        {!! $errors->first('innovationCategory', '<label class="help-block">:message</label>' ) !!}
+                        <select name="innovationCategory" class="form-control">
+                            <option disabled selected>Uncategorized</option>
+
+                            @if($categories->count())
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @if ($innovation->category_id == $category->id)  selected="selected" @endif>{{ $category->categoryName }}</option>
+                            @endforeach
+                            @else
+                            <option value="" disabled selected>No listed categories here</option>
+                            @endif
+                        </select>
+
+                    </div>
+                    <div class="form__field">
+                        <label>Trademark Name(if any)</label>
+                        {!! $errors->first('tradeMarkName', '<label class="help-block">:message</label>' ) !!}
+                        <input type="name" name="tradeMarkName" value="{{ $innovation->tradeMarkName }}" class="form-control">
+                    </div>
+                    <div class="form__field">
+                        <label>Trademark Registration Number(if any)</label>
+                        {!! $errors->first('tradeMarkNumber', '<label class="help-block">:message</label>' ) !!}
+                        <input type="name" name="tradeMarkNumber" value="{{ $innovation->tradeMarkNumber }}" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label for="">How much do you need?</label>
+                        {!! $errors->first('innovationFund', '<label class="help-block">:message</label>' ) !!}
+                        <input type="name" name="innovationFund" class="form-control" value="{{ $innovation->innovationFund }}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form__field">
+                        <label>What's the funding for?</label>
+                        {!! $errors->first('justifyFund', '<label class="help-block">:message</label>' ) !!}
+                        <textarea class="form-control" name="justifyFund" rows="5" >{{ $innovation->justifyFund }}</textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+
+        <footer class="innoDetails__footer">
+            <div class="pull-right">
+                <button type="submit"  class="cta cta__btn cta__publish" id="btnADD" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Update</button>
+            </div>
+        </footer>
     </form>
 </div> <!-- end container -->
 
