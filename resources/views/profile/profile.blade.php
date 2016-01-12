@@ -50,7 +50,11 @@
             <fieldset name="personal" class="form__cluster">
                 <div class="form-group">
                     <div class="form__field pro__pic">
-                        @include('account.profile_image')
+                        @if($profile->prof_pic->image != null)
+                        <img src="{{ asset('uploads/'.$profile->prof_pic->image)}}" height="160" width="160">
+                        @else
+                        <img src="{{ asset('uploads/default.png')}}">
+                        @endif
                     </div>
                     <div class="form__field">
                         <div class="form-group">
@@ -87,8 +91,11 @@
                 <button type="submit" class="btn btn-primary" onclick="this.disabled=true;this.value='Sending, please wait...';this.form.submit();">Save</button>
             </footer>
         </form>
-        
-    @include('account.change_password')
+
+        @include('account.profile_image')
+
+
+        @include('account.change_password')
     @else
     <form method="get" class="profile">
         <h3 class="section__title">Innovator Personal Profile</h3>

@@ -327,6 +327,8 @@ class InnovationRepository
     {
         $innovation = Innovation::findOrFail($id);
 
+        if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+
         return $innovation->fund->where('innovation_id', '=', $id)->get();
     }
 

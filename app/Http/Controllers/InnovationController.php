@@ -132,7 +132,7 @@ class InnovationController extends Controller
 
 
         // All threads that user is participating in
-        $threads = Thread::forUser($currentUserId)->get();
+        $threads = Thread::forUser($currentUserId)->where('innovation_id', '=', $id)->get();
 
        /* $threads = Thread::
             where('innovation_id', '=', $id)
@@ -165,12 +165,13 @@ class InnovationController extends Controller
             {
                 $thread_mother = null;
             }
-
-
-
         }
 
-        return view('innovation.show', compact('thread_mother','thread','investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
+        $funds= $this->repo->getPortfolio($id);
+
+        $totalNeeded = $this->repo->getInnovationFund($id);
+
+        return view('innovation.show', compact('totalNeeded','funds','thread_mother','thread','investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
 
