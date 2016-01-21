@@ -1,3 +1,5 @@
+<!-- The partial for displaying the count of expert requests-->
+
 @if(Auth::check())
 <?php
 $count = $expert_requests->count();

@@ -1,3 +1,6 @@
+<!-- The partial for displaying the count of investor requests-->
+
+
 @if(Auth::check())
 <?php
 $count = $investor_requests->count();

@@ -1,3 +1,5 @@
+<!-- Displays the login page -->
+
 @extends('layout')
 
 @section('content')

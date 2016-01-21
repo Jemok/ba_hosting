@@ -1,7 +1,9 @@
+<!-- Displays the change password view -->
 <form method="post" action="{{ route('changePassword') }}" class="profile">
     <h3 class="section__title">Edit Password</h3>
     <fieldset name="personal" class="form__cluster">
 
+        <!- Protects the site against cross site request forgery ->
         {{ CSRF_FIELD() }}
 
         <div class="form-group">

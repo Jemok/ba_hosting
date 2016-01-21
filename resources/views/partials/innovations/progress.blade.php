@@ -1,3 +1,6 @@
+<!-- The partial for displaying the count of on progress innovations -->
+
+
 <div class="open-projects">
     <header>
         @if(!Request::is('innovation/*'))

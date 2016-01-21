@@ -1,3 +1,5 @@
+<!-- Displays the investor registration page -->
+
 @extends('......layout')
 
 @section('content')

@@ -1,3 +1,5 @@
+<!-- Displays the start conversation with an expert view -->
+
 <div class="container">
     <h5>Chat with an Expert:</h5>
     {!! Form::open(['route' => 'messages.store']) !!}
@@ -24,7 +26,7 @@
 
             @if($users->count())
             @foreach($users as $user)
-            <option value="{!!$user->id!!}" @if (old('recipients[]') == $user->first_name)  selected="selected" @endif>{{ $user->first_name }}</option>
+            <option value="{!!$user->id!!}" @if (old('recipients[]') == $user->first_name)  selected="selected" @endif>{{ $user->first_name }} - {{ $user->bongo_request->field }}</option>
             @endforeach
             @else
             <option value="" disabled selected>No Experts found</option>

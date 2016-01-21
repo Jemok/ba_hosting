@@ -1,3 +1,5 @@
+<!-- The partial for displaying funded innovations for both investors and innovators -->
+
 <div class="funded-projects">
     <header>
         @if(\Auth::user()->isInnovator())

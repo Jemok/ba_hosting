@@ -1,3 +1,4 @@
+<!-- Reset password page for filling in new password -->
 @extends('layout')
 
 

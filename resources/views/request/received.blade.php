@@ -1,3 +1,5 @@
+<!-- Displays the expert and investor received request page-->
+
 @extends('layout')
 
 @section('content')

@@ -1,3 +1,6 @@
+<!-- Displays the start conversation with the mother admin view -->
+
+
 <div class="container">
     <h5>Chat with Moderator:</h5>
     {!! Form::open(['route' => 'messages.store']) !!}

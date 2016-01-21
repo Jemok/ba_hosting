@@ -1,3 +1,5 @@
+<!-- Displays the page for editing an innovation -->
+
 @extends('layout')
 
 @section('content')

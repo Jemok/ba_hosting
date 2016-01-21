@@ -1,3 +1,5 @@
+<!-- Displays the resource not found page -->
+
 <!DOCTYPE html>
 <html>
     <head>

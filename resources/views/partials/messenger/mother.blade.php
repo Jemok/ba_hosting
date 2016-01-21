@@ -1,12 +1,12 @@
 <div class="col-sm-3">
         <ul class="list-group" id="myTab" role="tablist">
+            @if($threads_count > 0)
             <a class="list-group-item" data-toggle="tab" href="#expert" role="tab" aria-controls="expert">
                 Expert <i class="ion-plus-round pull-right"></i>
             </a>
             <a class="list-group-item" data-toggle="tab" href="#investor" role="tab" aria-controls="mother">
                 Investor <i class="ion-plus-round pull-right"></i>
             </a>
-            @if($threads_count > 0)
             @foreach($threads as $thread)
             <?php $class = $thread->isUnread($currentUserId) ? 'text-default' : 'text-info'; ?>
             <a  class="list-group-item {!!$class !!}" data-toggle="tab" href="#thread_{{$thread->id}}" role="tab" aria-controls="thread_list_{{$thread->id}}" data-id="thread_{{$thread->id}}">
@@ -17,7 +17,6 @@
                 @else
                 <span class="label label-info label-pill {!! $class !!}">m</span> {{$thread->subject}} with {!! $thread->participantsString(Auth::id(), ['first_name']) !!}
                 @endif
-
             </a>
             @endforeach
             @endif

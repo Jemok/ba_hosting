@@ -1,14 +1,16 @@
 <?php
 
+/**
+ * The controller that handles expert, mother, investor and innovator dashboards
+ */
+
 namespace Md\Http\Controllers;
 
 use Md\Repos\Innovation\InnovationRepository;
 use Md\Repos\Category\CategoryRepository;
 use Md\Http\Requests;
-use Illuminate\Support\Facades\Session;
 use Md\Repos\InvestorRequest\InvestorRequestRepo;
 use Md\Repos\BongoRequest\BongoRequestRepo;
-use Md\User;
 
 
 class DashboardController extends Controller
@@ -25,8 +27,14 @@ class DashboardController extends Controller
      */
     private $categoryRepository;
 
+    /**
+     * @var \Md\Repos\InvestorRequest\InvestorRequestRepo
+     */
     private $investorRequest;
 
+    /**
+     * @var \Md\Repos\BongoRequest\BongoRequestRepo
+     */
     private $expertRequest;
 
 
@@ -90,6 +98,7 @@ class DashboardController extends Controller
     }
 
     /**
+     * Displays the investors dashboard
      * @return \Illuminate\View\View
      */
 
@@ -121,6 +130,10 @@ class DashboardController extends Controller
     }
 
 
+    /**
+     * Displays the Expert dashboard
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bongoEmployee()
     {
         $innovations = $this->innovationRepository->getAllInnovations();
@@ -136,6 +149,10 @@ class DashboardController extends Controller
         return view('admin.bongo', compact('innovations_fully','innovations_partial','innovations_open','innovations', 'categories'));
     }
 
+    /**
+     * Displays the Bongo Afrika mother dashboard
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bongoMother()
     {
         $innovations = $this->innovationRepository->getAllInnovations();
@@ -160,10 +177,13 @@ class DashboardController extends Controller
         return view('partials.dashboards.more-innovation-info');
     }
 
+    /**
+     * Displays the about page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function about()
     {
         return view('pages.about');
     }
-
 
 }

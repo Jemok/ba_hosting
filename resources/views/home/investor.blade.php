@@ -1,3 +1,5 @@
+<!-- Displays the investor Dashboard -->
+
 @extends('layout')
 
 @section('content')

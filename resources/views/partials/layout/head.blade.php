@@ -1,3 +1,5 @@
+<!-- The top most part of the layout -->
+
 <html>
 <head>
     <meta charset="UTF-8">

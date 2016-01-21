@@ -1,3 +1,5 @@
+<!-- Displays a single innovation -->
+
 @extends('layout')
 
 @section('content')

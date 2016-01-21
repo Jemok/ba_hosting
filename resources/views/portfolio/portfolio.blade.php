@@ -1,3 +1,5 @@
+<!-- Displays the portfolio page -->
+
 @extends('layout')
 
 @section('content')

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Manages the messaging app workflow
+ */
 namespace Md\Http\Controllers;
 
 use Carbon\Carbon;
@@ -9,7 +12,6 @@ use Cmgmyr\Messenger\Models\Thread;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Md\Http\Requests\MessagesCreateRequest;
 use Md\Http\Requests\MessagesRequest;
@@ -25,6 +27,9 @@ class MessagesController extends Controller
      */
     protected $pusher;
 
+    /**
+     * @param Pusher $pusher
+     */
     public function __construct(Pusher $pusher)
     {
         $this->pusher = $pusher;
@@ -37,9 +42,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        
         $currentUserId = Auth::user()->id;
-
 
         // All threads that user is participating in
         $threads = Thread::forUser($currentUserId)->get();
@@ -47,6 +50,11 @@ class MessagesController extends Controller
         return view('messenger.index', compact('threads', 'currentUserId'));
     }
 
+    /**
+     * Get the first message in a conversation
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function first($id)
     {
         $thread = Thread::where('innovation_id', '=', $id)->first();
@@ -56,7 +64,6 @@ class MessagesController extends Controller
                 ->with('messages')->first();
 
         return view('partials.messenger.innovation_messages', compact('message', 'thread'));
-
     }
 
     /**
@@ -95,7 +102,6 @@ class MessagesController extends Controller
         $thread = Thread::find($id);
         $message = Message::where('thread_id', '=', $id)->orderBy('created_at', 'desc')->first();
 
-
         return view('messenger.html-message', compact('thread','message'));
     }
 
@@ -112,6 +118,11 @@ class MessagesController extends Controller
         return view('messenger.with_subject', compact('users', 'innovation_id'));
     }
 
+    /**
+     * Creates a conversation with an ivestor
+     * @param $innovation_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function createInvestor($innovation_id)
     {
         $users = User::where('userCategory', '=', 2)
@@ -134,6 +145,11 @@ class MessagesController extends Controller
         return view('messenger.create', compact('users'));
     }
 
+    /**
+     * Creates a conversation thread with mother
+     * @param $innovation_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function createMother($innovation_id)
     {
         $users = User::where('id', '=', 1)->get();
@@ -142,16 +158,14 @@ class MessagesController extends Controller
     }
 
     /**
+     * Persists a message to the database
      * @param MessagesCreateRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(MessagesCreateRequest $request)
     {
         $input = $request;
-
         $innovation = Innovation::findOrFail($input['innovation_id']);
-
-
 
         $thread = Thread::create(
 
@@ -207,7 +221,11 @@ class MessagesController extends Controller
         return redirect('innovation/'.$innovation->id.'#messages');
     }
 
-
+    /**
+     * Add the threads receiver
+     * @param Thread $thread
+     * @param array $participants
+     */
     public function addReceiver(Thread $thread, array $participants)
     {
         if (count($participants)) {
@@ -220,16 +238,15 @@ class MessagesController extends Controller
     }
 
     /**
+     * Update a thread
      * @param $id
      * @param MessagesRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param $unique_id
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update($id, MessagesRequest $request, $unique_id)
     {
-
-
         $input = $request;
-
 
         try {
             $thread = Thread::where('innovation_id', '=', $id)

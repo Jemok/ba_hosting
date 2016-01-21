@@ -1,3 +1,5 @@
+<!-- Displays the start conversation with an investor view -->
+
 <div class="container">
     <h5>Chat with an Investor:</h5>
     {!! Form::open(['route' => 'messages.store']) !!}

@@ -1,3 +1,5 @@
+<!-- Displays all open Innovations -->
+
 @extends('layout')
 
 @section('content')

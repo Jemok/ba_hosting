@@ -1,3 +1,4 @@
+<!-- Displays all the investor requests -->
 @extends('layout')
 
 @section('content')

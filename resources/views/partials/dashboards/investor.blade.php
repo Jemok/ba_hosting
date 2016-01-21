@@ -1,3 +1,5 @@
+<!-- The investor dashboard partial -->
+
 <div class="container">
     @if(Session::has('flash_message'))
 
@@ -17,14 +19,14 @@
     <div class="innoData-grid">
         <div class="innoData">
             <div class="innoData__title">Funding Available (Ksh.)</div>
-            <div class="innoData__content">{{ \Auth::user()->investor_amount }}</div>
+            <div class="innoData__content">{{ number_format(\Auth::user()->investor_amount, 0) }}</div>
             @if(\Auth::user()->investor_amount <=0)
             <span class="alert-danger">Your investment is low</span>
             @endif
         </div>
         <div class="innoData">
             <div class="innoD=ata__title">Funding Injected (Ksh.)</div>
-            <a href="{{route('investorFundedInnovations')}}"><div class="innoData__content">{{$totalFundsInjected}}</div></a>
+            <a href="{{route('investorFundedInnovations')}}"><div class="innoData__content">{{ number_format($totalFundsInjected, 0)}}</div></a>
         </div>
 
         <div class="innoData">

@@ -1,3 +1,5 @@
+<!-- Displays all the innovations funded by a certain investor -->
+
 @extends('layout')
 
 @section('content')

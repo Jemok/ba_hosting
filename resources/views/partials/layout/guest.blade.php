@@ -1,3 +1,5 @@
+<!-- The inner part of not authenticated user navigation -->
+
 <li class="nav-item {{Request::path() == 'about' ? 'active' : ''}}">
     <a class="nav-link" href="{{ url('/about') }}">About</a>
 </li>

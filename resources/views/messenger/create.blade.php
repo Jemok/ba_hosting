@@ -1,3 +1,5 @@
+<!-- The template used to create all the other create messages page -->
+
 @extends('layout')
 
 @section('content')

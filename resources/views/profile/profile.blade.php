@@ -1,3 +1,5 @@
+<!-- Displays the profile page -->
+
 @extends('layout')
 
 @section('content')

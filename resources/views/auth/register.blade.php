@@ -1,3 +1,5 @@
+<!-- Displays the Innovator registration page -->
+
 @extends('layout')
 
 

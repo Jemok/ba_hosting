@@ -1,3 +1,5 @@
+<!-- Displays all innovations that are in progress for a particular investor -->
+
 @extends('layout')
 
 @section('content')

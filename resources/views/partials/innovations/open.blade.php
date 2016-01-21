@@ -1,3 +1,5 @@
+<!-- The Partial for displaying all open innovations -->
+
 <div class="open-projects">
     <header>
         @if(!Request::is('innovation/*'))

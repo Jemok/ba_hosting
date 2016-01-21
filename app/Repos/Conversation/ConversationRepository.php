@@ -1,5 +1,10 @@
 <?php namespace Md\Repos\Conversation;
 
+/**
+ * Code not used
+ */
+
+
 use Md\Chat;
 use Md\Innovation;
 use Md\Message;

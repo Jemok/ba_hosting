@@ -1,3 +1,5 @@
+<!-- Displays the investor send request form -->
+
 @extends('layout')
 
 @section('content')

@@ -1,5 +1,5 @@
+<!-- Displays the recover password page -->
 @extends('layout')
-
 
 @section('content')
 <div class="__section with-columns equally-split fill-page without-moving">

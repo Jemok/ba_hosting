@@ -1,3 +1,4 @@
+<!-- Displays a single message thread -->
 @extends('layout')
 
 @section('content')

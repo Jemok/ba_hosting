@@ -1,3 +1,5 @@
+<!-- The partial for displaying all the funded innovations by a particular investor -->
+
 <div class="open-projects">
     <header>
         <h2 class="section__title">Funded Projects</h2>

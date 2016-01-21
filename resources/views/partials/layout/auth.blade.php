@@ -1,3 +1,5 @@
+<!-- Handles the logic for displaying the layout for authenticated users -->
+
 @if(\Auth::user()->isInnovator())
 @include('partials.layout.message')
 

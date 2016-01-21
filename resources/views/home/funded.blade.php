@@ -1,3 +1,5 @@
+<!-- Gets all the funded innovations -->
+
 @extends('layout')
 
 @section('content')

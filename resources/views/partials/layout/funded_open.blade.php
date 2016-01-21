@@ -1,3 +1,5 @@
+<!-- The funded and open projects part of navigation -->
+
 <li class="nav-item {{Request::path() == 'innovations/open' ? 'active' : ''}}">
     <a class="nav-link" href="{{ route('allOpenInnovations') }}">
     Open

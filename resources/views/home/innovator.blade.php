@@ -1,3 +1,5 @@
+<!-- Displays the innovator dashboard -->
+
 @extends('layout')
 
 @section('content')

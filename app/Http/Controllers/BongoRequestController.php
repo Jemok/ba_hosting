@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * The Expert controller
+ * which manages flow of expert input
+ * and output
+ *
+ */
+
 namespace Md\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Md\Http\Requests;
-use Md\Http\Controllers\Controller;
 use Md\Http\Requests\BongoRequestRequest;
 use Md\Repos\BongoRequest\BongoRequestRepo;
 use Illuminate\Support\Facades\Session;
@@ -12,10 +17,7 @@ use Md\Mailers\AppMailer;
 
 class BongoRequestController extends Controller
 {
-    public function __construct()
-    {
 
-    }
     /**
      * Get the send request view
      * @return \Illuminate\View\View
@@ -26,7 +28,10 @@ class BongoRequestController extends Controller
     }
 
     /**
-     * Save the request to the database
+     * Save an Expert request to the database
+     * @param BongoRequestRequest $bongoRequestRequest
+     * @param BongoRequestRepo $bongoRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function persistRequest(BongoRequestRequest $bongoRequestRequest, BongoRequestRepo $bongoRequestRepo)
     {
@@ -35,6 +40,12 @@ class BongoRequestController extends Controller
         return view('request.received');
     }
 
+    /**
+     * Get all the requests sent to Bongo by Experts
+     * @param BongoRequestRepo $bongoRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     */
     public function getAll(BongoRequestRepo $bongoRequestRepo)
     {
         $requests = $bongoRequestRepo->all();
@@ -42,6 +53,13 @@ class BongoRequestController extends Controller
         return view('request.bongo.all', compact('requests'));
     }
 
+    /**
+     * Send an Expert registration link
+     * @param $request_id
+     * @param BongoRequestRepo $bongoRequestRepo
+     * @param AppMailer $mailer
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function bongoSendLink($request_id, BongoRequestRepo $bongoRequestRepo, AppMailer $mailer)
     {
         $request = $bongoRequestRepo->sendLink($request_id);
@@ -50,9 +68,14 @@ class BongoRequestController extends Controller
 
         Session::flash('flash_message', 'The email was sent successfully!');
         return redirect()->back();
-        //return view('request.bongo.link', compact('request_link'));
     }
 
+    /**
+     * Handle the process of confirming an Expert confirmation request
+     * @param $request_link
+     * @param BongoRequestRepo $bongoRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bongoConfirmLink($request_link, BongoRequestRepo $bongoRequestRepo)
     {
         if(\Auth::check())
@@ -79,7 +102,6 @@ class BongoRequestController extends Controller
             {
                 \Auth::logout();
                 $confirm = $bongoRequestRepo->getBongoRequest($request_link);
-
                 return view('request.bongo.register', compact('confirm'));
             }
         }

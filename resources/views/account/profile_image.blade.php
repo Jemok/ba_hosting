@@ -1,3 +1,4 @@
+<!-- Displays the upload image view  -->
 {!! Form::open(array('url'=>'apply/upload','method'=>'POST', 'files'=>true, 'class'=>'profile')) !!}
 <section class="pro__pic-container">
     <header class="help-block">

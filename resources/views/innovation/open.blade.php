@@ -1,3 +1,5 @@
+<!-- Displays all open innovations on their on single page -->
+
 @extends('layout')
 
 @section('content')

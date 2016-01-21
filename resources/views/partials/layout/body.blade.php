@@ -1,3 +1,5 @@
+<!-- Displays the layout navigation portion -->
+
 @if(!\Auth::guest())
 <body class="dashboard">
 @else

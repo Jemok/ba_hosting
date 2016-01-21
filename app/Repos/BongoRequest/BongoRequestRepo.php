@@ -13,6 +13,10 @@ use Carbon\Carbon;
 
 class BongoRequestRepo {
 
+    /**
+     * Persist an Expert request to the database
+     * @param $request
+     */
     public function persist($request)
     {
         Bongo_request::create([
@@ -27,6 +31,11 @@ class BongoRequestRepo {
         ]);
     }
 
+    /**
+     * Creates the request link
+     * @param $bongo_email
+     * @return string
+     */
     private function makeRequestLInk($bongo_email)
     {
         $link = $bongo_email.'abcdefghijklmnopqrstuvwxyz';
@@ -39,6 +48,11 @@ class BongoRequestRepo {
         return  Bongo_request::all();
     }
 
+    /**
+     * Sends the link
+     * @param $request_id
+     * @return mixed
+     */
     public function sendLink($request_id)
     {
         $request = Bongo_request::findOrFail($request_id);
@@ -52,6 +66,11 @@ class BongoRequestRepo {
         return $request;
     }
 
+    /**
+     * Handles confirmation of the link
+     * @param $request_link
+     * @return int
+     */
     public function confirm($request_link)
     {
 
@@ -91,28 +110,36 @@ class BongoRequestRepo {
                 {
                     return 2;
                 }
-
-
             }
-
-
-
         }
     }
 
-
+    /**
+     * Gets the link from the db
+     * @param $request_link
+     * @return mixed
+     */
     public function getBongoRequest($request_link)
     {
 
         return Bongo_request::where('request_link', '=', $request_link)->first();
     }
 
+    /**
+     * Gets the email associated with the request
+     * @param $request_link
+     * @return mixed
+     */
     public function getEmail($request_link)
     {
 
         return Bongo_request::where('request_link', '=', $request_link)->first()->bongo_email;
     }
 
+    /**
+     * Gets all the requests
+     * @return mixed
+     */
     public function getThem()
     {
         return Bongo_request::where('request_status', '=', 0)->get();

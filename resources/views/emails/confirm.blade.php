@@ -1,3 +1,4 @@
+<!-- Confirm your email display -->
 <h1>Thanks for signing up!</h1>
 
 <p>

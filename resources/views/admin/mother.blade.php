@@ -1,3 +1,4 @@
+<!-- Displays the Bongo Afrika Mother Admin Dashboard  -->
 @extends('layout')
 
 @section('content')
@@ -47,7 +48,7 @@
                 @if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
 
                 @else
-                    <span class="inno-funding-needed">Ksh. {{ $innovation->innovationFund }}</span>
+                    <span class="inno-funding-needed">Ksh. {{ number_format($innovation->innovationFund, 0) }}</span>
                 @endif
             </section>
             <footer class="inno-meta">

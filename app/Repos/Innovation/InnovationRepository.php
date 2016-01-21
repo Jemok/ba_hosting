@@ -69,11 +69,8 @@ class InnovationRepository
     }
 
     /**
-     * Updates an innovation
-     *
-     * @param Innovation $innovation
-     * @param array $details
-     * @return Innovation
+     * @param $request
+     * @param $innovation_id
      */
     public function update($request, $innovation_id)
     {
@@ -91,7 +88,6 @@ class InnovationRepository
           'tradeMarkNumber'       => $request->tradeMarkNumber
       ]);
 
-
     }
 
 
@@ -108,9 +104,8 @@ class InnovationRepository
 
 
     /**
-     * Retrieves a specific innovation
-     *
      * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function retrieve($id)
     {
@@ -202,12 +197,21 @@ class InnovationRepository
             ->paginate(9,['*'], 'innovations');
     }
 
+    /**
+     * Returns all open innovations
+     * @return mixed
+     */
     public function getAllOPen()
     {
         return Innovation::where('fundingStatus', '=', 0);
 
     }
 
+
+    /**
+     * Returns all partially funded innovations
+     * @return mixed
+     */
     public function getAllPartials()
     {
         return Innovation::where('fundingStatus', '=', 1)
@@ -215,6 +219,10 @@ class InnovationRepository
 
     }
 
+    /**
+     * Returns all fully funded innovations
+     * @return mixed
+     */
     public function getAllFullyFunded()
     {
         return Innovation::where('fundingStatus', '=', 1)
@@ -273,11 +281,14 @@ class InnovationRepository
         ]);
     }*/
 
+    /**
+     * Handles funding of an innovation
+     * @param $id
+     * @param $request
+     */
     public function fundInnovationPartial($id, $request)
     {
         $innovation = Innovation::findOrFail($id);
-
-
 
         $innovation->fund()
             ->create([
@@ -312,7 +323,10 @@ class InnovationRepository
         ]);
     }
 
-
+    /**
+     * Returns funded innovations for innovator
+     * @return mixed
+     */
     public function getFunded()
     {
         return $this->innovation
@@ -323,22 +337,39 @@ class InnovationRepository
             ->paginate(3);
     }
 
+    /**
+     * Returns an innovations portfolio
+     * @param $id
+     * @return mixed
+     */
     public function getPortfolio($id)
     {
         $innovation = Innovation::findOrFail($id);
 
         if($innovation->fundingStatus == 1 && $innovation->innovationFund <= 0)
+        {
+            return $innovation->fund->where('innovation_id', '=', $id)->get();
+        }elseif($innovation->fundingStatus == 1 && $innovation->innovationFund >0 )
+        {
+            return $innovation->fund->where('innovation_id', '=', $id)->get();
+        }
 
-        return $innovation->fund->where('innovation_id', '=', $id)->get();
     }
 
+    /**
+     * Counts all the innovations funded by an investor
+     * @return mixed
+     */
     public function countInvestorFunded()
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)->distinct('innovation_id')->count('innovation_id');
 
-
     }
 
+    /**
+     * Get all innovations funded by an investor
+     * @return mixed
+     */
     public function getInvestorFunded()
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)
@@ -346,15 +377,21 @@ class InnovationRepository
             ->groupBy('innovation_id')
             ->latest()
             ->paginate(3,['*'], 'investor');
-
     }
 
+    /**
+     * Gets all the cash injected to Bongo Afrika by an investor
+     * @return mixed
+     */
     public function getTotalInjected()
     {
         return \Md\Fund::where('investor_id', '=', \Auth::user()->id)->sum('amount');
-
     }
 
+    /**
+     * Counts all innovations that are in progress
+     * @return mixed
+     */
     public function onProgress()
     {
         return Progress::where('investor_id', '=', \Auth::user()->id)
@@ -362,6 +399,10 @@ class InnovationRepository
                         ->count();
     }
 
+    /**
+     * Gets all innovations that are on progress
+     * @return mixed
+     */
     public function getOnProgress()
     {
         return Progress::where('investor_id', '=', \Auth::user()->id)
@@ -369,9 +410,13 @@ class InnovationRepository
             ->with('innovation.category', 'innovation.user')
             ->latest()
             ->paginate(9);
-
     }
 
+    /**
+     * Get all categories that belong to a particular category
+     * @param $category
+     * @return mixed
+     */
     public function getCategory($category)
     {
         return Innovation::where('category_id', '=', $category)
@@ -380,11 +425,21 @@ class InnovationRepository
             ->paginate(9);
     }
 
+    /**
+     * Returns the amount set for innovation to be funded
+     * @param $id
+     * @return mixed
+     */
     public function getInnovationFund($id)
     {
        return Innovation::where('id', $id)->first()->innovationFund;
     }
 
+    /**
+     * Get the name of an innovation
+     * @param $id
+     * @return mixed
+     */
     public function getInnovationName($id)
     {
         return Innovation::where('id', $id)->first()->innovationTitle;

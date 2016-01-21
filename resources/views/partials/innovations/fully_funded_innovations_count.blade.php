@@ -1,3 +1,5 @@
+<!-- Displays a count for all funded innovations -->
+
 @if(Auth::check())
 <?php
 $count = $innovations_fully->count();

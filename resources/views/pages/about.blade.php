@@ -1,3 +1,5 @@
+<!-- Displays the Bongo Afrika about page -->
+
 @extends('layout')
 
 @section('content')

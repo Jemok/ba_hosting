@@ -1,3 +1,5 @@
+<!-- Loads all conversations for a particular user -->
+
 @extends('layout')
 
 @section('content')

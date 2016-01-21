@@ -1,3 +1,5 @@
+<!-- The partial for displaying a single innovation  -->
+
 @if (count($errors) > 0)
 <div class="alert alert-danger" role="alert" >
     <h5>Oh snap! <b>Change a few things up</b> and try submitting again!</h5>
@@ -110,13 +112,13 @@
         <div class="collapse" id="viewFundingHistory">
             <div class="innoData">
                 <div class="innoData__title">Funding Needed</div>
-                <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+                <div class="innoData__content">Ksh. {{ number_format($innovation->innovationFund, 0) }}</div>
             </div>
             <!-- For each funding load one of these -->
             @if($funds->count())
             @foreach($funds as $fund)
             <div class="innoData">
-                <div class="innoData__content">Ksh {{$fund->amount}}</div>
+                <div class="innoData__content">Ksh {{ number_format($fund->amount, 0)}}</div>
                 <div class="innoData__meta">
                     @if(\Auth::user()->id == $fund->investor_id)
 
@@ -131,11 +133,11 @@
             @endforeach
             <div class="innoData">
                 <div class="innoData__title">Total Funded</div>
-                <div class="innoData__content">Ksh. {{ $funds->sum('amount') }} </div>
+                <div class="innoData__content">Ksh. {{ number_format($funds->sum('amount'), 0) }} </div>
             </div>
             <div class="innoData">
                 <div class="innoData__title">Still Expected</div>
-                <div class="innoData__content">Ksh. {{ $totalNeeded }}</div>
+                <div class="innoData__content">Ksh. {{ number_format($totalNeeded, 0) }}</div>
             </div>
             @else
             <p class="alert-info"><h3>No fundings</h></h3><p>
@@ -152,7 +154,7 @@
     <div class="innoData-list">
         <div class="innoData">
             <div class="innoData__title">Funding Still Expected</div>
-            <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+            <div class="innoData__content">Ksh. {{ number_format($innovation->innovationFund, 0)}}</div>
         </div>
     </div>
     @if(\Auth::user()->userCategory == 2)
@@ -161,7 +163,7 @@
         <div class="innoData-list">
             <div class="innoData">
                 <div class="innoData__title">Potential Funding Available</div>
-                <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
+                <div class="innoData__content">Ksh. {{ number_format(\Auth::user()->investor_amount, 0) }}</div>
             </div>
             <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
                 <label for="partialFund">Amount to invest in this project</label>
@@ -171,17 +173,12 @@
                     <div class="input-group-addon">.00</div>
                 </div>
             </div>
-
-            <div class="innoData">
-                <div class="innoData__title">Your Balance after funding this</div>
-                <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
-            </div>
             @if(!(\Auth::user()->investor_amount == 0))
             <div class="innoData">
                 <div class="innoData__title">Your Balance after funding this</div>
-                <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                <div class="innoData__content"> Ksh. {{ number_format(\Auth::user()->investor_amount - $innovation->innovationFund, 0)}}</div>
                 @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
-                <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
+                <span class="alert-warning">You can only fund this innovation Ksh. {{ number_format(\Auth::user()->investor_amount, 0) }} maximum</span>
                 @else
                 <span class="alert-info">You can fund this innovation partially or full amount</span>
                 @endif
@@ -207,7 +204,7 @@
     <div class="innoData-list">
         <div class="innoData">
             <div class="innoData__title">Funding Needed</div>
-            <div class="innoData__content">Ksh. {{ $innovation->innovationFund }}</div>
+            <div class="innoData__content">Ksh. {{ number_format($innovation->innovationFund, 0) }}</div>
         </div>
     </div>
     @if(\Auth::user()->userCategory == 2)
@@ -216,13 +213,13 @@
         <div class="innoData-list">
             <div class="innoData">
                 <div class="innoData__title">Potential Funding Available</div>
-                <div class="innoData__content">Ksh. {{ \Auth::user()->investor_amount }}</div>
+                <div class="innoData__content">Ksh. {{ number_format(\Auth::user()->investor_amount, 0) }}</div>
             </div>
             @if(!(\Auth::user()->investor_amount == 0))
             <div class="innoData form_field {{ $errors->has('partialFund') ? 'has-error' : ''}}" >
                 <label for="partialFund">Amount to invest in this project</label>
                 @if((\Auth::user()->investor_amount - $innovation->innovationFund) <=0  )
-                <span class="alert-warning">You can only fund this innovation Ksh. {{ \Auth::user()->investor_amount }} maximum</span>
+                <span class="alert-warning">You can only fund this innovation Ksh. {{ number_format(\Auth::user()->investor_amount, 0) }} maximum</span>
                 @else
                 <span class="alert-info">You can fund this innovation partially or full amount</span>
                 @endif
@@ -234,7 +231,7 @@
             </div>
             <div class="innoData">
                 <div class="innoData__title">Your Balance after funding this</div>
-                <div class="innoData__content"> Ksh. {{ \Auth::user()->investor_amount - $innovation->innovationFund }}</div>
+                <div class="innoData__content"> Ksh. {{ number_format(\Auth::user()->investor_amount - $innovation->innovationFund, 0) }}</div>
             </div>
             {!! $errors->first('partialFund', '<span class="help-block">:message</span>' ) !!}
             @endif

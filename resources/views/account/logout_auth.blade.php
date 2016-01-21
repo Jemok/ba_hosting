@@ -1,3 +1,5 @@
+<!-- Displays the view that enables a logged in user to logout if the site requires so  -->
+
 @extends('layout')
 
 @section('content')

@@ -1,10 +1,13 @@
 <?php
 
+/**
+ * Manages input and output flow of innovations
+ */
+
 namespace Md\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use Md\Http\Requests;
-use Md\Http\Controllers\Controller;
 use Md\Repos\Innovation\InnovationRepository;
 use Md\Http\Requests\InnovationsRequest;
 use Illuminate\Support\Facades\Session;
@@ -24,6 +27,9 @@ class InnovationController extends Controller
      */
     private $repo;
 
+    /**
+     * @var \Md\Repos\Category\CategoryRepository
+     */
     private $categoryRepository;
 
     /**
@@ -32,13 +38,16 @@ class InnovationController extends Controller
      */
     public function __construct(InnovationRepository $innovationRepository, CategoryRepository $categoryRepository)
     {
-
         $this->repo = $innovationRepository;
 
         $this->categoryRepository = $categoryRepository;
-
-
     }
+
+    /**
+     * Method responsible for getting the edit innovation view
+     * @param $innovation_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
 
     public function editInnovation($innovation_id)
     {
@@ -47,9 +56,14 @@ class InnovationController extends Controller
         $categories = $this->categoryRepository->getAllCategories();
 
         return view('innovation.edit', compact('innovation', 'categories'));
-
     }
 
+    /**
+     * Updates a specific innovation
+     * @param InnovationsRequest $request
+     * @param $innovation_id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateInnovation(InnovationsRequest $request, $innovation_id)
     {
         $this->repo->update($request, $innovation_id);
@@ -60,6 +74,10 @@ class InnovationController extends Controller
 
     }
 
+    /**
+     * Gets all open innovations
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function open()
     {
         $innovations = $this->repo->getAll();
@@ -69,17 +87,24 @@ class InnovationController extends Controller
         return view('innovation.open', compact('innovations', 'categories'));
     }
 
+    /**
+     * Gets all innovations funded by a specific investor
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function investorFunded()
     {
         $fundedProjects =$this->repo->getInvestorFunded();
 
         $categories = $this->categoryRepository->getAllCategories();
 
-
         return view('innovation.funded_investor', compact('fundedProjects', 'categories'));
 
     }
 
+    /**
+     * Gets all funded innovations
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function funded()
     {
         $innovations = $this->repo->getAllFunded();
@@ -89,23 +114,8 @@ class InnovationController extends Controller
         return view('innovation.all_funded', compact('innovations', 'categories'));
     }
 
-    public function showWithChat($innovation_id, $id,ConversationRepository $conversationRepository)
-    {
-        try {
-            $thread = Thread::findOrFail($innovation_id);
-        } catch (ModelNotFoundException $e) {
-            Session::flash('error_message', 'The thread with ID: ' . $innovation_id . ' was not found.');
-
-            return redirect('messages');
-        }
-
-        $userId = Auth::user()->id;
-
-        $thread->markAsRead($userId);
-
-        return $this->show($id, $conversationRepository);
-    }
     /**
+     * Retrieves a specific innovation with its related data
      * @param $id
      * @param ConversationRepository $conversationRepository
      * @return \Illuminate\View\View
@@ -117,8 +127,6 @@ class InnovationController extends Controller
 
         $check_chat = $conversationRepository->chatExists($id);
 
-        //$conversation = $conversationRepository->startConversation();
-
         $currentUserId = Auth::user()->id;
 
         $chatWithInnovator = $conversationRepository->checkChatWithInnovator($id);
@@ -129,14 +137,8 @@ class InnovationController extends Controller
 
         $investors = User::where('userCategory', '=', 2)->get();
 
-
-
         // All threads that user is participating in
         $threads = Thread::forUser($currentUserId)->where('innovation_id', '=', $id)->get();
-
-       /* $threads = Thread::
-            where('innovation_id', '=', $id)
-            ->latest()->get();*/
 
         $threads_count = $threads->count();
 
@@ -174,9 +176,10 @@ class InnovationController extends Controller
         return view('innovation.show', compact('totalNeeded','funds','thread_mother','thread','investors','mother','users','chatWithInnovator','innovation', 'id', 'check_chat', 'message', 'threads', 'threads_count', 'currentUserId'));
     }
 
-
     /**
-     * Save a new innovation post
+     * Saves a new innovation post
+     * @param InnovationsRequest $innovationsRequest
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(InnovationsRequest $innovationsRequest)
     {
@@ -188,16 +191,11 @@ class InnovationController extends Controller
     }
 
     /**
-     *
+     * Triggers the innovation funding process
+     * @param $id
+     * @param PartialFundingRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function fund($id)
-    {
-        $this->repo->fundInnovation($id);
-
-        return redirect('innovation/'.$id);
-
-    }
-
     public function fundPartial($id, PartialFundingRequest $request)
     {
         $innovationFund = $this->repo->getInnovationFund($id);
@@ -211,13 +209,16 @@ class InnovationController extends Controller
             return redirect()->back()->withErrors($error);
         }
 
-
-
         $this->repo->fundInnovationPartial($id, $request);
 
         return redirect('innovation/'.$id);
     }
 
+    /**
+     * Retrieves the portfolio of an innovation
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getPortfolio($id)
     {
         $funds= $this->repo->getPortfolio($id);
@@ -226,11 +227,15 @@ class InnovationController extends Controller
 
         $innovationTitle = $this->repo->getInnovationName($id);
 
-
         return view('portfolio.portfolio', compact('innovationTitle','totalNeeded','funds', 'id'));
 
     }
 
+    /**
+     * Gets all the innovations in a particular category
+     * @param $category
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getCategory($category)
     {
        $innovations = $this->repo->getCategory($category);
@@ -240,6 +245,10 @@ class InnovationController extends Controller
         return view('innovation.category', compact('categoryName','innovations'));
     }
 
+    /**
+     * Gets an investor's ongoing innovations
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getOnProgress()
     {
         $onProgress = $this->repo->getOnProgress();

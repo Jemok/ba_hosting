@@ -1,3 +1,5 @@
+<!-- Handles all the js scripts -->
+
 <!-- compiled and minified javascript -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>

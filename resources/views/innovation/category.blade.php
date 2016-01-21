@@ -1,3 +1,5 @@
+<!-- Displays all innovations in a particular category -->
+
 @extends('layout')
 
 @section('content')

@@ -1,13 +1,14 @@
 <?php
 
+/**
+ * This controller manages profile input and output flow
+ *
+ */
+
 namespace Md\Http\Controllers;
 
-use GuzzleHttp\Tests\Event\HasEmitterTraitTest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Md\Chat;
 use Md\Http\Requests;
-use Md\Http\Controllers\Controller;
 use Md\Repos\Profile\ProfileRepository;
 use Md\Http\Requests\InvestorFundRequest;
 use Illuminate\Support\Facades\Session;
@@ -21,13 +22,24 @@ use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller
 {
+    /**
+     * @var \Md\Repos\Profile\ProfileRepository
+     */
     protected $repo;
 
+    /**
+     * @param ProfileRepository $profileRepository
+     */
     public function __construct(ProfileRepository $profileRepository)
     {
         $this->repo = $profileRepository;
     }
 
+    /**
+     * Displays a profile
+     * @param $innovator_id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function loadProfile($innovator_id)
     {
         $profile = $this->repo->load($innovator_id);
@@ -41,6 +53,11 @@ class ProfileController extends Controller
         }
     }
 
+    /**
+     * Sets an investors amount on their profile
+     * @param InvestorFundRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function SetInvestorAmount(InvestorFundRequest $request)
     {
         $this->repo->setInvestorFinance($request);
@@ -50,6 +67,12 @@ class ProfileController extends Controller
         return redirect('/home');
     }
 
+    /**
+     * Updates an innovators profile
+     * @param $profile_id
+     * @param ProfileUpdation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateProfileInnovator($profile_id,  ProfileUpdation $request)
     {
         $this->repo->updateProfileInnovator($profile_id, $request);
@@ -59,6 +82,12 @@ class ProfileController extends Controller
 
     }
 
+    /**
+     * Updates an investors profile
+     * @param $profile_id
+     * @param ProfileUpdation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateProfileInvestor($profile_id,  ProfileUpdation $request)
     {
         $this->repo->updateProfileInvestor($profile_id, $request);
@@ -68,15 +97,26 @@ class ProfileController extends Controller
 
     }
 
+    /**
+     * updates the expert profile
+     * @param $profile_id
+     * @param ProfileUpdation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateProfileExpert($profile_id,  ProfileUpdation $request)
     {
         $this->repo->updateProfileExpert($profile_id, $request);
 
         Session::flash('flash_message', 'Profile was updated successfully');
         return redirect()->back();
-
     }
 
+    /**
+     * Updates the mother profile
+     * @param $profile_id
+     * @param ProfileUpdation $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateProfileMother($profile_id,  ProfileUpdation $request)
     {
         $this->repo->updateProfileMother($profile_id, $request);
@@ -85,9 +125,13 @@ class ProfileController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Updates passwords
+     * @param ChangePasswordRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function changePassword(ChangePasswordRequest $request)
     {
-
         $user = User::find(\Auth::user()->id);
 
         $old_password =  $request->old_password;
@@ -110,6 +154,10 @@ class ProfileController extends Controller
         }
     }
 
+    /**
+     * Updates a profile picture
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function uploadProfPic()
     {
         // getting all of the post data

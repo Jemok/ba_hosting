@@ -1,3 +1,5 @@
+<!-- Displays all experts requests on the mother admin dashboard -->
+
 @extends('layout')
 
 @section('content')

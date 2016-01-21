@@ -1,3 +1,5 @@
+<!-- Displays instances of messages -->
+
 @if(\Auth::user()->id == $message->user_id)
 <li class="message left appeared" data-id="{{ $thread->id }}">
     @if(\Auth::user()->prof_pic->image != null)

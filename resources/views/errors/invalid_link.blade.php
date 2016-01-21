@@ -1,3 +1,5 @@
+<!-- Displays the invalid link page -->
+
 @extends('layout')
 
 @section('content')

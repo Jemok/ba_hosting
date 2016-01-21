@@ -1,3 +1,5 @@
+<!-- Displays the Bongo Afrika Expert registration page -->
+
 @extends('......layout')
 
 @section('content')

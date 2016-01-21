@@ -1,5 +1,5 @@
+<!-- Displays the view for setting an investors finance -->
 @extends('......layout')
-
 @section('content')
 <div class="__section with-columns equally-split fill-page without-moving">
     <section class="__column __left h-centered">

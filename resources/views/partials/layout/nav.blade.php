@@ -1,3 +1,5 @@
+<!-- Structures the navbar -->
+
 <nav class="navbar navbar-full navbar-light global-navigation">
     @if(!\Auth::guest())
         <div class="container">

@@ -1,1 +1,2 @@
+<!-- Displays the logout link  -->
 <li class="nav-item"><a class="nav-link" href="{{ url('logout') }}">Logout</a></li>

@@ -1,10 +1,12 @@
 <?php
 
+/**
+ * Manages investors requests workflow
+ */
+
 namespace Md\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Md\Http\Requests;
-use Md\Http\Controllers\Controller;
 use Md\Http\Requests\InvestorRequestRequest;
 use Md\Repos\InvestorRequest\InvestorRequestRepo;
 use Illuminate\Support\Facades\Session;
@@ -13,10 +15,6 @@ use Md\Mailers\AppMailer;
 
 class InvestorRequestsController extends Controller
 {
-    public function __construct()
-    {
-
-    }
     /**
      * Get the send request view
      * @return \Illuminate\View\View
@@ -27,7 +25,10 @@ class InvestorRequestsController extends Controller
     }
 
     /**
-     * Save the request to the database
+     * Saves an investor request to the database
+     * @param InvestorRequestRequest $investorRequestRequest
+     * @param InvestorRequestRepo $investorRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function persistRequest(InvestorRequestRequest $investorRequestRequest, InvestorRequestRepo $investorRequestRepo)
     {
@@ -36,6 +37,10 @@ class InvestorRequestsController extends Controller
         return view('request.received');
     }
 
+    /** Grabs all investors requests
+     * @param InvestorRequestRepo $investorRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getAll(InvestorRequestRepo $investorRequestRepo)
     {
         $requests = $investorRequestRepo->all();
@@ -43,18 +48,28 @@ class InvestorRequestsController extends Controller
         return view('request.investor.all', compact('requests'));
     }
 
+    /**
+     * Sends a invitation email to investors
+     * @param $request_id
+     * @param InvestorRequestRepo $investorRequestRepo
+     * @param AppMailer $mailer
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function bongoSendLink($request_id, InvestorRequestRepo $investorRequestRepo, AppMailer $mailer)
     {
         $request = $investorRequestRepo->sendLink($request_id);
-
-
         $mailer->sendInvestorRegLinkEmail($request->request_link, $request->investor_email);
 
         Session::flash('flash_message', 'The email was sent successfully!');
         return redirect()->back();
-        //return view('request.investor.link', compact('request_link'));
     }
 
+    /**
+     * Handles investors confirmation process
+     * @param $request_link
+     * @param InvestorRequestRepo $investorRequestRepo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function bongoConfirmLink($request_link, InvestorRequestRepo $investorRequestRepo)
     {
 

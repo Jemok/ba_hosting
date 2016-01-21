@@ -1,3 +1,5 @@
+<!-- Displays a count of all posted innovations in Bongo Afrika -->
+
 @if(Auth::check())
 <?php
 $count = $innovations->count();

@@ -1,3 +1,6 @@
+<!-- The partial for displaying the count of partially funded innovations -->
+
+
 @if(Auth::check())
 <?php
 $count = $innovations_partial->count();

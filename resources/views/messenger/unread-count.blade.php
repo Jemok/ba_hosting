@@ -1,3 +1,5 @@
+<!-- Counts all thread with unread messages -->
+
 @if(Auth::check())
 <?php
 $count = Auth::user()->newMessagesCount();

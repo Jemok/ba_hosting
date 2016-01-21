@@ -1,3 +1,5 @@
+<!-- Sets the pusher configurations and logic -->
+
 @if(Auth::check())
 <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
 <script type="text/javascript">

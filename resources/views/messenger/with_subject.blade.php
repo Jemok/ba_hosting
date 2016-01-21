@@ -1,3 +1,5 @@
+<!-- The template for displaying any thread with a subject -->
+
 @extends('layout')
 
 @section('content')

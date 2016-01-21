@@ -1,3 +1,5 @@
+<!-- The partial for displaying the count of open innovations -->
+
 @if(Auth::check())
 <?php
 $count = $innovations_open->count();

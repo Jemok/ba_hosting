@@ -1,3 +1,5 @@
+<!-- Displays the profile portion of the navbar  -->
+
 @if(\Auth::user()->isInnovator())
 <li class="nav-item {{Request::path() == 'innovator/profile/'.\Auth::user()->hash_id && \Auth::user()->isInnovator() ? 'active' : ''}}">
     <a class="nav-link" href="{{ url('innovator/profile/'.\Auth::user()->hash_id) }}">{{ \Auth::user()->first_name }} {{ \Auth::user()->last_name }}</a>
