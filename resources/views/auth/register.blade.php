@@ -35,7 +35,7 @@
         <div class="contain-this">
             <div class="__content-block">
                 <h3 class="section__title">So you're an innovator?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
+                <p>You have to have a big vision and take very small steps to get there. You have to be humble as you execute but visionary and gigantic in terms of your aspiration. In the Internet industry, it's not about grand innovation, it's about a lot of little innovations: every day, every week, every month, making something a little bit better. - <em>Jason Calacanis</em></p>
                 <p>Here's what you can do:</p>
                 <ol>
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>

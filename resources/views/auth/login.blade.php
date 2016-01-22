@@ -9,7 +9,8 @@
         <div class="contain-this">
             <div class="__content-block m-b-lg">
                 <h3 class="section__title">Why should you be part of this community?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea... <a href="{{ url('about')}}">Tell me more</a></p>
+                <p>If you are an entrepreneur, then you know the value of innovation and having to discover new ways to attain your goals. For good ideas and true innovation you need human interaction, conflict and debate.</p>
+                <p>Bongo Afrika is a community of innovators from around Africa who are dedicated to their work not to earn a living but make an impact and bring change in the societies they come from. Join the community and add value where you can, there is no single person who has the ability to help everyone but everyone has the ability to help someone.... <a href="{{ url('about')}}">Tell me more</a></p>
             </div>
             <div class="__section with-columns">            
                 <div class="__content-block">
@@ -19,7 +20,8 @@
                 </div>
                 <div class="__content-block">
                     <h4 class="section__title">For Investors</h4>
-                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
+                    <p>Transformation in the world happens when people are healed and start investing in other people. - 
+<em>Michael W. Smith</em></p>
                     <a href="{{ url('request/investor/send') }}">Request Invitation</a>
                 </div>
             </div>

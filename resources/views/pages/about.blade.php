@@ -7,33 +7,44 @@
 <div class="__section with-columns equally-split fill-page without-moving">
     <section class="__column __left h-centered">
         <div class="contain-this">
-            <div class="__content-block m-b-lg">
-                <h3 class="section__title">Who are we?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea</p>
-            </div>
+			<div class="__content-block m-b-lg">
+				<h3 class="section__title">Who we do</h3>
+				<p>We seek to bring balance in the entrepreneurial ecosystem that is taking wild turns daily at the expense of innovators who mostly find themselves on the losing end. Bongo Afrika creates an enabling environment for startups and innovators to pitch to investors for seed stage investment capital. Provides innovators with legal assistance, mentorship and advice in forging business relationships with investors. The community allows for both investors and innovators to also interact with experts in their respective fields.</p>
+			</div>
 
             <div class="__section with-columns">
-                <div class="__content-block">
-                    <h4 class="section__title">Our mission</h4>
-                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
-                </div>
-                <div class="__content-block">
-                    <h4 class="section__title">Our vision</h4>
-                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
-                </div>
-            </div>
-
-            <div class="__content-block m-b-lg">
-                <h3 class="section__title">Bongo afrika offers..</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea</p>
+				<section class="__column h-centered">
+					<div class="__content-block">
+						<h4 class="section__title">Our mission</h4>
+						<p>To reach out to young entrepreneurs from all over Africa and provide them with equal opportunity to build on their dreams by providing affordable legal assistance and helping them forge professional relationships with investors and experts in their respective fields.</p>
+					</div>
+					<div class="__content-block">
+						<h4 class="section__title">Our vision</h4>
+						<p>The greatness of a man is not in how much wealth he acquires, but in his integrity and his ability to affect those around him positively.</p>
+					</div>
+				</section>
+				<section class="__column h-centered">
+					<div class="__content-block m-b-lg">
+						<h3 class="section__title">Bongo afrika offers..</h3>
+						<ol>
+							<li>Protection of innovators from exploitation by unethical investors.</li>
+							<li>A digital footprint of one’s intellectual work</li>
+							<li>A platform for innovators and investors to interact on a one on one basis and foster professional relations.</li>
+							<li>Allow for potential employers scout for employees.</li>
+							<li>Provide the youth a platform to showcase their works, talent and even solutions on current issues affecting africa.</li>
+						</ol>
+					</div>
+           		</section>
             </div>
         </div>
     </section>
+<!--
     <section class="__column __right h-centered with-background" style="background-image: url('{{ asset('/img/covers/innovation-1.jpg') }}')">
         <div class="__content-block">
 
         </div>
     </section>
+-->
 </div>
 @stop
 
