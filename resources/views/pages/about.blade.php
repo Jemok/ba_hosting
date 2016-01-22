@@ -20,7 +20,7 @@
 					</div>
 					<div class="__content-block">
 						<h4 class="section__title">Our vision</h4>
-						<p>The greatness of a man is not in how much wealth he acquires, but in his integrity and his ability to affect those around him positively.</p>
+						<p>To make Africa a safe haven for young entrepreneurs from all industries and grow the African economy through generational wealth. We have the capacity within ourselves.</p>
 					</div>
 				</section>
 				<section class="__column h-centered">
