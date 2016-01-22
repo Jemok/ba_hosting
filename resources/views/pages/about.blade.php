@@ -8,7 +8,7 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
 			<div class="__content-block m-b-lg">
-				<h3 class="section__title">Who we do</h3>
+				<h3 class="section__title">What we do</h3>
 				<p>We seek to bring balance in the entrepreneurial ecosystem that is taking wild turns daily at the expense of innovators who mostly find themselves on the losing end. Bongo Afrika creates an enabling environment for startups and innovators to pitch to investors for seed stage investment capital. Provides innovators with legal assistance, mentorship and advice in forging business relationships with investors. The community allows for both investors and innovators to also interact with experts in their respective fields.</p>
 			</div>
 
