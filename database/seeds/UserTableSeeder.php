@@ -60,5 +60,16 @@ class UserTableSeeder extends Seeder
             'verified' => 1,
             'hash_id'    => str_random(100)
         ]);
+
+        DB::table('users')->insert([
+            'first_name' => 'Moderator',
+            'last_name'  => 'Moderator',
+            'email'=> 'moderator@bongo.com',
+            'password' =>  bcrypt('123456'),
+            'userCategory' => 5,
+            'verified' => 1,
+            'moderation_count' => 0,
+            'hash_id'    => str_random(100)
+        ]);
     }
 }

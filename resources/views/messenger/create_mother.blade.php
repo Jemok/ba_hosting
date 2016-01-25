@@ -2,7 +2,7 @@
 
 
 <div class="container">
-    <h5>Chat with Moderator:</h5>
+    <h5>Chat with {{ $mother->first_name }} {{ $mother->last_name }}:</h5>
     {!! Form::open(['route' => 'messages.store']) !!}
 
     <input type="hidden" name="innovation_id" value="{{$innovation->id}}">

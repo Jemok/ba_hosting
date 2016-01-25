@@ -17,18 +17,25 @@
 @endif
 
 @if(\Auth::user()->isAdmin())
-@include('partials.layout.message')
 
-@include('partials.layout.funded_open')
+    @include('partials.layout.message')
+
+    @include('partials.layout.funded_open')
+
+@endif
+
+@if(\Auth::user()->isMother())
+
+    @include('partials.layout.message')
+
+    @include('partials.layout.requests')
+
+    @include('partials.layout.funded_open')
+    @include('partials.layout.moderator')
 
 @endif
 
 
-@if(\Auth::user()->isMother())
-@include('partials.layout.message')
-
-@include('partials.layout.requests')
-
-@include('partials.layout.funded_open')
-
+@if(\Auth::user()->isModerator())
+    @include('partials.layout.message')
 @endif

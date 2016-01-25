@@ -63,8 +63,8 @@ class InnovationRepository
             'category_id'           => $request->innovationCategory,
             'justifyFund'           => $request->justifyFund,
             'tradeMarkName'         => $request->tradeMarkName,
-            'tradeMarkNumber'       => $request->tradeMarkNumber
-
+            'tradeMarkNumber'       => $request->tradeMarkNumber,
+            'moderator_id'          => $this->getModeratorWithLeast()
         ]);
     }
 
@@ -85,8 +85,19 @@ class InnovationRepository
           'category_id'           => $request->innovationCategory,
           'justifyFund'           => $request->justifyFund,
           'tradeMarkName'         => $request->tradeMarkName,
-          'tradeMarkNumber'       => $request->tradeMarkNumber
+          'tradeMarkNumber'       => $request->tradeMarkNumber,
       ]);
+
+    }
+
+    public function getModeratorWithLeast()
+    {
+        $leastModeration_count  = User::where('userCategory', '=', 5)
+                                        ->min('moderation_count');
+
+        return User::where('userCategory', '=', 5)
+                     ->where('moderation_count', '=', $leastModeration_count)
+                     ->first()->id;
 
     }
 
@@ -195,6 +206,13 @@ class InnovationRepository
         return Innovation::where('fundingStatus', '=', 0)
             ->latest()
             ->paginate(9,['*'], 'innovations');
+    }
+
+    public function getForModerator()
+    {
+        return Innovation::where('moderator_id', '=', \Auth::user()->id)
+                            ->latest()
+                            ->paginate(9,['*'], 'innovations');
     }
 
     /**

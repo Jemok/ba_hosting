@@ -49,6 +49,11 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasOne('Md\Investor');
     }
 
+    public function moderator_innovations()
+    {
+        return $this->hasMany('Md\Innovations', 'moderator_id');
+    }
+
     /**
      * Retrieves the innovator details for the user, if he/she is an innovator.
      *
@@ -79,7 +84,7 @@ class User extends Model implements AuthenticatableContract,
      */
     public function isInnovator()
     {
-        return !$this->isInvestor() && !$this->isAdmin() && !$this->isMother();
+        return !$this->isInvestor() && !$this->isAdmin() && !$this->isMother() && !$this->isModerator();
     }
 
     public function isAdmin()
@@ -93,6 +98,14 @@ class User extends Model implements AuthenticatableContract,
     public function isMother()
     {
         if($this->userCategory == 4)
+            return true;
+
+        return false;
+    }
+
+    public function isModerator()
+    {
+        if($this->userCategory == 5)
             return true;
 
         return false;

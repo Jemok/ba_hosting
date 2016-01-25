@@ -77,6 +77,9 @@ class DashboardController extends Controller
         elseif(\Auth::user()->isMother())
         {
             return $this->bongoMother();
+        }elseif(\Auth::user()->isModerator())
+        {
+            return $this->bongoModerator();
         }
 
     }
@@ -170,6 +173,25 @@ class DashboardController extends Controller
         $categories = $this->categoryRepository->getAllCategories();
 
         return view('admin.mother', compact('innovations_fully','innovations_partial','innovations_open','expert_requests','investor_requests','innovations', 'categories'));
+    }
+
+    public function bongoModerator()
+    {
+        $innovations = $this->innovationRepository->getForModerator();
+
+        $innovations_open = $this->innovationRepository->getAllOPen();
+
+        $innovations_partial = $this->innovationRepository->getAllPartials();
+
+        $innovations_fully = $this->innovationRepository->getAllFullyFunded();
+
+        $investor_requests = $this->investorRequest->getThem();
+
+        $expert_requests = $this->expertRequest->getThem();
+
+        $categories = $this->categoryRepository->getAllCategories();
+
+        return view('admin.moderator', compact('innovations_fully','innovations_partial','innovations_open','expert_requests','investor_requests','innovations', 'categories'));
     }
 
     public function viewInnovation()

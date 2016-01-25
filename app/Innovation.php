@@ -24,6 +24,7 @@ class Innovation extends Model
         'user_id',
         'fundingStatus',
         'justifyFund',
+        'moderator_id'
 
     ];
 
@@ -75,5 +76,10 @@ class Innovation extends Model
     public function messages()
     {
         return $this->hasMany('Cmgmyr\Messenger\Models\Message');
+    }
+
+    public function moderator()
+    {
+        return  $this->belongsTo('App\User', 'moderator_id');
     }
 }

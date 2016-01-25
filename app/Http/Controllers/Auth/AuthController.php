@@ -206,6 +206,23 @@ class AuthController extends Controller
             //$this->mailer->sendConfirmEmailLink($user);
 
             return $user;
+        }elseif(\Request::path() == "auth/register/moderator")
+        {
+            $user = User::create([
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'userCategory' => 5,
+                'hash_id'     => str_random(100),
+                'verified'  => 1
+            ]);
+
+            $user->prof_pic()->create([]);
+
+            $this->mailer->sendConfirmEmailLink($user);
+
+            return $user;
         }
     }
 

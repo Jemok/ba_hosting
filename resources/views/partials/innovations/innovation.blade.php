@@ -75,19 +75,23 @@
             <section class="row" id="messages">
                 @if(\Auth::user()->isInvestor())
 
-                @include('partials.messenger.investor')
+                    @include('partials.messenger.investor')
 
                 @elseif(\Auth::user()->isInnovator())
 
-                @include('partials.messenger.innovator')
+                    @include('partials.messenger.innovator')
 
                 @elseif(\Auth::user()->isMother())
 
-                @include('partials.messenger.mother')
+                    @include('partials.messenger.mother')
 
                 @elseif(\Auth::user()->isAdmin())
 
-                @include('partials.messenger.expert')
+                    @include('partials.messenger.expert')
+
+                @elseif(\Auth::user()->isModerator())
+
+                    @include('partials.messenger.investor')
 
                 @endif
             </section>

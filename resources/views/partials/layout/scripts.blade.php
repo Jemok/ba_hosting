@@ -20,3 +20,17 @@
         }
     });
 </script>
+
+
+<script>
+    $('div.alert-message').not('.alert-important').delay(2000).slideUp(300);
+
+    var $myForm = $("#my_form");
+    $myForm.submit(function(){
+        $myForm.submit(function(){
+            return false;
+        });
+    });
+</script>
+
+

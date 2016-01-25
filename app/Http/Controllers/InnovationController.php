@@ -125,13 +125,14 @@ class InnovationController extends Controller
 
         $innovation = $this->repo->retrieve($id);
 
+
         $check_chat = $conversationRepository->chatExists($id);
 
         $currentUserId = Auth::user()->id;
 
         $chatWithInnovator = $conversationRepository->checkChatWithInnovator($id);
 
-        $mother = User::where('id', '=', 1)->first();
+        $mother = User::where('id', '=', $innovation->moderator_id)->first();
 
         $users = User::where('userCategory', '=', 3)->get();
 

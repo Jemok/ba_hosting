@@ -174,6 +174,14 @@ Route::group(['middleware' => 'auth', 'before' => 'csrf'], function() {
 
     Route::post('apply/upload', 'ProfileController@uploadProfPic');
 
+    get('moderator/add/new', ['as' => 'newModerator', 'uses' => 'Moderator\ModeratorController@addNew']);
+
+    post('auth/register/moderator', [
+        'as' => 'registerModerator', 'uses' => 'Moderator\ModeratorController@store'
+    ]);
+
+
+
 });
 
 Route::group(['prefix' => 'messages', 'middleware' => 'auth', 'before' => 'csrf'], function () {
@@ -245,6 +253,7 @@ Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
     // Password reset routes...
     get('password/reset/{token}', 'Auth\PasswordController@getReset');
     post('password/reset', 'Auth\PasswordController@postReset');
+
 });
 
 

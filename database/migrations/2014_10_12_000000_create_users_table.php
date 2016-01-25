@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->boolean('verified');
             $table->integer('investor_finance')->default(0);
             $table->integer('investor_amount');
+            $table->integer('moderation_count')->nullable()->default(0);
             $table->string('token')->nullable();
             $table->integer('bongo_request_id');
             $table->integer('investor_request_id');
