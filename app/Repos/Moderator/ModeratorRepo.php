@@ -30,12 +30,12 @@ class ModeratorRepo {
             'password' => bcrypt($request['password']),
             'userCategory' => 5,
             'hash_id'     => str_random(100),
-            'verified'  => 1
+            'verified'  => 0
         ]);
 
         $user->prof_pic()->create([]);
 
-        //$this->mailer ->sendConfirmEmailLink($user);
+        $this->mailer ->sendConfirmEmailLink($user);
 
         return $user;
     }

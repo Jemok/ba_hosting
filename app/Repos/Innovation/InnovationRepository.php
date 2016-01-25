@@ -66,6 +66,14 @@ class InnovationRepository
             'tradeMarkNumber'       => $request->tradeMarkNumber,
             'moderator_id'          => $this->getModeratorWithLeast()
         ]);
+
+        $user = User::findOrFail($this->getModeratorWithLeast());
+
+        $user->update([
+
+            'moderation_count' => $user->moderation_count + 1
+
+        ]);
     }
 
     /**
