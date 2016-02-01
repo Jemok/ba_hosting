@@ -36,6 +36,6 @@
     </div>-->
     <div class="tab-pane" id="mother" role="tabpanel">@include('messenger.create_mother')</div>
     @foreach($threads as $thread)
-    <div class="tab-pane" id="thread_{{$thread->id}}" data-id="{{$thread->id}}" role="tabpanel">@include('partials.messenger.loop_all_messages')</div>
+        <div class="tab-pane" id="thread_{{$thread->id}}" data-id="{{$thread->id}}" role="tabpanel">@include('partials.messenger.loop_all_messages')</div>
     @endforeach
 </div>

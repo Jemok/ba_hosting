@@ -109,7 +109,7 @@
                                     <label class="c-input c-checkbox">
                                         <input name="terms" value="1" type="checkbox" checked>
                                         <span class="c-indicator"></span>
-                                        Agree with <a href="">Terms and Conditions</a>
+                                        Agree with <a href="{{ route('getTerms') }}">Terms and Conditions</a>
                                     </label>
                                 </div>
 

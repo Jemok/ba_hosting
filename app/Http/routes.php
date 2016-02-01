@@ -213,6 +213,8 @@ Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
 
     get('/about', 'DashboardController@about');
 
+    get('/terms', ['as' => 'getTerms', 'uses' => 'ProfileController@getTerms' ]);
+
     post('login', [
         'as' => 'login', 'uses' => 'Auth\AuthController@postLogin'
     ]);
@@ -233,6 +235,7 @@ Route::group(['middleware' => 'guest', 'before' => 'csrf'], function() {
     post('auth/register/expert', [
         'as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister'
     ]);
+
 
     /*
      * Request routes

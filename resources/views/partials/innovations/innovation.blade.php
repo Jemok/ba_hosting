@@ -6,7 +6,7 @@
 
     @foreach ($errors->all() as $message)
 
-    <li>{{ $message }}</li>
+        <li>{{ $message }}</li>
 
     @endforeach
 </div>

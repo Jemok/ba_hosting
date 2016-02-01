@@ -35,6 +35,12 @@ class ProfileController extends Controller
         $this->repo = $profileRepository;
     }
 
+    public function getTerms(){
+
+       return view('pages.terms');
+
+    }
+
     /**
      * Displays a profile
      * @param $innovator_id

@@ -8,22 +8,25 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
             <div class="__content-block m-b-lg">
-                <h3 class="section__title">Why should you be part of this community?</h3>
-                <p>If you are an entrepreneur, then you know the value of innovation and having to discover new ways to attain your goals. For good ideas and true innovation you need human interaction, conflict and debate.</p>
-                <p>Bongo Afrika is a community of innovators from around Africa who are dedicated to their work not to earn a living but make an impact and bring change in the societies they come from. Join the community and add value where you can, there is no single person who has the ability to help everyone but everyone has the ability to help someone.... <a href="{{ url('about')}}">Tell me more</a></p>
-            </div>
+                <h3 class="section__title">What we do?</h3>
+                <ul>
+                    <li>Aid and link to resource mobilization</li>
+                    <li>Networking and interaction platform for innovators, entrepreneurs and investors. </li>
+                    <li>Link to employment and consultancy opportunities. </li>
+                    <li>Showcasing innovations, solutions and talents to potential investors and consumers</li>
+                    <li>A digital footprint of intellectual work</li>
+                </ul>
+             </div>
             <div class="__section with-columns">            
                 <div class="__content-block">
-                    <h4 class="section__title">For Innovators</h4>
-                    <p>Lorem ipsum Rebum erat iriure vero sed delenit. Velit aliquyam clita accumsan et eum ipsum tation.</p>
-                    <a href="{{ url('auth/register') }}" class="btn btn-primary">Get Started Today</a>
+                    <h4 class="section__title">Our mission</h4>
+                    <p>Bongo Afrika is committed to discover and explore African ingenuity by creating infrastructures that meet needs of entrepreneurs, innovators and consumers.</p>
+                    <h4 class="section__title">Our vision</h4>
+                    <p>Driven by African Ingenuity.</p>
                 </div>
-                <div class="__content-block">
-                    <h4 class="section__title">For Investors</h4>
-                    <p>Transformation in the world happens when people are healed and start investing in other people. - 
-<em>Michael W. Smith</em></p>
-                    <a href="{{ url('request/investor/send') }}">Request Invitation</a>
-                </div>
+                <!--<div class="__content-block">
+
+                </div>-->
             </div>
         </div>
     </section>
