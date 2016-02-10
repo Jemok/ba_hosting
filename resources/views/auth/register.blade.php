@@ -34,13 +34,14 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
             <div class="__content-block">
-                <h3 class="section__title">So you're an innovator?</h3>
-                <p>You have to have a big vision and take very small steps to get there. You have to be humble as you execute but visionary and gigantic in terms of your aspiration. In the Internet industry, it's not about grand innovation, it's about a lot of little innovations: every day, every week, every month, making something a little bit better. - <em>Jason Calacanis</em></p>
-                <p>Here's what you can do:</p>
+                <!--<h3 class="section__title"></h3>-->
+
+                <p>“Everyone has an idea. But it’s really about executing the idea and attracting
+                other people to help you work on the idea.” </p>
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li>Aliquam tincidunt mauris eu risus.</li>
-                    <li>Vestibulum auctor dapibus neque.</li>
+                    <li><b>Find</b> investors to support your ambition</li>
+                    <li><b>Meet</b>  other innovators on the same path as you to greatness</li>
+                    <li><b>Learn</b> from industry experts and influencers about the markets and individual companies</li>
                 </ol>
             </div>
         </div>

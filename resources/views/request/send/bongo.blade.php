@@ -6,13 +6,11 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
             <div class="__content-block">
-                <h3 class="section__title">Are you an expert in your field?</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
-                <p>Here's what you can do:</p>
+                <!--<h3 class="section__title">Are you an expert in your field?</h3>-->
+                <p>You’ve spent years developing the knowledge that made your company a success. Why not maximize the return on your knowledge by leveraging it gain authority in your marketplace?</p>
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li>Aliquam tincidunt mauris eu risus.</li>
-                    <li>Vestibulum auctor dapibus neque.</li>
+                    <li><b>Find</b> other expert with in your field and other fields</li>
+                    <li><b>Meet</b> innovators and investors to possibly work with.</li>
                 </ol>
             </div>
         </div>

@@ -7,13 +7,12 @@
     <section class="__column __left h-centered">
         <div class="contain-this">
             <div class="__content-block">
-                <h3 class="section__title">Glad to have another investor onboard!</h3>
-                <p>Lorem ipsum Et lorem magna feugiat et magna. Sea tation sed vero sed tempor est lorem doming. Ipsum at vel nisl nobis elit et elit molestie vel rebum. Invidunt takimata qui duo duo justo erat rebum sea.</p>
-                <p>Here's what you can do:</p>
+                <!--<h3 class="section__title">Glad to have another investor onboard!</h3>-->
+                <p>“Innovation is the specific instrument of entrepreneurship...the act that endows resources with a new capacity to create wealth.” </p>
+
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-                    <li>Aliquam tincidunt mauris eu risus.</li>
-                    <li>Vestibulum auctor dapibus neque.</li>
+                    <li><b>Find</b> brilliant business opportunities</li>
+                    <li><b>Meet</b> brilliant minds behind great innovations </li>
                 </ol>
             </div>
         </div>
